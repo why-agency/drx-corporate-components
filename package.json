@@ -1,6 +1,6 @@
 {
   "name": "@andwhy/drx-corporate-components",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "files": ["dist"],
   "main": "./dist/drx-corporate-components.umd.js",
   "module": "./dist/drx-corporate-components.es.js",
