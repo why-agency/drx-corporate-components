@@ -1,7 +1,7 @@
 {
-  "name": "drx-corporate-components",
+  "name": "@andwhy/drx-corporate-components",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "files": ["dist"],
   "main": "./dist/drx-corporate-components.umd.js",
   "module": "./dist/drx-corporate-components.es.js",
