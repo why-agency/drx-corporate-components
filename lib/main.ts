@@ -1,11 +1,11 @@
 import { defineCustomElement } from './localApiCustomElement'
 
-import O0204IntroHero from '../src/components/organisms/o-02-04-IntroHero.ce.vue'
+import O9902Quote from '../src/components/organisms/o-99-02-quote.ce.vue'
 
-const O0204IntroHeroElement = defineCustomElement(O0204IntroHero)
+const O9902QuoteElement  = defineCustomElement(O9902Quote, { shadowRoot: false })
 
-export { O0204IntroHeroElement }
+export { O9902Quote }
 
 export function register() {
-  customElements.define('o-02-04-intro-hero', O0204IntroHeroElement)
+  customElements.define('o-99-02-quote', O9902QuoteElement)
 }
