@@ -14,9 +14,6 @@ export const useActionType = (to, tag = 'button') => {
   if (!to) {
     return { isAnchor: false, type: tag }
   }
-
   const isAnchor = typeof to === 'object' ? false : isExternalLink(to)
-  const type = isAnchor ? 'a' : 'nuxt-link'
-
-  return { isAnchor, type }
+  return { isAnchor, type: 'a' }
 }
