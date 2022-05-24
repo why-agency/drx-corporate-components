@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilites {
+    .frame-default {
+        @apply mx-6 xl:mx-auto xl:max-w-6xl 2xl:max-w-7xl 3xl:max-w-[1440px] 4xl:max-w-[1720px];
+    }
+
+    .frame-small {
+        @apply mx-6 xl:mx-auto xl:max-w-5xl 2xl:max-w-7xl 3xl:max-w-[1440px];
+    }
+}
