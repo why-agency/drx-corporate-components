@@ -8,10 +8,10 @@ import O0304FullscreenMediaText from './components/organisms/o-03-04-fullscreen-
 <template>
   <!-- <o-99-02-quote class="mt-10" headline="headline" /> -->
   <div>
-    <section class="frame-default mb-24">
+    <section class="mb-24">
       <o-03-04-fullscreen-media-text :data="mediaImage" />
     </section>
-    <section class="frame-default mb-24">
+    <section class="mb-24">
       <o-03-04-fullscreen-media-text :data="mediaVideo" />
     </section>
   </div>
