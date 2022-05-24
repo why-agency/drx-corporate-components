@@ -58,9 +58,11 @@ export default {
       })
     },
     addListeners() {
-      this._links = this.$el.getElementsByTagName('a')
-      for (let i = 0; i < this._links.length; i++) {
-        this._links[i].addEventListener('click', this.navigate, false)
+      if (this.$el.nodeType === 1) {
+        this._links = this.$el.getElementsByTagName('a')
+        for (let i = 0; i < this._links.length; i++) {
+          this._links[i].addEventListener('click', this.navigate, false)
+        }
       }
     },
     removeListeners() {
@@ -74,4 +76,3 @@ export default {
   }
 }
 </script>
-

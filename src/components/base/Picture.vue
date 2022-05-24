@@ -108,7 +108,7 @@ export default {
         .filter(useCase => useCase)
         .reduce((cropVariantString, useCase) => {
           return (
-            this.images.flat().find(image => image.useCase === useCase)?.cdn
+            this.images.flat().find(image => image.useCase === useCase)
               ?.publicUrl || cropVariantString
           )
         }, '')

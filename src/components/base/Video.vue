@@ -20,7 +20,8 @@ export default {
       default: 'video/mp4'
     },
     muted: {
-      type: Boolean
+      type: Boolean,
+      default: true
     }
   }
 }
