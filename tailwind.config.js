@@ -1,9 +1,29 @@
-import { fontCalc, letterSpacingCalc, lineHeightCalc } from './repository/development/contentprovider/Resources/Private/Frontend/Vue/utils/fonts'
+const fontCalc = (maxFontSize, maxPageWidth) => {
+  return `${((maxFontSize * 16) / maxPageWidth) * 100}vw`
+}
+
+const letterSpacingCalc = (maxLetterSpacing, maxPageWidth) => {
+  return `${(maxLetterSpacing / maxPageWidth) * 100}vw`
+}
+
+const lineHeightCalc = (maxLineHeight, maxPageWidth) => {
+  return `${(maxLineHeight / 100 / maxPageWidth) * 100}vw`
+}
+
+const breakpoints = {
+  xs: '330px',
+  sm: '640px',
+  md: '768px',
+  lg: '1024px',
+  xl: '1280px',
+  '2xl': '1440px',
+  '3xl': '1536px',
+  '4xl': '1920px',
+  '5xl': '2400px'
+}
 
 module.exports = {
-  content: [
-    "./src/**/*.{vue,js,ts,jsx,tsx}"
-  ],
+  content: ['./src/**/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     colors: {
       primary: {
@@ -17,11 +37,11 @@ module.exports = {
       },
       tertiary: {
         DEFAULT: '#8E8071',
-        inverse: '#fff',
+        inverse: '#fff'
       },
       sand: {
         DEFAULT: '#F2F1EF',
-        inverse: '#000',
+        inverse: '#000'
       },
       black: '#000',
       white: '#fff',
@@ -38,7 +58,7 @@ module.exports = {
       transparent: 'transparent'
     },
     fontFamily: {
-      primary: 'Helvetica Now Display',
+      primary: 'Helvetica Now Display'
     },
     fontSize: {
       base: '1rem',
@@ -86,14 +106,20 @@ module.exports = {
         `clamp(1.25rem, ${fontCalc(1.875, 1536)}, 1.5rem)`,
         {
           lineHeight: `clamp(100%, ${lineHeightCalc(110, 1920)}, 110%)`,
-          letterSpacing: `clamp(0.2px, ${letterSpacingCalc(0.24, 1440)}, 0.24px)`
+          letterSpacing: `clamp(0.2px, ${letterSpacingCalc(
+            0.24,
+            1440
+          )}, 0.24px)`
         }
       ],
       'h5-regular': [
         `clamp(1.25rem, ${fontCalc(1.875, 1536)}, 1.5rem)`,
         {
           lineHeight: `clamp(100%, ${lineHeightCalc(145, 1920)}, 145%)`,
-          letterSpacing: `clamp(0.2px, ${letterSpacingCalc(0.24, 1440)}, 0.24px)`
+          letterSpacing: `clamp(0.2px, ${letterSpacingCalc(
+            0.24,
+            1440
+          )}, 0.24px)`
         }
       ],
       body1: [
@@ -139,7 +165,7 @@ module.exports = {
           )}, 1.04px)`
         }
       ],
-      button: ['0.875rem'],
+      button: ['0.875rem']
     },
     screens: {
       ...breakpoints
