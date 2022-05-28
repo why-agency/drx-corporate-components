@@ -22,7 +22,7 @@
     >
       <div class="lg:self-center">
         <BaseHeadline
-          v-if="headline.text"
+          v-if="headline && headline.text"
           v-bind="headline"
           class="mb-6 lg:mb-8"
         />
@@ -53,27 +53,28 @@ const props = defineProps({
   }
 })
 
-const headline = computed(() => {
-  const { header_layout, header } = props.data?.data
-  return {
-    text: header,
-    layout: Number(header_layout)
-  }
-})
+const headline = ref(props.data?.data?.content?.header)
 
 const bodytext = computed(() => ({
-  text: props.data?.data?.bodytext,
+  text: props.data?.data?.content?.bodytext,
   layout: 2
 }))
 
 const action = computed(
   () =>
-    props?.data?.data?.pi_flexform && useAction(props?.data?.data?.pi_flexform)
+    props?.data?.data?.content?.actions?.buttonlink &&
+    useAction(props?.data?.data?.content?.actions)
 )
 
-const mediaType = computed(() => props?.data?.image?.[0]?.[0]?.properties?.type)
-const image = computed(() => mediaType.value === 'image' && props?.data?.image)
+const mediaType = computed(
+  () => props?.data?.data?.content?.media?.[0]?.[0]?.properties?.type
+)
+const image = computed(
+  () => mediaType.value === 'image' && props?.data?.data?.content?.media
+)
 const video = computed(
-  () => mediaType.value === 'video' && props?.data?.image?.[0]?.[0]?.publicUrl
+  () =>
+    mediaType.value === 'video' &&
+    props?.data?.data?.content?.media?.[0]?.[0]?.publicUrl
 )
 </script>
