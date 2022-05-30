@@ -15,6 +15,7 @@
       v-bind="videoSettings"
       :class="mediaStyle"
     />
+    <slot />
   </div>
 </template>
 
