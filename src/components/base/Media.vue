@@ -30,7 +30,7 @@ const props = defineProps({
   },
   mediaStyle: {
     type: String,
-    default: 'w-full h-full'
+    default: 'w-full'
   },
   srcsets: {
     type: Object,
