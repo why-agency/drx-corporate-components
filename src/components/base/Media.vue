@@ -1,5 +1,5 @@
 <template>
-  <div :class="$_gradient">
+  <div class="relative" :class="$_gradient">
     <BasePicture
       v-if="isImage"
       :images="media"
@@ -9,20 +9,43 @@
       :format="format"
       :fit="fit"
     />
-    <BaseVideo
-      v-if="videoUrl"
-      :src="videoUrl"
-      v-bind="videoSettings"
-      :class="mediaStyle"
-    />
+    <div v-if="videoUrl" class="relative">
+      <BaseVideo :src="videoUrl" v-bind="videoSettings" :class="mediaStyle" />
+      <slot name="play-button">
+        <BaseButtonIcon
+          v-if="videoUrl && !videoSettings.autoplay"
+          color="sand"
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary"
+          @click="showLightbox"
+        >
+          <IconPlay />
+        </BaseButtonIcon>
+      </slot>
+    </div>
     <slot />
+    <BaseLightbox v-if="videoUrl && isLightboxVisible" @close="hideLightbox">
+      <div class="flex justify-center w-full">
+        <BaseVideo
+          :src="videoUrl"
+          autoplay
+          muted
+          controls
+          class="w-full lg:object-cover"
+          style="max-height: 75vh"
+        />
+      </div>
+    </BaseLightbox>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import BasePicture from '../base/Picture.vue'
 import BaseVideo from '../base/Video.vue'
+import BaseButtonIcon from '../base/ButtonIcon.vue'
+import IconPlay from '../icons/Play.vue'
+import BaseLightbox from '../base/Lightbox.vue'
+
 const props = defineProps({
   media: {
     type: Array,
@@ -83,4 +106,9 @@ const overlay =
 const $_gradient = computed(
   () => props.gradient && `${overlay} ${props.gradient}`
 )
+
+/** Lightbox */
+const isLightboxVisible = ref(false)
+const showLightbox = () => (isLightboxVisible.value = true)
+const hideLightbox = () => (isLightboxVisible.value = false)
 </script>

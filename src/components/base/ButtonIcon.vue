@@ -21,7 +21,8 @@ const Color = {
   primary: 'primary',
   secondary: 'secondary',
   white: 'white',
-  black: 'black'
+  black: 'black',
+  sand: 'sand'
 }
 
 const Variant = {
@@ -69,6 +70,7 @@ export default {
           this.color === 'primary' && this.variant === 'filled',
         'bg-secondary text-secondary-inverse hover:bg-secondary-hover hover:text-black active:bg-secondary-inverse active:ring-1 active:ring-secondary active:text-secondary active:ring-inset':
           this.color === 'secondary' && this.variant === 'filled',
+        'bg-sand text-sand-inverse': this.color === 'sand' && this.variant === 'filled',
 
         // Outline
         'border-primary text-primary hover:bg-primary hover:bg-opacity-20 active:bg-primary active:text-primary-inverse':
