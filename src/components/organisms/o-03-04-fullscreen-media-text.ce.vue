@@ -53,28 +53,28 @@ const props = defineProps({
   }
 })
 
-const headline = ref(props.data?.data?.content?.header)
+const headline = ref(props.data?.content?.header)
 
 const bodytext = computed(() => ({
-  text: props.data?.data?.content?.bodytext,
+  text: props.data?.content?.bodytext,
   layout: 2
 }))
 
 const action = computed(
   () =>
-    props?.data?.data?.content?.actions?.buttonlink &&
-    useAction(props?.data?.data?.content?.actions)
+    props?.data?.content?.actions?.buttonlink &&
+    useAction(props?.data?.content?.actions)
 )
 
 const mediaType = computed(
-  () => props?.data?.data?.content?.media?.[0]?.[0]?.properties?.type
+  () => props?.data?.content?.media?.[0]?.[0]?.properties?.type
 )
 const image = computed(
-  () => mediaType.value === 'image' && props?.data?.data?.content?.media
+  () => mediaType.value === 'image' && props?.data?.content?.media
 )
 const video = computed(
   () =>
     mediaType.value === 'video' &&
-    props?.data?.data?.content?.media?.[0]?.[0]?.publicUrl
+    props?.data?.content?.media?.[0]?.[0]?.publicUrl
 )
 </script>
