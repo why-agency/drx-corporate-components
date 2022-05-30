@@ -17,7 +17,7 @@
         />
         <MActionBar v-if="action" :actions="[action]" position="left" />
       </div>
-      <BaseSubline
+      <BaseText
         v-if="bodytext.text"
         v-bind="bodytext"
         class="mt-10 lg:self-end"
@@ -31,7 +31,7 @@ import { ref, computed } from 'vue'
 import { useAction } from '../../composables/useAction'
 import BaseMedia from '../base/Media.vue'
 import BaseHeadline from '../base/Headline.vue'
-import BaseSubline from '../base/Subline.vue'
+import BaseText from '../base/Text.vue'
 import MActionBar from '../molecules/ActionBar.vue'
 
 const props = defineProps({
