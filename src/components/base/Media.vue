@@ -12,7 +12,12 @@
       />
     </slot>
     <div v-if="videoUrl" class="relative">
-      <BaseVideo :src="videoUrl" v-bind="videoSettings" :class="mediaStyle" />
+      <BaseVideo
+        :src="videoUrl"
+        v-bind="videoSettings"
+        :class="[mediaStyle, aspectRatio]"
+        class="object-cover"
+      />
       <slot name="play-button">
         <BaseButtonIcon
           v-if="videoUrl && !videoSettings.autoplay"
@@ -33,7 +38,6 @@
           muted
           controls
           class="w-full lg:object-cover"
-          style="max-height: 75vh"
         />
       </div>
     </BaseLightbox>
@@ -113,4 +117,10 @@ const $_gradient = computed(
 const isLightboxVisible = ref(false)
 const showLightbox = () => (isLightboxVisible.value = true)
 const hideLightbox = () => (isLightboxVisible.value = false)
+
+const aspectRatio = computed(() => ({
+  'aspect-[5/2]': props.format === '5:2',
+  'aspect-[9/4]': props.format === '9:4',
+  'aspect-[4/3]': props.format === '4:3'
+}))
 </script>
