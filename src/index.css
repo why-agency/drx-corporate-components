@@ -12,26 +12,18 @@
   }
 
   .frame-space-after-small {
-    @apply pb-0.5 lg:pb-14;
-  }
-
-  .frame-space-after-medium {
-    @apply pb-1 md:pb-14 lg:pb-24;
-  }
-
-  .frame-space-after-large {
-    @apply pb-2 md:pb-24 lg:pb-40;
+    @apply pb-10 md:pb-14 lg:pb-20;
   }
 
   .frame-space-before-small {
-    @apply pt-0.5 lg:pt-14;
+    @apply pt-10 md:pt-14 lg:pt-20;
   }
 
-  .frame-space-before-medium {
-    @apply pt-1 md:pt-14 lg:pt-24;
+  .frame-space-after-large {
+    @apply pb-20 md:pb-28 lg:pb-40;
   }
 
   .frame-space-before-large {
-    @apply pt-2 md:pt-24 lg:pt-40;
+    @apply pt-20 md:pt-28 lg:pt-40;
   }
 }
