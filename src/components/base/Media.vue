@@ -1,14 +1,16 @@
 <template>
   <div class="relative" :class="$_gradient">
-    <BasePicture
-      v-if="isImage"
-      :images="media"
-      :size="mediaStyle"
-      :srcsets="srcsets"
-      :breakpoints="breakpoints"
-      :format="format"
-      :fit="fit"
-    />
+    <slot name="picture">
+      <BasePicture
+        v-if="isImage"
+        :images="media"
+        :size="mediaStyle"
+        :srcsets="srcsets"
+        :breakpoints="breakpoints"
+        :format="format"
+        :fit="fit"
+      />
+    </slot>
     <div v-if="videoUrl" class="relative">
       <BaseVideo :src="videoUrl" v-bind="videoSettings" :class="mediaStyle" />
       <slot name="play-button">
