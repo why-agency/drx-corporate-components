@@ -60,7 +60,11 @@ const hasFrameFull = ref(props.data?.appearance?.frameClass === 'full')
 
 const isTextBelow = computed(() => props.data?.content?.variant === 'textbelow')
 
-const isDark = computed(() => props.data?.content?.background !== 'light')
+const isDark = computed(
+  () =>
+    props.data?.content?.background !== 'light' &&
+    props.data?.content?.background !== 'none'
+)
 
 /** atoms */
 
