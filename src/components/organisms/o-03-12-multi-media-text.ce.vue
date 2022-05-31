@@ -33,7 +33,14 @@
           'xl:ml-8': !hasFrameFull
         }"
       >
-        <BaseHeadline v-bind="subline" class="dark:text-sand max-w-[768px]" />
+        <BaseHeadline
+          v-bind="subline"
+          class="dark:text-sand max-w-[768px]"
+          :class="{
+            'xl:text-sand': gradient !== 'light',
+            'xl:dark:text-primary': gradient === 'light'
+          }"
+        />
       </div>
     </div>
   </section>
