@@ -17,26 +17,25 @@
         :class="{ 'self-end': !text || !text.text }"
       />
     </div>
-    <BaseMedia
-      v-if="media"
-      :media="media"
-      :format="format"
-      :video-settings="{ autoplay: false }"
-    >
+    <div class="relative h-fit">
+      <BaseMedia
+        v-if="media"
+        :media="media"
+        :format="format"
+        :video-settings="{ autoplay: false }"
+        :gradient="gradient"
+      />
       <div
         v-if="subline && subline.text"
-        class="uppercase mt-6 xl:mt-0 xl:w-full xl:absolute xl:bottom-8 z-10"
+        class="uppercase mt-6 xl:mt-0 xl:w-full xl:absolute xl:bottom-8 z-20"
         :class="{
           'frame-default xl:left-1/2 xl:-translate-x-1/2': hasFrameFull,
           'xl:ml-8': !hasFrameFull
         }"
       >
-        <BaseHeadline
-          v-bind="subline"
-          class="dark:text-sand max-w-[768px]"
-        />
+        <BaseHeadline v-bind="subline" class="dark:text-sand max-w-[768px]" />
       </div>
-    </BaseMedia>
+    </div>
   </section>
 </template>
 
@@ -78,7 +77,7 @@ const subline = computed(() => ({
 
 const actions = ref(props.data?.content?.actions)
 
-/** image format */
+/** media format */
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const isLg = breakpoints.greater('lg')
 const format = computed(() => {
@@ -87,4 +86,7 @@ const format = computed(() => {
   }
   return hasFrameFull.value ? '9:4' : '5:2'
 })
+
+/** media gradient */
+const gradient = ref(props.data?.content?.gradient)
 </script>
