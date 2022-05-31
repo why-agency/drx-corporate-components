@@ -36,7 +36,10 @@
         <BaseHeadline
           v-bind="subline"
           class="dark:text-sand max-w-[768px]"
-          :class="{ 'xl:text-sand': gradient !== 'light' }"
+          :class="{
+            'xl:text-sand': gradient !== 'light',
+            'xl:dark:text-primary': gradient === 'light'
+          }"
         />
       </div>
     </div>
