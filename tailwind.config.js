@@ -24,6 +24,7 @@ const breakpoints = {
 
 module.exports = {
   content: ['./src/**/**/*.{vue,js,ts,jsx,tsx}'],
+  darkMode: 'class',
   theme: {
     colors: {
       primary: {
@@ -55,7 +56,8 @@ module.exports = {
       focus: '#6c9cde',
       error: '#d00f26',
       success: '#89d27d',
-      transparent: 'transparent'
+      transparent: 'transparent',
+      gradient: '#1E2728'
     },
     fontFamily: {
       primary: 'Helvetica Now Display'
@@ -169,6 +171,12 @@ module.exports = {
     },
     screens: {
       ...breakpoints
+    },
+    extend: {
+      backgroundImage: {
+        gradient:
+          'radial-gradient(84.32% 158.99% at 136.54% 106.02%, rgba(47, 190, 219, 0.3) 0%, rgba(30, 39, 40, 0.3) 100%)'
+      }
     }
   },
   plugins: []

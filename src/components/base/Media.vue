@@ -1,5 +1,5 @@
 <template>
-  <div class="relative" :class="$_gradient">
+  <div class="relative h-full w-full" :class="$_gradient">
     <slot name="picture">
       <BasePicture
         v-if="isImage"
@@ -12,12 +12,17 @@
       />
     </slot>
     <div v-if="videoUrl" class="relative">
-      <BaseVideo :src="videoUrl" v-bind="videoSettings" :class="mediaStyle" />
+      <BaseVideo
+        :src="videoUrl"
+        v-bind="videoSettings"
+        :class="[mediaStyle, aspectRatio]"
+        class="object-cover"
+      />
       <slot name="play-button">
         <BaseButtonIcon
           v-if="videoUrl && !videoSettings.autoplay"
           color="sand"
-          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary"
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary z-20"
           @click="showLightbox"
         >
           <IconPlay />
@@ -33,7 +38,6 @@
           muted
           controls
           class="w-full lg:object-cover"
-          style="max-height: 75vh"
         />
       </div>
     </BaseLightbox>
@@ -103,14 +107,28 @@ const isImage = computed(() => mediaType.value === 'image')
 const videoUrl = computed(
   () => mediaType.value === 'video' && props?.media?.[0]?.[0]?.publicUrl
 )
-const overlay =
-  "before:block before:content-[''] before:w-full before:absolute before:z-20"
+
 const $_gradient = computed(
-  () => props.gradient && `${overlay} ${props.gradient}`
+  () =>
+    props.gradient && [
+      "before:block before:content-[''] before:h-full before:w-full before:absolute before:z-20 before:bg-gradient-to-b before:from-transparent ",
+      {
+        'before:via-black/40 before:to-black/75': props.gradient === 'dark',
+        'before:via-white/40 before:to-white/75': props.gradient === 'light',
+        [props.gradient]:
+          props.gradient !== 'dark' && props.gradient !== 'light'
+      }
+    ]
 )
 
 /** Lightbox */
 const isLightboxVisible = ref(false)
 const showLightbox = () => (isLightboxVisible.value = true)
 const hideLightbox = () => (isLightboxVisible.value = false)
+
+const aspectRatio = computed(() => ({
+  'aspect-[5/2]': props.format === '5:2',
+  'aspect-[9/4]': props.format === '9:4',
+  'aspect-[4/3]': props.format === '4:3'
+}))
 </script>

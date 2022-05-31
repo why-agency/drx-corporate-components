@@ -3,11 +3,27 @@
 @tailwind utilities;
 
 @layer utilites {
-    .frame-default {
-        @apply mx-6 xl:mx-auto xl:max-w-6xl 2xl:max-w-7xl 3xl:max-w-[1440px] 4xl:max-w-[1720px];
-    }
+  .frame-default {
+    @apply mx-6 xl:mx-auto xl:max-w-6xl 2xl:max-w-7xl 3xl:max-w-[1440px] 4xl:max-w-[1720px];
+  }
 
-    .frame-small {
-        @apply mx-6 xl:mx-auto xl:max-w-5xl 2xl:max-w-7xl 3xl:max-w-[1440px];
-    }
+  .frame-small {
+    @apply mx-6 xl:mx-auto xl:max-w-5xl 2xl:max-w-7xl 3xl:max-w-[1440px];
+  }
+
+  .frame-space-after-small {
+    @apply pb-10 md:pb-14 lg:pb-20;
+  }
+
+  .frame-space-before-small {
+    @apply pt-10 md:pt-14 lg:pt-20;
+  }
+
+  .frame-space-after-large {
+    @apply pb-20 md:pb-28 lg:pb-40;
+  }
+
+  .frame-space-before-large {
+    @apply pt-20 md:pt-28 lg:pt-40;
+  }
 }

@@ -2,7 +2,7 @@
   <component
     :is="headlineTag"
     class="font-semibold font-primary min-h-safari"
-    :class="$_headlineStyle"
+    :class="[$_headlineStyle, $_headlineColor]"
   >
     <slot>
       <BaseHtmlParser tag="span" :content="text" />
@@ -26,6 +26,10 @@ const props = defineProps({
   layout: {
     type: Number,
     default: 1
+  },
+  color: {
+    type: String,
+    default: 'dark'
   }
 })
 
@@ -38,5 +42,11 @@ const $_headlineStyle = computed(() => ({
   'text-h4': props.layout === 4,
   'text-h5': props.layout === 5,
   'text-h6': props.layout === 6
+}))
+
+const $_headlineColor = computed(() => ({
+  'text-primary': props.color === 'dark',
+  'text-sand': props.color === 'light',
+  'text-secondary': props.color === 'turqoise'
 }))
 </script>

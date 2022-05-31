@@ -1,8 +1,8 @@
 export const useBackgroundColor = key => {
   const options = {
-    // color: 'bg-color',
-    primary: 'bg-primary',
-    secondary: 'bg-secondary'
+    dark: 'bg-primary',
+    light: 'bg-sand',
+    gradient: 'bg-gradient'
   }
   return options[key]
 }

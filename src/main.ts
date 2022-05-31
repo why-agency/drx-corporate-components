@@ -3,12 +3,14 @@ import * as VueRouter from 'vue-router'
 import App from './App.vue'
 import index from './pages/index.vue'
 import fullscreenMediaText from './pages/fullscreen-media-text.vue'
+import multiMediaText from './pages/multimedia-text.vue'
 
 const app = createApp(App)
 
 const routes = [
     { path: '/', component: index},
-    { path: '/fullscreen-media-text', component: fullscreenMediaText }
+    { path: '/fullscreen-media-text', component: fullscreenMediaText },
+    { path: '/multimedia-text', component: multiMediaText}
   ]
 
 const router = VueRouter.createRouter({

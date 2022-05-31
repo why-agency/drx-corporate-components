@@ -4,7 +4,8 @@
       v-if="media"
       :media="media"
       media-style="w-full h-screen absolute"
-      gradient="before:h-screen before:bg-gradient-to-b before:from-transparent before:via-black/30 before:to-black/75"
+      gradient="dark"
+      class="!absolute"
     />
     <div
       class="frame-default grid lg:grid-cols-2 lg:grid-rows-1 h-full content-end relative z-30 text-white pb-10 lg:pb-20"
@@ -17,7 +18,7 @@
         />
         <MActionBar v-if="action" :actions="[action]" position="left" />
       </div>
-      <BaseSubline
+      <BaseText
         v-if="bodytext.text"
         v-bind="bodytext"
         class="mt-10 lg:self-end"
@@ -31,7 +32,7 @@ import { ref, computed } from 'vue'
 import { useAction } from '../../composables/useAction'
 import BaseMedia from '../base/Media.vue'
 import BaseHeadline from '../base/Headline.vue'
-import BaseSubline from '../base/Subline.vue'
+import BaseText from '../base/Text.vue'
 import MActionBar from '../molecules/ActionBar.vue'
 
 const props = defineProps({
