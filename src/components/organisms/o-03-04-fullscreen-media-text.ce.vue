@@ -42,7 +42,10 @@ const props = defineProps({
   }
 })
 
-const headline = ref(props.data?.content?.header)
+const headline = computed(() => ({
+  ...props.data?.content?.header,
+  color: 'light'
+}))
 
 const bodytext = computed(() => ({
   text: props.data?.content?.bodytext,
