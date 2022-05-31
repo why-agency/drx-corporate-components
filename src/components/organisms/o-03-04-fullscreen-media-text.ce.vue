@@ -4,7 +4,8 @@
       v-if="media"
       :media="media"
       media-style="w-full h-screen absolute"
-      gradient="before:h-screen before:bg-gradient-to-b before:from-transparent before:via-black/30 before:to-black/75"
+      gradient="dark"
+      class="!absolute"
     />
     <div
       class="frame-default grid lg:grid-cols-2 lg:grid-rows-1 h-full content-end relative z-30 text-white pb-10 lg:pb-20"

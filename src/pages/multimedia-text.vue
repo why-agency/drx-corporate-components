@@ -39,7 +39,7 @@ export default {
         content: {
           variant: 'textbelow',
           background: 'gradient',
-          gradient: 'light',
+          gradient: 'dark',
           header: {
             text: 'Multimedia Text Header',
             layout: 2,
