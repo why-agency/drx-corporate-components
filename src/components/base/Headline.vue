@@ -1,5 +1,6 @@
 <template>
   <component
+    id="headline"
     :is="headlineTag"
     class="font-primary"
     :class="[$_headlineSize, $_headlineColor, $_headlineWeight]"
@@ -13,6 +14,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import BaseHtmlParser from './HtmlParser.vue'
+import { gsap } from 'gsap'
 
 const props = defineProps({
   text: {
@@ -58,4 +60,28 @@ const $_headlineWeight = computed(() => ({
   'font-normal': props.weight === 'regular',
   'font-bold': props.weight === 'bold'
 }))
+
+const animateHeadline = () => {
+  gsap.fromTo(
+    '#headline',
+    {
+      lineHeight: '1'
+    },
+    {
+      lineHeight: '3',
+      duration: 2
+    }
+  )
+}
+
+const headline = document.querySelectorAll('#headline')
+console.log(headline)
+
+let observer = new IntersectionObserver(entries => {
+  console.log(entry)
+})
+
+observer.observe(headline)
+
+animateHeadline()
 </script>
