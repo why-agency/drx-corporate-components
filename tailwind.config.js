@@ -175,7 +175,13 @@ module.exports = {
     extend: {
       backgroundImage: {
         gradient:
-          'radial-gradient(84.32% 158.99% at 136.54% 106.02%, rgba(47, 190, 219, 0.3) 0%, rgba(30, 39, 40, 0.3) 100%)'
+          'radial-gradient(84.32% 158.99% at 136.54% 106.02%, rgba(47, 190, 219, 0.3) 0%, rgba(30, 39, 40, 0.3) 100%)',
+        'button-text': 'linear-gradient(to right, #0096A9 50% , #fff 50%)',
+        'button-text-large': 'linear-gradient(to right, #1E2728 50% , #fff 50%)',
+        'button-background':
+          'linear-gradient(to right, #fff 50% , #0096A9 50%)',
+        'button-background-large':
+          'linear-gradient(to right, #F2F1EF 50% , #0096A9 50%)'
       }
     }
   },

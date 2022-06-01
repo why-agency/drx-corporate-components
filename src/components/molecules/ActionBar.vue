@@ -5,8 +5,17 @@
     :class="[$_position, { 'md:flex-row': !stack }]"
   >
     <BaseAction
+      v-for="action in actions"
+      :key="action.id"
+      :to="action.content.link.url"
+      :variant="action.content.variant"
+      :color="action.content.color"
+      :size="action.content.size"
     >
-      Mehr erfahren
+      <BaseHtmlParser :content="action.content.text" tag="span"/>
+      <template #icon>
+        <Right />
+      </template>
     </BaseAction>
   </div>
 </template>
@@ -15,6 +24,7 @@
 import { computed } from 'vue'
 import BaseAction from '../base/Action.vue'
 import BaseHtmlParser from '../base/HtmlParser.vue'
+import Right from '../icons/Arrow/Right.vue'
 
 const props = defineProps({
   actions: {
