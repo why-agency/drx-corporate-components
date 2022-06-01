@@ -1,11 +1,17 @@
 <template>
   <section>
-    <div class="frame-space-before-large frame-space-after-large" :class="textBelowBgColor">
+    <div
+      class="frame-space-before-large frame-space-after-large"
+      :class="textBelowBgColor"
+    >
       <div :class="`frame-${textBelow.appearance.frameClass}`">
         <o-03-12-multi-media-text :data="textBelow" />
       </div>
     </div>
-    <div class="frame-space-before-large frame-space-after-large" :class="textAboveBgColor">
+    <div
+      class="frame-space-before-large frame-space-after-large"
+      :class="textAboveBgColor"
+    >
       <div :class="`frame-${textAbove.appearance.frameClass}`">
         <o-03-12-multi-media-text :data="textAbove" />
       </div>

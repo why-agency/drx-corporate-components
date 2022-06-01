@@ -12,7 +12,7 @@
       :color="action.content.color"
       :size="action.content.size"
     >
-      <BaseHtmlParser :content="action.content.text" tag="span"/>
+      <BaseHtmlParser :content="action.content.text" tag="span" />
       <template #icon>
         <Right />
       </template>
