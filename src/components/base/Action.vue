@@ -18,8 +18,7 @@
         <div
           v-if="$slots.icon"
           id="icon"
-          :class="this.variant === 'large' ? 'mt-12 lg:mt-16' : ''"
-          class="text-white"
+          :class="[$_iconColor, this.variant === 'large' ? 'mt-12 lg:mt-16' : '']"
         >
           <slot name="icon" />
         </div>
@@ -29,7 +28,7 @@
 </template>
 
 <script>
-import { gsap } from 'gsap'
+import { gsap, Power2 } from 'gsap'
 import UseDynamicAction from '../organisms/UseDynamicAction.vue'
 
 const Color = {
@@ -61,31 +60,49 @@ export default {
   computed: {
     $_color() {
       return {
-        'bg-secondary text-secondary-inverse': this.color === 'secondary',
-        'bg-white text-secondary': this.color === 'white'
+        'bg-button-background':
+          this.color === 'secondary' && this.variant === 'default',
+        'bg-button-background-reverse':
+          this.color === 'white' && this.variant === 'default',
+        'bg-button-background-large':
+          this.color === 'secondary' && this.variant === 'large',
+        'bg-button-background-large-reverse':
+          this.color === 'white' && this.variant === 'large',
       }
     },
     $_textColor() {
       return {
-        'bg-button-text': this.variant === 'default',
-        'bg-button-text-large': this.variant === 'large'
+        'bg-button-text': this.color === 'secondary' && this.variant === 'default',
+        'bg-button-text-large': this.color === 'secondary' && this.variant === 'large',
+        'bg-button-text-reverse': this.color === 'white' && this.variant === 'default',
+        'bg-button-text-large-reverse': this.color === 'white' && this.variant === 'large',
+      }
+    },
+    $_iconColor() {
+      return {
+        'text-secondary': this.color === 'white' && this.variant === 'default',
+        'text-primary': this.color === 'white' && this.variant === 'large',
+        'text-white': this.color === 'secondary' && this.variant === 'default' || this.color === 'secondary' && this.variant === 'large',
       }
     },
     $_size() {
       return {
-        'min-h-[48px] w-56 bg-button-background': this.variant === 'default',
-        'w-[328px] h-[87px] lg:w-[230px] lg:h-[108px] bg-button-background-large':
-          this.variant === 'large'
+        'min-h-[48px] w-56': this.variant === 'default',
+        'w-[328px] h-[87px] lg:w-[230px] lg:h-[108px]': this.variant === 'large'
       }
     }
   },
   methods: {
     onMouseEnter() {
-      if (this.variant === 'large') {
-        gsap.to('#icon', { delay: 1, duration: 0.5, color: '#1E2728' })
+      // changes the color of the icon
+      if (this.variant === 'large' && this.color === 'secondary') {
+        gsap.to('#icon', { delay: 0.1, duration: 0.5, color: '#1E2728' })
+      } else if (this.variant === 'default' && this.color === 'secondary') {
+        gsap.to('#icon', { delay: 0.1, duration: 0.5, color: '#0096A9' })
       } else {
-        gsap.to('#icon', { delay: 1, duration: 0.5, color: '#0096A9' })
+        gsap.to('#icon', { delay: 0.1, duration: 0.5, color: 'white' })
       }
+      // changes the color of the text
       gsap.fromTo(
         [this.$refs.textanimation, this.$refs.backgroundanimation],
         {
@@ -93,12 +110,21 @@ export default {
         },
         {
           backgroundPosition: '0',
-          duration: 2
+          duration: 0.4,
+          ease: Power2.easeOut
         }
       )
     },
     onMouseLeave() {
-      gsap.to('#icon', { delay: 1, duration: 0.5, color: 'white' })
+      // changes the color of the icon
+      if (this.variant === 'large' && this.color === 'white') {
+        gsap.to('#icon', { delay: 0.1, duration: 0.5, color: '#1E2728' })
+      } else if (this.variant === 'default' && this.color === 'white') {
+        gsap.to('#icon', { delay: 0.1, duration: 0.5, color: '#0096A9' })
+      } else {
+        gsap.to('#icon', { delay: 0.1, duration: 0.5, color: 'white' })
+      }
+      // changes the color of the text
       gsap.fromTo(
         [this.$refs.textanimation, this.$refs.backgroundanimation],
         {
@@ -106,7 +132,8 @@ export default {
         },
         {
           backgroundPosition: '-100%',
-          duration: 2
+          duration: 0.4,
+          ease: Power2.easeOut
         }
       )
     }

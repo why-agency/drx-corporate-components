@@ -179,10 +179,18 @@ module.exports = {
         'button-text': 'linear-gradient(to right, #0096A9 50% , #fff 50%)',
         'button-text-large':
           'linear-gradient(to right, #1E2728 50% , #fff 50%)',
+        'button-text-reverse':
+          'linear-gradient(to right, #fff 50% , #0096A9 50%)',
+        'button-text-large-reverse':
+          'linear-gradient(to right, #fff 50% , #1E2728 50%)',
         'button-background':
           'linear-gradient(to right, #fff 50% , #0096A9 50%)',
+        'button-background-reverse':
+          'linear-gradient(to right, #0096A9 50% , #fff 50%)',
         'button-background-large':
-          'linear-gradient(to right, #F2F1EF 50% , #0096A9 50%)'
+          'linear-gradient(to right, #F2F1EF 50% , #0096A9 50%)',
+        'button-background-large-reverse':
+          'linear-gradient(to right, #0096A9 50% , #F2F1EF 50%)'
       }
     }
   },

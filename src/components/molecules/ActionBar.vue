@@ -8,8 +8,8 @@
       v-for="action in actions"
       :key="action.id"
       :to="action.content.link.url"
-      :variant="action.content.variant"
-      :color="action.content.color"
+      variant="default"
+      color="secondary"
       :size="action.content.size"
     >
       <BaseHtmlParser :content="action.content.text" tag="span" />
