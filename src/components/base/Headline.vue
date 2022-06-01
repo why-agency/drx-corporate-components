@@ -1,8 +1,8 @@
 <template>
   <component
     :is="headlineTag"
-    class="font-semibold font-primary min-h-safari"
-    :class="[$_headlineStyle, $_headlineColor]"
+    class="font-primary min-h-safari"
+    :class="[$_headlineStyle, $_headlineColor, fontWeight]"
   >
     <slot>
       <BaseHtmlParser tag="span" :content="text" />
@@ -30,6 +30,10 @@ const props = defineProps({
   color: {
     type: String,
     default: 'dark'
+  },
+  fontWeight: {
+    type: String,
+    default: 'font-bold'
   }
 })
 
