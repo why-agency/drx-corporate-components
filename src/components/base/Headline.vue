@@ -1,8 +1,8 @@
 <template>
   <component
     :is="headlineTag"
-    class="font-semibold font-primary min-h-safari"
-    :class="[$_headlineStyle, $_headlineColor]"
+    class="font-primary"
+    :class="[$_headlineSize, $_headlineColor, $_headlineWeight]"
   >
     <slot>
       <BaseHtmlParser tag="span" :content="text" />
@@ -23,30 +23,39 @@ const props = defineProps({
     type: String,
     default: 'div'
   },
-  layout: {
+  size: {
     type: Number,
     default: 1
   },
   color: {
     type: String,
     default: 'dark'
+  },
+  weight: {
+    type: String,
+    default: 'regular'
   }
 })
 
-const headlineTag = computed(() => props.tag || `h${props.layout}`)
+const headlineTag = computed(() => props.tag || `h${props.size}`)
 
-const $_headlineStyle = computed(() => ({
-  'text-h1': props.layout === 1,
-  'text-h2': props.layout === 2,
-  'text-h3': props.layout === 3,
-  'text-h4': props.layout === 4,
-  'text-h5': props.layout === 5,
-  'text-h6': props.layout === 6
+const $_headlineSize = computed(() => ({
+  'text-h1': props.size === 1,
+  'text-h2': props.size === 2,
+  'text-h3': props.size === 3,
+  'text-h4': props.size === 4,
+  'text-h5': props.size === 5,
+  'text-h6': props.size === 6
 }))
 
 const $_headlineColor = computed(() => ({
   'text-primary': props.color === 'dark',
   'text-sand': props.color === 'light',
   'text-secondary': props.color === 'turqoise'
+}))
+
+const $_headlineWeight = computed(() => ({
+  'font-normal': props.weight === 'regular',
+  'font-bold': props.weight === 'bold'
 }))
 </script>

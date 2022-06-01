@@ -83,7 +83,7 @@ const text = ref(props.data?.content?.text)
 
 const subline = computed(() => ({
   text: props.data?.content?.subline,
-  layout: 5
+  size: 5
 }))
 
 const actions = ref(props.data?.content?.actions)

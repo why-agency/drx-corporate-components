@@ -1,7 +1,7 @@
 <template>
   <div class="mb-4">
     <BaseHeadline v-bind="headlineProps" />
-    <BaseSubline text="This is a subline" :layout="2" />
+    <BaseSubline text="This is a subline" :size="2" />
     <BaseAction to="https://draexlmaier.loc/">
       Action
       <template v-slot:iconSuffix>
@@ -31,7 +31,7 @@ const props = defineProps({
   }
 })
 
-const headlineProps = ref({ text: 'This is a headline', layout: 3, tag: 'h2' })
+const headlineProps = ref({ text: 'This is a headline', size: 3, tag: 'h2' })
 
 const overline = computed(() => props.data?.content?.overline)
 const text = computed(() => props.data?.content?.quote?.text)

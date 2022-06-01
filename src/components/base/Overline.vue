@@ -14,7 +14,7 @@ const props = defineProps({
     type: String,
     default: ''
   },
-  layout: {
+  size: {
     type: Number,
     default: 1
   },
@@ -26,10 +26,10 @@ const props = defineProps({
 
 const $_textStyle = computed(() => ({
   'font-secondary text-overline1-mobile md:text-overline1 font-medium uppercase':
-    props.layout === 1,
-  'font-secondary md:text-overline2 font-medium uppercase': props.layout === 2,
-  'font-secondary md:text-overline3 font-medium uppercase': props.layout === 3
+    props.size === 1,
+  'font-secondary md:text-overline2 font-medium uppercase': props.size === 2,
+  'font-secondary md:text-overline3 font-medium uppercase': props.size === 3
 }))
 
-const overlineTag = computed(() => props.tag || `h${props.layout}`)
+const overlineTag = computed(() => props.tag || `h${props.size}`)
 </script>
