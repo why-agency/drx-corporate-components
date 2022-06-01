@@ -31,9 +31,9 @@ const props = defineProps({
     type: String,
     default: 'dark'
   },
-  weight: {
+  fontWeight: {
     type: String,
-    default: 'regular'
+    default: 'font-bold'
   }
 })
 

@@ -50,7 +50,8 @@ export default {
             text: 'Multimedia Text Header',
             size: 2,
             color: 'turqoise',
-            tag: 'h1'
+            tag: 'h1',
+            fontWeight: 'font-bold'
           },
           subline:
             'My job is super flexible and allows me to branch into many different innovation fields.',
@@ -287,7 +288,8 @@ export default {
             text: 'Multimedia Text Header: Text Above',
             size: 2,
             color: 'dark',
-            tag: 'h2'
+            tag: 'h2',
+            fontWeight: 'font-regular'
           },
           subline:
             'My job is super flexible and allows me to branch into many different innovation fields.',
