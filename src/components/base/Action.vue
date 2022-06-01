@@ -1,44 +1,42 @@
 <template>
-  <UseDynamicAction
-    :to="to"
-    class="inline-flex items-center cursor-pointer disabled:opacity-30 disabled:pointer-events-none focus:outline-none transition duration-500 text-button font-secondary font-medium uppercase w-max"
-    :class="[...classes, $_color, $_size, $_border, $_focus]"
-  >
+  <UseDynamicAction :to="to">
     <div
-      class="inline-flex gap-1 items-center"
+      ref="backgroundanimation"
+      class="min-h-[48px] p-2 relative w-56 group overflow-hidden cursor-pointer disabled:opacity-30 disabled:pointer-events-none focus:outline-none focus-visible:ring focus-visible:ring-focus bg-[length:200%_100%] bg-[position:100%] bg-button-background"
+      :class="$_color"
       @mouseenter="onMouseEnter"
       @mouseleave="onMouseLeave"
     >
-      <!-- @slot Insert an icon in front of the label -->
-      <slot name="iconPrefix" />
-      <!-- @slot Default slot to label the link -->
-      <slot />
-      <!-- @slot Insert an icon after the label -->
-      <slot name="iconSuffix" />
+      <div
+        ref="textanimation"
+        class="w-full flex justify-between bg-button-text bg-[length:200%_100%] bg-[position:100%] relative bg-clip-text text-transparent overflow-hidden"
+      >
+        <div>
+          <slot class="text-xl" />
+        </div>
+        <div
+          v-if="$slots.icon"
+          :class="{ 'pl-3': $slots.icon }"
+          class="transform scale-75 md:scale-100 text-white"
+          :width="size === 14"
+          :height="size === 14"
+        >
+          <slot name="icon" />
+        </div>
+      </div>
     </div>
   </UseDynamicAction>
 </template>
 
 <script>
-const Color = {
-  primary: 'primary',
-  secondary: 'secondary',
-  white: 'white',
-  gray: 'gray'
-}
-
-const Variant = {
-  filled: 'filled',
-  outline: 'outline',
-  text: 'text'
-}
-
-const Size = {
-  default: 'default',
-  large: 'large'
-}
-
+import { gsap } from 'gsap'
 import UseDynamicAction from '../organisms/UseDynamicAction.vue'
+
+const Color = {
+  secondary: 'secondary',
+  white: 'white'
+}
+
 export default {
   components: { UseDynamicAction },
   props: {
@@ -48,79 +46,46 @@ export default {
     },
     color: {
       type: String,
-      default: Color.primary
-    },
-    variant: {
-      type: String,
-      default: Variant.filled
-    },
-    size: {
-      type: String,
-      default: Size.default
+      default: Color.secondary
     }
   },
   data() {
     return {
-      classes: []
+      classesBg: []
     }
   },
   computed: {
     $_color() {
       return {
-        // Filled
-        'bg-primary text-primary-inverse hover:bg-primary-hover active:bg-primary-inverse active:ring-1 active:ring-primary active:text-primary active:ring-inset':
-          this.color === 'primary' && this.variant === 'filled',
-        'bg-secondary text-secondary-inverse hover:bg-secondary-hover hover:text-black active:bg-secondary-inverse active:ring-1 active:ring-secondary active:text-secondary active:ring-inset':
-          this.color === 'secondary' && this.variant === 'filled',
-
-        // Outline
-        'border-primary text-primary hover:bg-primary/20 active:bg-primary active:text-primary-inverse':
-          this.color === 'primary' && this.variant === 'outline',
-        'border-white text-white hover:bg-white/20 active:bg-white active:text-black':
-          this.color === 'secondary' && this.variant === 'outline',
-
-        // Text
-        'text-primary hover:text-primary-hover active:text-tertiary':
-          this.color === 'primary' && this.variant === 'text',
-        'text-secondary hover:text-secondary-hover active:text-tertiary':
-          this.color === 'secondary' && this.variant === 'text',
-        'text-tertiary hover:text-tertiary-hover active:text-primary':
-          this.color === 'tertiary' && this.variant === 'text',
-        'text-white hover:text-tertiary active:text-primary':
-          this.color === 'white' && this.variant === 'text'
-      }
-    },
-    $_size() {
-      return {
-        'h-10 px-5': this.variant !== 'text' && this.size === 'default',
-        'h-12 lg:h-14 px-5': this.variant !== 'text' && this.size === 'large',
-        'h-8': this.variant === 'text'
-      }
-    },
-    $_border() {
-      return {
-        border: this.variant === 'outline',
-        'border-b-2 border-opacity-0': this.variant === 'text'
-      }
-    },
-    $_focus() {
-      return {
-        'focus-visible:ring-2 focus-visible:ring-focus':
-          this.variant !== 'text',
-        'focus-visible:border-opacity-100 focus-visible:border-focus':
-          this.variant === 'text'
+        'bg-secondary text-secondary-inverse': this.color === 'secondary',
+        'bg-white text-secondary': this.color === 'white'
       }
     }
   },
   methods: {
     onMouseEnter() {
-      this.classes = ['ease-in']
+      gsap.fromTo(
+        [this.$refs.textanimation, this.$refs.backgroundanimation],
+        {
+          backgroundPosition: '100%'
+        },
+        {
+          backgroundPosition: '0',
+          duration: 2
+        }
+      )
     },
     onMouseLeave() {
-      this.classes = ['ease-out']
-      setTimeout(() => {
-        this.classes = []
-      }, 500)
+      gsap.fromTo(
+        [this.$refs.textanimation, this.$refs.backgroundanimation],
+        {
+          backgroundPosition: '0'
+        },
+        {
+          backgroundPosition: '-100%',
+          duration: 2
+        }
+      )
     }
   }
 }

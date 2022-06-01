@@ -30,6 +30,7 @@
 
 <script>
 import { gsap } from 'gsap'
+import UseDynamicAction from '../organisms/UseDynamicAction.vue'
 
 const Color = {
   secondary: 'secondary',
@@ -37,6 +38,7 @@ const Color = {
 }
 
 export default {
+  components: { UseDynamicAction },
   props: {
     to: {
       type: [String, Object],
