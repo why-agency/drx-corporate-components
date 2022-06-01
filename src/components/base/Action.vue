@@ -1,24 +1,25 @@
 <template>
   <UseDynamicAction :to="to">
     <div
-      ref="backgroundanimation"
+      ref="wrapper"
       class="min-h-[48px] relative group overflow-hidden cursor-pointer disabled:opacity-30 disabled:pointer-events-none focus:outline-none focus-visible:ring focus-visible:ring-focus bg-[length:200%_100%] bg-[position:100%]"
       :class="[$_color, $_size]"
       @mouseenter="onMouseEnter"
       @mouseleave="onMouseLeave"
     >
       <div
-        ref="textanimation"
+        ref="label"
         :class="[$_textColor]"
         class="w-pull px-4 pt-3 flex justify-between bg-[length:200%_100%] bg-[position:100%] relative bg-clip-text text-transparent overflow-hidden"
       >
-        <div>
-          <slot class="text-xl" />
-        </div>
+        <slot />
         <div
           v-if="$slots.icon"
-          id="icon"
-          :class="[$_iconColor, this.variant === 'large' ? 'mt-12 lg:mt-16' : '']"
+          ref="icon"
+          :class="[
+            $_iconColor,
+            this.variant === 'large' ? 'mt-12 lg:mt-16' : ''
+          ]"
         >
           <slot name="icon" />
         </div>
@@ -67,44 +68,64 @@ export default {
         'bg-button-background-large':
           this.color === 'secondary' && this.variant === 'large',
         'bg-button-background-large-reverse':
-          this.color === 'white' && this.variant === 'large',
+          this.color === 'white' && this.variant === 'large'
       }
     },
     $_textColor() {
       return {
-        'bg-button-text': this.color === 'secondary' && this.variant === 'default',
-        'bg-button-text-large': this.color === 'secondary' && this.variant === 'large',
-        'bg-button-text-reverse': this.color === 'white' && this.variant === 'default',
-        'bg-button-text-large-reverse': this.color === 'white' && this.variant === 'large',
+        'bg-button-text':
+          this.color === 'secondary' && this.variant === 'default',
+        'bg-button-text-large':
+          this.color === 'secondary' && this.variant === 'large',
+        'bg-button-text-reverse':
+          this.color === 'white' && this.variant === 'default',
+        'bg-button-text-large-reverse':
+          this.color === 'white' && this.variant === 'large'
       }
     },
     $_iconColor() {
       return {
         'text-secondary': this.color === 'white' && this.variant === 'default',
         'text-primary': this.color === 'white' && this.variant === 'large',
-        'text-white': this.color === 'secondary' && this.variant === 'default' || this.color === 'secondary' && this.variant === 'large',
+        'text-white':
+          (this.color === 'secondary' && this.variant === 'default') ||
+          (this.color === 'secondary' && this.variant === 'large')
       }
     },
     $_size() {
       return {
         'min-h-[48px] w-56': this.variant === 'default',
-        'w-[328px] h-[87px] lg:w-[230px] lg:h-[108px]': this.variant === 'large'
+        'w-[328px] h-[88px] lg:w-[232px] lg:h-[112px]': this.variant === 'large'
       }
     }
   },
   methods: {
     onMouseEnter() {
       // changes the color of the icon
-      if (this.variant === 'large' && this.color === 'secondary') {
-        gsap.to('#icon', { delay: 0.1, duration: 0.5, color: '#1E2728' })
-      } else if (this.variant === 'default' && this.color === 'secondary') {
-        gsap.to('#icon', { delay: 0.1, duration: 0.5, color: '#0096A9' })
-      } else {
-        gsap.to('#icon', { delay: 0.1, duration: 0.5, color: 'white' })
+      if (this.$refs.icon) {
+        if (this.variant === 'large' && this.color === 'secondary') {
+          gsap.to(this.$refs.icon, {
+            delay: 0.1,
+            duration: 0.5,
+            color: '#1E2728'
+          })
+        } else if (this.variant === 'default' && this.color === 'secondary') {
+          gsap.to(this.$refs.icon, {
+            delay: 0.1,
+            duration: 0.5,
+            color: '#0096A9'
+          })
+        } else {
+          gsap.to(this.$refs.icon, {
+            delay: 0.1,
+            duration: 0.5,
+            color: 'white'
+          })
+        }
       }
       // changes the color of the text
       gsap.fromTo(
-        [this.$refs.textanimation, this.$refs.backgroundanimation],
+        [this.$refs.label, this.$refs.wrapper],
         {
           backgroundPosition: '100%'
         },
@@ -117,16 +138,30 @@ export default {
     },
     onMouseLeave() {
       // changes the color of the icon
-      if (this.variant === 'large' && this.color === 'white') {
-        gsap.to('#icon', { delay: 0.1, duration: 0.5, color: '#1E2728' })
-      } else if (this.variant === 'default' && this.color === 'white') {
-        gsap.to('#icon', { delay: 0.1, duration: 0.5, color: '#0096A9' })
-      } else {
-        gsap.to('#icon', { delay: 0.1, duration: 0.5, color: 'white' })
+      if (this.$refs.icon) {
+        if (this.variant === 'large' && this.color === 'white') {
+          gsap.to(this.$refs.icon, {
+            delay: 0.1,
+            duration: 0.5,
+            color: '#1E2728'
+          })
+        } else if (this.variant === 'default' && this.color === 'white') {
+          gsap.to(this.$refs.icon, {
+            delay: 0.1,
+            duration: 0.5,
+            color: '#0096A9'
+          })
+        } else {
+          gsap.to(this.$refs.icon, {
+            delay: 0.1,
+            duration: 0.5,
+            color: 'white'
+          })
+        }
       }
       // changes the color of the text
       gsap.fromTo(
-        [this.$refs.textanimation, this.$refs.backgroundanimation],
+        [this.$refs.label, this.$refs.wrapper],
         {
           backgroundPosition: '0'
         },

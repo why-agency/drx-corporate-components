@@ -8,13 +8,13 @@
       v-for="action in actions"
       :key="action.id"
       :to="action.content.link.url"
-      variant="default"
-      color="secondary"
+      :variant="action.content.variant"
+      :color="action.content.color"
       :size="action.content.size"
     >
       <BaseHtmlParser :content="action.content.text" tag="span" />
       <template #icon>
-        <Right />
+        <IconArrowRight />
       </template>
     </BaseAction>
   </div>
@@ -24,7 +24,7 @@
 import { computed } from 'vue'
 import BaseAction from '../base/Action.vue'
 import BaseHtmlParser from '../base/HtmlParser.vue'
-import Right from '../icons/Arrow/Right.vue'
+import IconArrowRight from '../icons/Arrow/Right.vue'
 
 const props = defineProps({
   actions: {
