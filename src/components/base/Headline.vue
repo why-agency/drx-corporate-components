@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import BaseHtmlParser from './HtmlParser.vue'
 import { gsap } from 'gsap'
 import { useIntersectionObserver } from '../../composables/useIntersectionObserver'
@@ -58,23 +58,16 @@ const $_headlineColor = computed(() => ({
 }))
 
 const headline = ref(0)
-console.log(headline)
+console.log(gsap)
 
 const isVisible = useIntersectionObserver({ target: headline })
 
-if (isVisible.value) {
-  console.log('now')
-
-  const tl = gsap.timeline({})
-  tl.fromTo(
-    headline,
-    {
-      lineHeight: '1'
-    },
-    {
+watch(isVisible, isVisible => {
+  if (isVisible) {
+    gsap.to(headline.value, {
       lineHeight: '3',
       duration: 2
-    }
-  )
-}
+    })
+  }
+})
 </script>
