@@ -60,7 +60,7 @@ watch(isVisible, isVisible => {
       {
         lineHeight: endHeight,
         y: '0px',
-        duration: 2.5,
+        duration: 3,
         ease: Power2.easeOut
       }
     )
