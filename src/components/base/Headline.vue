@@ -3,7 +3,7 @@
     ref="headline"
     :is="headlineTag"
     class="font-primary"
-    :class="[$_headlineSize, $_headlineColor, $_headlineWeight]"
+    :class="[$_headlineSize, $_headlineColor]"
   >
     <slot>
       <BaseHtmlParser tag="span" :content="text" />
@@ -15,9 +15,7 @@
 import { ref, computed } from 'vue'
 import BaseHtmlParser from './HtmlParser.vue'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useIntersectionObserver } from '../../composables/useIntersectionObserver'
 
 const props = defineProps({
   text: {
@@ -59,28 +57,24 @@ const $_headlineColor = computed(() => ({
   'text-secondary': props.color === 'turqoise'
 }))
 
-const $_headlineWeight = computed(() => ({
-  'font-normal': props.weight === 'regular',
-  'font-bold': props.weight === 'bold'
-}))
+const headline = ref(0)
+console.log(headline)
 
-const headline = this.$refs.headline
+const isVisible = useIntersectionObserver({ target: headline })
 
-const tl = gsap.timeline({
-  scrollTrigger: {
-    trigger: headline,
-    start: 'bottom top',
-    markers: true
-  }
-})
-tl.fromTo(
-  headline,
-  {
-    lineHeight: '1'
-  },
-  {
-    lineHeight: '3',
-    duration: 2
-  }
-)
+if (isVisible.value) {
+  console.log('now')
+
+  const tl = gsap.timeline({})
+  tl.fromTo(
+    headline,
+    {
+      lineHeight: '1'
+    },
+    {
+      lineHeight: '3',
+      duration: 2
+    }
+  )
+}
 </script>
