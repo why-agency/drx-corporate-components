@@ -1,6 +1,6 @@
 <template>
   <component
-    id="headline"
+    ref="headline"
     :is="headlineTag"
     class="font-primary"
     :class="[$_headlineSize, $_headlineColor, $_headlineWeight]"
@@ -15,6 +15,9 @@
 import { ref, computed } from 'vue'
 import BaseHtmlParser from './HtmlParser.vue'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const props = defineProps({
   text: {
@@ -61,27 +64,23 @@ const $_headlineWeight = computed(() => ({
   'font-bold': props.weight === 'bold'
 }))
 
-const animateHeadline = () => {
-  gsap.fromTo(
-    '#headline',
-    {
-      lineHeight: '1'
-    },
-    {
-      lineHeight: '3',
-      duration: 2
-    }
-  )
-}
+const headline = this.$refs.headline
 
-const headline = document.querySelectorAll('#headline')
-console.log(headline)
-
-let observer = new IntersectionObserver(entries => {
-  console.log(entry)
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: headline,
+    start: 'bottom top',
+    markers: true
+  }
 })
-
-observer.observe(headline)
-
-animateHeadline()
+tl.fromTo(
+  headline,
+  {
+    lineHeight: '1'
+  },
+  {
+    lineHeight: '3',
+    duration: 2
+  }
+)
 </script>
