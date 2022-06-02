@@ -2,8 +2,8 @@
   <component
     ref="headline"
     :is="headlineTag"
-    class="font-primary"
-    :class="[$_headlineSize, $_headlineColor]"
+    class="font-primary min-h-safari"
+    :class="[$_headlineSize, $_headlineColor, fontWeight]"
   >
     <slot>
       <BaseHtmlParser tag="span" :content="text" />
@@ -14,8 +14,9 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 import BaseHtmlParser from './HtmlParser.vue'
-import { gsap } from 'gsap'
+import { gsap, Power2 } from 'gsap'
 import { useIntersectionObserver } from '../../composables/useIntersectionObserver'
+import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
 
 const props = defineProps({
   text: {
@@ -62,12 +63,67 @@ console.log(gsap)
 
 const isVisible = useIntersectionObserver({ target: headline })
 
+const startHeight = () => {
+  if (props.size === 1 || props.size === 3) {
+    return '130%'
+  } else if (props.size === 2 && !isSm) {
+    return '135%'
+  } else if (props.size === 2 && isSm) {
+    return '130%'
+  } else if (props.size === 4 && !isSm) {
+    return '140%'
+  } else if (props.size === 4 && isSm) {
+    return '120%'
+  } else if (props.size === 5 && props.fontWeight !== 'font-bold' && !isSm) {
+    return '165%'
+  } else if (props.size === 5 && props.fontWeight === 'font-bold' && !isSm) {
+    return '130%'
+  } else if (props.size === 5 && isSm) {
+    return '120%'
+  }
+}
+
+const endHeight = () => {
+  if (props.size === 1 || props.size === 3) {
+    return '110%'
+  } else if (props.size === 2 && !isSm) {
+    return '115%'
+  } else if (props.size === 2 && isSm) {
+    return '110%'
+  } else if (props.size === 4 && !isSm) {
+    return '120%'
+  } else if (props.size === 4 && isSm) {
+    return '100%'
+  } else if (props.size === 5 && props.fontWeight !== 'font-bold' && !isSm) {
+    return '145%'
+  } else if (props.size === 5 && props.fontWeight === 'font-bold' && !isSm) {
+    return '110%'
+  } else if (props.size === 5 && isSm) {
+    return '100%'
+  }
+}
+
+gsap.set(headline.value, { lineHeight: startHeight, y: '15px' })
+
 watch(isVisible, isVisible => {
   if (isVisible) {
-    gsap.to(headline.value, {
-      lineHeight: '3',
-      duration: 2
-    })
+    gsap.fromTo(
+      headline.value,
+      {
+        lineHeight: startHeight,
+        y: '15px'
+      },
+      {
+        lineHeight: endHeight,
+        y: '0px',
+        duration: 1,
+        ease: Power2.easeOut
+      }
+    )
   }
 })
+
+/** breakpoints */
+const breakpoints = useBreakpoints(breakpointsTailwind)
+const isSm = breakpoints.greater('sm')
 </script>
