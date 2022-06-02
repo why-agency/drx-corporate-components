@@ -2,7 +2,7 @@
   <component
     ref="headline"
     :is="headlineTag"
-    class="font-primary min-h-safari"
+    class="font-primary"
     :class="[$_headlineSize, $_headlineColor, fontWeight]"
   >
     <slot>
@@ -59,7 +59,6 @@ const $_headlineColor = computed(() => ({
 }))
 
 const headline = ref(0)
-console.log(gsap)
 
 const isVisible = useIntersectionObserver({ target: headline })
 
