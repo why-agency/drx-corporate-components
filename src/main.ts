@@ -8,16 +8,16 @@ import multiMediaText from './pages/multimedia-text.vue'
 const app = createApp(App)
 
 const routes = [
-    { path: '/', component: index},
-    { path: '/fullscreen-media-text', component: fullscreenMediaText },
-    { path: '/multimedia-text', component: multiMediaText}
-  ]
+  { path: '/', component: index },
+  { path: '/fullscreen-media-text', component: fullscreenMediaText },
+  { path: '/multimedia-text', component: multiMediaText }
+]
 
 const router = VueRouter.createRouter({
-    // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
-    history: VueRouter.createWebHashHistory(),
-    routes, // short for `routes: routes`
-  })
+  // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
+  history: VueRouter.createWebHashHistory(),
+  routes // short for `routes: routes`
+})
 
-  app.use(router)
-  app.mount('#app')
+app.use(router)
+app.mount('#app')
