@@ -7,7 +7,7 @@ const letterSpacingCalc = (maxLetterSpacing, maxPageWidth) => {
 }
 
 const lineHeightCalc = (maxLineHeight, maxPageWidth) => {
-  return `${(maxLineHeight / 100 / maxPageWidth) * 100}vw`
+  return `${maxLineHeight / maxPageWidth}vw`
 }
 
 const breakpoints = {
