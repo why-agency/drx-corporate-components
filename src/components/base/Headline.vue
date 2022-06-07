@@ -1,8 +1,9 @@
 <template>
   <component
+    ref="headline"
     :is="headlineTag"
-    class="font-primary min-h-safari"
-    :class="[$_headlineStyle, $_headlineColor, fontWeight]"
+    class="font-primary"
+    :class="[$_headlineSize, $_headlineColor, fontWeight]"
   >
     <slot>
       <BaseHtmlParser tag="span" :content="text" />
@@ -11,8 +12,11 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import BaseHtmlParser from './HtmlParser.vue'
+import { gsap, Power2 } from 'gsap'
+import { useIntersectionObserver } from '../../composables/useIntersectionObserver'
+import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
 
 const props = defineProps({
   text: {
@@ -23,7 +27,7 @@ const props = defineProps({
     type: String,
     default: 'div'
   },
-  layout: {
+  size: {
     type: Number,
     default: 1
   },
@@ -37,15 +41,15 @@ const props = defineProps({
   }
 })
 
-const headlineTag = computed(() => props.tag || `h${props.layout}`)
+const headlineTag = computed(() => props.tag || `h${props.size}`)
 
-const $_headlineStyle = computed(() => ({
-  'text-h1': props.layout === 1,
-  'text-h2': props.layout === 2,
-  'text-h3': props.layout === 3,
-  'text-h4': props.layout === 4,
-  'text-h5': props.layout === 5,
-  'text-h6': props.layout === 6
+const $_headlineSize = computed(() => ({
+  'text-h1': props.size === 1,
+  'text-h2': props.size === 2,
+  'text-h3': props.size === 3,
+  'text-h4': props.size === 4,
+  'text-h5': props.size === 5,
+  'text-h6': props.size === 6
 }))
 
 const $_headlineColor = computed(() => ({
@@ -53,4 +57,26 @@ const $_headlineColor = computed(() => ({
   'text-sand': props.color === 'light',
   'text-secondary': props.color === 'turqoise'
 }))
+
+const headline = ref(0)
+
+const isVisible = useIntersectionObserver({ target: headline })
+
+watch(isVisible, isVisible => {
+  if (isVisible) {
+    gsap.fromTo(
+      headline.value,
+      {
+        y: '15px',
+        opacity: 0
+      },
+      {
+        y: '0px',
+        opacity: 1,
+        duration: 1.5,
+        ease: Power2.easeOut
+      }
+    )
+  }
+})
 </script>

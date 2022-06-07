@@ -19,7 +19,7 @@ export default {
     return {
       mediaImage: {
         content: {
-          header: { text: 'Headline', layout: 3 },
+          header: { text: 'Headline', size: 3 },
           bodytext:
             '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed adipiscing diam donec adipiscing tristique. Arcu ac tortor dignissim convallis aenean et tortor. Vitae auctor eu augue ut lectus. Non pulvinar neque laoreet suspendisse interdum consectetur libero id. Pharetra sit amet aliquam id diam maecenas ultricies. Non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus. Integer eget aliquet nibh praesent tristique magna sit. Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. Ultrices in iaculis nunc sed augue. Est ultricies integer quis auctor.<\/p>',
           media: [
@@ -122,7 +122,7 @@ export default {
       },
       mediaVideo: {
         content: {
-          header: { text: 'I am a VIDEO', layout: 3 },
+          header: { text: 'I am a VIDEO', size: 3 },
           bodytext: '\r\n<p>text about video!!!!<\/p>',
           media: [
             [

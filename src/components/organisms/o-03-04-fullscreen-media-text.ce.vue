@@ -49,7 +49,7 @@ const headline = computed(() => ({
 
 const bodytext = computed(() => ({
   text: props.data?.content?.bodytext,
-  layout: 2
+  size: 2
 }))
 
 const action = computed(

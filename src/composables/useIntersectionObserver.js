@@ -1,5 +1,5 @@
 import { useIntersectionObserver as _useIntersectionObserver } from '@vueuse/core'
-import { ref } from '@nuxtjs/composition-api'
+import { ref } from 'vue'
 
 export const useIntersectionObserver = ({
   target,
