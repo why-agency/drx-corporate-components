@@ -1,10 +1,13 @@
 <template>
   <section>
-    <div :class="backgroundLeft" class="w-[654px] h-[936] left-0 top-0 bg-opacity-10">
+    <div
+      :class="backgroundLeft"
+      class="w-5/12 h-screen left-0 top-0 bg-opacity-10"
+    >
       <BaseHeadline
         v-if="headline && headline.text"
         v-bind="headline"
-        class="mb-6 lg:mb-8 "
+        class="max-w-[512px] pt-[150px] pl-20"
       />
     </div>
   </section>
@@ -20,12 +23,17 @@ const props = defineProps({
   }
 })
 
-const backgroundLeft = computed(() => ({
-    color: props?.data?.content?.background === "yes" ? "bg-sand" : "bg-none"
-}))
+const backgroundLeft = computed(
+  () =>
+    props?.data?.content?.box_background === 'yes' ? 'bg-sand' : 'bg-none'
+)
 
 const headline = computed(() => ({
   ...props.data?.content?.header,
-  color: props?.data?.content?.background_color === 'dark' || props?.data?.content?.background_color === 'gradient' ? 'sand' : "primary"
+  color:
+    props?.data?.content?.background === 'dark' ||
+    props?.data?.content?.background === 'gradient'
+      ? 'light'
+      : 'dark'
 }))
 </script>

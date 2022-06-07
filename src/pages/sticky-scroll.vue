@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="frame-space-before-large frame-space-after-large bg-primary">
+    <div class="bg-primary">
       <o-03-11-sticky-scroll :data="sticky1" />
     </div>
   </section>
@@ -19,12 +19,12 @@ export default {
     return {
       sticky1: {
         content: {
-          background: 'yes',
-          background_color: 0,
+          box_background: 'yes',
+          background: 'dark',
           header: {
-            text: 'Leidenschaft f\u00fcr Premiumprodukte',
+            text: 'Starke Gr\u00fcnde warum wir matchen.',
             size: 2,
-            color: '',
+            color: 'sand',
             tag: 'h1',
             fontWeight: 'font-normal'
           },
