@@ -10,7 +10,7 @@
       <div
         ref="label"
         :class="[$_textColor]"
-        class="w-pull px-4 pt-3 flex justify-between bg-[length:200%_100%] bg-[position:100%] relative bg-clip-text text-transparent overflow-hidden"
+        class="w-pull !px-4 !pt-3 !leading-6 flex justify-between bg-[length:200%_100%] bg-[position:100%] relative bg-clip-text text-transparent overflow-hidden"
       >
         <slot />
         <div
