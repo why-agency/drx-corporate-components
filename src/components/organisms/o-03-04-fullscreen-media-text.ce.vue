@@ -16,7 +16,7 @@
           v-bind="headline"
           class="mb-6 lg:mb-8"
         />
-        <MActionBar v-if="actions" :actions="actions" position="left" />
+        <MActionBar v-if="action" :actions="[action]" position="left" />
       </div>
       <BaseText
         v-if="bodytext.text"
@@ -51,7 +51,7 @@ const bodytext = computed(() => ({
   size: 2
 }))
 
-const actions = ref(props.data?.content?.actions)
+const action = ref(props.data?.content?.actions)
 
 const media = ref(props.data?.content?.media)
 </script>

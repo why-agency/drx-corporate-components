@@ -112,22 +112,20 @@ export default {
               }
             ]
           ],
-          actions: [
-            {
-              id: 124,
-              content: {
-                text: 'Click me',
-                link: {
-                  type: 'page',
-                  url: 'http:\/\/draexlmaier.loc\/produkte',
-                  target: ' target="_top"',
-                  title: '',
-                  class: '',
-                  link: 'Produkte'
-                }
+          actions: {
+            id: 124,
+            content: {
+              text: 'Click me',
+              link: {
+                type: 'page',
+                url: 'http:\/\/draexlmaier.loc\/produkte',
+                target: ' target="_top"',
+                title: '',
+                class: '',
+                link: 'Produkte'
               }
             }
-          ]
+          }
         }
       },
       mediaVideo: {
@@ -154,22 +152,20 @@ export default {
               }
             ]
           ],
-          actions: [
-            {
-              id: 124,
-              content: {
-                text: 'Click me',
-                link: {
-                  type: 'page',
-                  url: 'http:\/\/draexlmaier.loc\/produkte',
-                  target: ' target="_top"',
-                  title: '',
-                  class: '',
-                  link: 'Produkte'
-                }
+          actions: {
+            id: 124,
+            content: {
+              text: 'Click me',
+              link: {
+                type: 'page',
+                url: 'http:\/\/draexlmaier.loc\/produkte',
+                target: ' target="_top"',
+                title: '',
+                class: '',
+                link: 'Produkte'
               }
             }
-          ]
+          }
         }
       }
     }
