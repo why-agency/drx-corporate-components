@@ -31,36 +31,18 @@ const body = ref(0)
 
 const isVisible = useIntersectionObserver({ target: body })
 
-const startHeight = () => {
-  if (props.size === 1 || props.size === 3) {
-    return '165%'
-  } else if (props.size === 2) {
-    return '175%'
-  }
-}
-
-const endHeight = () => {
-  if (props.size === 1 || props.size === 3) {
-    return '160%'
-  } else if (props.size === 2) {
-    return '170%'
-  }
-}
-
-gsap.set(body.value, { lineHeight: startHeight, y: '15px' })
-
 watch(isVisible, isVisible => {
   if (isVisible) {
     gsap.fromTo(
       body.value,
       {
-        lineHeight: startHeight,
-        y: '15px'
+        y: '15px',
+        opacity: 0
       },
       {
-        lineHeight: endHeight,
         y: '0px',
-        duration: 1,
+        opacity: 1,
+        duration: 1.5,
         ease: Power2.easeOut
       }
     )

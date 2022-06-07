@@ -62,67 +62,21 @@ const headline = ref(0)
 
 const isVisible = useIntersectionObserver({ target: headline })
 
-const startHeight = () => {
-  if (props.size === 1 || props.size === 3) {
-    return '130%'
-  } else if (props.size === 2 && !isSm) {
-    return '135%'
-  } else if (props.size === 2 && isSm) {
-    return '130%'
-  } else if (props.size === 4 && !isSm) {
-    return '140%'
-  } else if (props.size === 4 && isSm) {
-    return '120%'
-  } else if (props.size === 5 && props.fontWeight !== 'font-bold' && !isSm) {
-    return '165%'
-  } else if (props.size === 5 && props.fontWeight === 'font-bold' && !isSm) {
-    return '130%'
-  } else if (props.size === 5 && isSm) {
-    return '120%'
-  }
-}
-
-const endHeight = () => {
-  if (props.size === 1 || props.size === 3) {
-    return '110%'
-  } else if (props.size === 2 && !isSm) {
-    return '115%'
-  } else if (props.size === 2 && isSm) {
-    return '110%'
-  } else if (props.size === 4 && !isSm) {
-    return '120%'
-  } else if (props.size === 4 && isSm) {
-    return '100%'
-  } else if (props.size === 5 && props.fontWeight !== 'font-bold' && !isSm) {
-    return '145%'
-  } else if (props.size === 5 && props.fontWeight === 'font-bold' && !isSm) {
-    return '110%'
-  } else if (props.size === 5 && isSm) {
-    return '100%'
-  }
-}
-
-gsap.set(headline.value, { lineHeight: startHeight, y: '15px' })
-
 watch(isVisible, isVisible => {
   if (isVisible) {
     gsap.fromTo(
       headline.value,
       {
-        lineHeight: startHeight,
-        y: '15px'
+        y: '15px',
+        opacity: 0
       },
       {
-        lineHeight: endHeight,
         y: '0px',
-        duration: 1,
+        opacity: 1,
+        duration: 1.5,
         ease: Power2.easeOut
       }
     )
   }
 })
-
-/** breakpoints */
-const breakpoints = useBreakpoints(breakpointsTailwind)
-const isSm = breakpoints.greater('sm')
 </script>
