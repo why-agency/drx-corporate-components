@@ -29,7 +29,6 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { useAction } from '../../composables/useAction'
 import BaseMedia from '../base/Media.vue'
 import BaseHeadline from '../base/Headline.vue'
 import BaseText from '../base/Text.vue'
@@ -52,11 +51,7 @@ const bodytext = computed(() => ({
   size: 2
 }))
 
-const action = computed(
-  () =>
-    props?.data?.content?.actions?.buttonlink &&
-    useAction(props?.data?.content?.actions)
-)
+const action = ref(props.data?.content?.actions)
 
 const media = ref(props.data?.content?.media)
 </script>
