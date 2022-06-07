@@ -1,5 +1,5 @@
 <template>
-  <div :class="$_textSize" ref="body">
+  <div ref="body" :class="size">
     <BaseHtmlParser tag="div" :content="text" />
   </div>
 </template>
@@ -17,15 +17,9 @@ const props = defineProps({
   },
   size: {
     type: Number,
-    default: 1
+    default: 'text-body1'
   }
 })
-
-const $_textSize = computed(() => ({
-  'text-body1-mobile lg:text-body1': props.size === 1,
-  'text-body2-mobile lg:text-body2': props.size === 2,
-  'text-body3-mobile lg:text-body3': props.size === 3
-}))
 
 const body = ref(0)
 
