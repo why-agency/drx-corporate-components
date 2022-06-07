@@ -147,6 +147,13 @@ module.exports = {
           letterSpacing: '0.15px'
         }
       ],
+      overline: [
+        '0.75rem',
+        {
+          lineHeight: '160%',
+          letterSpacing: '0.01em'
+        }
+      ],
       deco1: [
         `clamp(5rem, ${fontCalc(8.25, 1920)}, 8.25rem)`,
         {
@@ -194,5 +201,5 @@ module.exports = {
       }
     }
   },
-  plugins: [require('@tailwindcss/forms')]
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/line-clamp')]
 }
