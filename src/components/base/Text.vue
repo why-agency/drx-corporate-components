@@ -1,5 +1,5 @@
 <template>
-  <div ref="body" :class="text">
+  <div ref="body" :class="size">
     <BaseHtmlParser tag="div" :content="text" />
   </div>
 </template>
@@ -17,7 +17,7 @@ const props = defineProps({
   },
   size: {
     type: Number,
-    default: 1
+    default: 'text-body1'
   }
 })
 
