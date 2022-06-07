@@ -13,12 +13,8 @@
       :size="action.content.size"
     >
       <BaseHtmlParser :content="action.content.text" tag="span" />
-      <template v-if="action.content.icon" #icon>
-        <component
-          :is="`Icon${action.content.icon.name}`"
-          :width="action.content.size === 'large' ? 18 : 14"
-          :height="action.content.size === 'large' ? 18 : 14"
-        />
+      <template #icon>
+        <IconArrowRight />
       </template>
     </BaseAction>
   </div>
@@ -28,6 +24,7 @@
 import { computed } from 'vue'
 import BaseAction from '../base/Action.vue'
 import BaseHtmlParser from '../base/HtmlParser.vue'
+import IconArrowRight from '../icons/Arrow/Right.vue'
 
 const props = defineProps({
   actions: {

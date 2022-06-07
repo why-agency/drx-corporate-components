@@ -2,7 +2,10 @@
   <section class="grid gap-y-10 xl:gap-y-24" :class="{ dark: isDark }">
     <div
       class="grid gap-y-10 xl:grid-flow-col xl:gap-y-0 xl:gap-x-20 xl:justify-between dark:text-sand"
-      :class="{ 'order-last': isTextBelow, 'frame-default': hasFrameFull }"
+      :class="{
+        'order-last': isTextBelow,
+        'frame-content-default': hasFrameFull
+      }"
     >
       <BaseHeadline v-if="headline && headline.text" v-bind="headline" />
       <BaseText
@@ -29,7 +32,7 @@
         v-if="subline && subline.text"
         class="uppercase mt-6 xl:mt-0 xl:w-full xl:absolute xl:bottom-8 z-20"
         :class="{
-          'frame-default xl:left-1/2 xl:-translate-x-1/2': hasFrameFull,
+          'frame-content-default xl:left-1/2 xl:-translate-x-1/2': hasFrameFull,
           'xl:ml-8': !hasFrameFull
         }"
       >

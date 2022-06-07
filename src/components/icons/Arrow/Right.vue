@@ -6,16 +6,18 @@
     viewBox="0 0 24 24"
     aria-labelledby="name"
   >
-    <title id="Play" lang="en">IconPlay</title>
+    <title id="IconArrowRight" lang="en">IconArrowRight</title>
     <g fill="currentColor">
-      <path d="M8 19L19 12L8 5V19Z" />
+      <path
+        d="M17.5 18.5L24 12L17.5 5.5L16.793 6.207L22.086 11.5L0 11.5V12.5L22.086 12.5L16.793 17.793L17.5 18.5Z"
+      />
     </g>
   </svg>
 </template>
 
 <script>
 export default {
-  name: 'Play',
+  name: 'IconArrowRight',
   props: {
     width: {
       type: [Number, String],

@@ -1,44 +1,47 @@
 <template>
-  <UseDynamicAction
-    :to="to"
-    class="inline-flex items-center cursor-pointer disabled:opacity-30 disabled:pointer-events-none focus:outline-none transition duration-500 text-button font-secondary font-medium uppercase w-max"
-    :class="[...classes, $_color, $_size, $_border, $_focus]"
-  >
+  <UseDynamicAction :to="to">
     <div
-      class="inline-flex gap-1 items-center"
+      ref="wrapper"
+      class="min-h-[48px] relative group overflow-hidden cursor-pointer disabled:opacity-30 disabled:pointer-events-none focus:outline-none focus-visible:ring focus-visible:ring-focus bg-[length:200%_100%] bg-[position:100%]"
+      :class="[$_color, $_size]"
       @mouseenter="onMouseEnter"
       @mouseleave="onMouseLeave"
     >
-      <!-- @slot Insert an icon in front of the label -->
-      <slot name="iconPrefix" />
-      <!-- @slot Default slot to label the link -->
-      <slot />
-      <!-- @slot Insert an icon after the label -->
-      <slot name="iconSuffix" />
+      <div
+        ref="label"
+        :class="[$_textColor]"
+        class="w-pull !px-4 !pt-3 !leading-6 flex justify-between bg-[length:200%_100%] bg-[position:100%] relative bg-clip-text text-transparent overflow-hidden"
+      >
+        <slot />
+        <div
+          v-if="$slots.icon"
+          ref="icon"
+          :class="[
+            $_iconColor,
+            this.variant === 'large' ? 'mt-12 lg:mt-16' : ''
+          ]"
+        >
+          <slot name="icon" />
+        </div>
+      </div>
     </div>
   </UseDynamicAction>
 </template>
 
 <script>
+import { gsap, Power2 } from 'gsap'
+import UseDynamicAction from '../organisms/UseDynamicAction.vue'
+
 const Color = {
-  primary: 'primary',
   secondary: 'secondary',
-  white: 'white',
-  gray: 'gray'
+  white: 'white'
 }
 
 const Variant = {
-  filled: 'filled',
-  outline: 'outline',
-  text: 'text'
-}
-
-const Size = {
   default: 'default',
   large: 'large'
 }
 
-import UseDynamicAction from '../organisms/UseDynamicAction.vue'
 export default {
   components: { UseDynamicAction },
   props: {
@@ -48,79 +51,126 @@ export default {
     },
     color: {
       type: String,
-      default: Color.primary
+      default: Color.secondary
     },
     variant: {
       type: String,
-      default: Variant.filled
-    },
-    size: {
-      type: String,
-      default: Size.default
-    }
-  },
-  data() {
-    return {
-      classes: []
+      default: Variant.default
     }
   },
   computed: {
     $_color() {
       return {
-        // Filled
-        'bg-primary text-primary-inverse hover:bg-primary-hover active:bg-primary-inverse active:ring-1 active:ring-primary active:text-primary active:ring-inset':
-          this.color === 'primary' && this.variant === 'filled',
-        'bg-secondary text-secondary-inverse hover:bg-secondary-hover hover:text-black active:bg-secondary-inverse active:ring-1 active:ring-secondary active:text-secondary active:ring-inset':
-          this.color === 'secondary' && this.variant === 'filled',
-
-        // Outline
-        'border-primary text-primary hover:bg-primary/20 active:bg-primary active:text-primary-inverse':
-          this.color === 'primary' && this.variant === 'outline',
-        'border-white text-white hover:bg-white/20 active:bg-white active:text-black':
-          this.color === 'secondary' && this.variant === 'outline',
-
-        // Text
-        'text-primary hover:text-primary-hover active:text-tertiary':
-          this.color === 'primary' && this.variant === 'text',
-        'text-secondary hover:text-secondary-hover active:text-tertiary':
-          this.color === 'secondary' && this.variant === 'text',
-        'text-tertiary hover:text-tertiary-hover active:text-primary':
-          this.color === 'tertiary' && this.variant === 'text',
-        'text-white hover:text-tertiary active:text-primary':
-          this.color === 'white' && this.variant === 'text'
+        'bg-button-background':
+          this.color === 'secondary' && this.variant === 'default',
+        'bg-button-background-reverse':
+          this.color === 'white' && this.variant === 'default',
+        'bg-button-background-large':
+          this.color === 'secondary' && this.variant === 'large',
+        'bg-button-background-large-reverse':
+          this.color === 'white' && this.variant === 'large'
+      }
+    },
+    $_textColor() {
+      return {
+        'bg-button-text':
+          this.color === 'secondary' && this.variant === 'default',
+        'bg-button-text-large':
+          this.color === 'secondary' && this.variant === 'large',
+        'bg-button-text-reverse':
+          this.color === 'white' && this.variant === 'default',
+        'bg-button-text-large-reverse':
+          this.color === 'white' && this.variant === 'large'
+      }
+    },
+    $_iconColor() {
+      return {
+        'text-secondary': this.color === 'white' && this.variant === 'default',
+        'text-primary': this.color === 'white' && this.variant === 'large',
+        'text-white':
+          (this.color === 'secondary' && this.variant === 'default') ||
+          (this.color === 'secondary' && this.variant === 'large')
       }
     },
     $_size() {
       return {
-        'h-10 px-5': this.variant !== 'text' && this.size === 'default',
-        'h-12 lg:h-14 px-5': this.variant !== 'text' && this.size === 'large',
-        'h-8': this.variant === 'text'
-      }
-    },
-    $_border() {
-      return {
-        border: this.variant === 'outline',
-        'border-b-2 border-opacity-0': this.variant === 'text'
-      }
-    },
-    $_focus() {
-      return {
-        'focus-visible:ring-2 focus-visible:ring-focus':
-          this.variant !== 'text',
-        'focus-visible:border-opacity-100 focus-visible:border-focus':
-          this.variant === 'text'
+        'min-h-[48px] w-56': this.variant === 'default',
+        'w-[328px] h-[88px] lg:w-[232px] lg:h-[112px]': this.variant === 'large'
       }
     }
   },
   methods: {
     onMouseEnter() {
-      this.classes = ['ease-in']
+      // changes the color of the icon
+      if (this.$refs.icon) {
+        if (this.variant === 'large' && this.color === 'secondary') {
+          gsap.to(this.$refs.icon, {
+            delay: 0.1,
+            duration: 0.5,
+            color: '#1E2728'
+          })
+        } else if (this.variant === 'default' && this.color === 'secondary') {
+          gsap.to(this.$refs.icon, {
+            delay: 0.1,
+            duration: 0.5,
+            color: '#0096A9'
+          })
+        } else {
+          gsap.to(this.$refs.icon, {
+            delay: 0.1,
+            duration: 0.5,
+            color: 'white'
+          })
+        }
+      }
+      // changes the color of the text
+      gsap.fromTo(
+        [this.$refs.label, this.$refs.wrapper],
+        {
+          backgroundPosition: '100%'
+        },
+        {
+          backgroundPosition: '0',
+          duration: 0.4,
+          ease: Power2.easeOut
+        }
+      )
     },
     onMouseLeave() {
-      this.classes = ['ease-out']
-      setTimeout(() => {
-        this.classes = []
-      }, 500)
+      // changes the color of the icon
+      if (this.$refs.icon) {
+        if (this.variant === 'large' && this.color === 'white') {
+          gsap.to(this.$refs.icon, {
+            delay: 0.1,
+            duration: 0.5,
+            color: '#1E2728'
+          })
+        } else if (this.variant === 'default' && this.color === 'white') {
+          gsap.to(this.$refs.icon, {
+            delay: 0.1,
+            duration: 0.5,
+            color: '#0096A9'
+          })
+        } else {
+          gsap.to(this.$refs.icon, {
+            delay: 0.1,
+            duration: 0.5,
+            color: 'white'
+          })
+        }
+      }
+      // changes the color of the text
+      gsap.fromTo(
+        [this.$refs.label, this.$refs.wrapper],
+        {
+          backgroundPosition: '0'
+        },
+        {
+          backgroundPosition: '-100%',
+          duration: 0.4,
+          ease: Power2.easeOut
+        }
+      )
     }
   }
 }

@@ -7,7 +7,7 @@ const letterSpacingCalc = (maxLetterSpacing, maxPageWidth) => {
 }
 
 const lineHeightCalc = (maxLineHeight, maxPageWidth) => {
-  return `${(maxLineHeight / 100 / maxPageWidth) * 100}vw`
+  return `${maxLineHeight / maxPageWidth}vw`
 }
 
 const breakpoints = {
@@ -97,30 +97,30 @@ module.exports = {
       h4: [
         `clamp(1.5rem,${fontCalc(2, 1536)}, 2rem)`,
         {
-          lineHeight: `clamp(100%, ${lineHeightCalc(120, 1920)}, 120%)`,
+          lineHeight: `clamp(100%, ${lineHeightCalc(120, 1536)}, 120%)`,
           letterSpacing: `clamp(0.24px, ${letterSpacingCalc(
             0.32,
-            1440
+            1536
           )}, 0.32px)`
         }
       ],
       h5: [
         `clamp(1.25rem, ${fontCalc(1.875, 1536)}, 1.5rem)`,
         {
-          lineHeight: `clamp(100%, ${lineHeightCalc(110, 1920)}, 110%)`,
+          lineHeight: `clamp(100%, ${lineHeightCalc(110, 1536)}, 110%)`,
           letterSpacing: `clamp(0.2px, ${letterSpacingCalc(
             0.24,
-            1440
+            1536
           )}, 0.24px)`
         }
       ],
       'h5-regular': [
         `clamp(1.25rem, ${fontCalc(1.875, 1536)}, 1.5rem)`,
         {
-          lineHeight: `clamp(100%, ${lineHeightCalc(145, 1920)}, 145%)`,
+          lineHeight: `clamp(100%, ${lineHeightCalc(145, 1536)}, 145%)`,
           letterSpacing: `clamp(0.2px, ${letterSpacingCalc(
             0.24,
-            1440
+            1536
           )}, 0.24px)`
         }
       ],
@@ -134,10 +134,7 @@ module.exports = {
         `clamp(1rem, ${fontCalc(1.0625, 1920)}, 1.0625rem)`,
         {
           lineHeight: '170%',
-          letterSpacing: `clamp(0.16px, ${letterSpacingCalc(
-            0.17,
-            1920
-          )}, 0.17px)`
+          letterSpacing: `0.16px`
         }
       ],
       body3: [
@@ -145,6 +142,13 @@ module.exports = {
         {
           lineHeight: '160%',
           letterSpacing: '0.15px'
+        }
+      ],
+      overline: [
+        '0.75rem',
+        {
+          lineHeight: '160%',
+          letterSpacing: '0.01em'
         }
       ],
       deco1: [
@@ -175,9 +179,24 @@ module.exports = {
     extend: {
       backgroundImage: {
         gradient:
-          'radial-gradient(84.32% 158.99% at 136.54% 106.02%, rgba(47, 190, 219, 0.3) 0%, rgba(30, 39, 40, 0.3) 100%)'
+          'radial-gradient(84.32% 158.99% at 136.54% 106.02%, rgba(47, 190, 219, 0.3) 0%, rgba(30, 39, 40, 0.3) 100%)',
+        'button-text': 'linear-gradient(to right, #0096A9 50% , #fff 50%)',
+        'button-text-large':
+          'linear-gradient(to right, #1E2728 50% , #fff 50%)',
+        'button-text-reverse':
+          'linear-gradient(to right, #fff 50% , #0096A9 50%)',
+        'button-text-large-reverse':
+          'linear-gradient(to right, #fff 50% , #1E2728 50%)',
+        'button-background':
+          'linear-gradient(to right, #fff 50% , #0096A9 50%)',
+        'button-background-reverse':
+          'linear-gradient(to right, #0096A9 50% , #fff 50%)',
+        'button-background-large':
+          'linear-gradient(to right, #F2F1EF 50% , #0096A9 50%)',
+        'button-background-large-reverse':
+          'linear-gradient(to right, #0096A9 50% , #F2F1EF 50%)'
       }
     }
   },
-  plugins: []
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/line-clamp')]
 }
