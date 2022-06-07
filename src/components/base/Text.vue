@@ -1,5 +1,5 @@
 <template>
-  <div :class="$_textSize" ref="body">
+  <div class="transform translate-y-4 opacity-0" :class="$_textSize" ref="body">
     <BaseHtmlParser tag="div" :content="text" />
   </div>
 </template>
@@ -33,19 +33,12 @@ const isVisible = useIntersectionObserver({ target: body })
 
 watch(isVisible, isVisible => {
   if (isVisible) {
-    gsap.fromTo(
-      body.value,
-      {
-        y: '15px',
-        opacity: 0
-      },
-      {
-        y: '0px',
-        opacity: 1,
-        duration: 1.5,
-        ease: Power2.easeOut
-      }
-    )
+    gsap.to(body.value, {
+      y: 0,
+      opacity: 1,
+      duration: 1.5,
+      ease: Power2.easeOut
+    })
   }
 })
 </script>

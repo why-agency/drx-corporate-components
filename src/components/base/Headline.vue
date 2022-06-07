@@ -2,7 +2,7 @@
   <component
     ref="headline"
     :is="headlineTag"
-    class="font-primary"
+    class="font-primary transform translate-y-4 opacity-0"
     :class="[$_headlineSize, $_headlineColor, fontWeight]"
   >
     <slot>
@@ -64,19 +64,12 @@ const isVisible = useIntersectionObserver({ target: headline })
 
 watch(isVisible, isVisible => {
   if (isVisible) {
-    gsap.fromTo(
-      headline.value,
-      {
-        y: '15px',
-        opacity: 0
-      },
-      {
-        y: '0px',
-        opacity: 1,
-        duration: 1.5,
-        ease: Power2.easeOut
-      }
-    )
+    gsap.to(headline.value, {
+      y: 0,
+      opacity: 1,
+      duration: 1.5,
+      ease: Power2.easeOut
+    })
   }
 })
 </script>
