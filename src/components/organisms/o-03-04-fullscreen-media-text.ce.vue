@@ -8,7 +8,7 @@
       class="!absolute"
     />
     <div
-      class="frame-default grid lg:grid-cols-2 lg:grid-rows-1 h-full content-end relative z-30 text-white pb-10 lg:pb-20"
+      class="frame-content-default grid lg:grid-cols-2 lg:grid-rows-1 h-full content-end relative z-30 text-white pb-10 lg:pb-20"
     >
       <div class="lg:self-center">
         <BaseHeadline
