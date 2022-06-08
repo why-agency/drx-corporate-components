@@ -3,7 +3,12 @@
     ref="headline"
     :is="headlineTag"
     class="font-primary transform translate-y-4 opacity-0"
-    :class="[$_headlineSize, $_headlineColor, fontWeight]"
+    :class="[
+      $_headlineSize,
+      $_headlineColor,
+      fontWeight,
+      size === 5 && fontWeight === 'font-bold' ? 'uppercase' : ''
+    ]"
   >
     <slot>
       <BaseHtmlParser tag="span" :content="text" />
