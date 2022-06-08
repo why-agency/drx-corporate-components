@@ -48,7 +48,7 @@ const headline = computed(() => ({
 
 const bodytext = computed(() => ({
   text: props.data?.content?.bodytext,
-  size: 2
+  size: 'text-body2'
 }))
 
 const action = ref(props.data?.content?.actions)
