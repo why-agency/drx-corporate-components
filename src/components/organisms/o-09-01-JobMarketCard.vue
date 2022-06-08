@@ -17,25 +17,31 @@
       {{ location.country }}
     </div>
 
-    <div class="flex lg:order-last items-center text-overline lg:text-body3 justify-end lg:justify-start">
+    <div
+      class="flex lg:order-last items-center text-overline lg:text-body3 justify-end lg:justify-start"
+    >
       <IconUser class="w-4 h-4 mr-2" />
       {{ degree }}
     </div>
 
     <!-- START title -->
-    <div class="col-span-2 lg:col-span-4 text-body2 font-bold line-clamp-3 lg:line-clamp-2 lg:order-first">
+    <div
+      class="col-span-2 lg:col-span-4 text-body2 font-bold line-clamp-3 lg:line-clamp-2 lg:order-first"
+    >
       <span
         v-if="isNew"
         class="text-white bg-secondary px-1 py-[2px] text-[12px] mr-1"
       >
-        NEU
+        <span>NEU</span>
       </span>
       {{ title }}
     </div>
     <!-- END title -->
 
     <!-- START footer -->
-    <div class="col-span-2 lg:col-span-1 flex justify-between lg:justify-start lg:items-center text-body3">
+    <div
+      class="col-span-2 lg:col-span-1 flex justify-between lg:justify-start lg:items-center text-body3"
+    >
       {{ category }}
       <IconArrowRight class="lg:hidden" />
     </div>
