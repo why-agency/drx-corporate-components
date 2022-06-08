@@ -49,6 +49,7 @@ const $_headlineSize = computed(() => ({
   'text-h3': props.size === 3,
   'text-h4': props.size === 4,
   'text-h5': props.size === 5,
+  uppercase: props.size === 5 && props.fontWeight === 'font-bold',
   'text-h6': props.size === 6
 }))
 

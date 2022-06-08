@@ -1,5 +1,5 @@
 <template>
-  <div class="transform translate-y-4 opacity-0" :class="size" ref="body">
+  <div ref="body" class="transform translate-y-4 opacity-0" :class="$_size">
     <BaseHtmlParser tag="div" :content="text" />
   </div>
 </template>
@@ -16,10 +16,16 @@ const props = defineProps({
     default: ''
   },
   size: {
-    type: Number,
+    type: String,
     default: 'text-body1'
   }
 })
+
+const $_size = computed(() => ({
+  'text-body1': props.size === 'text-body1',
+  'text-body2': props.size === 'text-body2',
+  'text-body3': props.size === 'text-body3'
+}))
 
 const body = ref(0)
 

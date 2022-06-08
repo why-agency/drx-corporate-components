@@ -295,7 +295,7 @@ export default {
             'My job is super flexible and allows me to branch into many different innovation fields.',
           text: {
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi proin sed libero enim sed. Dictum sit amet justo donec. Diam volutpat commodo sed egestas egestas fringilla phasellus. Tristique sollicitudin nibh sit amet commodo nulla. Sed pulvinar proin gravida hendrerit lectus a. Massa eget egestas purus viverra accumsan in nisl nisi scelerisque. Non diam phasellus vestibulum lorem sed. Sed augue lacus viverra vitae congue eu consequat ac felis.',
-            size: 1
+            size: 'text-body3'
           },
           media: [
             [
