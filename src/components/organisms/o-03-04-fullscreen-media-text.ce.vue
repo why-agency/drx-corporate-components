@@ -5,7 +5,7 @@
       :media="media"
       media-style="w-full h-screen absolute"
       gradient="dark"
-      class="!absolute"
+      class="!absolute !h-screen"
     />
     <div
       class="frame-content-default grid lg:grid-cols-2 lg:grid-rows-1 h-full content-end relative z-30 text-white pb-10 lg:pb-20"
