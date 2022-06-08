@@ -2,7 +2,7 @@
   <UseDynamicAction :to="to">
     <div
       ref="wrapper"
-      class="min-h-[48px] relative group overflow-hidden cursor-pointer disabled:opacity-30 disabled:pointer-events-none focus:outline-none focus-visible:ring focus-visible:ring-focus bg-[length:200%_100%] bg-[position:100%]"
+      class="flex items-center min-h-[48px] relative group overflow-hidden cursor-pointer disabled:opacity-30 disabled:pointer-events-none focus:outline-none focus-visible:ring focus-visible:ring-focus bg-[length:200%_100%] bg-[position:100%]"
       :class="[$_color, $_size]"
       @mouseenter="onMouseEnter"
       @mouseleave="onMouseLeave"
@@ -10,7 +10,7 @@
       <div
         ref="label"
         :class="[$_textColor]"
-        class="w-pull !px-4 !pt-3 !leading-6 flex justify-between bg-[length:200%_100%] bg-[position:100%] relative bg-clip-text text-transparent overflow-hidden"
+        class="text-button w-full !px-4 flex justify-between bg-[length:200%_100%] bg-[position:100%] relative bg-clip-text text-transparent overflow-hidden"
       >
         <slot />
         <div
