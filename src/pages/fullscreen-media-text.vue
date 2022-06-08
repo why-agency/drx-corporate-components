@@ -1,20 +1,23 @@
 <template>
-  <section class="mb-24">
+<base-video muted autoplay loop playsinline src="https://development.draexlmaier.com/fileadmin/Videos/2019-11-25_Unternehmen_Geschichte_web.mp4" />
+  <!-- <section class="mb-24">
     <o-03-04-fullscreen-media-text :data="mediaImage" />
   </section>
   <section class="mb-24">
     <o-03-04-fullscreen-media-text :data="mediaVideo" />
-  </section>
+  </section> -->
 </template>
 
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import O0304FullscreenMediaText from '../components/organisms/o-03-04-fullscreen-media-text.ce.vue'
+import BaseVideo from '../components/base/Video.vue'
 </script>
 
 <script>
 export default {
+  components: { BaseVideo },
   data() {
     return {
       mediaImage: {
