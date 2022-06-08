@@ -25,6 +25,10 @@
       <div class="grid grid-cols-1 gap-4 mt-6">
         <o-09-01-JobMarketCard v-for="card in jobCards" v-bind="card" />
       </div>
+
+      <div class="grid grid-cols-1 gap-4 mt-10">
+        <o-09-01-JobMarketCardSkeleton v-for="card in jobCards" />
+      </div>
   </div>
 </template>
 
@@ -34,6 +38,7 @@ import { ref } from 'vue'
 import BaseCheckbox from '../components/base/Checkbox.vue'
 import BaseChip from '../components/base/Chip.vue'
 import O0901JobMarketCard from '../components/organisms/o-09-01-JobMarketCard.vue'
+import O0901JobMarketCardSkeleton from '../components/organisms/o-09-01-JobMarketCardSkeleton.vue';
 
 const isChecked = ref(false)
 const handleClick = () => console.log('clicked')
