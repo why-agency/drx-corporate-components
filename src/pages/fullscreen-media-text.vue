@@ -1,5 +1,5 @@
 <template>
-<video autoplay loop playsinline controls src="https://development.draexlmaier.com/fileadmin/Videos/2019-11-25_Unternehmen_Geschichte_web.mp4" />
+<video autoplay muted loop playsinline controls src="../assets/test-video.mp4" />
   <!-- <section class="mb-24">
     <o-03-04-fullscreen-media-text :data="mediaImage" />
   </section>
