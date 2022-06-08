@@ -2,7 +2,7 @@
   <component
     ref="headline"
     :is="headlineTag"
-    class="font-primary transform translate-y-4 opacity-0"
+    class="antialiased font-primary transform translate-y-4 opacity-0"
     :class="[$_headlineSize, $_headlineColor, fontWeight]"
   >
     <slot>

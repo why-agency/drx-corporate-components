@@ -1,5 +1,9 @@
 <template>
-  <div class="transform translate-y-4 opacity-0" :class="size" ref="body">
+  <div
+    class="antialiased transform translate-y-4 opacity-0"
+    :class="size"
+    ref="body"
+  >
     <BaseHtmlParser tag="div" :content="text" />
   </div>
 </template>
