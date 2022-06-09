@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <MCarousel v-bind="settings" @change="onChange">
+  <section ref="container" class="bg-primary py-8">
+    <MCarousel v-bind="settings" @change="onChange" :style="spacingLeft">
       <MCard
         v-for="(card, index) in cards"
         :key="card.id"
@@ -13,6 +13,11 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import {
+  useBreakpoints,
+  breakpointsTailwind,
+  useElementSize
+} from '@vueuse/core'
 import BaseText from '../base/Text.vue'
 import MActionBar from '../molecules/ActionBar.vue'
 import MCarousel from '../molecules/Carousel.vue'
@@ -46,4 +51,27 @@ const currentSlide = ref(0)
 const onChange = payload => {
   currentSlide.value = payload
 }
+
+/** LAYOUT */
+const breakpoints = useBreakpoints({
+  ...breakpointsTailwind,
+  '2xl': 1440,
+  '3xl': 1536,
+  '4xl': 1920
+})
+const isXl = breakpoints.greater('xl')
+const is2xl = breakpoints.greater('2xl')
+const is3xl = breakpoints.greater('3xl')
+const is4xl = breakpoints.greater('4xl')
+const container = ref(null)
+const { width } = useElementSize(container)
+
+const frameMaxWidth = computed(() =>
+  is4xl.value ? 1720 : is3xl.value ? 1440 : is2xl.value ? 1280 : 1024
+)
+const spacingLeft = computed(() => ({
+  marginLeft: !isXl.value
+    ? '24px'
+    : (width.value - frameMaxWidth.value) / 2 + 'px'
+}))
 </script>
