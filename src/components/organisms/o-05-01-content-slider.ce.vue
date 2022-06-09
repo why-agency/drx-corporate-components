@@ -1,5 +1,5 @@
 <template>
-  <section ref="container" class="bg-primary py-8">
+  <section ref="container" class="bg-primary py-8 lg:pb-6">
     <MCarousel v-bind="settings" @change="onChange" :style="spacingLeft">
       <MCard
         v-for="(card, index) in cards"
@@ -7,7 +7,26 @@
         v-bind="card"
         :is-active="currentSlide === index"
       />
+      <template #bullets="{ go, slidesCount }">
+        <portal :to="`${id}-bullets`">
+          <CarouselBullets
+            :slides="slidesCount"
+            :current-slide="currentSlide"
+            :with-slide-list="withSlideList"
+            @slide-updated="go"
+          />
+        </portal>
+      </template>
+      <template #controls="{ go }">
+        <portal :to="`${id}-controls`">
+          <CarouselControls class="!visible !static" :go="go" />
+        </portal>
+      </template>
     </MCarousel>
+    <div class="frame-content-default">
+      <portal-target :name="`${id}-bullets`" />
+      <portal-target :name="`${id}-controls`" />
+    </div>
   </section>
 </template>
 
@@ -22,6 +41,8 @@ import BaseText from '../base/Text.vue'
 import MActionBar from '../molecules/ActionBar.vue'
 import MCarousel from '../molecules/Carousel.vue'
 import MCard from '../molecules/Card.vue'
+import CarouselControls from '../molecules/CarouselControls.vue'
+import CarouselBullets from '../molecules/CarouselBullets.vue'
 
 const props = defineProps({
   data: {
@@ -45,6 +66,14 @@ const settings = {
   animationDuration: 700,
   slideWidth: { mobile: 264, desktop: 424 }
 }
+/** should slider "DOTS" display? */
+const withSlideList = computed(
+  () =>
+    !!(
+      (isXl.value && cards.value?.length < 7) ||
+      (!isXl.value && cards.value?.length < 5)
+    )
+)
 
 /** UPDATE CURRENT SLIDE */
 const currentSlide = ref(0)
@@ -74,4 +103,6 @@ const spacingLeft = computed(() => ({
     ? '24px'
     : (width.value - frameMaxWidth.value) / 2 + 'px'
 }))
+
+const id = ref(props.data?.id)
 </script>
