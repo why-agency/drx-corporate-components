@@ -29,6 +29,43 @@
         </BaseButtonIcon>
       </slot>
     </div>
+    <!-- VIDEOSTREAM -->
+    <div v-if="videoStream">
+      <div v-if="isPlaceholderVisible" class="relative aspect-w-16 aspect-h-9">
+        <div>
+          <BasePicture
+            v-if="placeholderImage"
+            :image="placeholderImage"
+            class="w-full h-full"
+          />
+          <BasePicture
+            v-else
+            :src="youtubeThumbnail || vimeoThumbnail"
+            class="w-full h-full"
+          />
+          <slot name="play-button">
+            <BaseButtonIcon
+              v-if="videoUrl && !videoSettings.autoplay"
+              color="sand"
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary z-20"
+              @click="showLightbox"
+            >
+              <IconPlay />
+            </BaseButtonIcon>
+          </slot>
+        </div>
+      </div>
+      <div v-if="!isPlaceholderVisible" class="aspect-w-16 aspect-h-9">
+        <iframe
+          class="w-full h-full"
+          :name="video.video_title"
+          :src="srcstream"
+          v-bind="$attrs"
+          allow="autoplay;fullscreen"
+        />
+      </div>
+    </div>
+
     <slot />
     <BaseLightbox v-if="videoUrl && isLightboxVisible" @close="hideLightbox">
       <div class="flex justify-center w-full">
@@ -107,6 +144,7 @@ const isImage = computed(() => mediaType.value === 'image')
 const videoUrl = computed(
   () => mediaType.value === 'video' && props?.media?.[0]?.[0]?.publicUrl
 )
+const videoStream = computed(() => mediaType.value === 'video-stream')
 
 const $_gradient = computed(
   () =>
@@ -131,4 +169,37 @@ const aspectRatio = computed(() => ({
   'aspect-[9/4]': props.format === '9:4',
   'aspect-[4/3]': props.format === '4:3'
 }))
+
+/** Video Stream */
+const isPlaceholderVisible = true
+const vimeoThumbnail = ''
+
+const streamType = computed(
+  () => props?.media?.[0]?.[0]?.properties?.videoservice
+)
+const isVimeo = computed(() => streamType.value === 'vimeo')
+const url = computed(() =>
+  isVimeo ? 'https://player.vimeo.com/video' : 'https://www.youtube.com/embed'
+)
+const srcstream = computed(() => {
+  const {
+    video_id: id,
+    video_start: start,
+    video_end: end
+  } = props?.media?.[0]?.[0]?.properties
+  return `${this.url}/${id}?autoplay=1&start=${start}&end=${end}`
+})
+const placeholderImage = computed(() => {
+  if (props?.media?.[0]?.[0]?.properties?.video_poster_image) {
+    return props?.media?.[0]?.[0]?.properties?.video_poster_image
+  }
+  return ''
+})
+const youtubeThumbnail = computed(() => {
+  if(isVimeo){
+    return ''
+  } else {
+    
+  }
+})
 </script>

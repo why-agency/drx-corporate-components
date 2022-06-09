@@ -5,6 +5,9 @@
   <section class="mb-24">
     <o-03-04-fullscreen-media-text :data="mediaVideo" />
   </section>
+  <section class="mb-24">
+    <o-03-04-fullscreen-media-text :data="mediaStream" />
+  </section>
 </template>
 
 <script setup>
@@ -101,8 +104,7 @@ export default {
                   extension: 'jpg'
                 },
                 cdn: {
-                  publicUrl:
-                    '',
+                  publicUrl: '',
                   publicPath:
                     '\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__429bf7b2cb.jpg'
                 },
@@ -162,6 +164,57 @@ export default {
                 title: '',
                 class: '',
                 link: 'Produkte'
+              }
+            }
+          }
+        }
+      },
+      mediaStream: {
+        id: 78357,
+        pid: 9092,
+        type: 'fullscreen_media_text',
+        tagname: 'fullscreen-media-text',
+        appearance: {
+          layout: 'default',
+          frameClass: 'full',
+          spaceBefore: '',
+          spaceAfter: ''
+        },
+        content: {
+          header: { text: 'Leidenschaft f\u00fcr Premiumprodukte', layout: 3 },
+          bodytext:
+            '\u003Cp\u003EWir beliefern weltweit \u003Cstrong\u003EPremium-Fahrzeughersteller mit komplexen Bordnetz-Systemen\u003C/strong\u003E, zentralen Elektrik- und Elektronik-Komponenten, exklusivem Interieur sowie Batteriesystemen f\u00fcr die Elektromobilit\u00e4t. Die Kombination der Kernkompetenzen Interieur, Elektrik, Elektronik und \u003Ca href="t3://page?uid=4000"\u003EBatteriesysteme\u003C/a\u003E macht DR\u00c4XLMAIER einzigartig in der Branche.\u003C/p\u003E',
+          media: {
+            type: 'video-stream',
+            video_stream: [
+              {
+                id: 63205,
+                pid: 0,
+                type: 'videos_stream',
+                properties: {
+                  videoservice: 'vimeo',
+                  video_id: '254069548',
+                  video_title:
+                    'Pause 2018 Motion Response - Lift in the moment by Carbon',
+                  video_poster_image: null,
+                  video_start: null,
+                  video_end: null,
+                  video_duration: ''
+                }
+              }
+            ]
+          },
+          actions: {
+            id: 78357,
+            content: {
+              text: 'Unternehmen',
+              link: {
+                type: 'page',
+                url: 'http://draexlmaier.loc/unternehmen',
+                target: ' target="_top"',
+                title: '',
+                class: '',
+                link: 'Unternehmen'
               }
             }
           }
