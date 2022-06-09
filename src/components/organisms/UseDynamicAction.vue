@@ -4,6 +4,7 @@
     :href="to ? to : false"
     :rel="isAnchor ? 'noopener noreferrer' : false"
     :target="isAnchor ? '_blank' : false"
+    class="hover:!no-underline"
     @click="handleClick"
   >
     <slot :isAnchor="isAnchor" />

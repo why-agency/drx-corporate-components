@@ -19,7 +19,7 @@ export default {
     return {
       mediaImage: {
         content: {
-          header: { text: 'Headline', layout: 3 },
+          header: { text: 'Headline', size: 3 },
           bodytext:
             '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed adipiscing diam donec adipiscing tristique. Arcu ac tortor dignissim convallis aenean et tortor. Vitae auctor eu augue ut lectus. Non pulvinar neque laoreet suspendisse interdum consectetur libero id. Pharetra sit amet aliquam id diam maecenas ultricies. Non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus. Integer eget aliquet nibh praesent tristique magna sit. Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. Ultrices in iaculis nunc sed augue. Est ultricies integer quis auctor.<\/p>',
           media: [
@@ -59,8 +59,7 @@ export default {
                   extension: 'jpg'
                 },
                 cdn: {
-                  publicUrl:
-                    'https:\/\/ik.imagekit.io\/xarxh50tnqyb\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__a18cb7ce22.jpg',
+                  publicUrl: '',
                   publicPath:
                     '\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__a18cb7ce22.jpg'
                 },
@@ -103,7 +102,7 @@ export default {
                 },
                 cdn: {
                   publicUrl:
-                    'https:\/\/ik.imagekit.io\/xarxh50tnqyb\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__429bf7b2cb.jpg',
+                    '',
                   publicPath:
                     '\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__429bf7b2cb.jpg'
                 },
@@ -113,16 +112,24 @@ export default {
             ]
           ],
           actions: {
-            navigation_color: '',
-            buttontext: 'Click me',
-            buttonid: '',
-            buttonlink: 't3:\/\/page?uid=4133'
+            id: 124,
+            content: {
+              text: 'Click me',
+              link: {
+                type: 'page',
+                url: 'http:\/\/draexlmaier.loc\/produkte',
+                target: ' target="_top"',
+                title: '',
+                class: '',
+                link: 'Produkte'
+              }
+            }
           }
         }
       },
       mediaVideo: {
         content: {
-          header: { text: 'I am a VIDEO', layout: 3 },
+          header: { text: 'I am a VIDEO', size: 3 },
           bodytext: '\r\n<p>text about video!!!!<\/p>',
           media: [
             [
@@ -144,7 +151,20 @@ export default {
               }
             ]
           ],
-          actions: {}
+          actions: {
+            id: 124,
+            content: {
+              text: 'Click me',
+              link: {
+                type: 'page',
+                url: 'http:\/\/draexlmaier.loc\/produkte',
+                target: ' target="_top"',
+                title: '',
+                class: '',
+                link: 'Produkte'
+              }
+            }
+          }
         }
       }
     }

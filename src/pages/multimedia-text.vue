@@ -37,7 +37,7 @@ export default {
         type: 'o_03_12__multi_media_text',
         tagname: 'o-03-12-multi-media-text',
         appearance: {
-          layout: 'default',
+          size: 'default',
           frameClass: 'default',
           spaceBefore: '',
           spaceAfter: ''
@@ -48,7 +48,7 @@ export default {
           gradient: 'dark',
           header: {
             text: 'Multimedia Text Header',
-            layout: 2,
+            size: 2,
             color: 'turqoise',
             tag: 'h1',
             fontWeight: 'font-bold'
@@ -57,7 +57,7 @@ export default {
             'My job is super flexible and allows me to branch into many different innovation fields.',
           // text: {
           //   text: 'Erfolg ist eine Frage des Charakters. Wir haben 850 Chancen f\u00fcr dich.',
-          //   layout: 1
+          //   size: 1
           // },
           media: [
             [
@@ -275,7 +275,7 @@ export default {
         type: 'o_03_12__multi_media_text',
         tagname: 'o-03-12-multi-media-text',
         appearance: {
-          layout: 'default',
+          size: 'default',
           frameClass: 'full',
           spaceBefore: 'small',
           spaceAfter: 'large'
@@ -286,7 +286,7 @@ export default {
           gradient: 'light',
           header: {
             text: 'Multimedia Text Header: Text Above',
-            layout: 2,
+            size: 2,
             color: 'dark',
             tag: 'h2',
             fontWeight: 'font-regular'
@@ -295,7 +295,7 @@ export default {
             'My job is super flexible and allows me to branch into many different innovation fields.',
           text: {
             text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi proin sed libero enim sed. Dictum sit amet justo donec. Diam volutpat commodo sed egestas egestas fringilla phasellus. Tristique sollicitudin nibh sit amet commodo nulla. Sed pulvinar proin gravida hendrerit lectus a. Massa eget egestas purus viverra accumsan in nisl nisi scelerisque. Non diam phasellus vestibulum lorem sed. Sed augue lacus viverra vitae congue eu consequat ac felis.',
-            layout: 1
+            size: 'text-body3'
           },
           media: [
             [

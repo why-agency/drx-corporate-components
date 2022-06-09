@@ -7,7 +7,7 @@ const letterSpacingCalc = (maxLetterSpacing, maxPageWidth) => {
 }
 
 const lineHeightCalc = (maxLineHeight, maxPageWidth) => {
-  return `${(maxLineHeight / 100 / maxPageWidth) * 100}vw`
+  return `${maxLineHeight / maxPageWidth}vw`
 }
 
 const breakpoints = {
@@ -97,30 +97,30 @@ module.exports = {
       h4: [
         `clamp(1.5rem,${fontCalc(2, 1536)}, 2rem)`,
         {
-          lineHeight: `clamp(100%, ${lineHeightCalc(120, 1920)}, 120%)`,
+          lineHeight: `clamp(100%, ${lineHeightCalc(120, 1536)}, 120%)`,
           letterSpacing: `clamp(0.24px, ${letterSpacingCalc(
             0.32,
-            1440
+            1536
           )}, 0.32px)`
         }
       ],
       h5: [
         `clamp(1.25rem, ${fontCalc(1.875, 1536)}, 1.5rem)`,
         {
-          lineHeight: `clamp(100%, ${lineHeightCalc(110, 1920)}, 110%)`,
+          lineHeight: `clamp(100%, ${lineHeightCalc(110, 1536)}, 110%)`,
           letterSpacing: `clamp(0.2px, ${letterSpacingCalc(
             0.24,
-            1440
+            1536
           )}, 0.24px)`
         }
       ],
       'h5-regular': [
         `clamp(1.25rem, ${fontCalc(1.875, 1536)}, 1.5rem)`,
         {
-          lineHeight: `clamp(100%, ${lineHeightCalc(145, 1920)}, 145%)`,
+          lineHeight: `clamp(100%, ${lineHeightCalc(145, 1536)}, 145%)`,
           letterSpacing: `clamp(0.2px, ${letterSpacingCalc(
             0.24,
-            1440
+            1536
           )}, 0.24px)`
         }
       ],
@@ -134,10 +134,7 @@ module.exports = {
         `clamp(1rem, ${fontCalc(1.0625, 1920)}, 1.0625rem)`,
         {
           lineHeight: '170%',
-          letterSpacing: `clamp(0.16px, ${letterSpacingCalc(
-            0.17,
-            1920
-          )}, 0.17px)`
+          letterSpacing: `0.16px`
         }
       ],
       body3: [
@@ -174,7 +171,7 @@ module.exports = {
           )}, 1.04px)`
         }
       ],
-      button: ['0.875rem']
+      button: ["0.875rem", { lineHeight: "170%", letterSpacing: "0.56px" }]
     },
     screens: {
       ...breakpoints

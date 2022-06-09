@@ -107,10 +107,10 @@ export default {
       return useCases
         .filter(useCase => useCase)
         .reduce((cropVariantString, useCase) => {
-          return (
-            this.images.flat().find(image => image.useCase === useCase)
-              ?.publicUrl || cropVariantString
-          )
+          const image = this.images
+            .flat()
+            .find(image => image.useCase === useCase)
+          return image?.cdn?.publicUrl || image?.publicUrl || cropVariantString
         }, '')
     },
     getSrcset(srcsets, cropVariant) {

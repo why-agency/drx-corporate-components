@@ -1,32 +1,44 @@
 <template>
-  <div :class="$_textStyle">
+  <div ref="body" class="transform translate-y-4 opacity-0" :class="$_size">
     <BaseHtmlParser tag="div" :content="text" />
   </div>
 </template>
 
-<script>
-import { ref } from 'vue'
+<script setup>
+import { ref, computed, watch } from 'vue'
 import BaseHtmlParser from './HtmlParser.vue'
-export default {
-  components: { BaseHtmlParser },
-  props: {
-    text: {
-      type: String,
-      default: ''
-    },
-    layout: {
-      type: Number,
-      default: 1
-    }
+import { gsap, Power2 } from 'gsap'
+import { useIntersectionObserver } from '../../composables/useIntersectionObserver'
+
+const props = defineProps({
+  text: {
+    type: String,
+    default: ''
   },
-  computed: {
-    $_textStyle() {
-      return {
-        'text-body1-mobile lg:text-body1': this.layout === 1,
-        'text-body2-mobile lg:text-body2': this.layout === 2,
-        'text-body3-mobile lg:text-body3': this.layout === 3
-      }
-    }
+  size: {
+    type: String,
+    default: 'text-body1'
   }
-}
+})
+
+const $_size = computed(() => ({
+  'text-body1': props.size === 'text-body1',
+  'text-body2': props.size === 'text-body2',
+  'text-body3': props.size === 'text-body3'
+}))
+
+const body = ref(0)
+
+const isVisible = useIntersectionObserver({ target: body })
+
+watch(isVisible, isVisible => {
+  if (isVisible) {
+    gsap.to(body.value, {
+      y: 0,
+      opacity: 1,
+      duration: 1.5,
+      ease: Power2.easeOut
+    })
+  }
+})
 </script>

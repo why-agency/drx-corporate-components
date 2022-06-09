@@ -1,5 +1,5 @@
 <template>
-  <video :muted="muted" v-bind="$attrs">
+  <video muted playsinline v-bind="$attrs">
     <source :src="src" :type="mimeType" />
   </video>
 </template>
