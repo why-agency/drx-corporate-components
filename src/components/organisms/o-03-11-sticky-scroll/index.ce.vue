@@ -7,6 +7,7 @@
       <BaseHeadline
         v-if="headline && headline.text"
         v-bind="headline"
+        :color="$_headlineColor"
         class="max-w-[512px] mr-16 lg:uppercase"
         :layout="isLg ? headline.size : 3"
       />
@@ -26,7 +27,7 @@
         <StickyScrollRightField
           :key="field"
           v-for="field in fields"
-          :color="headline.color"
+          :color="$_headlineColor"
           :text="field.content.text.text"
           :textSize="field.content.text.size"
           :icon="field.content.icon"
@@ -43,7 +44,7 @@ import gsap from 'gsap'
 import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, toRefs } from 'vue'
 import BaseHeadline from '../../base/Headline.vue'
 import MActionBar from '../../molecules/ActionBar.vue'
 import StickyScrollRightField from '../../organisms/o-03-11-sticky-scroll/StickyScrollRightField.vue'
@@ -53,31 +54,23 @@ const props = defineProps({
     default: () => ({})
   }
 })
-
+const {
+  header: headline,
+  box_background: boxBackground,
+  scroll_items: fields,
+  actions,
+  background
+} = toRefs(props.data)
 const backgroundLeft = computed(() =>
-  props?.data?.content?.box_background === 'yes' ? 'bg-sand' : 'bg-none'
+  boxBackground.value === 'yes' ? 'bg-sand' : 'bg-none'
 )
 const backgroundLeftOpacity = computed(() =>
-  props?.data?.content?.background === 'dark' ||
-  props?.data?.content?.background === 'gradient'
-    ? 'bg-opacity-10'
-    : ''
+  background.value === 'dark' || background.value === 'gradient' ? 'bg-opacity-10' : ''
 )
 
-const headline = computed(() => ({
-  ...props.data?.content?.header,
-  color:
-    props?.data?.content?.background === 'dark' ||
-    props?.data?.content?.background === 'gradient'
-      ? 'light'
-      : 'dark'
-}))
-
-const actions = ref(props?.data?.content?.actions)
-
-const fields = computed(() => ({
-  ...props.data?.content?.scroll_items
-}))
+const $_headlineColor = computed(() =>
+  background.value === 'dark' || background.value === 'gradient' ? 'light' : 'dark'
+)
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const isLg = breakpoints.greater('lg')
