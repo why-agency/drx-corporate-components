@@ -1,6 +1,10 @@
 <template>
-  <section ref="container" class="bg-primary py-8 lg:pb-6">
-    <MCarousel v-bind="settings" @change="onChange" :style="spacingLeft">
+  <section ref="container" class="bg-primary py-8 lg:pb-10">
+    <MCarousel
+      v-bind="settings"
+      @change="onChange"
+      :style="{ marginLeft: spacingX }"
+    >
       <MCard
         v-for="(card, index) in cards"
         :key="card.id"
@@ -8,25 +12,21 @@
         :is-active="currentSlide === index"
       />
       <template #bullets="{ go, slidesCount }">
-        <portal :to="`${id}-bullets`">
-          <CarouselBullets
-            :slides="slidesCount"
-            :current-slide="currentSlide"
-            :with-slide-list="withSlideList"
-            @slide-updated="go"
-          />
-        </portal>
+        <CarouselBullets
+          :slides="slidesCount"
+          :current-slide="currentSlide"
+          :with-slide-list="withSlideList"
+          @slide-updated="go"
+        />
       </template>
       <template #controls="{ go }">
-        <portal :to="`${id}-controls`">
-          <CarouselControls class="!visible !static" :go="go" />
-        </portal>
+        <CarouselControls
+          class="justify-end translate-y-4"
+          :style="{ marginRight: spacingX }"
+          :go="go"
+        />
       </template>
     </MCarousel>
-    <div class="frame-content-default">
-      <portal-target :name="`${id}-bullets`" />
-      <portal-target :name="`${id}-controls`" />
-    </div>
   </section>
 </template>
 
@@ -98,11 +98,9 @@ const { width } = useElementSize(container)
 const frameMaxWidth = computed(() =>
   is4xl.value ? 1720 : is3xl.value ? 1440 : is2xl.value ? 1280 : 1024
 )
-const spacingLeft = computed(() => ({
-  marginLeft: !isXl.value
-    ? '24px'
-    : (width.value - frameMaxWidth.value) / 2 + 'px'
-}))
+const spacingX = computed(() =>
+  !isXl.value ? '24px' : (width.value - frameMaxWidth.value) / 2 + 'px'
+)
 
 const id = ref(props.data?.id)
 </script>
