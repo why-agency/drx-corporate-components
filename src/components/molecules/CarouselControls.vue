@@ -1,20 +1,20 @@
 <template>
-  <div
-    class="flex frame-default space-x-2 absolute lg:bottom-20 left-0 invisible"
-  >
+  <div class="flex space-x-2">
     <BaseButtonIcon
-      :color="isDark ? 'white' : 'primary'"
+      color="tertiary"
       variant="outline"
+      size="sm"
       @click="go('<')"
     >
-      <IconArrowLeftSmall />
+      <IconArrowLeftSmall class="w-5" />
     </BaseButtonIcon>
     <BaseButtonIcon
-      :color="isDark ? 'white' : 'primary'"
+      color="tertiary"
       variant="outline"
+      size="sm"
       @click="go('>')"
     >
-      <IconArrowRightSmall />
+      <IconArrowRightSmall class="w-5" />
     </BaseButtonIcon>
   </div>
 </template>
@@ -22,13 +22,9 @@
 <script setup>
 import BaseButtonIcon from '../base/ButtonIcon.vue'
 import IconArrowRightSmall from '../icons/Arrow/RightSmall.vue'
-import IconArrowLeft from '../icons/Arrow/LeftSmall.vue'
+import IconArrowLeftSmall from '../icons/Arrow/LeftSmall.vue'
 
 const props = defineProps({
-  isDark: {
-    type: Boolean,
-    default: false
-  },
   go: {
     type: Function,
     default: undefined
