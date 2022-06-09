@@ -53,7 +53,7 @@ export default {
     $_size() {
       return {
         // basic sizes
-        'w-8 h-8 p-2': this.size === 'sm',
+        'w-8 h-8': this.size === 'sm',
         'w-10 h-10': this.size === 'base',
         'w-12 h-12': this.size === 'lg',
         'w-14 h-14': this.size === 'xl'
