@@ -81,7 +81,7 @@ const onChange = payload => {
   currentSlide.value = payload
 }
 
-/** LAYOUT */
+/** CALCULATE SPACING LEFT AND RIGHT BASED ON DEFAULT FRAME */
 const breakpoints = useBreakpoints({
   ...breakpointsTailwind,
   '2xl': 1440,
@@ -101,6 +101,4 @@ const frameMaxWidth = computed(() =>
 const spacingX = computed(() =>
   !isXl.value ? '24px' : (width.value - frameMaxWidth.value) / 2 + 'px'
 )
-
-const id = ref(props.data?.id)
 </script>

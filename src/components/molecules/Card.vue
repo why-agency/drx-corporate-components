@@ -7,6 +7,7 @@
       @mouseenter.native="isHovered = true"
       @mouseleave.native="isHovered = false"
     >
+      <!-- START IMAGE -->
       <BaseMedia
         v-if="media"
         :media="media"
@@ -19,7 +20,11 @@
             isActive && !isLg
         }"
       />
+      <!-- END IMAGE -->
+
+      <!-- START TEXT CONTENT -->
       <div class="pb-8 px-4 lg:px-10 text-white relative z-20">
+        <!-- START DEFAULT VISIBLE CONTENT -->
         <BaseText
           v-if="overline && overline.text"
           ref="headline"
@@ -28,7 +33,6 @@
           :animate="false"
           class="text-secondary font-bold mb-2"
         />
-
         <BaseHeadline
           v-if="header && header.text"
           ref="headline2"
@@ -48,6 +52,9 @@
           font-weight="font-regular"
           class="text-white mb-6 lg:mb-10"
         />
+        <!-- END DEFAULT VISIBLE CONTENT-->
+
+        <!-- START CONTENT VISIBLE ON HOVER -->
         <div
           ref="reveal"
           class="invisible opacity-0 translate-y-4 absolute bottom-8 flex flex-col"
@@ -70,7 +77,9 @@
             </BaseButtonIcon>
           </div>
         </div>
+        <!-- END CONTENT VISIBLE ON HOVER -->
       </div>
+      <!-- END TEXT CONTENT -->
     </UseDynamicAction>
   </div>
 </template>
