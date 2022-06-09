@@ -7,8 +7,7 @@
       <BaseHeadline
         v-if="headline && headline.text"
         v-bind="headline"
-        class="max-w-[512px] mr-16"
-        :class="isLg ? '' : 'uppercase'"
+        class="max-w-[512px] mr-16 lg:uppercase"
         :layout="isLg ? headline.size : 3"
       />
       <MActionBar
@@ -27,8 +26,12 @@
         <StickyScrollRightField
           :key="field"
           v-for="field in fields"
-          :data="field.content"
           :color="headline.color"
+          :text="field.content.text.text"
+          :textSize="field.content.text.size"
+          :icon="field.content.icon"
+          :headline="field.content.headline"
+          :actions="field.content.actions"
         />
       </div>
     </div>
@@ -82,7 +85,7 @@ const isLg = breakpoints.greater('lg')
 // Start Scroll Animation
 
 onMounted(() => {
-  var scroller = {
+  const scroller = {
     target: document.querySelector('#scroll-container'),
     ease: 0.02, // scroll speed
     endY: 0,
@@ -90,7 +93,7 @@ onMounted(() => {
     scrollRequest: 0
   }
 
-  var requestId = null
+  let requestId = null
 
   document.addEventListener('scroll', onScroll)
 
@@ -103,7 +106,7 @@ onMounted(() => {
 
   function updateScroller() {
     scroller.y += (scrollY - scroller.y) * scroller.ease
-    let animateValue = isLg.value ? -scroller.y / 3 : -scroller.y / 6
+    const animateValue = isLg.value ? -scroller.y / 3 : -scroller.y / 6
     gsap.set(scroller.target, {
       y: animateValue
     })

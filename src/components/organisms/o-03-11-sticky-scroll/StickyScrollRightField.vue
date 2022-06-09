@@ -41,19 +41,29 @@ import BaseAction from '../../base/Action.vue'
 import IconArrowRight from '../../icons/Arrow/Right.vue'
 import { ref } from 'vue'
 const props = defineProps({
-  data: {
-    type: Object,
-    required: true
-  },
   color: {
     type: String,
     default: 'light'
+  },
+  icon: {
+      type: Object,
+      required: true
+  },
+  headline: {
+      type: String,
+      required: true
+  },
+  text: {
+      type: String,
+      required: true
+  },
+  textSize: {
+      type: String,
+      required: true
+  },
+  actions: {
+      type: Object,
+      required: true
   }
 })
-
-const icon = ref(props.data?.icon)
-const headline = ref(props.data?.headline)
-const text = ref(props.data?.text?.text)
-const textSize = ref(props.data?.text?.size)
-const actions = ref(props.data?.actions)
 </script>
