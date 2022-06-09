@@ -1,33 +1,25 @@
 <template>
-  <div
-    class="flex h-10 items-center absolute lg:bottom-20 text-body4 invisible"
-  >
-    <span v-if="withSlideList" class="dark:text-white">01</span>
+  <div class="flex items-center text-body3">
     <div
       v-if="withSlideList"
-      class="w-max flex items-center lg:justify-center px-6 lg:px-10 space-x-2"
+      class="w-max flex items-center lg:justify-center space-x-2"
     >
       <button
         v-for="(slide, index) in slides"
         :key="slide.id"
-        class="h-0.5 w-8 transition-all"
+        class="h-0.5 transition-all"
         :class="[
           index === currentSlide
-            ? 'dark:bg-white bg-primary h-1'
-            : 'dark:bg-white bg-gray-500'
+            ? 'bg-gray-300 w-14 lg:w-20'
+            : 'bg-tertiary w-8 lg:w-16'
         ]"
         :aria-label="`Go to slide ${index + 1}`"
         @click="$emit('slide-updated', `=${index}`)"
       />
     </div>
     <div v-else class="flex">
-      <span class="text-body3 dark:text-white">
-        {{ currentSlide + 1 }}/{{ slideCount }}
-      </span>
+      <span class="text-gray-300">{{ currentSlide + 1 }}/{{ slideCount }}</span>
     </div>
-    <span v-if="withSlideList" class="dark:text-white">
-      {{ slideCount > 9 ? slideCount : `0${slideCount}` }}
-    </span>
   </div>
 </template>
 
