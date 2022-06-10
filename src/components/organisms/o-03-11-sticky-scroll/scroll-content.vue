@@ -39,7 +39,7 @@ import BaseHeadline from '../../base/Headline.vue'
 import BaseHtmlParser from '../../base/HtmlParser.vue'
 import BaseAction from '../../base/Action.vue'
 import IconArrowRight from '../../icons/Arrow/Right.vue'
-import { ref } from 'vue'
+
 const props = defineProps({
   color: {
     type: String,
