@@ -21,7 +21,6 @@
     </div>
     <div class="sticky overflow-hidden">
       <div
-        ref="scrollTarget"
         id="scroll-container"
         class="space-y-[120px] mt-[72px] lg:mt-[168px] mx-6 lg:ml-28"
       >
@@ -77,7 +76,6 @@ const $_headlineColor = computed(() =>
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const isLg = breakpoints.greater('lg')
-const scrollTarget = ref(null)
 
 // Start Scroll Animation
 onMounted(() => {
