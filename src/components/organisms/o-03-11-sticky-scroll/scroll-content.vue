@@ -1,13 +1,13 @@
 <template>
   <div>
-    <BasePicture :images="icon" size="w-content h-10 mb-6" />
+    <BasePicture :images="icon" size="w-content h-10 !mb-6" />
     <BaseHeadline
       v-if="headline"
       :text="headline"
       tag="h3"
       :color="color"
       :layout="3"
-      class="mb-6"
+      class="!mb-6"
     />
     <BaseHtmlParser
       :content="text"
