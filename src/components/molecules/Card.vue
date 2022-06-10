@@ -28,7 +28,7 @@
         <BaseText
           v-if="overline && overline.text"
           ref="headline"
-          :size="2"
+          size="text-body2"
           :text="overline.text"
           :animate="false"
           class="text-secondary font-bold mb-2"
@@ -61,7 +61,7 @@
         >
           <BaseText
             v-if="text.text"
-            :size="3"
+            size="text-body3"
             :text="text.text"
             :animate="false"
             class="line-clamp-4"
