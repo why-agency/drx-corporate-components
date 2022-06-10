@@ -9,8 +9,8 @@
       :size="3"
       class="!mb-6"
     />
-    <BaseHtmlParser
-      :content="text"
+    <BaseText
+      :text="text"
       :class="[
         textSize,
         {
@@ -38,6 +38,7 @@ import BasePicture from '../../base/Picture.vue'
 import BaseHeadline from '../../base/Headline.vue'
 import BaseHtmlParser from '../../base/HtmlParser.vue'
 import BaseAction from '../../base/Action.vue'
+import BaseText from '../../base/Text.vue'
 import IconArrowRight from '../../icons/Arrow/Right.vue'
 
 const props = defineProps({

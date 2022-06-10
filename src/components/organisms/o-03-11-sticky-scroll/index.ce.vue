@@ -20,11 +20,8 @@
       />
     </div>
     <div class="sticky overflow-hidden">
-      <div
-        id="scroll-container"
-        class="mt-[72px] lg:mt-[168px] !mx-6 lg:ml-28"
-      >
-        <o-03-11-StickyScrollScrollContent
+      <div ref="scrollref" class="mt-[72px] lg:mt-[168px] !mx-6 lg:ml-28">
+        <StickyScrollRightField
           v-for="field in fields"
           :key="field"
           :color="$_headlineColor"
@@ -64,35 +61,41 @@ const {
   actions,
   background
 } = toRefs(props.data.content)
+
 const backgroundLeft = computed(() =>
   boxBackground.value === 'yes' ? 'bg-sand' : 'bg-none'
 )
 const backgroundLeftOpacity = computed(() =>
-  background.value === 'dark' || background.value === 'gradient' ? 'bg-opacity-10' : ''
+  background.value === 'dark' || background.value === 'gradient'
+    ? 'bg-opacity-10'
+    : ''
 )
 
 const $_headlineColor = computed(() =>
-  background.value === 'dark' || background.value === 'gradient' ? 'light' : 'dark'
+  background.value === 'dark' || background.value === 'gradient'
+    ? 'light'
+    : 'dark'
 )
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const isLg = breakpoints.greater('lg')
+const scrollref = ref(null)
 
 // Start Scroll Animation
 onMounted(() => {
   const scroller = {
-    target: document.querySelector('#scroll-container'),
-    ease: 0.02, // scroll speed
+    target: scrollref.value,
+    ease: 0.08, // scroll speed
     endY: 0,
     y: 0,
     scrollRequest: 0
   }
 
   let requestId = null
-
   document.addEventListener('scroll', onScroll)
 
   function onScroll() {
+    console.log('NOOOW')
     scroller.scrollRequest++
     if (!requestId) {
       requestId = requestAnimationFrame(updateScroller)
