@@ -3,6 +3,7 @@
     <router-link to="/base">Components</router-link>
     <router-link to="/multimedia-text">Multi Media Text</router-link>
     <router-link to="/fullscreen-media-text">Fullscreen Media Text</router-link>
+    <router-link to="/sticky-scroll">Sticky Scroll</router-link>
   </div>
 </template>
 
