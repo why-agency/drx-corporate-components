@@ -40,7 +40,7 @@
           :text="header.text"
           :animate="false"
           font-weight="font-regular"
-          :class="{ 'mb-6 lg:mb-10': !header2 && !header.text }"
+          :class="{ '!mb-6 lg:!mb-10': !header2 && !header.text }"
           class="!text-white"
         />
         <BaseHeadline
@@ -50,7 +50,7 @@
           :text="header2.text"
           :animate="false"
           font-weight="font-regular"
-          class="!text-white mb-6 lg:mb-10"
+          class="!text-white !mb-6 lg:!mb-10"
         />
         <!-- END DEFAULT VISIBLE CONTENT-->
 
@@ -66,7 +66,7 @@
             :animate="false"
             class="line-clamp-4"
           />
-          <div class="h-8 mt-6 lg:mt-10">
+          <div class="h-8 !mt-6 lg:!mt-10">
             <BaseButtonIcon
               v-if="link"
               variant="outline"
