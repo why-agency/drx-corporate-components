@@ -187,7 +187,9 @@ onMounted(async () => {
 })
 
 watch(isHovered, isHovered => {
-  toggleHeadline(isHovered)
+  if (isLg.value) {
+    toggleHeadline(isHovered)
+  }
 })
 
 watch(
