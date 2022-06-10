@@ -23,7 +23,7 @@
       <!-- END IMAGE -->
 
       <!-- START TEXT CONTENT -->
-      <div class="pb-8 px-4 lg:px-10 text-white relative z-20">
+      <div class="text-white pb-8 px-4 lg:px-10 relative z-20">
         <!-- START DEFAULT VISIBLE CONTENT -->
         <BaseText
           v-if="overline && overline.text"
@@ -41,7 +41,7 @@
           :animate="false"
           font-weight="font-regular"
           :class="{ 'mb-6 lg:mb-10': !header2 && !header.text }"
-          class="text-white"
+          class="!text-white"
         />
         <BaseHeadline
           v-if="header2 && header2.text"
@@ -50,7 +50,7 @@
           :text="header2.text"
           :animate="false"
           font-weight="font-regular"
-          class="text-white mb-6 lg:mb-10"
+          class="!text-white mb-6 lg:mb-10"
         />
         <!-- END DEFAULT VISIBLE CONTENT-->
 
