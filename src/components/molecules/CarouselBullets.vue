@@ -7,7 +7,7 @@
       <button
         v-for="(slide, index) in slides"
         :key="slide.id"
-        class="h-0.5 transition-all"
+        class="h-0.5 transition-all z-10"
         :class="[
           index === currentSlide
             ? 'bg-gray-300 w-14 lg:w-20'
