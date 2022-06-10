@@ -6,7 +6,7 @@
       :text="headline"
       tag="h3"
       :color="color"
-      :layout="3"
+      :size="3"
       class="!mb-6"
     />
     <BaseHtmlParser

@@ -22,7 +22,7 @@
     <div class="sticky overflow-hidden">
       <div
         id="scroll-container"
-        class="mt-[72px] lg:mt-[168px] mx-6 lg:ml-28"
+        class="mt-[72px] lg:mt-[168px] !mx-6 lg:ml-28"
       >
         <o-03-11-StickyScrollScrollContent
           v-for="field in fields"
@@ -33,7 +33,7 @@
           :icon="field.content.icon"
           :headline="field.content.headline"
           :actions="field.content.actions"
-          class="mb-[120px]"
+          class="mb-32"
         />
       </div>
     </div>
