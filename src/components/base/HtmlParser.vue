@@ -1,6 +1,6 @@
 <template>
   <!-- eslint-disable-next-line vue/no-v-html -->
-  <component :is="tag" v-html="content" />
+  <component :is="tag" v-html="content" class="html-parser" />
 </template>
 
 <script>
@@ -78,7 +78,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
-::v-deep p:last-child {
+.html-parser p:last-child {
   margin-bottom: 0;
 }
 </style>
