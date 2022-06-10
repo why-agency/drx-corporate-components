@@ -113,12 +113,12 @@ const props = defineProps({
     default: undefined
   },
   overline: {
-    type: String,
-    default: ''
+    type: Object,
+    default: undefined
   },
   text: {
-    type: String,
-    default: ''
+    type: Object,
+    default: undefined
   },
   media: {
     type: Array,
@@ -160,8 +160,7 @@ const toggleHeadline = value => {
     tl.to(headlines, {
       duration: 1,
       y: isLg.value ? -112 : -136
-    })
-    tl.to(
+    }).to(
       reveal.value,
       {
         opacity: 1,
