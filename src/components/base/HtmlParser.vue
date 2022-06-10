@@ -76,3 +76,9 @@ export default {
   }
 }
 </script>
+
+<style lang="css" scoped>
+::v-deep p:last-child {
+  margin-bottom: 0;
+}
+</style>
