@@ -34,13 +34,13 @@
       <div v-if="isPlaceholderVisible" class="relative aspect-w-16 aspect-h-9">
         <div>
           <BasePicture
-            v-if="placeholderImage"
-            :image="placeholderImage"
+            v-if="placeholderImage.value"
+            :image="placeholderImage.value"
             class="w-full h-full"
           />
           <BasePicture
             v-else
-            :src="youtubeThumbnail || vimeoThumbnail"
+            :src="youtubeThumbnail.value || vimeoThumbnail.value"
             class="w-full h-full"
           />
           <slot name="play-button">
@@ -48,7 +48,7 @@
               v-if="videoUrl && !videoSettings.autoplay"
               color="sand"
               class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary z-20"
-              @click="showLightbox"
+              @click="playVideo"
             >
               <IconPlay />
             </BaseButtonIcon>
@@ -59,7 +59,7 @@
         <iframe
           class="w-full h-full"
           :name="video.video_title"
-          :src="srcstream"
+          :src="srcstream.value"
           v-bind="$attrs"
           allow="autoplay;fullscreen"
         />
@@ -82,7 +82,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import BasePicture from '../base/Picture.vue'
 import BaseVideo from '../base/Video.vue'
 import BaseButtonIcon from '../base/ButtonIcon.vue'
@@ -91,7 +91,7 @@ import BaseLightbox from '../base/Lightbox.vue'
 
 const props = defineProps({
   media: {
-    type: Array,
+    type: [Array, Object],
     required: true
   },
   mediaStyle: {
@@ -144,7 +144,7 @@ const isImage = computed(() => mediaType.value === 'image')
 const videoUrl = computed(
   () => mediaType.value === 'video' && props?.media?.[0]?.[0]?.publicUrl
 )
-const videoStream = computed(() => mediaType.value === 'video-stream')
+const videoStream = computed(() => props?.media?.type === 'video-stream')
 
 const $_gradient = computed(
   () =>
@@ -175,31 +175,52 @@ const isPlaceholderVisible = true
 const vimeoThumbnail = ''
 
 const streamType = computed(
-  () => props?.media?.[0]?.[0]?.properties?.videoservice
+  () => props?.media?.video_stream?.[0].properties?.videoservice
 )
 const isVimeo = computed(() => streamType.value === 'vimeo')
 const url = computed(() =>
-  isVimeo ? 'https://player.vimeo.com/video' : 'https://www.youtube.com/embed'
+  isVimeo.value
+    ? 'https://player.vimeo.com/video'
+    : 'https://www.youtube.com/embed'
 )
+
+const id = ref(props?.media.video_stream?.[0].properties.video_id)
+const start = ref(props?.media.video_stream?.[0].properties?.video_start)
+const end = ref(props?.media.video_stream?.[0].properties?.video_end)
 const srcstream = computed(() => {
-  const {
-    video_id: id,
-    video_start: start,
-    video_end: end
-  } = props?.media?.[0]?.[0]?.properties
-  return `${this.url}/${id}?autoplay=1&start=${start}&end=${end}`
+  return `${url.value}/${id.value}?autoplay=1&start=${start.value}&end=${end.value}`
 })
 const placeholderImage = computed(() => {
-  if (props?.media?.[0]?.[0]?.properties?.video_poster_image) {
-    return props?.media?.[0]?.[0]?.properties?.video_poster_image
+  if (props?.media?.video_stream?.[0].properties?.video_poster_image) {
+    return props?.media?.video_stream?.[0].properties?.video_poster_image
   }
   return ''
 })
+
 const youtubeThumbnail = computed(() => {
-  if(isVimeo){
+  if (isVimeo.value) {
     return ''
-  } else {
-    
+  } else if (videoStream.value) {
+    const hasParams = id.value.includes('?')
+    return `https://img.youtube.com/vi/${
+      hasParams ? id.value.slice(0, id.indexOf('?')) : id
+    }/maxresdefault.jpg`
   }
 })
+onMounted(async () => {
+  console.log(isVimeo.value && videoStream.value)
+  console.log(id.value)
+  if (isVimeo.value && videoStream.value) {
+    const url = `https://vimeo.com/api/v2/video/${id.value}.json`
+    const response = await fetch(url)
+    const data = await response.json()
+    if (data && data.length) {
+      vimeoThumbnail = data[0].thumbnail_large
+    }
+  }
+})
+
+function playVideo() {
+  isPlaceholderVisible = false
+}
 </script>
