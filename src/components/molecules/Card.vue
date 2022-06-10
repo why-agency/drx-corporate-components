@@ -23,7 +23,7 @@
       <!-- END IMAGE -->
 
       <!-- START TEXT CONTENT -->
-      <div class="text-white pb-8 px-4 lg:px-10 relative z-20">
+      <div class="text-white !pb-8 !px-4 lg:px-10 relative z-20">
         <!-- START DEFAULT VISIBLE CONTENT -->
         <BaseText
           v-if="overline && overline.text"
