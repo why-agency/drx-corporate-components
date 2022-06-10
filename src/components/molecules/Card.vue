@@ -64,7 +64,7 @@
             size="text-body3"
             :text="text.text"
             :animate="false"
-            class="line-clamp-4"
+            class="line-clamp-4 !pr-4 lg:!pr-8"
           />
           <div class="h-8 !mt-6 lg:!mt-10">
             <BaseButtonIcon
