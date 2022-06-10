@@ -141,53 +141,45 @@ const props = defineProps({
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const isLg = breakpoints.greater('lg')
 
+/** HOVER ANIMATION */
 const isHovered = ref(false)
 const headline = ref(null)
 const headline2 = ref(null)
 const headline3 = ref(null)
 const reveal = ref(null)
 const card = ref(null)
+const headlines = computed(() =>
+  [headline.value?.$el, headline2.value?.$el, headline3.value?.$el].filter(
+    el => el
+  )
+)
+const tl = gsap.timeline({ paused: true })
 
+const initTimeline = () => {
+  tl.to(headlines.value, {
+    duration: 1,
+    y: isLg.value ? -112 : -136
+  }).to(
+    reveal.value,
+    {
+      opacity: 1,
+      autoAlpha: 1,
+      y: 0,
+      duration: 1
+    },
+    isLg.value ? 0.3 : 0.5
+  )
+}
 const toggleHeadline = value => {
-  const headlines = [
-    headline.value?.$el,
-    headline2.value?.$el,
-    headline3.value?.$el
-  ].filter(el => el)
-
-  const tl = gsap.timeline()
   if (value) {
-    tl.to(headlines, {
-      duration: 1,
-      y: isLg.value ? -112 : -136
-    }).to(
-      reveal.value,
-      {
-        opacity: 1,
-        autoAlpha: 1,
-        y: 0,
-        duration: 1
-      },
-      isLg.value ? 0.3 : 0.5
-    )
+    tl.play()
   } else {
-    tl.to(reveal.value, {
-      opacity: 0,
-      autoAlpha: 0,
-      y: 16,
-      duration: 0.8
-    }).to(
-      headlines,
-      {
-        duration: 0.8,
-        y: 0
-      },
-      isLg.value ? 0.3 : 0.5
-    )
+    tl.reverse()
   }
 }
 
 onMounted(async () => {
+  initTimeline()
   await gsap.from(card.value, { opacity: 0, autoAlpha: 0, duration: 0.5 })
   if (props.isActive && !isLg.value) {
     toggleHeadline(props.isActive)
