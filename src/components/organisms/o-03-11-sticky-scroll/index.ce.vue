@@ -20,7 +20,7 @@
       />
     </div>
     <div class="sticky overflow-hidden">
-      <div ref="scrollref" class="mt-[72px] lg:mt-[168px] !mx-6 lg:!ml-28">
+      <div :id="sectionID.value" ref="scrollref" class="mt-[72px] lg:mt-[168px] !mx-6 lg:!ml-28">
         <StickyScrollRightField
           v-for="field in fields"
           :key="field"
@@ -62,6 +62,9 @@ const {
   actions,
   background
 } = toRefs(props.data.content)
+
+const sectionID = ref(props.data.id)
+console.log(sectionID.value)
 
 const backgroundLeft = computed(() =>
   boxBackground.value === 'yes' ? 'bg-sand' : 'bg-none'

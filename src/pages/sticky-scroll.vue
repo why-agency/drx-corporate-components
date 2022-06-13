@@ -346,7 +346,7 @@ export default {
         }
       },
       sticky2: {
-        id: 23432,
+        id: 23438,
         content: {
           box_background: 'yes', //yes or no
           background: 'gradient', //To test, also change the background color at the top of the container (dark,light,gradient,none)
