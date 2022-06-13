@@ -24,7 +24,7 @@
       <div
         :id="sectionID.value"
         ref="scrollref"
-        class="mt-[72px] lg:mt-[168px] !mx-6 lg:!ml-28"
+        class="!mt-20 lg:mt-[168px] !mx-6 lg:!ml-28"
       >
         <StickyScrollRightField
           v-for="field in fields"
