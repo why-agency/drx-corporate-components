@@ -1,5 +1,5 @@
 <template>
-  <section ref="container" class="bg-primary py-8 lg:pb-10">
+  <section ref="container" class="bg-primary py-8 lg:pb-8">
     <MCarousel
       v-bind="settings"
       @change="onChange"
