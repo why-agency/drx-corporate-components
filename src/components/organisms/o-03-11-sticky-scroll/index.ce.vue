@@ -2,7 +2,7 @@
   <section class="viewport lg:flex">
     <div
       :class="[backgroundLeft, backgroundLeftOpacity]"
-      class="w-full h-content left-0 top-0 pl-6 pt-20 lg:pt-[150px] lg:pl-20 lg:w-[45%] lg:h-screen lg:sticky"
+      class="w-full h-content left-0 top-0 pl-6 pt-20 lg:pt-[150px] lg:pl-20 lg:w-[45%] lg:h-screen relative lg:sticky"
     >
       <BaseHeadline
         v-if="headline && headline.text"
@@ -20,7 +20,7 @@
       />
     </div>
     <div class="sticky overflow-hidden">
-      <div ref="scrollref" class="mt-[72px] lg:mt-[168px] !mx-6 lg:ml-28">
+      <div ref="scrollref" class="mt-[72px] lg:mt-[168px] !mx-6 lg:!ml-28">
         <StickyScrollRightField
           v-for="field in fields"
           :key="field"
@@ -45,9 +45,10 @@ import gsap from 'gsap'
 
 import BaseHeadline from '../../base/Headline.vue'
 import MActionBar from '../../molecules/ActionBar.vue'
+import StickyScrollRightField from '../../organisms/o-03-11-sticky-scroll/StickyScrollRightField.vue'
+import { useIntersectionObserver } from '@vueuse/core'
 
-import O0311StickyScrollScrollContent from '../../organisms/o-03-11-sticky-scroll/scroll-content.vue'
-
+gsap.registerPlugin(ScrollTrigger)
 const props = defineProps({
   data: {
     type: Object,
@@ -80,36 +81,47 @@ const $_headlineColor = computed(() =>
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const isLg = breakpoints.greater('lg')
 const scrollref = ref(null)
+const targetIsVisible = ref(false)
+
+const { stop } = useIntersectionObserver(
+  scrollref,
+  ([{ isIntersecting }]) => {
+    targetIsVisible.value = isIntersecting
+  }
+)
 
 // Start Scroll Animation
 onMounted(() => {
   const scroller = {
     target: scrollref.value,
-    ease: 0.08, // scroll speed
+    ease: 0.02, // scroll speed
     endY: 0,
     y: 0,
     scrollRequest: 0
   }
-
   let requestId = null
   document.addEventListener('scroll', onScroll)
 
   function onScroll() {
-    console.log('NOOOW')
     scroller.scrollRequest++
     if (!requestId) {
       requestId = requestAnimationFrame(updateScroller)
     }
   }
+  //Check if module is visible
 
   function updateScroller() {
-    scroller.y += (scrollY - scroller.y) * scroller.ease
-    const animateValue = isLg.value ? -scroller.y / 3 : -scroller.y / 6
-    gsap.set(scroller.target, {
-      y: animateValue
-    })
-    requestId =
-      scroller.scrollRequest > 0 ? requestAnimationFrame(updateScroller) : null
+    if (targetIsVisible.value) {
+      scroller.y += (scrollY - scroller.y) * scroller.ease
+      const animateValue = isLg.value ? -scroller.y / 3 : -scroller.y / 6
+      gsap.set(scroller.target, {
+        y: animateValue
+      })
+      requestId =
+        scroller.scrollRequest > 0
+          ? requestAnimationFrame(updateScroller)
+          : null
+    }
   }
 })
 </script>

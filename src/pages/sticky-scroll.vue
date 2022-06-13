@@ -75,7 +75,7 @@ export default {
               pid: 9089,
               type: 'scroll_item',
               content: {
-                headline: 'Premiumprodukte',
+                headline: 'Premiumprodukte und weiterer text für die Überschrift.',
                 text: {
                   text: 'Innovativ denken und handeln: Dieses Streben ist in der Erfolgsgeschichte von DRÄXLMAIER eine feste Größe – gestern, heute und morgen. Mit unseren Produkten für E-Mobilität und autonomes Fahren sind wir weltweit führend.',
                   size: 'text-body1'

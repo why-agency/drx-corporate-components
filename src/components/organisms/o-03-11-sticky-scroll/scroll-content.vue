@@ -7,7 +7,7 @@
       tag="h3"
       :color="color"
       :size="3"
-      class="!mb-6"
+      class="!mb-6 w-full lg:max-w-[504px]"
     />
     <BaseText
       :text="text"
