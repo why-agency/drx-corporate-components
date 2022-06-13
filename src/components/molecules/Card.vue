@@ -66,7 +66,7 @@
             :animate="false"
             class="line-clamp-4 !pr-4 lg:!pr-8"
           />
-          <div class="h-8 !mt-6 lg:!mt-10">
+          <div class="h-8 !mt-8 lg:!mt-12">
             <BaseButtonIcon
               v-if="link"
               variant="outline"
@@ -158,7 +158,7 @@ const tl = gsap.timeline({ paused: true })
 const initTimeline = () => {
   tl.to(headlines.value, {
     duration: 0.6,
-    y: isLg.value ? -112 : -136,
+    y: isLg.value ? -140 : -160,
     ease: Power1.easeInOut
   }).to(
     reveal.value,
