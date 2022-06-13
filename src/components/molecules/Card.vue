@@ -158,7 +158,7 @@ const tl = gsap.timeline({ paused: true })
 const initTimeline = () => {
   tl.to(headlines.value, {
     duration: 0.6,
-    y: isLg.value ? -140 : -160,
+    y: isLg.value ? -140 : -170,
     ease: Power1.easeInOut
   }).to(
     reveal.value,
