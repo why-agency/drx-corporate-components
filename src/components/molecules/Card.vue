@@ -57,7 +57,7 @@
         <!-- START CONTENT VISIBLE ON HOVER -->
         <div
           ref="reveal"
-          class="invisible opacity-0 translate-y-4 absolute bottom-8 flex flex-col"
+          class="invisible opacity-0 translate-y-28 absolute bottom-8 flex flex-col"
         >
           <BaseText
             v-if="text.text"
@@ -87,7 +87,7 @@
 <script setup>
 import { ref, computed, watch, onMounted } from 'vue'
 import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
-import { gsap } from 'gsap'
+import { gsap, Power1 } from 'gsap'
 import UseDynamicAction from '../organisms/UseDynamicAction.vue'
 import BaseMedia from '../base/Media.vue'
 import BaseHeadline from '../base/Headline.vue'
@@ -157,17 +157,19 @@ const tl = gsap.timeline({ paused: true })
 
 const initTimeline = () => {
   tl.to(headlines.value, {
-    duration: 1,
-    y: isLg.value ? -112 : -136
+    duration: 0.7,
+    y: isLg.value ? -112 : -136,
+    ease: Power1.easeInOut
   }).to(
     reveal.value,
     {
       opacity: 1,
       autoAlpha: 1,
       y: 0,
-      duration: 1
+      duration: 0.7,
+      ease: Power1.easeInOut
     },
-    isLg.value ? 0.3 : 0.5
+    0.025
   )
 }
 const toggleHeadline = value => {
