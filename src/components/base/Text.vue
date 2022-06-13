@@ -1,6 +1,6 @@
 <template>
   <div ref="body" :class="[$_size, { 'translate-y-4 opacity-0': animate }]">
-    <BaseHtmlParser tag="div" :content="text" />
+    <BaseHtmlParser tag="div" :content="text" class="line-clamp-4" />
   </div>
 </template>
 
