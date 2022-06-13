@@ -171,8 +171,8 @@ const aspectRatio = computed(() => ({
 }))
 
 /** Video Stream */
-const isPlaceholderVisible = true
-const vimeoThumbnail = ''
+let isPlaceholderVisible = true
+let vimeoThumbnail = ''
 
 const streamType = computed(
   () => props?.media?.video_stream?.[0].properties?.videoservice
@@ -207,6 +207,7 @@ const youtubeThumbnail = computed(() => {
     }/maxresdefault.jpg`
   }
 })
+
 onMounted(async () => {
   console.log(isVimeo.value && videoStream.value)
   console.log(id.value)
