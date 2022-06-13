@@ -35,14 +35,14 @@
         <div>
           <BasePicture
             v-if="placeholderImage.value"
-            :image="placeholderImage.value"
+            :images="placeholderImage.value"
             class="w-full h-full"
           />
-          <BasePicture
-            v-else
-            :src="youtubeThumbnail.value || vimeoThumbnail.value"
-            class="w-full h-full"
-          />
+          <img
+          v-else
+          :src="youtubeThumbnail || vimeoThumbnail"
+          class="w-full h-full"
+        />
           <slot name="play-button">
             <BaseButtonIcon
               v-if="videoUrl && !videoSettings.autoplay"
@@ -207,19 +207,33 @@ const youtubeThumbnail = computed(() => {
     }/maxresdefault.jpg`
   }
 })
-
-onMounted(async () => {
-  console.log(isVimeo.value && videoStream.value)
-  console.log(id.value)
+onMounted(() => {
   if (isVimeo.value && videoStream.value) {
-    const url = `https://vimeo.com/api/v2/video/${id.value}.json`
-    const response = await fetch(url)
-    const data = await response.json()
-    if (data && data.length) {
-      vimeoThumbnail = data[0].thumbnail_large
+    let fulldata = null
+    const url = `https://vimeo.com/api/v2/video/${ref(props?.media.video_stream?.[0].properties.video_id).value}.json`
+    fetch(url)
+      .then(response => response.json())
+      .then(data => (this.fulldata = data.total))
+    console.log(url)
+    console.log(fulldata)
+    if (this.fulldata && this.fulldata.length) {
+      vimeoThumbnail = fulldata[0].thumbnail_large
     }
   }
 })
+// onMounted(async () => {
+//   console.log(isVimeo.value && videoStream.value)
+//   console.log(id.value)
+//   if (isVimeo.value && videoStream.value) {
+//     const url = `https://vimeo.com/api/v2/video/${ref(props?.media.video_stream?.[0].properties.video_id).value}.json`
+//     console.log(url)
+//     const response = await fetch(url)
+//     const data = await response.json()
+//     if (data && data.length) {
+//       vimeoThumbnail = data[0].thumbnail_large
+//     }
+//   }
+// })
 
 function playVideo() {
   isPlaceholderVisible = false
