@@ -40,7 +40,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, toRefs } from 'vue'
+import { computed, onMounted, toRefs } from 'vue'
 import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
 
 import gsap from 'gsap'
