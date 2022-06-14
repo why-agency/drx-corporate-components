@@ -137,7 +137,7 @@ export default {
             [
               {
                 publicUrl:
-                  'https:\/\/draexlmaier.loc\/fileadmin\/Videos\/DRX_productvideo_v2.mp4',
+                  'https:\/\/development.draexlmaier.com\/fileadmin\/Videos\/mp4\/2019-08-06_Produkte_Interieur_Startteaser_web.mp4',
                 properties: {
                   uidLocal: 61475,
                   type: 'video',
@@ -147,7 +147,7 @@ export default {
                 },
                 cdn: {
                   publicUrl:
-                    'https:\/\/ik.imagekit.io\/xarxh50tnqyb\/Videos\/DRX_productvideo_v2.mp4',
+                    'https:\/\/development.draexlmaier.com\/fileadmin\/Videos\/mp4\/2019-08-06_Produkte_Interieur_Startteaser_web.mp4',
                   publicPath: '\/Videos\/DRX_productvideo_v2.mp4'
                 }
               }
