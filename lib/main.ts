@@ -2,7 +2,7 @@ import { defineCustomElement } from './localApiCustomElement'
 
 import O0304FullscreenMediaText from '../src/components/organisms/o-03-04-fullscreen-media-text.ce.vue'
 import O0312MultiMediaText from '../src/components/organisms/o-03-12-multi-media-text.ce.vue'
-import O0311StickyScroll from '../src/components/organisms/o-03-11-sticky-scroll.ce.vue'
+import O0311StickyScroll from '../src/components/organisms/o-03-11-sticky-scroll/index.ce.vue'
 import O0501ContentSlider from '../src/components/organisms/o-05-01-content-slider.ce.vue'
 
 const FullscreenMediaTextElement = defineCustomElement(

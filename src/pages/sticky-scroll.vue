@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="bg-gradient">
-      <o-03-11-sticky-scroll :data="sticky1.content" />
+      <o-03-11-sticky-scroll :data="sticky1" />
     </div>
     <div class="flex h-64 w-full">
       <div class="m-auto">Test div zum scrollen!</div>

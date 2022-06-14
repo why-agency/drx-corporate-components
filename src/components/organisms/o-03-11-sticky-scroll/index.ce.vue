@@ -24,9 +24,9 @@
         id="scroll-container"
         class="space-y-[120px] mt-[72px] lg:mt-[168px] mx-6 lg:ml-28"
       >
-        <StickyScrollRightField
-          :key="field"
+        <o-03-11-StickyScrollScrollContent
           v-for="field in fields"
+          :key="field"
           :color="$_headlineColor"
           :text="field.content.text.text"
           :textSize="field.content.text.size"
@@ -40,14 +40,16 @@
 </template>
 
 <script setup>
-import gsap from 'gsap'
+import { computed, onMounted, toRefs } from 'vue'
 import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
-import { ref, computed, onMounted, toRefs } from 'vue'
+
+import gsap from 'gsap'
+
 import BaseHeadline from '../../base/Headline.vue'
 import MActionBar from '../../molecules/ActionBar.vue'
-import StickyScrollRightField from '../../organisms/o-03-11-sticky-scroll/StickyScrollRightField.vue'
+
+import O0311StickyScrollScrollContent from '../../organisms/o-03-11-sticky-scroll/scroll-content.vue'
+
 const props = defineProps({
   data: {
     type: Object,
@@ -60,7 +62,7 @@ const {
   scroll_items: fields,
   actions,
   background
-} = toRefs(props.data)
+} = toRefs(props.data.content)
 const backgroundLeft = computed(() =>
   boxBackground.value === 'yes' ? 'bg-sand' : 'bg-none'
 )
@@ -76,7 +78,6 @@ const breakpoints = useBreakpoints(breakpointsTailwind)
 const isLg = breakpoints.greater('lg')
 
 // Start Scroll Animation
-
 onMounted(() => {
   const scroller = {
     target: document.querySelector('#scroll-container'),
