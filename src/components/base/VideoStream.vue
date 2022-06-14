@@ -56,62 +56,61 @@ const props = defineProps({
 const videoStream = computed(() => props?.media?.type === 'video-stream')
 
 /** Video Stream */
-  let isPlaceholderVisible = ref(true)
-  if(props.streamSettings.autoplay){
-    isPlaceholderVisible = false
+let isPlaceholderVisible = ref(true)
+if (props.streamSettings.autoplay) {
+  isPlaceholderVisible = false
+}
+let vimeoThumbnail = ref('')
+
+const streamType = computed(
+  () => props?.media?.video_stream?.[0].properties?.videoservice
+)
+const videoName = computed(
+  () => props?.media?.video_stream?.[0].properties?.video_title
+)
+const isVimeo = computed(() => streamType.value === 'vimeo')
+const url = computed(() =>
+  isVimeo.value
+    ? 'https://player.vimeo.com/video'
+    : 'https://www.youtube.com/embed'
+)
+
+const id = ref(props?.media.video_stream?.[0].properties.video_id)
+const start = ref(props?.media.video_stream?.[0].properties?.video_start)
+const end = ref(props?.media.video_stream?.[0].properties?.video_end)
+const srcstream = computed(() => {
+  return `${url.value}/${id.value}?autoplay=1&start=${start.value}&end=${end.value}`
+})
+const placeholderImage = computed(() => {
+  if (props?.media?.video_stream?.[0].properties?.video_poster_image) {
+    return props?.media?.video_stream?.[0].properties?.video_poster_image
   }
-  let vimeoThumbnail = ref('')
-
-  const streamType = computed(
-    () => props?.media?.video_stream?.[0].properties?.videoservice
-  )
-  const videoName = computed(
-    () => props?.media?.video_stream?.[0].properties?.video_title
-  )
-  const isVimeo = computed(() => streamType.value === 'vimeo')
-  const url = computed(() =>
-    isVimeo.value
-      ? 'https://player.vimeo.com/video'
-      : 'https://www.youtube.com/embed'
-  )
-
-  const id = ref(props?.media.video_stream?.[0].properties.video_id)
-  const start = ref(props?.media.video_stream?.[0].properties?.video_start)
-  const end = ref(props?.media.video_stream?.[0].properties?.video_end)
-  const srcstream = computed(() => {
-    return `${url.value}/${id.value}?autoplay=1&start=${start.value}&end=${end.value}`
-  })
-  const placeholderImage = computed(() => {
-    if (props?.media?.video_stream?.[0].properties?.video_poster_image) {
-      return props?.media?.video_stream?.[0].properties?.video_poster_image
-    }
+  return ''
+})
+const youtubeThumbnail = computed(() => {
+  if (isVimeo.value) {
     return ''
-  })
-  const youtubeThumbnail = computed(() => {
-    if (isVimeo.value) {
-      return ''
-    } else if (videoStream.value) {
-      const hasParams = id.value.includes('?')
-      return `https://img.youtube.com/vi/${
-        hasParams ? id.value.slice(0, id.indexOf('?')) : id
-      }/maxresdefault.jpg`
-    }
-  })
-  onMounted(() => {
-    if (isVimeo.value && videoStream.value) {
-      const url = `https://vimeo.com/api/v2/video/${
-        ref(props?.media.video_stream?.[0].properties.video_id).value
-      }.json`
-      fetch(url)
-        .then(response => response.json())
-        .then(data => {
-          vimeoThumbnail.value = data[0].thumbnail_large
-        })
-    }
-  })
-
-  function playVideo() {
-    isPlaceholderVisible.value = false
+  } else if (videoStream.value) {
+    const hasParams = id.value.includes('?')
+    return `https://img.youtube.com/vi/${
+      hasParams ? id.value.slice(0, id.indexOf('?')) : id
+    }/maxresdefault.jpg`
   }
-</script>
+})
+onMounted(() => {
+  if (isVimeo.value && videoStream.value) {
+    const url = `https://vimeo.com/api/v2/video/${
+      ref(props?.media.video_stream?.[0].properties.video_id).value
+    }.json`
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        vimeoThumbnail.value = data[0].thumbnail_large
+      })
+  }
+})
 
+function playVideo() {
+  isPlaceholderVisible.value = false
+}
+</script>

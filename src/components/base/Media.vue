@@ -31,7 +31,7 @@
     </div>
     <!-- VIDEOSTREAM -->
     <div v-if="videoStream" class="h-full w-full">
-      <BaseVideoStream :media="streamData"/>
+      <BaseVideoStream :media="streamData" />
     </div>
 
     <slot />
@@ -50,7 +50,7 @@
       <div class="flex justify-center w-full">
         <BaseVideoStream
           :media="streamData"
-          :streamSettings="{autoplay: true, muted: true}"
+          :streamSettings="{ autoplay: true, muted: true }"
           class="w-full lg:object-cover"
         />
       </div>
@@ -125,7 +125,7 @@ const videoUrl = computed(
 const videoStream = computed(() => props?.media?.type === 'video-stream')
 let streamData = ref(null)
 
-if(videoStream){
+if (videoStream) {
   streamData = props?.media
 }
 
@@ -152,5 +152,4 @@ const aspectRatio = computed(() => ({
   'aspect-[9/4]': props.format === '9:4',
   'aspect-[4/3]': props.format === '4:3'
 }))
-
 </script>
