@@ -59,8 +59,7 @@ export default {
                   extension: 'jpg'
                 },
                 cdn: {
-                  publicUrl:
-                    'https:\/\/ik.imagekit.io\/xarxh50tnqyb\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__a18cb7ce22.jpg',
+                  publicUrl: '',
                   publicPath:
                     '\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__a18cb7ce22.jpg'
                 },
@@ -103,7 +102,7 @@ export default {
                 },
                 cdn: {
                   publicUrl:
-                    'https:\/\/ik.imagekit.io\/xarxh50tnqyb\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__429bf7b2cb.jpg',
+                    '',
                   publicPath:
                     '\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__429bf7b2cb.jpg'
                 },

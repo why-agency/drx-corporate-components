@@ -2,8 +2,18 @@
   <component
     ref="headline"
     :is="headlineTag"
+<<<<<<< HEAD
     class="antialiased font-primary transform translate-y-4 opacity-0"
     :class="[$_headlineSize, $_headlineColor, fontWeight]"
+=======
+    class="font-primary"
+    :class="[
+      $_headlineSize,
+      $_headlineColor,
+      fontWeight,
+      { 'translate-y-4 opacity-0': animate }
+    ]"
+>>>>>>> review
   >
     <slot>
       <BaseHtmlParser tag="span" :content="text" />
@@ -38,6 +48,10 @@ const props = defineProps({
   fontWeight: {
     type: String,
     default: 'font-bold'
+  },
+  animate: {
+    type: Boolean,
+    default: true
   }
 })
 
@@ -49,6 +63,7 @@ const $_headlineSize = computed(() => ({
   'text-h3': props.size === 3,
   'text-h4': props.size === 4,
   'text-h5': props.size === 5,
+  uppercase: props.size === 5 && props.fontWeight === 'font-bold',
   'text-h6': props.size === 6
 }))
 
@@ -63,7 +78,7 @@ const headline = ref(0)
 const isVisible = useIntersectionObserver({ target: headline })
 
 watch(isVisible, isVisible => {
-  if (isVisible) {
+  if (isVisible && props.animate) {
     gsap.to(headline.value, {
       y: 0,
       opacity: 1,
