@@ -17,8 +17,13 @@
           v-if="headline && headline.text"
           v-bind="headline"
           :class="{
-            'text-sand': (background !== 'light' && background !== 'none' && !isMedia) || (gradient === 'dark' && isMedia),
-            'text-primary': (background === 'none' && !isMedia) || (background === 'light' && !isMedia) || (gradient === 'light' && isMedia)
+            'text-sand':
+              (background !== 'light' && background !== 'none' && !isMedia) ||
+              (gradient === 'dark' && isMedia),
+            'text-primary':
+              (background === 'none' && !isMedia) ||
+              (background === 'light' && !isMedia) ||
+              (gradient === 'light' && isMedia)
           }"
           class="pt-16 lg:pt-28 font-normal"
         />
@@ -123,14 +128,42 @@ const $_twoFacts = computed(() => {
 const $_marginTop = computed(() => {
   return headline.value.text || quote.value.text ? 'mt-14 lg:mt-auto' : 'mt-10'
 })
+
 const triggerContainer = ref(null)
 const stickyImage = ref(null)
 onMounted(() => {
-  const scroll = ScrollTrigger.create({
+  let isScroll = false
+  const letter = quote.value.text.split('')
+
+  //scrollTrigger for the quote text (change color)
+  const textColorChange = ScrollTrigger.create({
     trigger: triggerContainer.value,
     start: 'top top',
-    end: 'bottom bottom',
-    pin: stickyImage.value
+    end: 1000,
+    onToggle: changeColor,
   })
+
+  function changeColor() {
+    gsap.fromTo(
+      letter[0],
+      { color: '#ffff' },
+      {
+        color: '#0000',
+        onComplete() {
+          console.log('whole tween done')
+          isScroll = true
+        }
+      }
+    )
+  }
+  //scrollTrigger for the mobile sticky background
+  if (isScroll) {
+    const scroll = ScrollTrigger.create({
+      trigger: triggerContainer.value,
+      start: 'top top',
+      end: 'bottom bottom',
+      pin: stickyImage.value
+    })
+  }
 })
 </script>
