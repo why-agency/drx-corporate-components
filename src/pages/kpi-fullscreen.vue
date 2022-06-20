@@ -1,6 +1,6 @@
 <template>
   <div><o-06-07-kpi-fullscreen :data="kpi" /></div>
-  <div class="h-[1000px]">HEllo</div>
+  <div class="h-[1000px]">Text div for scrolling</div>
 </template>
 
 <script setup>
