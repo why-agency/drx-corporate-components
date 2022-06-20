@@ -1,37 +1,54 @@
 <template>
   <section>
-    <div :class="[frame, bg, { 'h-screen': hasQuoteContent }]">
-      <div class="mx-24">
+    <div
+      :class="[frame, !isMedia ? bg : '', { 'lg:h-screen': hasQuoteContent }]"
+      ref="triggerContainer"
+    >
+      <div v-if="isMedia" ref="stickyImage" class="h-full w-full absolute">
         <BaseMedia
-          v-if="isMedia"
-          :media="media"
+          :media="media.type === 'image' ? media.image : media.video_stream"
           :video-settings="{ autoplay: true }"
           :gradient="gradient.value"
-          class="!absolute !h-screen"
+          mediaStyle="h-[100vh] lg:h-fit lg:!absolute object-cover"
         />
+      </div>
+      <div class="z-50 mx-6 lg:mx-24 flex flex-col h-full">
         <BaseHeadline
-          v-if="headline"
+          v-if="headline && headline.text"
           v-bind="headline"
           :class="{
-            'text-sand': background !== 'light',
-            'text-primary': background === 'light'
+            'text-sand': (background !== 'light' && background !== 'none' && !isMedia) || (gradient === 'dark' && isMedia),
+            'text-primary': (background === 'none' && !isMedia) || (background === 'light' && !isMedia) || (gradient === 'light' && isMedia)
           }"
-          class="pt-28"
+          class="pt-16 lg:pt-28 font-normal"
         />
         <BaseHeadline
-          v-if="quote"
+          v-if="quote && quote.text"
           v-bind="quote"
           :size="4"
-          :class="$_textColor"
-          class="font-normal pt-20 max-w-[616px] float-right"
+          class="font-normal w-full lg:max-w-[616px] lg:ml-auto"
+          :class="[
+            $_textColor,
+            headline && headline.text ? 'pt-20' : 'pt-[312px]'
+          ]"
         />
-        <O0607KpiFullscreenKpiFact
-          :name="cardContent.name"
-          :value="cardContent.value"
-          :unit="cardContent.unit"
-          :description="cardContent.description"
-          :color="$_textColor"
-        />
+        <div
+          v-if="cards && cards[0]"
+          class="z-50 flex flex-col lg:flex-row w-full border-t-[1px] border-sand border-opacity-20 pt-7 pb-16"
+          :class="[$_space, $_marginTop]"
+        >
+          <O0607KpiFullscreenKpiFact
+            v-for="card in cards"
+            :key="card"
+            :name="card.content.name"
+            :value="card.content.value"
+            :unit="card.content.unit"
+            :description="card.content.description"
+            :color="$_textColor"
+            :valueColor="$_valueColor"
+            :class="[cards.indexOf(card) === 1 ? $_twoFacts : '']"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -44,6 +61,10 @@ import BaseHeadline from '../../base/Headline.vue'
 import BaseMedia from '../../base/Media.vue'
 import BaseText from '../../base/Text.vue'
 import O0607KpiFullscreenKpiFact from '../../organisms/o-06-07-kpi-fullscreen/kpi-fact.vue'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const props = defineProps({
   data: {
@@ -65,22 +86,51 @@ const {
   kpicards: cards
 } = toRefs(props.data.content)
 
-const cardContent = ref(cards).value[0].content
-console.log(cardContent.description)
+const isMedia = computed(() => {
+  return media.value.image.length !== 0 || media.value.video_stream.length !== 0
+})
 
 const $_headlineSize = 'text-' + ref(headline).value.tag
 const $_textColor = computed(() => {
-  return background === 'light' ? 'text-primary' : 'text-sand'
+  if (isMedia.value) {
+    return gradient.value === 'light' ? 'text-primary' : 'text-sand'
+  } else {
+    return background.value === 'light'
+      ? 'text-primary'
+      : background.value === 'none'
+      ? 'text-primary'
+      : 'text-sand'
+  }
 })
+
 const bg = useBackgroundColor(background.value)
 const hasQuoteContent = computed(() => {
-  return headline || quote
+  return headline.value.text || quote.value.text
+})
+const $_valueColor = computed(() => {
+  return hasQuoteContent.value ? $_textColor.value : 'text-secondary'
+})
+const $_space = computed(() => {
+  return cards.value.length === 2
+    ? ''
+    : 'space-y-16 lg:space-y-0 lg:justify-between'
 })
 
-// const bg = computed(() => {
-//   'bg-'
-// })
+const $_twoFacts = computed(() => {
+  return cards.value.length < 3 ? 'lg:ml-[20%]' : ''
+})
 
-/** media set true */
-const isMedia = false /** muss noch weg!! */
+const $_marginTop = computed(() => {
+  return headline.value.text || quote.value.text ? 'mt-14 lg:mt-auto' : 'mt-10'
+})
+const triggerContainer = ref(null)
+const stickyImage = ref(null)
+onMounted(() => {
+  const scroll = ScrollTrigger.create({
+    trigger: triggerContainer.value,
+    start: 'top top',
+    end: 'bottom bottom',
+    pin: stickyImage.value
+  })
+})
 </script>

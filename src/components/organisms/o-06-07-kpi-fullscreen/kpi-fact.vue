@@ -1,35 +1,45 @@
 <template>
-  <div>
+  <div class="basis-0 space-y-3">
+    <div class="flex flex-col lg:flex-row space-y-3 lg:space-y-0 lg:space-x-3">
       <BaseText
-          v-if="name"
-          v-bind="name"
-          size="text-body2"
-          :class="color"
-        />
-      <BaseHeadline
+        v-if="name"
+        :text="name"
+        size="text-body2"
+        :class="color"
+        class="font-bold max-w-[50%] lg:max-w-[152px]"
+      />
+      <div class="flex flex-row space-x-3">
+        <BaseHeadline
           v-if="value"
-          v-bind="value"
-          :class="color"
+          :text="value"
+          :class="valueColor"
           :size="1"
+          class="font-normal"
         />
-      <BaseText
+        <BaseText
           v-if="unit"
-          v-bind="unit"
+          :text="unit"
           size="text-body2"
           :class="color"
+          :animateOpacity="0.5"
+          class="max-w-[72px]"
         />
-      <BaseText
-          v-if="description"
-          v-bind="description"
-          size="text-body2"
-          :class="color"
-        />
+      </div>
+    </div>
+    <BaseText
+      v-if="description"
+      :text="description"
+      size="text-body3"
+      :class="[color]"
+    />
   </div>
 </template>
 
 <script setup>
 import BaseHeadline from '../../base/Headline.vue'
 import BaseText from '../../base/Text.vue'
+import { ref, onMounted, computed, watch } from 'vue'
+import { useElementSize } from '@vueuse/core'
 
 const props = defineProps({
   name: {
@@ -37,20 +47,24 @@ const props = defineProps({
     default: ''
   },
   value: {
-      type: String,
-      default: ''
+    type: String,
+    default: ''
   },
   unit: {
-      type: String,
-      default: ''
+    type: String,
+    default: ''
   },
   description: {
-      type: String,
-      default: ''
+    type: String,
+    default: ''
   },
   color: {
-      type: String,
-      default: 'text-primary'
+    type: String,
+    default: 'text-primary'
+  },
+  valueColor: {
+    type: String,
+    default: 'text-primary'
   }
 })
 </script>
