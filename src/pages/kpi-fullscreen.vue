@@ -1,6 +1,7 @@
 <template>
-  <div><o-06-07-kpi-fullscreen :data="kpi" /></div>
-  <div class="h-[1000px]">Text div for scrolling</div>
+  <o-06-07-kpi-fullscreen :data="kpi" class="mb-64" />
+  <o-06-07-kpi-fullscreen :data="kpi2" class="mb-32" />
+  <o-06-07-kpi-fullscreen :data="kpi3" />
 </template>
 
 <script setup>
@@ -154,7 +155,8 @@ export default {
                 name: 'Durchschnittliche Kundenbeziehung',
                 value: '3939',
                 unit: 'kg',
-                description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
+                description:
+                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
               }
             },
             {
@@ -165,7 +167,8 @@ export default {
                 name: 'Weltneuheiten mit DRÄXLMAIER Produktenasdasd',
                 value: '9453',
                 unit: 'm2',
-                description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
+                description:
+                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
               }
             },
             {
@@ -176,7 +179,136 @@ export default {
                 name: 'Weltneuheiten mit DRÄXLMAIER Produktenasdasd',
                 value: '9693',
                 unit: 'm2',
-                description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
+                description:
+                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
+              }
+            }
+          ],
+          overlays: []
+        }
+      },
+      kpi2: {
+        id: 78358,
+        pid: 9093,
+        type: 'o_06_07__kpi_fullscreen',
+        tagname: 'o-06-07-kpi-fullscreen',
+        appearance: {
+          layout: 'default',
+          frameClass: 'default',
+          spaceBefore: '',
+          spaceAfter: ''
+        },
+        content: {
+          background: 'gradient',
+          gradient: 'dark',
+          media: {
+            type: 'image',
+            image: [],
+            video_stream: []
+          },
+          quote: {
+            text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
+          },
+          header: { text: 'KPI + Quote + Video', tag: 'h2' },
+          kpicards: [
+            {
+              id: 1,
+              pid: 9093,
+              type: 'kpicard',
+              content: {
+                name: 'Durchschnittliche Kundenbeziehung',
+                value: '3939',
+                unit: 'kg',
+                description:
+                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
+              }
+            },
+            {
+              id: 2,
+              pid: 9093,
+              type: 'kpicard',
+              content: {
+                name: 'Weltneuheiten mit DRÄXLMAIER Produktenasdasd',
+                value: '9453',
+                unit: 'm2',
+                description:
+                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
+              }
+            },
+            {
+              id: 3,
+              pid: 9093,
+              type: 'kpicard',
+              content: {
+                name: 'Weltneuheiten mit DRÄXLMAIER Produktenasdasd',
+                value: '9693',
+                unit: 'm2',
+                description:
+                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
+              }
+            }
+          ],
+          overlays: []
+        }
+      },
+      kpi3: {
+        id: 78358,
+        pid: 9093,
+        type: 'o_06_07__kpi_fullscreen',
+        tagname: 'o-06-07-kpi-fullscreen',
+        appearance: {
+          layout: 'default',
+          frameClass: 'default',
+          spaceBefore: '',
+          spaceAfter: ''
+        },
+        content: {
+          background: 'light',
+          gradient: 'dark',
+          media: {
+            type: 'image',
+            image: [],
+            video_stream: []
+          },
+          quote: {
+            text: ''
+          },
+          header: { text: '', tag: 'h2' },
+          kpicards: [
+            {
+              id: 1,
+              pid: 9093,
+              type: 'kpicard',
+              content: {
+                name: 'Durchschnittliche Kundenbeziehung',
+                value: '3939',
+                unit: 'kg',
+                description:
+                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
+              }
+            },
+            {
+              id: 2,
+              pid: 9093,
+              type: 'kpicard',
+              content: {
+                name: 'Weltneuheiten mit DRÄXLMAIER Produktenasdasd',
+                value: '9453',
+                unit: 'm2',
+                description:
+                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
+              }
+            },
+            {
+              id: 3,
+              pid: 9093,
+              type: 'kpicard',
+              content: {
+                name: 'Weltneuheiten mit DRÄXLMAIER Produktenasdasd',
+                value: '9693',
+                unit: 'm2',
+                description:
+                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
               }
             }
           ],
