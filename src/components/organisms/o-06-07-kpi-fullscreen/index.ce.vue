@@ -1,7 +1,10 @@
 <template>
   <section>
     <div
-      :class="[frame, { 'lg:h-screen': hasQuoteContent, [$_backgroundColor]: !isMedia }]"
+      :class="[
+        frame,
+        { 'lg:h-screen': hasQuoteContent, [$_backgroundColor]: !isMedia }
+      ]"
       ref="triggerContainer"
     >
       <div v-if="isMedia" ref="stickyImage" class="h-full w-full absolute">
@@ -16,15 +19,18 @@
         <BaseHeadline
           v-if="headline && headline.text"
           v-bind="headline"
-          :class="[$_headlineSize, {
-            'text-sand':
-              (background !== 'light' && background !== 'none' && !isMedia) ||
-              (gradient === 'dark' && isMedia),
-            'text-primary':
-              (background === 'none' && !isMedia) ||
-              (background === 'light' && !isMedia) ||
-              (gradient === 'light' && isMedia),
-          }]"
+          :class="[
+            $_headlineSize,
+            {
+              'text-sand':
+                (background !== 'light' && background !== 'none' && !isMedia) ||
+                (gradient === 'dark' && isMedia),
+              'text-primary':
+                (background === 'none' && !isMedia) ||
+                (background === 'light' && !isMedia) ||
+                (gradient === 'light' && isMedia)
+            }
+          ]"
           class="pt-16 lg:pt-28 font-normal"
         />
         <BaseHeadline
@@ -40,7 +46,10 @@
         <div
           v-if="cards && cards[0]"
           class="z-50 flex flex-col lg:flex-row w-full border-t-[1px] border-sand border-opacity-20 pt-7 pb-16"
-          :class="[$_marginTop, {'space-y-16 lg:space-y-0 lg:justify-between' : cards.length !== 2}]"
+          :class="[
+            $_marginTop,
+            { 'space-y-16 lg:space-y-0 lg:justify-between': cards.length !== 2 }
+          ]"
         >
           <O0607KpiFullscreenKpiFact
             v-for="card in cards"
@@ -95,22 +104,22 @@ const isMedia = computed(() => {
   return media.value.image.length !== 0 || media.value.video_stream.length !== 0
 })
 
-const $_headlineSize = computed(() => `text-${headline.value.tag}` )
+const $_headlineSize = computed(() => `text-${headline.value.tag}`)
 const $_textColor = computed(() => {
   if (isMedia.value) {
     return gradient.value === 'light' ? 'text-primary' : 'text-sand'
-  } else {
-    return background.value === 'light'
-      ? 'text-primary'
-      : background.value === 'none'
-      ? 'text-primary'
-      : 'text-sand'
   }
+  return background.value === 'light'
+    ? 'text-primary'
+    : background.value === 'none'
+    ? 'text-primary'
+    : 'text-sand'
 })
 
-
-function $_getCardStyles(card){
-  return cards.value.indexOf(card) === 1 && cards.value.length < 3 ? 'mt-16 lg:mt-0 lg:ml-[20%]' : ''
+function $_getCardStyles(card) {
+  return cards.value.indexOf(card) === 1 && cards.value.length < 3
+    ? 'mt-16 lg:mt-0 lg:ml-[20%]'
+    : ''
 }
 
 const $_backgroundColor = useBackgroundColor(background.value)
@@ -129,11 +138,11 @@ const triggerContainer = ref(null)
 const stickyImage = ref(null)
 onMounted(() => {
   //scrollTrigger for the mobile sticky background
-    const scroll = ScrollTrigger.create({
-      trigger: triggerContainer.value,
-      start: 'top top',
-      end: 'bottom bottom',
-      pin: stickyImage.value
-    })
+  const scroll = ScrollTrigger.create({
+    trigger: triggerContainer.value,
+    start: 'top top',
+    end: 'bottom bottom',
+    pin: stickyImage.value
+  })
 })
 </script>
