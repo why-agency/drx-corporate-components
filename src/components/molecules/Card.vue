@@ -31,14 +31,16 @@
           size="text-body2"
           :text="overline.text"
           :animate="false"
-          class="text-secondary font-bold mb-2"
+          class="font-bold mb-2"
+          :class="overline.color || 'text-secondary'"
         />
         <BaseHeadline
           v-if="header && header.text"
           ref="headline2"
-          :size="3"
+          :size="header.size || 3"
           :text="header.text"
           :animate="false"
+          :font-weight="header.fontWeight || 'font-regular'"
           :class="{ '!mb-6 lg:!mb-10': !header2 || !header2.text }"
           class="!text-white"
         />
