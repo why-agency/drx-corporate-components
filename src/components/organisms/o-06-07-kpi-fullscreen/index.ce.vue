@@ -3,7 +3,7 @@
     <div
       :class="[
         frame,
-        { 'lg:h-screen': hasQuoteContent, [$_backgroundColor]: !isMedia }
+        { 'lg:h-screen': hasQuoteContent, 'h-screen': isMedia, [$_backgroundColor]: !isMedia }
       ]"
       ref="triggerContainer"
     >
@@ -11,8 +11,8 @@
         <BaseMedia
           :media="media.type === 'image' ? media.image : media.video_stream"
           :video-settings="{ autoplay: true }"
-          :gradient="gradient.value"
-          mediaStyle="h-[100vh] w-[100vw] object-cover"
+          :gradient="gradient"
+          mediaStyle="h-screen w-[100vw] object-cover"
         />
       </div>
       <div class="z-50 mx-6 lg:mx-24 flex flex-col h-full">
