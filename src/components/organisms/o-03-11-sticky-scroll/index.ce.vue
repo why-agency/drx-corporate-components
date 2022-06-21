@@ -20,7 +20,7 @@
         class="mt-[87px] pb-12 lg:mt-[152px] lg:pb-0"
       />
     </div>
-    <div class="sticky overflow-hidden">
+    <div class="overflow-hidden">
       <div
         :id="sectionID.value"
         ref="scrollref"
@@ -52,6 +52,10 @@ import MActionBar from '../../molecules/ActionBar.vue'
 import StickyScrollRightField from '../../organisms/o-03-11-sticky-scroll/StickyScrollRightField.vue'
 import { useIntersectionObserver } from '@vueuse/core'
 
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const props = defineProps({
   data: {
     type: Object,
@@ -67,8 +71,6 @@ const {
 } = toRefs(props.data.content)
 
 const sectionID = ref(props.data.id)
-console.log(sectionID.value)
-
 const backgroundLeft = computed(() =>
   boxBackground.value === 'yes' ? 'bg-sand' : 'bg-none'
 )
@@ -101,53 +103,69 @@ const { stop } = useIntersectionObserver(
 
 // Start Scroll Animation
 onMounted(() => {
-  console.log('top' + scrollRefSec.value.getBoundingClientRect().top)
-  document.addEventListener('scroll', onScroll)
-  const scroller = {
-    target: scrollref.value,
-    ease: 0.02, // scroll speed
-    endY: 0,
-    y: 0,
-    scrollRequest: 0
+  function scrollSmooth(){
+    gsap.to(scrollref.value, {y: 300})
   }
-  let requestId = null
+  ScrollTrigger.create({
+    trigger: scrollRefSec.value,
+    start: 'top top',
+    end: 'bottom bottom',
+    onToggle: scrollSmooth
+  })
 
-  function onScroll() {
-    if (targetIsVisible.value) {
-      scroller.scrollRequest++
-      if (!requestId) {
-        requestId = requestAnimationFrame(updateScroller)
-      }
-    }
-  }
+//   document.addEventListener('scroll', onScroll)
+//   const scroller = {
+//     target: scrollref.value,
+//     ease: 0.02, // scroll speed
+//     endY: 0,
+//     y: 0,
+//     scrollRequest: 0
+//   }
 
-  // check the position of the current module (relative to the document)
-  function offset(cont) {
-    var rect = cont.getBoundingClientRect(),
-      scrollTop = window.pageYOffset || document.documentElement.scrollTop
-    return { top: rect.top + scrollTop, bottom: rect.top + scrollTop + scrollRefSec.value.clientHeight}
-  }
+//   let requestId = null
 
-  var divOffset = offset(scrollRefSec.value)
+//   document.addEventListener('scroll', onScroll)
 
-  function updateScroller() {
-    var scrollY = 0
-    if (
-      window.pageYOffset > divOffset.top &&
-      window.pageYOffset < divOffset.bottom
-    ) {
-      scrollY = window.pageYOffset
-    } else {
-      scrollY = 0
-    }
-    scroller.endY = scrollY
-    scroller.y += (scrollY - scroller.y) * scroller.ease
-    let animateValue = isLg.value ? -scroller.y / 3 : -scroller.y / 6
-    gsap.set(scroller.target, {
-      y: animateValue
-    })
-    requestId =
-      scroller.scrollRequest > 0 ? requestAnimationFrame(updateScroller) : null
-  }
+//   function onScroll() {
+//     if (targetIsVisible.value) {
+//       scroller.scrollRequest++
+//       if (!requestId) {
+//         requestId = requestAnimationFrame(updateScroller)
+//       }
+//     }
+//   }
+
+//   // check the position of the current module (relative to the document)
+//   function offset(cont) {
+//     var rect = cont.getBoundingClientRect(),
+//       scrollTop = window.pageYOffset || document.documentElement.scrollTop
+//     return {
+//       top: rect.top + scrollTop,
+//       bottom: rect.top + scrollTop + scrollRefSec.value.clientHeight
+//     }
+//   }
+
+//   var divOffset = offset(scrollRefSec.value)
+
+//   function updateScroller() {
+//     var scrollY = 0
+//     if (
+//       window.pageYOffset > divOffset.top &&
+//       window.pageYOffset < divOffset.bottom
+//     ) {
+//       scrollY = window.pageYOffset
+//     } else {
+//       scrollY = 0
+//     }
+//     scroller.y += (scrollY - scroller.y) * scroller.ease
+//     console.log(scroller.y)
+//     let animateValue = isLg.value ? -scroller.y : -scroller.y
+//     scroller.endY = scrollY
+//     gsap.set(scroller.target, {
+//       y: animateValue
+//     })
+//     requestId =
+//       scroller.scrollRequest > 0 ? requestAnimationFrame(updateScroller) : null
+//   }
 })
 </script>
