@@ -11,7 +11,7 @@
       <BaseMedia
         v-if="media"
         :media="media"
-        format="desktop"
+        :format="mediaFormat"
         gradient="dark"
         :srcsets="srcsets"
         class="!absolute group-hover:before:from-black/20 group-hover:before:via-black/75 group-hover:before:to-black/80"
@@ -123,6 +123,10 @@ const props = defineProps({
   media: {
     type: Array,
     default: undefined
+  },
+  mediaFormat: {
+    type: String,
+    default: 'desktop'
   },
   isActive: {
     type: Boolean,
