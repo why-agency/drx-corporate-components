@@ -144,7 +144,6 @@ onMounted(() => {
       scrollY = window.pageYOffset - divOffset.top
       scroller.y += (scrollY - scroller.y) * scroller.ease
       animateValue = -scroller.y / 3
-      console.log(animateValue)
       scroller.endY = scrollY
       gsap.set(scroller.target, {
         y: animateValue
