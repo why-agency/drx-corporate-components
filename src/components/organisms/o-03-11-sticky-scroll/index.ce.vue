@@ -100,28 +100,8 @@ const { stop } = useIntersectionObserver(
   },
   { threshold: 1 }
 )
-
 // Start Scroll Animation
 onMounted(() => {
-  // let height
-  // function setHeight() {
-  //   height = scrollref.value.clientHeight
-  //   document.body.style.height = height + 'px'
-  // }
-  // ScrollTrigger.addEventListener("refreshInit", setHeight);
-  // function scrollSmooth() {
-  //   gsap.to(scrollref.value, { y: () => -(height - document.documentElement.clientHeight)})
-  // }
-  // console.log(document.documentElement.clientHeight)
-  // let scroll = ScrollTrigger.create({
-  //   trigger: scrollref.value,
-  //   pin: scrollRefSec.value,
-  //   start: 'top top',
-  //   end: 'bottom bottom',
-  //   onToggle: scrollSmooth,
-  //   onUpdate: scrollSmooth
-  // })
-
   const scroller = {
     target: scrollref.value,
     ease: 0.02, // scroll speed
