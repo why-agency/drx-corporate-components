@@ -52,9 +52,9 @@ import MActionBar from '../../molecules/ActionBar.vue'
 import StickyScrollRightField from '../../organisms/o-03-11-sticky-scroll/StickyScrollRightField.vue'
 import { useIntersectionObserver } from '@vueuse/core'
 
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 const props = defineProps({
   data: {
@@ -103,69 +103,77 @@ const { stop } = useIntersectionObserver(
 
 // Start Scroll Animation
 onMounted(() => {
-  function scrollSmooth(){
-    gsap.to(scrollref.value, {y: 300})
+  // let height
+  // function setHeight() {
+  //   height = scrollref.value.clientHeight
+  //   document.body.style.height = height + 'px'
+  // }
+  // ScrollTrigger.addEventListener("refreshInit", setHeight);
+  // function scrollSmooth() {
+  //   gsap.to(scrollref.value, { y: () => -(height - document.documentElement.clientHeight)})
+  // }
+  // console.log(document.documentElement.clientHeight)
+  // let scroll = ScrollTrigger.create({
+  //   trigger: scrollref.value,
+  //   pin: scrollRefSec.value,
+  //   start: 'top top',
+  //   end: 'bottom bottom',
+  //   onToggle: scrollSmooth,
+  //   onUpdate: scrollSmooth
+  // })
+
+  const scroller = {
+    target: scrollref.value,
+    ease: 0.02, // scroll speed
+    endY: 0,
+    y: 0,
+    scrollRequest: 0,
+    startScroll: window.pageYOffset
   }
-  ScrollTrigger.create({
-    trigger: scrollRefSec.value,
-    start: 'top top',
-    end: 'bottom bottom',
-    onToggle: scrollSmooth
-  })
+  let requestId = null
 
-//   document.addEventListener('scroll', onScroll)
-//   const scroller = {
-//     target: scrollref.value,
-//     ease: 0.02, // scroll speed
-//     endY: 0,
-//     y: 0,
-//     scrollRequest: 0
-//   }
+  document.addEventListener('scroll', onScroll)
 
-//   let requestId = null
+  function onScroll() {
+    if (targetIsVisible.value) {
+      scroller.scrollRequest++
+      if (!requestId) {
+        requestId = requestAnimationFrame(updateScroller)
+      }
+    }
+  }
 
-//   document.addEventListener('scroll', onScroll)
+  // check the position of the current module (relative to the document)
+  function offset(cont) {
+    var rect = cont.getBoundingClientRect(),
+      scrollTop = window.pageYOffset || document.documentElement.scrollTop
+    return {
+      top: rect.top + scrollTop,
+      bottom: rect.top + scrollTop + scrollRefSec.value.clientHeight
+    }
+  }
 
-//   function onScroll() {
-//     if (targetIsVisible.value) {
-//       scroller.scrollRequest++
-//       if (!requestId) {
-//         requestId = requestAnimationFrame(updateScroller)
-//       }
-//     }
-//   }
+  var divOffset = offset(scrollRefSec.value)
 
-//   // check the position of the current module (relative to the document)
-//   function offset(cont) {
-//     var rect = cont.getBoundingClientRect(),
-//       scrollTop = window.pageYOffset || document.documentElement.scrollTop
-//     return {
-//       top: rect.top + scrollTop,
-//       bottom: rect.top + scrollTop + scrollRefSec.value.clientHeight
-//     }
-//   }
-
-//   var divOffset = offset(scrollRefSec.value)
-
-//   function updateScroller() {
-//     var scrollY = 0
-//     if (
-//       window.pageYOffset > divOffset.top &&
-//       window.pageYOffset < divOffset.bottom
-//     ) {
-//       scrollY = window.pageYOffset
-//     } else {
-//       scrollY = 0
-//     }
-//     scroller.y += (scrollY - scroller.y) * scroller.ease
-//     console.log(scroller.y)
-//     let animateValue = isLg.value ? -scroller.y : -scroller.y
-//     scroller.endY = scrollY
-//     gsap.set(scroller.target, {
-//       y: animateValue
-//     })
-//     requestId =
-//       scroller.scrollRequest > 0 ? requestAnimationFrame(updateScroller) : null
-//   }
+  function updateScroller() {
+    var scrollY = 0
+    let animateValue = divOffset.top
+    if (
+      window.scrollY < divOffset.top + 10 || window.scrollY > divOffset.top
+    ) {
+      scrollY = window.pageYOffset - divOffset.top
+      scroller.y += (scrollY - scroller.y) * scroller.ease
+      animateValue = -scroller.y / 3
+      console.log(animateValue)
+      scroller.endY = scrollY
+      gsap.set(scroller.target, {
+        y: animateValue
+      })
+      requestId =
+        scroller.scrollRequest > 0
+          ? requestAnimationFrame(updateScroller)
+          : null
+    }
+  }
 })
 </script>
