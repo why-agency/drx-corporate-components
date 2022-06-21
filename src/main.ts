@@ -6,6 +6,7 @@ import fullscreenMediaText from './pages/fullscreen-media-text.vue'
 import multiMediaText from './pages/multimedia-text.vue'
 import stickyScroll from './pages/sticky-scroll.vue'
 import contentSlider from './pages/content-slider.vue'
+import mediaHotspot from './pages/media-hotspot.vue'
 
 const app = createApp(App)
 
@@ -14,7 +15,8 @@ const routes = [
   { path: '/fullscreen-media-text', component: fullscreenMediaText },
   { path: '/multimedia-text', component: multiMediaText },
   { path: '/sticky-scroll', component: stickyScroll },
-  { path: '/content-slider', component: contentSlider }
+  { path: '/content-slider', component: contentSlider },
+  { path: '/media-hotspot', component: mediaHotspot}
 ]
 
 const router = VueRouter.createRouter({
