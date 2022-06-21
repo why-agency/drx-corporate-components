@@ -9,7 +9,7 @@
         v-if="headline && headline.text"
         v-bind="headline"
         :color="$_headlineColor"
-        class="max-w-[512px] mr-16 lg:uppercase"
+        class="pb-[87px] max-w-[512px] mr-16 lg:uppercase"
         :size="isLg ? headline.size : 3"
       />
       <MActionBar
@@ -17,7 +17,7 @@
         :actions="actions"
         position="left"
         :stack="true"
-        class="mt-[87px] pb-12 lg:mt-[152px] lg:pb-0"
+        class="pb-12 lg:mt-[152px] lg:pb-0"
       />
     </div>
     <div class="overflow-hidden">
