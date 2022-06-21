@@ -3,7 +3,11 @@
     <div
       :class="[
         frame,
-        { 'lg:h-screen': hasQuoteContent, 'h-screen': isMedia, [$_backgroundColor]: !isMedia }
+        {
+          'lg:h-screen': hasQuoteContent,
+          'h-screen': isMedia,
+          [$_backgroundColor]: !isMedia
+        }
       ]"
       ref="triggerContainer"
     >
@@ -45,11 +49,8 @@
         />
         <div
           v-if="cards && cards[0]"
-          class="z-50 flex flex-col lg:flex-row w-full border-t-[1px] border-sand border-opacity-20 pt-7 pb-16"
-          :class="[
-            $_marginTop,
-            { 'space-y-16 lg:space-y-0 lg:justify-between': cards.length !== 2 }
-          ]"
+          class="z-50 flex flex-col lg:flex-row w-full border-t-[1px] border-sand border-opacity-20 pt-7 pb-16 space-y-16 lg:space-y-0 lg:justify-between"
+          :class="$_marginTop"
         >
           <O0607KpiFullscreenKpiFact
             v-for="card in cards"
@@ -60,8 +61,8 @@
             :description="card.content.description"
             :color="$_textColor"
             :valueColor="$_valueColor"
-            :class="$_getCardStyles(card)"
           />
+          <div v-if="$_isTwoFacts" class="hidden lg:block invisible w-[256px]"/>
         </div>
       </div>
     </div>
@@ -116,11 +117,7 @@ const $_textColor = computed(() => {
     : 'text-sand'
 })
 
-function $_getCardStyles(card) {
-  return cards.value.indexOf(card) === 1 && cards.value.length < 3
-    ? 'mt-16 lg:mt-0 lg:ml-[20%]'
-    : ''
-}
+const $_isTwoFacts = computed(() => cards.value.length < 3)
 
 const $_backgroundColor = useBackgroundColor(background.value)
 const hasQuoteContent = computed(() => {
