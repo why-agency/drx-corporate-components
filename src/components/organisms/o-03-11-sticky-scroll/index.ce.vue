@@ -9,7 +9,7 @@
         v-if="headline && headline.text"
         v-bind="headline"
         :color="$_headlineColor"
-        class="pb-[87px] max-w-[512px] mr-16 lg:uppercase"
+        class="!pb-20 max-w-[512px] mr-16 lg:uppercase"
         :size="isLg ? headline.size : 3"
       />
       <MActionBar
