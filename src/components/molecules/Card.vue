@@ -39,8 +39,7 @@
           :size="3"
           :text="header.text"
           :animate="false"
-          font-weight="font-regular"
-          :class="{ '!mb-6 lg:!mb-10': !header2 && !header.text }"
+          :class="{ '!mb-6 lg:!mb-10': !header2 || !header2.text }"
           class="!text-white"
         />
         <BaseHeadline
