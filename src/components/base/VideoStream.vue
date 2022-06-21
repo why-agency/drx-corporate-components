@@ -2,8 +2,8 @@
   <div v-if="isPlaceholderVisible" class="h-full">
     <div class="h-full">
       <BasePicture
-        v-if="placeholderImage.value"
-        :images="placeholderImage.value"
+        v-if="placeholderImage"
+        :images="placeholderImage"
         class="h-full relative w-full object-cover"
       />
       <img
@@ -13,7 +13,7 @@
       />
       <slot name="play-button">
         <BaseButtonIcon
-          v-if="videoStream && !streamSettings.autoplay"
+          v-if="!streamSettings.autoplay"
           color="sand"
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary z-40"
           @click="playVideo"
@@ -26,8 +26,8 @@
   <div v-if="!isPlaceholderVisible" class="relative w-full h-full">
     <iframe
       class="relative h-full w-full object-cover"
-      :name="videoName.value"
-      :src="srcstream"
+      :name="videoName"
+      :src="srcStream"
       allow="fullscreen; autoplay"
     />
   </div>
@@ -53,14 +53,13 @@ const props = defineProps({
     })
   }
 })
-const videoStream = computed(() => props?.media?.type === 'video-stream')
 
 /** Video Stream */
-let isPlaceholderVisible = ref(true)
+const isPlaceholderVisible = ref(true)
 if (props.streamSettings.autoplay) {
-  isPlaceholderVisible = false
+  isPlaceholderVisible.value = false
 }
-let vimeoThumbnail = ref('')
+const vimeoThumbnail = ref('')
 
 const streamType = computed(
   () => props?.media?.video_stream?.[0].properties?.videoservice
@@ -78,7 +77,7 @@ const url = computed(() =>
 const id = ref(props?.media.video_stream?.[0].properties.video_id)
 const start = ref(props?.media.video_stream?.[0].properties?.video_start)
 const end = ref(props?.media.video_stream?.[0].properties?.video_end)
-const srcstream = computed(() => {
+const srcStream = computed(() => {
   return `${url.value}/${id.value}?autoplay=1&start=${start.value}&end=${end.value}`
 })
 const placeholderImage = computed(() => {
@@ -90,7 +89,7 @@ const placeholderImage = computed(() => {
 const youtubeThumbnail = computed(() => {
   if (isVimeo.value) {
     return ''
-  } else if (videoStream.value) {
+  } else {
     const hasParams = id.value.includes('?')
     return `https://img.youtube.com/vi/${
       hasParams ? id.value.slice(0, id.indexOf('?')) : id
@@ -98,10 +97,8 @@ const youtubeThumbnail = computed(() => {
   }
 })
 onMounted(() => {
-  if (isVimeo.value && videoStream.value) {
-    const url = `https://vimeo.com/api/v2/video/${
-      ref(props?.media.video_stream?.[0].properties.video_id).value
-    }.json`
+  if (isVimeo.value) {
+    const url = `https://vimeo.com/api/v2/video/${id.value}.json`
     fetch(url)
       .then(response => response.json())
       .then(data => {

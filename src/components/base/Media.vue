@@ -35,20 +35,23 @@
     </div>
 
     <slot />
-    <BaseLightbox v-if="videoUrl && isLightboxVisible" @close="hideLightbox">
+    <BaseLightbox
+      v-if="
+        (videoStream && isLightboxVisible) || (videoUrl && isLightboxVisible)
+      "
+      @close="hideLightbox"
+    >
       <div class="flex justify-center w-full">
         <BaseVideo
+          v-if="videoUrl"
           :src="videoUrl"
           autoplay
           muted
           controls
           class="w-full lg:object-cover"
         />
-      </div>
-    </BaseLightbox>
-    <BaseLightbox v-if="videoStream && isLightboxVisible" @close="hideLightbox">
-      <div class="flex justify-center w-full">
         <BaseVideoStream
+          v-else
           :media="streamData"
           :streamSettings="{ autoplay: true, muted: true }"
           class="w-full lg:object-cover"
