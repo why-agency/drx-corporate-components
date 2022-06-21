@@ -1,7 +1,7 @@
 <template>
   <o-06-07-kpi-fullscreen :data="kpi" class="mb-64" />
-  <!-- <o-06-07-kpi-fullscreen :data="kpi2" class="mb-32" />
-  <o-06-07-kpi-fullscreen :data="kpi3" /> -->
+  <o-06-07-kpi-fullscreen :data="kpi2" class="mb-32" />
+  <o-06-07-kpi-fullscreen :data="kpi3" />
 </template>
 
 <script setup>
@@ -166,18 +166,6 @@ export default {
               content: {
                 name: 'Weltneuheiten mit DRÄXLMAIER Produktenasdasd',
                 value: '9453',
-                unit: 'm2',
-                description:
-                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
-              }
-            },
-            {
-              id: 3,
-              pid: 9093,
-              type: 'kpicard',
-              content: {
-                name: 'Weltneuheiten mit DRÄXLMAIER Produktenasdasd',
-                value: '9693',
                 unit: 'm2',
                 description:
                   'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
