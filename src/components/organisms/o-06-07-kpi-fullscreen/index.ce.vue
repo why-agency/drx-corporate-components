@@ -3,7 +3,10 @@
     <div
       :class="[
         frame,
-        { 'lg:h-screen': hasQuoteContent, [$_backgroundColor]: !isMedia }
+        {
+          'lg:h-screen': hasQuoteContent,
+          [$_backgroundColor]: !isMedia
+        }
       ]"
       ref="triggerContainer"
     >
@@ -11,8 +14,8 @@
         <BaseMedia
           :media="media.type === 'image' ? media.image : media.video_stream"
           :video-settings="{ autoplay: true }"
-          :gradient="gradient.value"
-          mediaStyle="h-[100vh] w-[100vw] object-cover"
+          :gradient="gradient"
+          mediaStyle="h-screen w-[100vw] object-cover"
         />
       </div>
       <div class="z-50 mx-6 lg:mx-24 flex flex-col h-full">
@@ -45,11 +48,8 @@
         />
         <div
           v-if="cards && cards[0]"
-          class="z-50 flex flex-col lg:flex-row w-full border-t-[1px] border-sand border-opacity-20 pt-7 pb-16"
-          :class="[
-            $_marginTop,
-            { 'space-y-16 lg:space-y-0 lg:justify-between': cards.length !== 2 }
-          ]"
+          class="z-50 flex flex-col lg:flex-row w-full border-t-[1px] border-sand border-opacity-20 pt-7 pb-16 space-y-16 lg:space-y-0 lg:justify-between"
+          :class="$_marginTop"
         >
           <O0607KpiFullscreenKpiFact
             v-for="card in cards"
@@ -60,8 +60,8 @@
             :description="card.content.description"
             :color="$_textColor"
             :valueColor="$_valueColor"
-            :class="$_getCardStyles(card)"
           />
+          <div v-if="$_isTwoFacts" class="hidden lg:block invisible w-[256px]"/>
         </div>
       </div>
     </div>
@@ -116,11 +116,7 @@ const $_textColor = computed(() => {
     : 'text-sand'
 })
 
-function $_getCardStyles(card) {
-  return cards.value.indexOf(card) === 1 && cards.value.length < 3
-    ? 'mt-16 lg:mt-0 lg:ml-[20%]'
-    : ''
-}
+const $_isTwoFacts = computed(() => cards.value.length < 3)
 
 const $_backgroundColor = useBackgroundColor(background.value)
 const hasQuoteContent = computed(() => {
@@ -138,11 +134,14 @@ const triggerContainer = ref(null)
 const stickyImage = ref(null)
 onMounted(() => {
   //scrollTrigger for the mobile sticky background
+  console.log(triggerContainer.value)
   const scroll = ScrollTrigger.create({
     trigger: triggerContainer.value,
     start: 'top top',
     end: 'bottom bottom',
-    pin: stickyImage.value
+    pin: stickyImage.value,
+    onToggle: self => console.log("toggled, isActive:"),
   })
+  console.log(scroll)
 })
 </script>
