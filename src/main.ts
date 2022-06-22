@@ -14,6 +14,7 @@ import contentSlider from './pages/content-slider.vue'
 import mediaHotspot from './pages/media-hotspot.vue'
 import kpiFullscreen from './pages/kpi-fullscreen.vue'
 import newsSlider from './pages/news-slider.vue'
+import JobMarket from './pages/job-market.vue'
 
 const app = createApp(App)
 
@@ -25,7 +26,8 @@ const routes = [
   { path: '/content-slider', component: contentSlider },
   { path: '/media-hotspot', component: mediaHotspot},
   { path: '/kpi-fullscreen', component: kpiFullscreen },
-  { path: '/news-slider', component: newsSlider}
+  { path: '/news-slider', component: newsSlider},
+  { path: '/job-market', component: JobMarket }
 ]
 
 const router = VueRouter.createRouter({
