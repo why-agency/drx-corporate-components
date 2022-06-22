@@ -59,196 +59,26 @@ export default {
           //   text: 'Erfolg ist eine Frage des Charakters. Wir haben 850 Chancen f\u00fcr dich.',
           //   size: 1
           // },
-          media: [
-            [
+          media: {
+            type: 'video-stream',
+            video_stream: [
               {
-                publicUrl:
-                  'https://draexlmaier.loc/fileadmin/_processed_/3/5/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__3fa5fe4aac.jpg',
+                id: 63205,
+                pid: 0,
+                type: 'videos_stream',
                 properties: {
-                  title: null,
-                  alternative: null,
-                  description: null,
-                  mimeType: 'image\/jpeg',
-                  type: 'image',
-                  filename:
-                    'csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__3fa5fe4aac.jpg',
-                  originalUrl:
-                    'fileadmin/Group/Carreers/Apprentice/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
-                  uidLocal: 1006,
-                  fileReferenceUid: 61476,
-                  size: '2 MB',
-                  link: null,
-                  dimensions: { width: 3542, height: 1417 },
-                  cropDimensions: { width: 3542, height: 1417 },
-                  crop: {
-                    crop_5_2: {
-                      cropArea: {
-                        x: 7.056167090036692e-5,
-                        y: 0,
-                        width: 0.9998588766581993,
-                        height: 1
-                      },
-                      selectedRatio: '5:2',
-                      focusArea: null
-                    },
-                    crop_9_4: {
-                      cropArea: {
-                        x: 0.05006350550381033,
-                        y: 0,
-                        width: 0.8998729889923793,
-                        height: 1
-                      },
-                      selectedRatio: '9:4',
-                      focusArea: null
-                    },
-                    crop_4_3: {
-                      cropArea: {
-                        x: 0.2333709662244802,
-                        y: 0,
-                        width: 0.5332580675510395,
-                        height: 1
-                      },
-                      selectedRatio: '4:3',
-                      focusArea: null
-                    }
-                  },
-                  autoplay: null,
-                  extension: 'jpg'
-                },
-                cdn: {
-                  publicUrl: null,
-                  publicPath: null,
-                  error: 'CDN not enabled!'
-                },
-                useCase: 'default',
-                ratio: '5:2'
-              },
-              {
-                publicUrl:
-                  'https://draexlmaier.loc/fileadmin/_processed_/3/5/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__d14b003603.jpg',
-                properties: {
-                  title: null,
-                  alternative: null,
-                  description: null,
-                  mimeType: 'image/jpeg',
-                  type: 'image',
-                  filename:
-                    'csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__d14b003603.jpg',
-                  originalUrl:
-                    'fileadmin/Group/Carreers/Apprentice/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
-                  uidLocal: 1006,
-                  fileReferenceUid: 61476,
-                  size: '2 MB',
-                  link: null,
-                  dimensions: { width: 3188, height: 1417 },
-                  cropDimensions: { width: 3188, height: 1417 },
-                  crop: {
-                    crop_5_2: {
-                      cropArea: {
-                        x: 7.056167090036692e-5,
-                        y: 0,
-                        width: 0.9998588766581993,
-                        height: 1
-                      },
-                      selectedRatio: '5:2',
-                      focusArea: null
-                    },
-                    crop_9_4: {
-                      cropArea: {
-                        x: 0.05006350550381033,
-                        y: 0,
-                        width: 0.8998729889923793,
-                        height: 1
-                      },
-                      selectedRatio: '9:4',
-                      focusArea: null
-                    },
-                    crop_4_3: {
-                      cropArea: {
-                        x: 0.2333709662244802,
-                        y: 0,
-                        width: 0.5332580675510395,
-                        height: 1
-                      },
-                      selectedRatio: '4:3',
-                      focusArea: null
-                    }
-                  },
-                  autoplay: null,
-                  extension: 'jpg'
-                },
-                cdn: {
-                  publicUrl: null,
-                  publicPath: null,
-                  error: 'CDN not enabled!'
-                },
-                useCase: 'full',
-                ratio: '9:4'
-              },
-              {
-                publicUrl:
-                  'https://draexlmaier.loc/fileadmin/_processed_/3/5/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__c7380431cb.jpg',
-                properties: {
-                  title: null,
-                  alternative: null,
-                  description: null,
-                  mimeType: 'image/jpeg',
-                  type: 'image',
-                  filename:
-                    'csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__c7380431cb.jpg',
-                  originalUrl:
-                    'fileadmin/Group/Carreers/Apprentice/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
-                  uidLocal: 1006,
-                  fileReferenceUid: 61476,
-                  size: '1 MB',
-                  link: null,
-                  dimensions: { width: 1889, height: 1417 },
-                  cropDimensions: { width: 1889, height: 1417 },
-                  crop: {
-                    crop_5_2: {
-                      cropArea: {
-                        x: 7.056167090036692e-5,
-                        y: 0,
-                        width: 0.9998588766581993,
-                        height: 1
-                      },
-                      selectedRatio: '5:2',
-                      focusArea: null
-                    },
-                    crop_9_4: {
-                      cropArea: {
-                        x: 0.05006350550381033,
-                        y: 0,
-                        width: 0.8998729889923793,
-                        height: 1
-                      },
-                      selectedRatio: '9:4',
-                      focusArea: null
-                    },
-                    crop_4_3: {
-                      cropArea: {
-                        x: 0.2333709662244802,
-                        y: 0,
-                        width: 0.5332580675510395,
-                        height: 1
-                      },
-                      selectedRatio: '4:3',
-                      focusArea: null
-                    }
-                  },
-                  autoplay: null,
-                  extension: 'jpg'
-                },
-                cdn: {
-                  publicUrl: null,
-                  publicPath: null,
-                  error: 'CDN not enabled!'
-                },
-                useCase: 'mobile',
-                ratio: '4:3'
+                  videoservice: 'vimeo',
+                  video_id: '254069548',
+                  video_title:
+                    'Pause 2018 Motion Response - Lift in the moment by Carbon',
+                  video_poster_image: null,
+                  video_start: null,
+                  video_end: null,
+                  video_duration: ''
+                }
               }
             ]
-          ],
+          },
           actions: [
             {
               id: 1,

@@ -29,15 +29,37 @@
         </BaseButtonIcon>
       </slot>
     </div>
+    <!-- START VIDEOSTREAM -->
+    <BaseVideoStream
+      v-if="videoStream"
+      :media="media"
+      :streamSettings="videoSettings"
+      :class="[mediaStyle, aspectRatio]"
+      :full-screen="fullScreen"
+      @play-button-clicked="showLightbox"
+    />
+    <!-- END VIDEOSTREAM -->
     <slot />
-    <BaseLightbox v-if="videoUrl && isLightboxVisible" @close="hideLightbox">
-      <div class="flex justify-center w-full">
+    <BaseLightbox
+      v-if="
+        (videoStream && isLightboxVisible) || (videoUrl && isLightboxVisible)
+      "
+      @close="hideLightbox"
+    >
+      <div class="flex justify-center w-full h-full aspect-video">
         <BaseVideo
+          v-if="videoUrl"
           :src="videoUrl"
           autoplay
           muted
           controls
           class="w-full lg:object-cover"
+        />
+        <BaseVideoStream
+          v-else
+          :media="media"
+          :streamSettings="{ autoplay: true, muted: false, controls: true }"
+          class="w-full h-full lg:object-cover"
         />
       </div>
     </BaseLightbox>
@@ -51,10 +73,11 @@ import BaseVideo from '../base/Video.vue'
 import BaseButtonIcon from '../base/ButtonIcon.vue'
 import IconPlay from '../icons/Play.vue'
 import BaseLightbox from '../base/Lightbox.vue'
+import BaseVideoStream from '../base/VideoStream.vue'
 
 const props = defineProps({
   media: {
-    type: Array,
+    type: [Array, Object],
     required: true
   },
   mediaStyle: {
@@ -100,6 +123,10 @@ const props = defineProps({
   gradient: {
     type: String,
     default: ''
+  },
+  fullScreen: {
+    type: Boolean,
+    default: false
   }
 })
 const mediaType = computed(() => props?.media?.[0]?.[0]?.properties?.type)
@@ -107,6 +134,7 @@ const isImage = computed(() => mediaType.value === 'image')
 const videoUrl = computed(
   () => mediaType.value === 'video' && props?.media?.[0]?.[0]?.publicUrl
 )
+const videoStream = computed(() => props?.media?.type === 'video-stream')
 
 const $_gradient = computed(
   () =>

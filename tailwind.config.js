@@ -171,7 +171,7 @@ module.exports = {
           )}, 1.04px)`
         }
       ],
-      button: ["0.875rem", { lineHeight: "170%", letterSpacing: "0.56px" }]
+      button: ['0.875rem', { lineHeight: '170%', letterSpacing: '0.56px' }]
     },
     screens: {
       ...breakpoints
