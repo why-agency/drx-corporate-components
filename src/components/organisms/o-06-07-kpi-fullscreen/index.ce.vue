@@ -5,7 +5,6 @@
         frame,
         {
           'lg:h-screen': hasQuoteContent,
-          'h-screen': isMedia,
           [$_backgroundColor]: !isMedia
         }
       ]"
@@ -135,11 +134,14 @@ const triggerContainer = ref(null)
 const stickyImage = ref(null)
 onMounted(() => {
   //scrollTrigger for the mobile sticky background
+  console.log(triggerContainer.value)
   const scroll = ScrollTrigger.create({
     trigger: triggerContainer.value,
     start: 'top top',
     end: 'bottom bottom',
-    pin: stickyImage.value
+    pin: stickyImage.value,
+    onToggle: self => console.log("toggled, isActive:"),
   })
+  console.log(scroll)
 })
 </script>
