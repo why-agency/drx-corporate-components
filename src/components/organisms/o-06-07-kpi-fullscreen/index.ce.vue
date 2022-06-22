@@ -37,6 +37,13 @@
           ]"
           class="pt-16 lg:pt-28 font-normal"
         />
+        <kpiHeadline
+          v-if="quote && quote.text"
+          :textColor="$_textColor"
+          :isHeadline="isHeadline"
+          :quote="quote"
+        />
+        <!-- ANIMATIONSTEXT
         <BaseHeadline
           v-if="quote && quote.text"
           v-bind="quote"
@@ -46,10 +53,10 @@
             $_textColor,
             headline && headline.text ? 'pt-20' : 'pt-[312px]'
           ]"
-        />
+        /> -->
         <div
           v-if="cards && cards[0]"
-          class="z-50 flex flex-col lg:flex-row w-full border-t-[1px] border-sand border-opacity-20 pt-7 pb-16 space-y-16 lg:space-y-0 lg:justify-between"
+          class="z-50 flex flex-col lg:flex-row w-full border-t border-sand border-opacity-20 pt-7 pb-16 space-y-16 lg:space-y-0 lg:justify-between"
           :class="$_marginTop"
         >
           <O0607KpiFullscreenKpiFact
@@ -76,6 +83,7 @@ import BaseHeadline from '../../base/Headline.vue'
 import BaseMedia from '../../base/Media.vue'
 import BaseText from '../../base/Text.vue'
 import O0607KpiFullscreenKpiFact from '../../organisms/o-06-07-kpi-fullscreen/kpi-fact.vue'
+import kpiHeadline from '../../organisms/o-06-07-kpi-fullscreen/kpi-headline.vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -104,7 +112,9 @@ const {
 const isMedia = computed(() => {
   return media.value.image.length !== 0 || media.value.video_stream.length !== 0
 })
-
+const isHeadline = computed(() =>{
+  return headline.value && headline.value.text
+})
 const $_headlineSize = computed(() => `text-${headline.value.tag}`)
 const $_textColor = computed(() => {
   if (isMedia.value) {
