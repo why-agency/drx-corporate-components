@@ -2,18 +2,13 @@
   <component
     ref="headline"
     :is="headlineTag"
-<<<<<<< HEAD
-    class="antialiased font-primary transform translate-y-4 opacity-0"
-    :class="[$_headlineSize, $_headlineColor, fontWeight]"
-=======
-    class="font-primary"
+    class="font-primar antialiased"
     :class="[
       $_headlineSize,
       $_headlineColor,
       fontWeight,
       { 'translate-y-4 opacity-0': animate }
     ]"
->>>>>>> review
   >
     <slot>
       <BaseHtmlParser tag="span" :content="text" />
