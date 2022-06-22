@@ -5,6 +5,8 @@
     <router-link to="/fullscreen-media-text">Fullscreen Media Text</router-link>
     <router-link to="/sticky-scroll">Sticky Scroll</router-link>
     <router-link to="/content-slider">Content Slider</router-link>
+    <router-link to="/kpi-fullscreen">KPI Fullscreen</router-link>
+    <router-link to="/news-slider">News Slider</router-link>
   </div>
 </template>
 
