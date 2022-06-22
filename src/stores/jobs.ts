@@ -33,6 +33,11 @@ export const useJobs = defineStore('jobs', {
       activeFilterView: null  as Filter|null
     }
   },
+  getters: {
+    numberOfActiveFilterOptions(state) {
+      return state.activeFilterOptions.length
+    }
+  },
   actions: {
     async getJobs() {
       const url = createRequestUrl({
