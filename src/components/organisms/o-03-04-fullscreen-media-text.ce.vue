@@ -5,6 +5,7 @@
       :media="media"
       media-style="w-full h-screen absolute"
       gradient="dark"
+      full-screen
       class="!absolute !h-screen"
     />
     <div
