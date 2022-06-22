@@ -125,7 +125,7 @@ onMounted(() => {
 
   // check the position of the current module (relative to the document)
   function offset(cont) {
-    var rect = cont.getBoundingClientRect(),
+    const rect = cont.getBoundingClientRect(),
       scrollTop = window.pageYOffset || document.documentElement.scrollTop
     return {
       top: rect.top + scrollTop,
@@ -133,14 +133,12 @@ onMounted(() => {
     }
   }
 
-  var divOffset = offset(scrollRefSec.value)
+  const divOffset = offset(scrollRefSec.value)
 
   function updateScroller() {
-    var scrollY = 0
+    let scrollY = 0
     let animateValue = divOffset.top
-    if (
-      window.scrollY < divOffset.top + 10 || window.scrollY > divOffset.top
-    ) {
+    if (window.scrollY < divOffset.top + 10 || window.scrollY > divOffset.top) {
       scrollY = window.pageYOffset - divOffset.top
       scroller.y += (scrollY - scroller.y) * scroller.ease
       animateValue = -scroller.y / 3
