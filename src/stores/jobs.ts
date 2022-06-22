@@ -28,7 +28,9 @@ export const useJobs = defineStore('jobs', {
       filterOptions: [] as FilterOption[],
       activeFilterOptions: [] as FilterOption[],
       isRequestPending: true,
-      hasRequestFailed: false
+      hasRequestFailed: false,
+      isFilterBarActive: false,
+      activeFilterView: null  as Filter|null
     }
   },
   actions: {
@@ -70,6 +72,11 @@ export const useJobs = defineStore('jobs', {
     persistFilters(filters: Filter[]) {
       this.filters = filters
       this.filterOptions = formatFilterOptions(filters)
+    },
+    clearFilterOption(filterOptionToClear: FilterOption) {
+      this.activeFilterOptions = this.activeFilterOptions.filter(
+        filterOption => filterOption.value !== filterOptionToClear.value
+      )
     }
   }
 })
