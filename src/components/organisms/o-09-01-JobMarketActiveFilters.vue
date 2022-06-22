@@ -15,6 +15,7 @@
       enter-class="opacity-0"
       leave-active-class="transition ease-in duration-75"
       leave-to-class="opacity-0"
+      tag="div"
       class="flex flex-wrap w-full gap-2"
     >
       <BaseChip
