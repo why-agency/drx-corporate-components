@@ -7,7 +7,7 @@
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M6 16.5833L12 22L18 16.5833L17.3474 15.9942L12.4615 20.405L12.4615 2H11.5385L11.5385 20.405L6.65262 15.9942L6 16.5833Z"
+      d="M16.5833 18L22 12L16.5833 6L15.9942 6.65262L20.405 11.5385L2 11.5385V12.4615L20.405 12.4615L15.9942 17.3474L16.5833 18Z"
       fill="currentColor"
       stroke="currentColor"
     />
@@ -16,6 +16,7 @@
 
 <script>
 export default {
+  name: 'IconArrowDownFat',
   props: {
     width: {
       type: [Number, String],

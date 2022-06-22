@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Helvetica Now Display';
-  src: url('/fonts/HelveticaNowDisplay-Regular.woff2') format('woff2'),
+  src: url('../public/fonts/HelveticaNowDisplay-Regular.woff2') format('woff2'),
     url('/fonts/HelveticaNowDisplay-Regular.woff') format('woff');
   font-display: fallback;
   font-weight: 400;
@@ -8,8 +8,15 @@
 
 @font-face {
   font-family: 'Helvetica Now Display';
-  src: url('/fonts/HelveticaNowDisplay-XBold.woff2') format('woff2'),
+  src: url('../public/fonts/HelveticaNowDisplay-XBold.woff2') format('woff2'),
     url('/fonts/HelveticaNowDisplay-XBold.woff') format('woff');
   font-display: fallback;
   font-weight: 900;
+}
+
+body {
+  font-family: 'Helvetica Now Display', sans-serif;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
