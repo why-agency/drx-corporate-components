@@ -13,7 +13,6 @@
       />
       <slot name="play-button">
         <BaseButtonIcon
-          v-if="!streamSettings.autoplay"
           color="sand"
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary z-40"
           @click="$emit('play-button-clicked')"
@@ -22,8 +21,6 @@
         </BaseButtonIcon>
       </slot>
     </div>
-  </div>
-  <div v-if="!isPlaceholderVisible" class="relative w-full h-full">
     <iframe
       v-if="!isPlaceholderVisible || hasAutoplay"
       class="relative w-full h-full"
@@ -86,7 +83,11 @@ const id = ref(props?.media.video_stream?.[0].properties.video_id)
 const start = ref(props?.media.video_stream?.[0].properties?.video_start)
 const end = ref(props?.media.video_stream?.[0].properties?.video_end)
 const srcStream = computed(() => {
-  return `${url.value}/${id.value}?autoplay=1&start=${start.value}&end=${end.value}`
+  return `${url.value}/${id.value}?autoplay=1&muted=${
+    props.streamSettings.muted ? 1 : 0
+  }&loop=1&controls=${props.streamSettings.controls ? 1 : 0}&start=${
+    start.value
+  }&end=${end.value}`
 })
 const placeholderImage = computed(() => {
   if (props?.media?.video_stream?.[0].properties?.video_poster_image) {
