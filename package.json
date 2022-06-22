@@ -1,6 +1,6 @@
 {
   "name": "@andwhy/drx-corporate-components",
-  "version": "0.3.91",
+  "version": "0.3.94",
   "files": [
     "dist"
   ],
@@ -18,10 +18,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@glidejs/glide": "^3.5.2",
     "@headlessui/vue": "^1.6.4",
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/line-clamp": "^0.4.0",
-    "@glidejs/glide": "^3.5.2",
     "@vueuse/core": "^8.5.0",
     "gsap": "^3.10.4",
     "html-parsed-element": "^0.4.1",
