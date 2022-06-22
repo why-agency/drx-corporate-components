@@ -26,6 +26,7 @@
         @keyup="onKeyup"
       />
       <div
+        v-if="!hideButton"
         class="absolute inset-y-0 right-0 flex items-center pr-2 cursor-pointer text-primary group-hover:text-secondary peer-focus:text-secondary"
         role="button"
       >
@@ -52,9 +53,6 @@ export default {
       type: String,
       required: true
     },
-    hideLabel: {
-      type: Boolean
-    },
     type: {
       type: String,
       default: 'text'
@@ -65,7 +63,11 @@ export default {
     conditions: {
       type: Array,
       default: () => []
-    }
+    },
+    hideLabel: {
+      type: Boolean
+    },
+    hideButton: { type: Boolean }
   },
   emits: ['blur', 'keyup', 'update:modelValue'],
   data() {
