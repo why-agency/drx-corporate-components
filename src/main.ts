@@ -14,6 +14,7 @@ import stickyScroll from './pages/sticky-scroll.vue'
 import contentSlider from './pages/content-slider.vue'
 import kpiFullscreen from './pages/kpi-fullscreen.vue'
 import newsSlider from './pages/news-slider.vue'
+import JobMarket from './pages/job-market.vue'
 
 const app = createApp(App)
 
@@ -24,7 +25,8 @@ const routes = [
   { path: '/sticky-scroll', component: stickyScroll },
   { path: '/content-slider', component: contentSlider },
   { path: '/kpi-fullscreen', component: kpiFullscreen },
-  { path: '/news-slider', component: newsSlider}
+  { path: '/news-slider', component: newsSlider},
+  { path: '/job-market', component: JobMarket }
 ]
 
 const router = VueRouter.createRouter({
