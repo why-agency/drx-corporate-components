@@ -16,7 +16,7 @@
           v-if="!streamSettings.autoplay"
           color="sand"
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-primary z-40"
-          @click="playVideo"
+          @click="$emit('play-button-clicked')"
         >
           <IconPlay />
         </BaseButtonIcon>

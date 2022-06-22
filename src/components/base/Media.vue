@@ -29,12 +29,16 @@
         </BaseButtonIcon>
       </slot>
     </div>
+    <!-- START VIDEOSTREAM -->
     <BaseVideoStream
       v-if="videoStream"
       :media="media"
       :streamSettings="videoSettings"
       :class="[mediaStyle, aspectRatio]"
       :full-screen="fullScreen"
+      @play-button-clicked="showLightbox"
+    />
+    <!-- END VIDEOSTREAM -->
     <slot />
     <BaseLightbox
       v-if="
