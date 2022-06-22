@@ -47,6 +47,11 @@ export const useJobs = defineStore('jobs', {
       return state.jobs.slice(state.currentPage * 10, (state.currentPage + 1) * 10)
     }
   },
+  getters: {
+    numberOfActiveFilterOptions(state) {
+      return state.activeFilterOptions.length
+    }
+  },
   actions: {
     async getJobs() {
       const url = createRequestUrl({
