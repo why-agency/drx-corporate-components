@@ -2,7 +2,7 @@
   <component
     ref="headline"
     :is="headlineTag"
-    class="font-primary"
+    class="font-primary antialiased"
     :class="[
       $_headlineSize,
       $_headlineColor,
@@ -21,7 +21,6 @@ import { ref, computed, watch } from 'vue'
 import BaseHtmlParser from './HtmlParser.vue'
 import { gsap, Power2 } from 'gsap'
 import { useIntersectionObserver } from '../../composables/useIntersectionObserver'
-import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
 
 const props = defineProps({
   text: {
