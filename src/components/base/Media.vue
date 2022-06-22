@@ -46,7 +46,7 @@
       "
       @close="hideLightbox"
     >
-      <div class="flex justify-center w-full">
+      <div class="flex justify-center w-full h-full aspect-video">
         <BaseVideo
           v-if="videoUrl"
           :src="videoUrl"
@@ -57,9 +57,9 @@
         />
         <BaseVideoStream
           v-else
-          :media="streamData"
-          :streamSettings="{ autoplay: true, muted: true }"
-          class="w-full lg:object-cover"
+          :media="media"
+          :streamSettings="{ autoplay: true, muted: false, controls: true }"
+          class="w-full h-full lg:object-cover"
         />
       </div>
     </BaseLightbox>
@@ -135,11 +135,6 @@ const videoUrl = computed(
   () => mediaType.value === 'video' && props?.media?.[0]?.[0]?.publicUrl
 )
 const videoStream = computed(() => props?.media?.type === 'video-stream')
-let streamData = ref(null)
-
-if (videoStream) {
-  streamData = props?.media
-}
 
 const $_gradient = computed(
   () =>
