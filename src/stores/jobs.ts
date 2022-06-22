@@ -50,12 +50,10 @@ export const useJobs = defineStore('jobs', {
         this.isRequestPending = true
         const response = await fetch(url, { headers: { Authorization: `Basic ${btoa('drx:drx')}` } })
         const { documents, allResultCount, facets } = await response.json()
-        const jobs = documents?.list?.results.map((rawJob: RawJob) => rawJob.content) || []
-        const filterOptions = formatFilterOptions(facets)
 
         this.count = allResultCount
-        this.jobs = jobs
-        this.filterOptions = filterOptions
+        this.persistJobs(documents)
+        this.persistFilters(facets)
 
       } catch(error) {
         this.hasRequestFailed = true

@@ -87,7 +87,7 @@ const query = computed({
   }, 500)
 })
 
-const subscribedActions = ['setQuery', 'setActiveFilterOptions']
+const subscribedActions = ['setQuery', 'setActiveFilterOptions', 'clearFilterOption']
 const unsubscribe = jobsStore.$onAction(({ name, after }) => {
   after(async () => {
     if (subscribedActions.includes(name)) {
