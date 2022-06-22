@@ -62,9 +62,9 @@ export default {
     $_color() {
       return {
         'bg-button-background':
-          this.color === 'secondary' && this.variant === 'default',
+          this.color === 'secondary' && (this.variant === 'default' || this.variant === 'block'),
         'bg-button-background-reverse':
-          this.color === 'white' && this.variant === 'default',
+          this.color === 'white' && (this.variant === 'default' || this.variant === 'block'),
         'bg-button-background-large':
           this.color === 'secondary' && this.variant === 'large',
         'bg-button-background-large-reverse':
@@ -74,11 +74,11 @@ export default {
     $_textColor() {
       return {
         'bg-button-text':
-          this.color === 'secondary' && this.variant === 'default',
+          this.color === 'secondary' && (this.variant === 'default' || this.variant === 'block'),
         'bg-button-text-large':
           this.color === 'secondary' && this.variant === 'large',
         'bg-button-text-reverse':
-          this.color === 'white' && this.variant === 'default',
+          this.color === 'white' && (this.variant === 'default' || this.variant === 'block'),
         'bg-button-text-large-reverse':
           this.color === 'white' && this.variant === 'large'
       }
@@ -95,6 +95,7 @@ export default {
     $_size() {
       return {
         'min-h-[48px] w-56': this.variant === 'default',
+        'min-h-[48px] w-full': this.variant === 'block',
         'w-[328px] h-[88px] lg:w-[232px] lg:h-[112px]': this.variant === 'large'
       }
     }

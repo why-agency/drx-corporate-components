@@ -1,16 +1,16 @@
 <template>
   <div>
-    <BasePicture :images="icon" size="w-content h-10 mb-6" />
+    <BasePicture :images="icon" size="w-content h-10 !mb-6" />
     <BaseHeadline
       v-if="headline"
       :text="headline"
       tag="h3"
       :color="color"
-      :layout="3"
-      class="mb-6"
+      :size="3"
+      class="!mb-6 w-full lg:max-w-[504px]"
     />
-    <BaseHtmlParser
-      :content="text"
+    <BaseText
+      :text="text"
       :class="[
         textSize,
         {
@@ -38,8 +38,9 @@ import BasePicture from '../../base/Picture.vue'
 import BaseHeadline from '../../base/Headline.vue'
 import BaseHtmlParser from '../../base/HtmlParser.vue'
 import BaseAction from '../../base/Action.vue'
+import BaseText from '../../base/Text.vue'
 import IconArrowRight from '../../icons/Arrow/Right.vue'
-import { ref } from 'vue'
+
 const props = defineProps({
   color: {
     type: String,
@@ -66,4 +67,5 @@ const props = defineProps({
       required: true
   }
 })
+
 </script>

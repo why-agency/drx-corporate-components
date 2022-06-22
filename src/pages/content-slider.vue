@@ -21,7 +21,7 @@ export default {
                 header2: { text: 'Huber' },
                 overline: { text: 'Characters' },
                 text: {
-                  text: '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore. Mehr text, mehr text, mehr Text.<\/p>'
+                  text: '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore. Mehr text, mehr text, mehr Text. Mehr text, mehr text, mehr Text. Mehr text, mehr text, mehr Text. Mehr text, mehr text, mehr Text.<\/p>'
                 },
                 media: [
                   [
