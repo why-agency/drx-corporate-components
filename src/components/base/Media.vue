@@ -29,11 +29,12 @@
         </BaseButtonIcon>
       </slot>
     </div>
-    <!-- VIDEOSTREAM -->
-    <div v-if="videoStream" class="h-full w-full">
-      <BaseVideoStream :media="streamData" />
-    </div>
-
+    <BaseVideoStream
+      v-if="videoStream"
+      :media="media"
+      :streamSettings="videoSettings"
+      :class="[mediaStyle, aspectRatio]"
+      :full-screen="fullScreen"
     <slot />
     <BaseLightbox
       v-if="
@@ -118,6 +119,10 @@ const props = defineProps({
   gradient: {
     type: String,
     default: ''
+  },
+  fullScreen: {
+    type: Boolean,
+    default: false
   }
 })
 const mediaType = computed(() => props?.media?.[0]?.[0]?.properties?.type)

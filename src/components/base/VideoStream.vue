@@ -1,6 +1,6 @@
 <template>
-  <div v-if="isPlaceholderVisible" class="h-full">
-    <div class="h-full">
+  <div class="overflow-hidden h-full">
+    <div v-if="isPlaceholderVisible && !hasAutoplay" class="h-full">
       <BasePicture
         v-if="placeholderImage"
         :images="placeholderImage"
@@ -25,10 +25,15 @@
   </div>
   <div v-if="!isPlaceholderVisible" class="relative w-full h-full">
     <iframe
-      class="relative h-full w-full object-cover"
+      v-if="!isPlaceholderVisible || hasAutoplay"
+      class="relative w-full h-full"
       :name="videoName"
       :src="srcStream"
-      allow="fullscreen; autoplay"
+      allow="fullscreen;autoplay"
+      :class="{
+        'w-screen h-[56.25vw] min-h-screen min-w-[177.77vh] !absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2':
+          fullScreen
+      }"
     />
   </div>
 </template>
@@ -51,14 +56,17 @@ const props = defineProps({
       loop: false,
       muted: false
     })
+  },
+  fullScreen: {
+    type: Boolean,
+    default: false
   }
 })
 
 /** Video Stream */
 const isPlaceholderVisible = ref(true)
-if (props.streamSettings.autoplay) {
-  isPlaceholderVisible.value = false
-}
+const hasAutoplay = computed(() => props.streamSettings.autoplay)
+
 const vimeoThumbnail = ref('')
 
 const streamType = computed(
