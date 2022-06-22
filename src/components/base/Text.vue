@@ -1,5 +1,9 @@
 <template>
-  <div ref="body" :class="[$_size, { 'translate-y-4 opacity-0': animate }]">
+  <div
+    ref="body"
+    :class="[$_size, { 'translate-y-4 opacity-0': animate }]"
+    class="antialiased"
+  >
     <BaseHtmlParser tag="div" :content="text" />
   </div>
 </template>

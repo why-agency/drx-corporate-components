@@ -2,7 +2,7 @@
   <component
     ref="headline"
     :is="headlineTag"
-    class="font-primary"
+    class="font-primary antialiased"
     :class="[
       $_headlineSize,
       $_headlineColor,
