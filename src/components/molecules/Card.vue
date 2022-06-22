@@ -163,7 +163,7 @@ const tl = gsap.timeline({ paused: true })
 const initTimeline = () => {
   tl.to(headlines.value, {
     duration: 1,
-    y: isLg.value ? (props?.overline?.color ? -160 : -112) : -160
+    y: -160
   }).to(
     reveal.value,
     {
