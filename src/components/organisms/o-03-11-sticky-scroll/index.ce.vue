@@ -43,13 +43,13 @@
 </template>
 
 <script setup>
-import { computed, onMounted, toRefs } from 'vue'
+import { gsap } from 'gsap'
 import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import { ref, computed, onMounted, toRefs } from 'vue'
 import BaseHeadline from '../../base/Headline.vue'
 import MActionBar from '../../molecules/ActionBar.vue'
-import StickyScrollRightField from '../../organisms/o-03-11-sticky-scroll/StickyScrollRightField.vue'
+import StickyScrollRightField from '../../organisms/o-03-11-sticky-scroll/scroll-content.vue'
 import { useIntersectionObserver } from '@vueuse/core'
 
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
