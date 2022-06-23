@@ -55,17 +55,21 @@ watch(splittext, splittext => {
       let i = 0
       let newColor = '#ff0004'
       function changeColor(i) {
-        gsap.to(chars[i], { css: { color: newColor }})
+        gsap.to(chars[i], { css: { color: newColor } })
       }
-      const triggerParentElement = splittext.parentElement.parentElement.parentElement
+      const triggerParentElement =
+        splittext.parentElement.parentElement.parentElement
       // console.log(triggerParentElement.offsetTop)
       // console.log(chars.length)
       // console.log('stop: ' + triggerParentElement.offsetTop + chars.length)
       // console.log(triggerParentElement.offsetTop + chars.length)
       const scroll = ScrollTrigger.create({
         trigger: triggerParentElement,
-        // pin:true,
         start: 'top top',
+        end: 'bottom top',
+        scrub: true,
+        pin: true,
+        duration: 1,
         markers: true,
         onUpdate: self => {
           self.direction === 1
@@ -73,9 +77,12 @@ watch(splittext, splittext => {
             : (newColor = '#ffffff'),
             changeColor(i),
             self.direction === 1
-              ? ((i += 1), (newColor = '#ff0004'))
-              : ((i -= 1), (newColor = '#ffffff')),
-            console.log('scroll + ' + window.scrollY)
+              ? i < chars.length - 1
+                ? (i += 1)
+                : ''
+              : i === 0
+              ? ''
+              : (i -= 1)
         }
       })
     }
