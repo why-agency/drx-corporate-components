@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="bg-primary pt-12 pl-[104px] pb-[72px]">
+    <div class="bg-primary pt-12 pl-[104px] pb-6">
       <BaseHeadline
         v-if="headline && headline.text"
         v-bind="headline"
@@ -8,10 +8,11 @@
       />
       <div class="ml-auto max-w-[568px] mt-12 mr-[104px]">
         <BaseText v-if="text && text.text" v-bind="text" class="text-white" />
-        <MActionBar :actions="actions" position="left" class="mt-9"/>
+        <MActionBar v-if="actions" :actions="actions" position="left" class="mt-9"/>
       </div>
     </div>
-    <BaseMedia :media="mediaContent" class="h-[928px]"/>
+    <div class="bg-gradient-to-b from-primary w-full h-28"></div>
+    <BaseMedia :media="mediaContent" class="h-[928px] w-full"/>
     <O0609HotspotDetail class="hidden" />
   </section>
 </template>
