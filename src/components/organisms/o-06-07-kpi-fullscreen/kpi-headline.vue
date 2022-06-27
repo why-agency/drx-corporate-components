@@ -54,8 +54,23 @@ watch(splittext, splittext => {
     if (chars) {
       let i = 0
       let newColor = '#ff0004'
+      let end = 'bottom top'
       function changeColor(i) {
-        gsap.to(chars[i], { css: { color: newColor } })
+        gsap.to(chars[i], {
+          css: { color: newColor },
+          onCompleteParams:[i],
+          onComplete: function (i) {
+            console.log(i)
+            if (i === chars.length - 1) {
+              console.log('HIII')
+              // end =
+                // window.pageYOffset -
+                // triggerParentElement.parentElement.offsetTop
+              end = 'bottom' + '900px'
+                console.log('end' + end)
+            }
+          }
+        })
       }
       const triggerParentElement =
         splittext.parentElement.parentElement.parentElement
@@ -63,10 +78,20 @@ watch(splittext, splittext => {
       // console.log(chars.length)
       // console.log('stop: ' + triggerParentElement.offsetTop + chars.length)
       // console.log(triggerParentElement.offsetTop + chars.length)
+      // function get_end(i) {
+      //   console.log(i)
+      //   if (i === chars.length) {
+      //     console.log('HIII')
+      //     return (
+      //       window.pageYOffset - triggerParentElement.parentElement.offsetTop
+      //     )
+      //   }
+      //   return 'bottom top'
+      // }
       const scroll = ScrollTrigger.create({
         trigger: triggerParentElement,
         start: 'top top',
-        end: 'bottom top',
+        end: end,
         scrub: true,
         pin: true,
         duration: 1,
@@ -84,6 +109,9 @@ watch(splittext, splittext => {
               ? ''
               : (i -= 1)
         }
+        // onUpdate: self => {
+        //   console.log((window.pageYOffset - triggerParentElement.parentElement.offsetTop) / chars.length)
+        // }
       })
     }
   }
