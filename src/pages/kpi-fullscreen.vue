@@ -191,7 +191,7 @@ export default {
           gradient: 'dark',
           media: {
             type: 'image',
-            image: [],
+            image: null,
             video_stream: []
           },
           quote: {
@@ -255,7 +255,7 @@ export default {
           gradient: 'dark',
           media: {
             type: 'image',
-            image: [],
+            image: null,
             video_stream: []
           },
           quote: {
