@@ -19,7 +19,7 @@
     <div class="relative">
       <BaseMedia :media="mediaContent" class="relative w-full" />
           <!-- Hotspots -->
-      <BaseButtonIcon v-for="spot in hotspots" :key="spot" variant="filled" color="gray" size="lg" class="absolute" :class="hotspotPosition(spot.content.coordinates)"><BasePicture :images="spot.content.icon" size="w-content h-6 mx-auto mt-[25%]" class="h-full"/></BaseButtonIcon>
+      <BaseButtonIcon v-for="spot in hotspots" :key="spot" variant="filled" color="gray" size="lg" class="absolute" :style="hotspotPosition(spot.content.coordinates)"><BasePicture :images="spot.content.icon" size="w-content h-6 mx-auto mt-[25%]" class="h-full"/></BaseButtonIcon>
       <div
         class="bg-gradient-to-b from-primary w-full h-28 absolute top-0"
       ></div>
@@ -61,8 +61,6 @@ const mediaContent =
 
 function hotspotPosition(coordinates) {
   const coor = coordinates.split(';')
-  const x = parseInt(coor[0])
-  const y = parseInt(coor[1])
-  return 'top-[' + x + '%]' + ' left-[' + y + '%]'
+  return {left: coor[0] + '%', top: coor[1] + '%'}
 }
 </script>
