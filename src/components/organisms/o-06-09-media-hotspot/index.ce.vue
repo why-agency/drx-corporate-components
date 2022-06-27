@@ -8,11 +8,22 @@
       />
       <div class="ml-auto max-w-[568px] mt-12 mr-[104px]">
         <BaseText v-if="text && text.text" v-bind="text" class="text-white" />
-        <MActionBar v-if="actions" :actions="actions" position="left" class="mt-9"/>
+        <MActionBar
+          v-if="actions"
+          :actions="actions"
+          position="left"
+          class="mt-9"
+        />
       </div>
     </div>
-    <div class="bg-gradient-to-b from-primary w-full h-28"></div>
-    <BaseMedia :media="mediaContent" class="h-[928px] w-full"/>
+    <div class="relative">
+      <BaseMedia :media="mediaContent" class="relative w-full" />
+      <div
+        class="bg-gradient-to-b from-primary w-full h-28 absolute top-0"
+      ></div>
+    </div>
+    <!-- Hotspots -->
+    <button class="w-12 h-12 border-px border-white bg-hotspot-gradient hover:bg-hotspot-gradient-hover">'Hello'</button>
     <O0609HotspotDetail class="hidden" />
   </section>
 </template>
@@ -38,5 +49,6 @@ const {
   actions,
   hotspots
 } = toRefs(props.data.content)
-const mediaContent = media.value.image.length !== 0 ? media.value.image : media.value.videos_stream
+const mediaContent =
+  media.value.image.length !== 0 ? media.value.image : media.value.videos_stream
 </script>

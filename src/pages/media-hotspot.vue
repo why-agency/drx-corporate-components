@@ -55,7 +55,7 @@ export default {
                   },
                   cdn: {
                     publicUrl:
-                      'https://ik.imagekit.io/v2bbhazxb/dev/user_upload/Marmotamaps_Wallpaper_Inntal_Desktop_1920x1080.jpeg',
+                      '',
                     publicPath:
                       '/user_upload/Marmotamaps_Wallpaper_Inntal_Desktop_1920x1080.jpeg'
                   },
@@ -153,7 +153,7 @@ export default {
                       },
                       cdn: {
                         publicUrl:
-                          'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/idea.svg',
+                          '',
                         publicPath: '\/idea.svg'
                       },
                       useCase: 'default',
@@ -230,7 +230,7 @@ export default {
                       },
                       cdn: {
                         publicUrl:
-                          'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/leaf.svg',
+                          '',
                         publicPath: '\/leaf.svg'
                       },
                       useCase: 'default',
