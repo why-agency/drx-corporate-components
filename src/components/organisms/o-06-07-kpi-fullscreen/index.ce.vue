@@ -101,7 +101,7 @@ const {
 } = toRefs(props.data.content)
 
 const isMedia = computed(() => {
-  return media?.value.image !== null || media?.value.video_stream.length !== 0
+  return media.value?.image !== null || media.value?.video_stream?.length !== 0
 })
 
 const $_headlineSize = computed(() => `text-${headline.value.tag}`)
