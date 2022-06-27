@@ -195,10 +195,6 @@ module.exports = {
           'linear-gradient(to right, #F2F1EF 50% , #0096A9 50%)',
         'button-background-large-reverse':
           'linear-gradient(to right, #0096A9 50% , #F2F1EF 50%)',
-        'hotspot-gradient':
-          'linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), radial-gradient(107.52% 105.76% at 0% -0.91%, rgba(211, 211, 211, 0.4) 0%, rgba(132, 132, 132, 0) 100%)',
-        'hotspot-gradient-hover':
-          'linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), radial-gradient(107.52% 105.76% at 0% -0.91%, rgba(211, 211, 211, 0.4) 0%, rgba(132, 132, 132, 0) 100%)'
       }
     }
   },

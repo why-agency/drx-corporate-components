@@ -23,7 +23,7 @@
       ></div>
     </div>
     <!-- Hotspots -->
-    <button class="w-12 h-12 border-px border-white bg-hotspot-gradient hover:bg-hotspot-gradient-hover">'Hello'</button>
+    <button class="w-12 h-12 border-px border-white bg-hotspot-gradient hover:bg-hotspot-gradient-hover"><BasePicture :images="icon" size="w-content h-10 mb-6" /></button>
     <O0609HotspotDetail class="hidden" />
   </section>
 </template>
