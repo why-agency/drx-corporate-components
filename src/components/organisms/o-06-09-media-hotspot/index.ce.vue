@@ -18,21 +18,23 @@
     </div>
     <div class="relative">
       <BaseMedia :media="mediaContent" class="relative w-full" />
+          <!-- Hotspots -->
+      <BaseButtonIcon v-for="spot in hotspots" :key="spot" variant="filled" color="gray" size="lg" class="absolute" :class="hotspotPosition(spot.content.coordinates)"><BasePicture :images="spot.content.icon" size="w-content h-6 mx-auto mt-[25%]" class="h-full"/></BaseButtonIcon>
       <div
         class="bg-gradient-to-b from-primary w-full h-28 absolute top-0"
       ></div>
     </div>
-    <!-- Hotspots -->
-    <button class="w-12 h-12 border-px border-white bg-hotspot-gradient hover:bg-hotspot-gradient-hover"><BasePicture :images="icon" size="w-content h-10 mb-6" /></button>
     <O0609HotspotDetail class="hidden" />
   </section>
 </template>
 
 <script setup>
-import { computed, onMounted, toRefs } from 'vue'
+import { computed, onMounted, toRefs, ref } from 'vue'
 import BaseHeadline from '../../base/Headline.vue'
 import BaseText from '../../base/Text.vue'
 import BaseMedia from '../../base/Media.vue'
+import BasePicture from '../../base/Picture.vue'
+import BaseButtonIcon from '../../base/ButtonIcon.vue'
 import MActionBar from '../../molecules/ActionBar.vue'
 import O0609HotspotDetail from '../../organisms/o-06-09-media-hotspot/hotspot-detail.ce.vue'
 
@@ -51,4 +53,16 @@ const {
 } = toRefs(props.data.content)
 const mediaContent =
   media.value.image.length !== 0 ? media.value.image : media.value.videos_stream
+
+// const hotspotPosition = computed(() => ({
+//   coordinates
+// }))
+
+
+function hotspotPosition(coordinates) {
+  const coor = coordinates.split(';')
+  const x = parseInt(coor[0])
+  const y = parseInt(coor[1])
+  return 'top-[' + x + '%]' + ' left-[' + y + '%]'
+}
 </script>

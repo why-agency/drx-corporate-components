@@ -56,7 +56,7 @@ export default {
         'w-8 h-8': this.size === 'sm',
         'w-10 h-10': this.size === 'base',
         'w-12 h-12': this.size === 'lg',
-        'w-14 h-14': this.size === 'xl'
+        'w-14 h-14': this.size === 'xl',
       }
     },
     $_color() {
@@ -72,6 +72,8 @@ export default {
           this.color === 'secondary' && this.variant === 'filled',
         'bg-sand text-sand-inverse':
           this.color === 'sand' && this.variant === 'filled',
+        'bg-gray-700 text-white border border-white hover:bg-secondary active:bg-secondary ':
+          this.color === 'gray' && this.variant === 'filled',
 
         // Outline
         'border-primary text-primary hover:bg-primary hover:bg-opacity-20 active:bg-primary active:text-primary-inverse':
