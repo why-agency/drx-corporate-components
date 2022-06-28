@@ -13,9 +13,9 @@ export default {
           header: {
             text: 'Die innovativsten Automarken der Welt vertrauen auf unsere L\u00f6sungen.',
             size: 1,
-            color: 'turqoise',
+            color: 'light',
             tag: 'h1',
-            fontWeight: 'font-bold'
+            fontWeight: 'font-normal'
           },
           text: {
             text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.\u003Cbr \/\u003E\rCum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
@@ -93,13 +93,13 @@ export default {
               content: {
                 headline: {
                   text: 'Licht',
-                  size: 5,
+                  size: 3,
                   color: 'light',
-                  tag: 5,
+                  tag: 'h3',
                   fontWeight: 'font-normal'
                 },
                 text: {
-                  text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.\u003Cbr \/\u003E\r\u003Cbr \/\u003E\rCum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+                  text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus muss. asdsada',
                   size: 'text-body1'
                 },
                 coordinates: '24.9;44.0',
@@ -118,7 +118,7 @@ export default {
                         class: ''
                       },
                       icon: null,
-                      color: ''
+                      color: 'secondary'
                     }
                   }
                 ],
@@ -170,9 +170,9 @@ export default {
               content: {
                 headline: {
                   text: 'Konnektivit\u00e4t',
-                  size: 5,
+                  size: 3,
                   color: 'light',
-                  tag: 5,
+                  tag:'h3',
                   fontWeight: 'font-normal'
                 },
                 text: {
@@ -195,7 +195,7 @@ export default {
                         class: ''
                       },
                       icon: null,
-                      color: ''
+                      color: 'secondary'
                     }
                   }
                 ],
