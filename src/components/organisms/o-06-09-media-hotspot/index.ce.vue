@@ -30,16 +30,17 @@
         :size="isLg ? 'lg' : 'sm'"
         class="absolute"
         :style="hotspotPosition(spot.content.coordinates)"
-        @click="showHotspotDetail(spot.content)"
       >
         <BasePicture
           :images="spot.content.icon"
           :size="$_picSize"
           class="h-full"
+          @click="showHotspotDetail(spot.content)"
         />
       </BaseButtonIcon>
+      <!-- Gradient -->
       <div
-        class="bg-gradient-to-b from-primary w-full h-28 absolute top-0"
+        class="bg-gradient-to-b from-primary w-full h-8 lg:h-28 absolute top-0"
       ></div>
     </div>
   </section>
@@ -83,8 +84,11 @@ const {
   actions,
   hotspots
 } = toRefs(props.data.content)
+
 const mediaContent =
-  media.value.image.length !== 0 ? media.value.image : media.value.videos_stream
+  media.value.videos_stream.length !== 0
+    ? media.value.videos_stream
+    : media.value.image
 
 const $_picSize = computed(() => {
   const size = isLg ? ' h-6' : ' h-4'
@@ -97,29 +101,40 @@ function hotspotPosition(coordinates) {
 const hotspotContentShow = ref(false)
 const hotspotContent = ref({})
 const hotspotDetail = ref(null)
+const hotspotIsOpen = ref(false)
 
 function showHotspotDetail(content) {
+  if (hotspotIsOpen.value && hotspotContent.value === content) {
+    closeDetail()
+  }
   hotspotContent.value = content
-  if (hotspotContentShow.value === false) {
+  if (!hotspotContentShow.value && !hotspotIsOpen.value) {
     hotspotContentShow.value = true
     if (isLg.value) {
-      gsap.to(hotspotDetail.value, { y: -208, duration: 1, ease: 'power3.out' })
+      gsap.to(hotspotDetail.value, {
+        y: -208,
+        duration: 1,
+        ease: 'power3.out',
+        onComplete: function () {
+          hotspotIsOpen.value = true
+        }
+      })
     }
   }
 }
 
 function closeDetail() {
-  if (hotspotContentShow.value === true) {
+  if (hotspotContentShow.value) {
     if (isLg.value) {
       gsap.to(hotspotDetail.value, {
         y: 0,
         duration: 1,
         ease: 'power1.in',
         onComplete: function () {
-          hotspotContentShow.value = false
+          ;(hotspotContentShow.value = false), (hotspotIsOpen.value = false)
         }
       })
-    }else{
+    } else {
       hotspotContentShow.value = false
     }
   }

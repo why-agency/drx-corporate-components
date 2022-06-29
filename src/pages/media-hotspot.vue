@@ -1,5 +1,5 @@
 <template>
-  <o-06-09-media-hotspot :data="hotspot1"/>
+  <o-06-09-media-hotspot :data="hotspot1" />
 </template>
 
 <script>
@@ -54,8 +54,7 @@ export default {
                     extension: 'jpeg'
                   },
                   cdn: {
-                    publicUrl:
-                      '',
+                    publicUrl: '',
                     publicPath:
                       '/user_upload/Marmotamaps_Wallpaper_Inntal_Desktop_1920x1080.jpeg'
                   },
@@ -99,7 +98,7 @@ export default {
                   fontWeight: 'font-normal'
                 },
                 text: {
-                  text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus muss. asdsada',
+                  text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolo',
                   size: 'text-body1'
                 },
                 coordinates: '24.9;44.0',
@@ -152,8 +151,7 @@ export default {
                         extension: 'svg'
                       },
                       cdn: {
-                        publicUrl:
-                          '',
+                        publicUrl: '',
                         publicPath: '\/idea.svg'
                       },
                       useCase: 'default',
@@ -172,11 +170,11 @@ export default {
                   text: 'Konnektivit\u00e4t',
                   size: 3,
                   color: 'light',
-                  tag:'h3',
+                  tag: 'h3',
                   fontWeight: 'font-normal'
                 },
                 text: {
-                  text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+                  text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolo',
                   size: 'text-body1'
                 },
                 coordinates: '74.3;60.9',
@@ -229,9 +227,84 @@ export default {
                         extension: 'svg'
                       },
                       cdn: {
-                        publicUrl:
-                          '',
+                        publicUrl: '',
                         publicPath: '\/leaf.svg'
+                      },
+                      useCase: 'default',
+                      ratio: '1:1'
+                    }
+                  ]
+                ]
+              }
+            },
+            {
+              id: 3,
+              pid: 9102,
+              type: 'hotspot',
+              content: {
+                headline: {
+                  text: 'Nacht',
+                  size: 3,
+                  color: 'light',
+                  tag: 'h3',
+                  fontWeight: 'font-normal'
+                },
+                text: {
+                  text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolo',
+                  size: 'text-body1'
+                },
+                coordinates: '13.9;25.0',
+                actions: [
+                  {
+                    id: 17,
+                    pid: 9102,
+                    type: 'a_01_01__action',
+                    content: {
+                      text: 'Mehr Licht',
+                      link: {
+                        type: 'page',
+                        url: '\/refresh-2022\/o-06-09-media-hotspot',
+                        target: ' target="_top"',
+                        title: '',
+                        class: ''
+                      },
+                      icon: null,
+                      color: 'secondary'
+                    }
+                  }
+                ],
+                icon: [
+                  [
+                    {
+                      publicUrl:
+                        'https:\/\/draexlmaier.loc\/fileadmin\/idea.svg',
+                      properties: {
+                        title: null,
+                        alternative: null,
+                        description: null,
+                        mimeType: 'image\/svg+xml',
+                        type: 'image',
+                        filename: 'idea.svg',
+                        originalUrl: 'fileadmin\/idea.svg',
+                        uidLocal: 21327,
+                        fileReferenceUid: 63237,
+                        size: '1 KB',
+                        link: null,
+                        dimensions: { width: 24, height: 24 },
+                        cropDimensions: { width: 24, height: 24 },
+                        crop: {
+                          desktop: {
+                            cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                            selectedRatio: '1:1',
+                            focusArea: null
+                          }
+                        },
+                        autoplay: 0,
+                        extension: 'svg'
+                      },
+                      cdn: {
+                        publicUrl: '',
+                        publicPath: '\/idea.svg'
                       },
                       useCase: 'default',
                       ratio: '1:1'
