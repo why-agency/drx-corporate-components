@@ -145,7 +145,7 @@ export default {
           quote: {
             text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
           },
-          header: { text: 'KPI + Quote + Video', tag: 'h2' },
+          header: { text: 'KPI +Quote+Video+Overlay', tag: 'h2' },
           kpicards: [
             {
               id: 1,
@@ -166,6 +166,18 @@ export default {
               content: {
                 name: 'Weltneuheiten mit DRÄXLMAIER Produktenasdasd',
                 value: '9453',
+                unit: 'm2',
+                description:
+                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
+              }
+            },
+            {
+              id: 3,
+              pid: 9093,
+              type: 'kpicard',
+              content: {
+                name: 'Definierte Patente',
+                value: '9366',
                 unit: 'm2',
                 description:
                   'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
@@ -254,9 +266,24 @@ export default {
           background: 'light',
           gradient: 'dark',
           media: {
-            type: 'image',
+            type: 'videos_stream',
             image: null,
-            video_stream: []
+            video_stream: [
+              {
+                id: 9,
+                pid: 9093,
+                type: 'videos_stream',
+                properties: {
+                  videoservice: 'vimeo',
+                  video_id: '373364603',
+                  video_title: 'Lorem ipsum',
+                  video_poster_image: null,
+                  video_start: null,
+                  video_end: null,
+                  video_duration: ''
+                }
+              }
+            ]
           },
           quote: {
             text: ''
