@@ -6,7 +6,7 @@
         :text="name"
         size="text-body2"
         :class="color"
-        class="font-bold max-w-[50%] lg:max-w-[152px]"
+        class="font-bold max-w-[50%] lg:w-[152px]"
       />
       <div class="flex flex-row space-x-3">
         <BaseHeadline

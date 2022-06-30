@@ -34,13 +34,14 @@
                 (gradient === 'light' && isMedia)
             }
           ]"
-          class="pt-16 lg:pt-28 font-normal"
+          class="pt-16 lg:pt-28 font-normal break-words"
         />
         <BaseHeadline
           v-if="quote && quote.text"
           v-bind="quote"
+          tag="h4"
           :size="4"
-          class="font-normal w-full lg:max-w-[616px] lg:ml-auto"
+          class="font-normal w-full lg:max-w-[616px] lg:ml-auto leading-[125%]"
           :class="[
             $_textColor,
             headline && headline.text ? 'pt-20' : 'pt-[312px]'
