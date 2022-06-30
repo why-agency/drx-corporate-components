@@ -101,7 +101,7 @@ const youtubeThumbnail = computed(() => {
   } else {
     const hasParams = id.value.includes('?')
     return `https://img.youtube.com/vi/${
-      hasParams ? id.value.slice(0, id.indexOf('?')) : id
+      hasParams ? id.value.slice(0, id.indexOf('?')) : id.value
     }/maxresdefault.jpg`
   }
 })
