@@ -138,7 +138,8 @@ const videoStream = computed(() => props?.media?.type === 'video-stream')
 
 const $_gradient = computed(
   () =>
-    props.gradient && [
+    props.gradient &&
+    props.gradient !== 'none' && [
       "before:block before:content-[''] before:h-full before:w-full before:absolute before:z-20 before:bg-gradient-to-b before:from-transparent ",
       {
         'before:via-black/40 before:to-black/75': props.gradient === 'dark',
