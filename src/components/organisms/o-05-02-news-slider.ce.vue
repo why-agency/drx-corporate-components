@@ -1,5 +1,5 @@
 <template>
-  <section ref="container" class="bg-primary py-8 lg:pb-8">
+  <section ref="container" class="bg-primary py-8 lg:pb-10">
     <MCarousel
       v-bind="settings"
       @change="onChange"
@@ -46,15 +46,29 @@ import CarouselBullets from '../molecules/CarouselBullets.vue'
 
 const props = defineProps({
   data: {
-    type: Object,
-    default: () => ({})
+    type: Array,
+    default: () => []
   }
 })
 
 const cards = computed(() =>
-  props.data?.content?.cards.map(card => ({
+  props.data?.map(card => ({
     id: card.id,
-    ...card.content
+    header: { ...card.content?.title, size: 4, fontWeight: 'font-bold' },
+    overline: { text: card.content?.date, color: 'text-white' },
+    text: { ...card.content?.teaser },
+    media: card.content?.image,
+    mediaFormat: 'mobile',
+    date: card.content?.date,
+    actions: {
+      content: {
+        link: {
+          url:
+            card.content?.detailLink &&
+            `${document.location.origin}${card.content?.detailLink}`
+        }
+      }
+    }
   }))
 )
 

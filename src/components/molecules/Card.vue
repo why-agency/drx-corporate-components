@@ -11,7 +11,7 @@
       <BaseMedia
         v-if="media"
         :media="media"
-        format="desktop"
+        :format="mediaFormat"
         gradient="dark"
         :srcsets="srcsets"
         class="!absolute group-hover:before:from-black/20 group-hover:before:via-black/75 group-hover:before:to-black/80"
@@ -31,16 +31,17 @@
           size="text-body2"
           :text="overline.text"
           :animate="false"
-          class="text-secondary font-bold mb-2"
+          class="font-bold mb-2"
+          :class="overline.color || 'text-secondary'"
         />
         <BaseHeadline
           v-if="header && header.text"
           ref="headline2"
-          :size="3"
+          :size="header.size || 3"
           :text="header.text"
           :animate="false"
-          font-weight="font-regular"
-          :class="{ '!mb-6 lg:!mb-10': !header2 && !header.text }"
+          :font-weight="header.fontWeight || 'font-regular'"
+          :class="{ '!mb-6 lg:!mb-10': !header2 || !header2.text }"
           class="!text-white"
         />
         <BaseHeadline
@@ -57,7 +58,7 @@
         <!-- START CONTENT VISIBLE ON HOVER -->
         <div
           ref="reveal"
-          class="invisible opacity-0 translate-y-4 absolute bottom-8 flex flex-col"
+          class="invisible opacity-0 translate-y-28 absolute bottom-8 flex flex-col"
         >
           <BaseText
             v-if="text.text"
@@ -66,7 +67,7 @@
             :animate="false"
             class="line-clamp-4 !pr-4 lg:!pr-8"
           />
-          <div class="h-8 !mt-6 lg:!mt-10">
+          <div class="h-8 !mt-8 lg:!mt-12">
             <BaseButtonIcon
               v-if="link"
               variant="outline"
@@ -87,7 +88,7 @@
 <script setup>
 import { ref, computed, watch, onMounted } from 'vue'
 import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
-import { gsap } from 'gsap'
+import { gsap, Power1 } from 'gsap'
 import UseDynamicAction from '../organisms/UseDynamicAction.vue'
 import BaseMedia from '../base/Media.vue'
 import BaseHeadline from '../base/Headline.vue'
@@ -124,6 +125,10 @@ const props = defineProps({
     type: Array,
     default: undefined
   },
+  mediaFormat: {
+    type: String,
+    default: 'desktop'
+  },
   isActive: {
     type: Boolean,
     default: false
@@ -157,17 +162,19 @@ const tl = gsap.timeline({ paused: true })
 
 const initTimeline = () => {
   tl.to(headlines.value, {
-    duration: 1,
-    y: isLg.value ? -112 : -136
+    duration: 0.6,
+    y: -160,
+    ease: Power1.easeInOut
   }).to(
     reveal.value,
     {
       opacity: 1,
       autoAlpha: 1,
       y: 0,
-      duration: 1
+      duration: 0.6,
+      ease: Power1.easeInOut
     },
-    isLg.value ? 0.3 : 0.5
+    0.025
   )
 }
 const toggleHeadline = value => {

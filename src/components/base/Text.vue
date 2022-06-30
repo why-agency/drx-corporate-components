@@ -1,5 +1,9 @@
 <template>
-  <div ref="body" :class="[$_size, { 'translate-y-4 opacity-0': animate }]">
+  <div
+    ref="body"
+    :class="[$_size, { 'translate-y-4 opacity-0': animate }]"
+    class="antialiased"
+  >
     <BaseHtmlParser tag="div" :content="text" />
   </div>
 </template>
@@ -22,6 +26,10 @@ const props = defineProps({
   animate: {
     type: Boolean,
     default: true
+  },
+  animateOpacity: {
+    type: Number,
+    default: 1
   }
 })
 
@@ -39,7 +47,7 @@ watch(isVisible, isVisible => {
   if (isVisible && props.animate) {
     gsap.to(body.value, {
       y: 0,
-      opacity: 1,
+      opacity: props.animateOpacity,
       duration: 1.5,
       ease: Power2.easeOut
     })

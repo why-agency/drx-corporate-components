@@ -23,7 +23,7 @@
     <div class="relative h-fit">
       <BaseMedia
         v-if="media"
-        :media="media"
+        :media="media.image || media"
         :format="format"
         :video-settings="{ autoplay: false }"
         :gradient="gradient"
