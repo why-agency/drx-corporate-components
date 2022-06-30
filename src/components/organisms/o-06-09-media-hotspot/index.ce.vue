@@ -85,10 +85,9 @@ const {
   hotspots
 } = toRefs(props.data.content)
 
-const mediaContent =
-  media.value.videos_stream.length !== 0
-    ? media.value.videos_stream
-    : media.value.image
+const mediaContent = media.value?.videos_stream?.[0]
+  ? { type: 'video-stream', video_stream: media.value?.videos_stream }
+  : media.value?.image
 
 const $_picSize = computed(() => {
   const size = isLg ? ' h-6' : ' h-4'
