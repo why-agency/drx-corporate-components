@@ -12,9 +12,9 @@
     >
       <div v-if="isMedia" ref="stickyImage" class="h-full w-full absolute">
         <BaseMedia
-          :media="media.type === 'image' ? media.image : media.video_stream"
-          :video-settings="{ autoplay: true }"
+          :media="media.image || media"
           :gradient="gradient"
+          full-screen
           mediaStyle="h-screen w-[100vw] object-cover"
         />
       </div>
@@ -61,7 +61,10 @@
             :color="$_textColor"
             :valueColor="$_valueColor"
           />
-          <div v-if="$_isTwoFacts" class="hidden lg:block invisible w-[256px]"/>
+          <div
+            v-if="$_isTwoFacts"
+            class="hidden lg:block invisible w-[256px]"
+          />
         </div>
       </div>
     </div>
@@ -134,14 +137,12 @@ const triggerContainer = ref(null)
 const stickyImage = ref(null)
 onMounted(() => {
   //scrollTrigger for the mobile sticky background
-  console.log(triggerContainer.value)
   const scroll = ScrollTrigger.create({
     trigger: triggerContainer.value,
     start: 'top top',
     end: 'bottom bottom',
     pin: stickyImage.value,
-    onToggle: self => console.log("toggled, isActive:"),
+    onToggle: self => console.log('toggled, isActive:')
   })
-  console.log(scroll)
 })
 </script>
