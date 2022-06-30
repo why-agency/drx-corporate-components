@@ -19,7 +19,7 @@
     </div>
     <div class="relative">
       <div @click="closeDetail" class="relative w-full">
-        <BaseMedia :media="mediaContent" />
+        <BaseMedia :media="mediaContent" format="16:9" />
       </div>
       <!-- Hotspots -->
       <BaseButtonIcon
