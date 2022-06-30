@@ -83,11 +83,11 @@ const id = ref(props?.media.video_stream?.[0].properties.video_id)
 const start = ref(props?.media.video_stream?.[0].properties?.video_start)
 const end = ref(props?.media.video_stream?.[0].properties?.video_end)
 const srcStream = computed(() => {
-  return `${url.value}/${id.value}?autoplay=1&muted=${
-    props.streamSettings.muted ? 1 : 0
-  }&loop=1&controls=${props.streamSettings.controls ? 1 : 0}&start=${
-    start.value
-  }&end=${end.value}`
+  return `${url.value}/${id.value}?autoplay=1&${
+    isVimeo.value ? 'muted' : 'mute'
+  }=${props.streamSettings.muted ? 1 : 0}&loop=1&controls=${
+    props.streamSettings.controls ? 1 : 0
+  }&start=${start.value}&end=${end.value}`
 })
 const placeholderImage = computed(() => {
   if (props?.media?.video_stream?.[0].properties?.video_poster_image) {
