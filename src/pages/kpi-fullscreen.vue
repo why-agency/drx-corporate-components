@@ -266,17 +266,17 @@ export default {
           background: 'light',
           gradient: 'dark',
           media: {
-            type: 'videos_stream',
+            type: 'video-stream',
             image: null,
             video_stream: [
               {
-                id: 9,
-                pid: 9093,
+                id: 4,
+                pid: 8678,
                 type: 'videos_stream',
                 properties: {
-                  videoservice: 'vimeo',
-                  video_id: '373364603',
-                  video_title: 'Lorem ipsum',
+                  videoservice: 'youtube',
+                  video_id: 'S2Z3WcNNZBw',
+                  video_title: 'DQ8zNGFfiSE',
                   video_poster_image: null,
                   video_start: null,
                   video_end: null,
@@ -285,6 +285,26 @@ export default {
               }
             ]
           },
+          //  media: {
+          //     type: 'video-stream',
+          //     video_stream: [
+          //       {
+          //         id: 63205,
+          //         pid: 0,
+          //         type: 'videos_stream',
+          //         properties: {
+          //           videoservice: 'vimeo',
+          //           video_id: '254069548',
+          //           video_title:
+          //             'Pause 2018 Motion Response - Lift in the moment by Carbon',
+          //           video_poster_image: null,
+          //           video_start: null,
+          //           video_end: null,
+          //           video_duration: ''
+          //         }
+          //       }
+          //     ]
+          //   },
           quote: {
             text: ''
           },
