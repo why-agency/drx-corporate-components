@@ -1,5 +1,18 @@
 <template>
   <section ref="container" class="bg-primary py-8 lg:pb-10">
+    <div
+      v-if="header && header.text"
+      :style="{ marginLeft: spacingX }"
+      class="mb-10 xl:mb-16"
+    >
+      <BaseHeadline :text="header.text" :size="2" color="light" />
+      <BaseHeadline
+        v-if="header && header.additionalText"
+        :text="header.additionalText"
+        :size="2"
+        color="light"
+      />
+    </div>
     <MCarousel
       v-bind="settings"
       @change="onChange"
@@ -43,6 +56,7 @@ import MCarousel from '../molecules/Carousel.vue'
 import MCard from '../molecules/Card.vue'
 import CarouselControls from '../molecules/CarouselControls.vue'
 import CarouselBullets from '../molecules/CarouselBullets.vue'
+import BaseHeadline from '../base/Headline.vue'
 
 const props = defineProps({
   data: {
@@ -115,4 +129,7 @@ const frameMaxWidth = computed(() =>
 const spacingX = computed(() =>
   !isXl.value ? '24px' : (width.value - frameMaxWidth.value) / 2 + 'px'
 )
+
+// SLIDER HEADER
+const header = ref(props.data?.[0]?.content?.header)
 </script>
