@@ -3,7 +3,6 @@
     :disabled="disabled"
     class="inline-flex justify-center items-center cursor-pointer uppercase disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus-visible:ring focus-visible:ring-focus transition ease-hover duration-300"
     :class="[$_size, $_color]"
-    @click="$emit('click')"
   >
     <slot />
   </button>
@@ -56,7 +55,7 @@ export default {
         'w-8 h-8': this.size === 'sm',
         'w-10 h-10': this.size === 'base',
         'w-12 h-12': this.size === 'lg',
-        'w-14 h-14': this.size === 'xl',
+        'w-14 h-14': this.size === 'xl'
       }
     },
     $_color() {
