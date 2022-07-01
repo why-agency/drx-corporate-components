@@ -176,4 +176,10 @@ watch(isVisible, isVisible => {
     hotspotContentShow.value = false
   }
 })
+watch(isLg, isLg => {
+  if (!isLg) {
+    hotspotIsOpen.value = false
+    hotspotContentShow.value = false
+  }
+})
 </script>
