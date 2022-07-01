@@ -1,14 +1,28 @@
 <template>
-    <div class=" px-6 pt-10 space-y-6 lg:px-0 lg:flex lg:space-y-0 lg:space-x-12 lg:pt-6 xl:pt-10 2xl:pt-16 pb-12 w-full h-content lg:h-52 bg-primary opacity-100 justify-center">
-        <BaseButtonIcon variant="filled" class="hover:bg-gray-700 active:bg-gray-700" color="gray" size="lg"><BasePicture :images="icon" size="w-content h-6 mx-auto mt-[25%]" class="h-full"/></BaseButtonIcon>
-        <BaseHeadline v-bind="headline" :animate="isLg ? false : true"/>
-        <BaseText class="text-sand lg:max-w-[500px] xl:max-w-[600px] 2xl:max-w-[700px]" v-bind="text" :animate="isLg ? false : true"/>
-        <MActionBar
-          v-if="action"
-          :actions="action"
-          position="left"
-        />
-    </div>
+  <div
+    class="px-6 pt-10 space-y-6 lg:px-0 lg:flex lg:space-y-0 lg:space-x-12 lg:pt-6 xl:pt-10 2xl:pt-16 pb-12 w-full h-content lg:h-52 bg-primary opacity-100 justify-center"
+  >
+    <BaseButtonIcon
+      v-if="icon"
+      class="hover:bg-gray-700 active:bg-gray-700"
+      color="gray"
+      size="lg"
+    >
+      <BasePicture :images="icon" size="h-6" class="w-auto" />
+    </BaseButtonIcon>
+    <BaseHeadline
+      v-if="headline && headline.text"
+      v-bind="headline"
+      :animate="!isLg"
+    />
+    <BaseText
+      v-if="text && text.text"
+      class="text-sand lg:max-w-[500px] xl:max-w-[600px] 2xl:max-w-[700px]"
+      v-bind="text"
+      :animate="!isLg"
+    />
+    <MActionBar v-if="action" :actions="action" position="left" />
+  </div>
 </template>
 <script setup>
 import BaseHeadline from '../../base/Headline.vue'
