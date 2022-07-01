@@ -27,7 +27,7 @@ export default {
                   [
                     {
                       publicUrl:
-                        'https:\/\/draexlmaier.loc\/fileadmin\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__ab72c6121d.jpg',
+                        'https://ik.imagekit.io/v2bbhazxb/dev/_processed_/1/6/csm_Ivanoska1_628c365f80.jpg?tr=w-264',
                       properties: {
                         title: null,
                         alternative: null,
@@ -70,8 +70,7 @@ export default {
                         extension: 'jpg'
                       },
                       cdn: {
-                        publicUrl:
-                          '',
+                        publicUrl: '',
                         publicPath:
                           '\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__ab72c6121d.jpg'
                       },
@@ -123,8 +122,7 @@ export default {
                         extension: 'jpg'
                       },
                       cdn: {
-                        publicUrl:
-                          '',
+                        publicUrl: '',
                         publicPath:
                           '\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__6200b74fbd.jpg'
                       },
@@ -136,7 +134,13 @@ export default {
                 actions: {
                   content: {
                     text: null,
-                    link: {type:"page",url:"http:\\\/\\\/draexlmaier.loc\\\/overview-content-elements\\\/05-slider",title:"",class:"",link:"05-Slider"}
+                    link: {
+                      type: 'page',
+                      url: 'http:\\\/\\\/draexlmaier.loc\\\/overview-content-elements\\\/05-slider',
+                      title: '',
+                      class: '',
+                      link: '05-Slider'
+                    }
                   }
                 }
               }
@@ -199,8 +203,7 @@ export default {
                         extension: 'jpg'
                       },
                       cdn: {
-                        publicUrl:
-                          '',
+                        publicUrl: '',
                         publicPath:
                           '\/_processed_\/1\/a\/csm_2012-04-24_Fotoshooting_Gasparini_Ausbildung__176__499a1547b2.jpg'
                       },
@@ -252,8 +255,7 @@ export default {
                         extension: 'jpg'
                       },
                       cdn: {
-                        publicUrl:
-                          '',
+                        publicUrl: '',
                         publicPath:
                           '\/_processed_\/1\/a\/csm_2012-04-24_Fotoshooting_Gasparini_Ausbildung__176__793e66b24e.jpg'
                       },
@@ -261,9 +263,9 @@ export default {
                       ratio: '315x300'
                     }
                   ]
-                ],
+                ]
                 //actions:
-                  //'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>\n<T3FlexForms>\n    <data>\n        <sheet index="sDEF">\n            <language index="lDEF">\n                <field index="buttontext">\n                    <value index="vDEF">Zum Profil<\/value>\n                <\/field>\n                <field index="buttonlink">\n                    <value index="vDEF">4073<\/value>\n                <\/field>\n                <field index="buttonid">\n                    <value index="vDEF"><\/value>\n                <\/field>\n            <\/language>\n        <\/sheet>\n    <\/data>\n<\/T3FlexForms>'
+                //'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>\n<T3FlexForms>\n    <data>\n        <sheet index="sDEF">\n            <language index="lDEF">\n                <field index="buttontext">\n                    <value index="vDEF">Zum Profil<\/value>\n                <\/field>\n                <field index="buttonlink">\n                    <value index="vDEF">4073<\/value>\n                <\/field>\n                <field index="buttonid">\n                    <value index="vDEF"><\/value>\n                <\/field>\n            <\/language>\n        <\/sheet>\n    <\/data>\n<\/T3FlexForms>'
               }
             },
             {
@@ -324,8 +326,7 @@ export default {
                         extension: 'jpg'
                       },
                       cdn: {
-                        publicUrl:
-                          '',
+                        publicUrl: '',
                         publicPath:
                           '\/_processed_\/a\/e\/csm_2013-02-14_Azubi_Einleger_Modellbauer__13__7974792a8c.jpg'
                       },
@@ -377,8 +378,7 @@ export default {
                         extension: 'jpg'
                       },
                       cdn: {
-                        publicUrl:
-                          '',
+                        publicUrl: '',
                         publicPath:
                           '\/_processed_\/a\/e\/csm_2013-02-14_Azubi_Einleger_Modellbauer__13__982bb85419.jpg'
                       },
@@ -386,9 +386,9 @@ export default {
                       ratio: '315x300'
                     }
                   ]
-                ],
-               // actions:
-                 // '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>\n<T3FlexForms>\n    <data>\n        <sheet index="sDEF">\n            <language index="lDEF">\n                <field index="buttontext">\n                    <value index="vDEF"><\/value>\n                <\/field>\n                <field index="buttonlink">\n                    <value index="vDEF"><\/value>\n                <\/field>\n                <field index="buttonid">\n                    <value index="vDEF"><\/value>\n                <\/field>\n            <\/language>\n        <\/sheet>\n    <\/data>\n<\/T3FlexForms>'
+                ]
+                // actions:
+                // '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>\n<T3FlexForms>\n    <data>\n        <sheet index="sDEF">\n            <language index="lDEF">\n                <field index="buttontext">\n                    <value index="vDEF"><\/value>\n                <\/field>\n                <field index="buttonlink">\n                    <value index="vDEF"><\/value>\n                <\/field>\n                <field index="buttonid">\n                    <value index="vDEF"><\/value>\n                <\/field>\n            <\/language>\n        <\/sheet>\n    <\/data>\n<\/T3FlexForms>'
               }
             }
           ]

@@ -1,5 +1,5 @@
 <template>
-  <div ref="card" class="invisible glide__slide !h-[392px] lg:!h-[624px]">
+  <div ref="card" class="invisible glide__slide !h-[389px] lg:!h-[624px]">
     <UseDynamicAction
       :to="link"
       :tag="link ? 'a' : 'div'"
