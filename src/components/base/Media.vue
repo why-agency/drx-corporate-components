@@ -158,6 +158,7 @@ const hideLightbox = () => (isLightboxVisible.value = false)
 const aspectRatio = computed(() => ({
   'aspect-[5/2]': props.format === '5:2',
   'aspect-[9/4]': props.format === '9:4',
-  'aspect-[4/3]': props.format === '4:3'
+  'aspect-[4/3]': props.format === '4:3',
+  'aspect-[16/9]': props.format === '16:9'
 }))
 </script>
