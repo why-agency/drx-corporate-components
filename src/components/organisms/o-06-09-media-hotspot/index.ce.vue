@@ -38,8 +38,7 @@
         <BasePicture
           :images="spot.content.icon"
           :size="$_picSize"
-          class="h-full"
-          @click="showHotspotDetail(spot.content)"
+          class="h-auto w-auto"
         />
       </BaseButtonIcon>
       <!-- Gradient -->
@@ -93,10 +92,8 @@ const mediaContent = media.value?.videos_stream?.[0]
   ? { type: 'video-stream', video_stream: media.value?.videos_stream }
   : media.value?.image
 
-const $_picSize = computed(() => {
-  const size = isLg ? ' h-6' : ' h-4'
-  return 'w-content mx-auto mt-[12%] lg:mt-[25%]' + size
-})
+const $_picSize = computed(() => `${isLg.value ? ' h-6' : ' h-4'}`)
+
 function hotspotPosition(coordinates) {
   const coor = coordinates.split(';')
   return { left: coor[0] + '%', top: coor[1] + '%' }
