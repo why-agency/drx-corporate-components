@@ -1,6 +1,6 @@
 <template>
   <div
-    class="px-6 pt-10 space-y-6 lg:px-0 lg:flex lg:space-y-0 lg:space-x-12 lg:pt-6 xl:pt-10 2xl:pt-16 pb-12 w-full h-content lg:h-52 bg-primary opacity-100 justify-center"
+    class="px-6 pt-10 space-y-6 lg:px-0 lg:flex lg:space-y-0 lg:space-x-12 lg:pt-6 xl:pt-10 2xl:pt-16 pb-12 w-full h-content bg-primary opacity-100 justify-center"
   >
     <BaseButtonIcon
       v-if="icon"
