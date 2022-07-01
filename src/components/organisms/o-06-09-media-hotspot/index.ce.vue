@@ -69,6 +69,7 @@ import BaseButtonIcon from '../../base/ButtonIcon.vue'
 import MActionBar from '../../molecules/ActionBar.vue'
 import O0609HotspotDetail from '../../organisms/o-06-09-media-hotspot/hotspot-detail.ce.vue'
 import gsap from 'gsap'
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import {
   useBreakpoints,
   breakpointsTailwind,
@@ -107,6 +108,8 @@ const hotspotContent = ref({})
 const hotspotDetail = ref(null)
 const hotspotIsOpen = ref(false)
 
+gsap.registerPlugin(ScrollToPlugin)
+
 function showHotspotDetail(content) {
   if (hotspotIsOpen.value && hotspotContent.value === content) {
     closeDetail()
@@ -123,6 +126,8 @@ function showHotspotDetail(content) {
           hotspotIsOpen.value = true
         }
       })
+    } else {
+      gsap.to(window, { duration: 1, scrollTo: hotspotDetail.value })
     }
   }
 }
