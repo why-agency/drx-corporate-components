@@ -1,6 +1,6 @@
 <template>
   <div
-    class="px-6 pt-10 space-y-6 xl:px-0 lg:grid lg:grid-cols-[48px,20%,40%,250px] 3xl:grid-cols-[48px,296px,704px,250px] lg:gap-x-7 2xl:gap-x-12 lg:space-y-0 lg:pt-6 xl:pt-10 2xl:pt-16 pb-12 w-full bg-primary opacity-100 justify-center"
+    class="px-6 pt-10 space-y-6 xl:px-0 lg:grid lg:grid-cols-[48px,20%,40%,250px] 3xl:grid-cols-[48px,296px,704px,250px] lg:gap-x-7 2xl:gap-x-12 lg:space-y-0 lg:pt-6 xl:pt-10 2xl:pt-16 pb-12 w-full bg-primary opacity-100 justify-center items-center"
   >
     <BaseButtonIcon
       v-if="icon"
