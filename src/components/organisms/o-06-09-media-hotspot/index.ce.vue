@@ -69,7 +69,11 @@ import BaseButtonIcon from '../../base/ButtonIcon.vue'
 import MActionBar from '../../molecules/ActionBar.vue'
 import O0609HotspotDetail from '../../organisms/o-06-09-media-hotspot/hotspot-detail.ce.vue'
 import gsap from 'gsap'
-import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
+import {
+  useBreakpoints,
+  breakpointsTailwind,
+  useElementVisibility
+} from '@vueuse/core'
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const isLg = breakpoints.greater('lg')
@@ -139,4 +143,13 @@ function closeDetail() {
     }
   }
 }
+
+//hide hotspot detail if module is no longer visible
+const target = ref(null)
+const isVisible = useElementVisibility(target)
+watch(isVisible, isVisible => {
+  if (!isVisible && hotspotContentShow.value) {
+    hotspotContentShow.value = false
+  }
+})
 </script>
