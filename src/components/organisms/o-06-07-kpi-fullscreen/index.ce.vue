@@ -15,7 +15,7 @@
           :media="media.image || media"
           :gradient="gradient"
           full-screen
-          class="overflow-hidden"
+          class="overflow-hidden h-screen before:h-screen"
           mediaStyle="h-screen w-[100vw] object-cover"
         />
       </div>
