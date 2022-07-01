@@ -47,8 +47,8 @@
       ></div>
     </div>
   </section>
-  <div ref="hotspotDetail" class="w-full lg:fixed lg:-bottom-52">
-    <O0609HotspotDetail
+  <div ref="hotspotDetail" class="w-full lg:fixed lg:-bottom-52 z-10">
+    <OHotspotDetail
       v-if="hotspotContentShow"
       :icon="hotspotContent.icon"
       :headline="hotspotContent.headline"
