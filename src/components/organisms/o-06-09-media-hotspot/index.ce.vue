@@ -1,6 +1,6 @@
 <template>
   <section ref="target">
-    <div class="bg-primary pl-6 pt-12 pb-12 lg:pl-[104px] lg:pb-6">
+    <div class="bg-primary !px-6 pt-12 pb-12 lg:pl-[104px] lg:pb-6">
       <BaseHeadline
         v-if="headline && headline.text"
         v-bind="headline"
@@ -13,7 +13,7 @@
           v-if="actions"
           :actions="actions"
           position="left"
-          class="mt-9"
+          class="!mt-9"
         />
       </div>
     </div>
@@ -116,7 +116,6 @@ const hotspotIsOpen = ref(false)
 gsap.registerPlugin(ScrollToPlugin)
 
 const { height } = useElementSize(hotspotDetail)
-watch(height, height => console.log(height))
 
 function showHotspotDetail(content) {
   if (hotspotIsOpen.value && hotspotContent.value === content) {
