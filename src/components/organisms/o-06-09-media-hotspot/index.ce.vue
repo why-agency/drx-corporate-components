@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section ref="target">
     <div class="bg-primary pl-6 pt-12 pb-12 lg:pl-[104px] lg:pb-6">
       <BaseHeadline
         v-if="headline && headline.text"
@@ -20,27 +20,31 @@
     <div class="relative">
       <div @click="closeDetail" class="relative w-full">
         <BaseMedia
+          v-if="mediaContent"
           :media="mediaContent"
           format="16:9"
           class="pointer-events-none"
         />
       </div>
       <!-- Hotspots -->
-      <BaseButtonIcon
-        v-for="spot in hotspots"
-        :key="spot"
-        variant="filled"
-        color="gray"
-        :size="isLg ? 'lg' : 'sm'"
-        class="absolute"
-        :style="hotspotPosition(spot.content.coordinates)"
-      >
-        <BasePicture
-          :images="spot.content.icon"
-          :size="$_picSize"
-          class="h-auto w-auto"
-        />
-      </BaseButtonIcon>
+      <div v-if="hotspots && hotspots.length">
+        <BaseButtonIcon
+          v-for="spot in hotspots"
+          :key="spot"
+          variant="filled"
+          color="gray"
+          :size="isLg ? 'lg' : 'sm'"
+          class="absolute"
+          :style="hotspotPosition(spot.content.coordinates)"
+          @click="showHotspotDetail(spot.content)"
+        >
+          <BasePicture
+            :images="spot.content.icon"
+            :size="$_picSize"
+            class="h-auto w-auto"
+          />
+        </BaseButtonIcon>
+      </div>
       <!-- Gradient -->
       <div
         class="bg-gradient-to-b from-primary w-full h-8 lg:h-28 absolute top-0"
@@ -67,7 +71,7 @@ import BaseMedia from '../../base/Media.vue'
 import BasePicture from '../../base/Picture.vue'
 import BaseButtonIcon from '../../base/ButtonIcon.vue'
 import MActionBar from '../../molecules/ActionBar.vue'
-import O0609HotspotDetail from '../../organisms/o-06-09-media-hotspot/hotspot-detail.ce.vue'
+import OHotspotDetail from '../../organisms/o-06-09-media-hotspot/hotspot-detail.ce.vue'
 import gsap from 'gsap'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import {
@@ -132,20 +136,19 @@ function showHotspotDetail(content) {
   }
 }
 
-function closeDetail() {
+async function closeDetail() {
   if (hotspotContentShow.value) {
     if (isLg.value) {
-      gsap.to(hotspotDetail.value, {
+      await gsap.to(hotspotDetail.value, {
         y: 0,
         duration: 1,
         ease: 'power1.in',
         onComplete: function () {
-          ;(hotspotContentShow.value = false), (hotspotIsOpen.value = false)
+          hotspotIsOpen.value = false
         }
       })
-    } else {
-      hotspotContentShow.value = false
     }
+    hotspotContentShow.value = false
   }
 }
 
