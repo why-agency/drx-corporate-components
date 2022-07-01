@@ -50,17 +50,17 @@
         class="bg-gradient-to-b from-primary w-full h-8 lg:h-28 absolute top-0"
       ></div>
     </div>
+    <div ref="hotspotDetail" class="w-full lg:fixed z-10">
+      <OHotspotDetail
+        v-if="hotspotContentShow"
+        :icon="hotspotContent.icon"
+        :headline="hotspotContent.headline"
+        :text="hotspotContent.text"
+        :action="hotspotContent.actions"
+        class="lg:opacity-90"
+      />
+    </div>
   </section>
-  <div ref="hotspotDetail" class="w-full lg:fixed lg:-bottom-52 z-10">
-    <OHotspotDetail
-      v-if="hotspotContentShow"
-      :icon="hotspotContent.icon"
-      :headline="hotspotContent.headline"
-      :text="hotspotContent.text"
-      :action="hotspotContent.actions"
-      class="lg:opacity-90"
-    />
-  </div>
 </template>
 
 <script setup>
@@ -77,7 +77,8 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import {
   useBreakpoints,
   breakpointsTailwind,
-  useElementVisibility
+  useElementVisibility,
+  useElementSize
 } from '@vueuse/core'
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
@@ -114,6 +115,9 @@ const hotspotIsOpen = ref(false)
 
 gsap.registerPlugin(ScrollToPlugin)
 
+const { height } = useElementSize(hotspotDetail)
+watch(height, height => console.log(height))
+
 function showHotspotDetail(content) {
   if (hotspotIsOpen.value && hotspotContent.value === content) {
     closeDetail()
@@ -122,18 +126,31 @@ function showHotspotDetail(content) {
   if (!hotspotContentShow.value && !hotspotIsOpen.value) {
     hotspotContentShow.value = true
     if (isLg.value) {
+      slideDetailUp(content)
+    } else {
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: { y: hotspotDetail.value, offsetY: 500 }
+      })
+    }
+  }
+}
+
+function slideDetailUp(content) {
+  const interval = setInterval(() => {
+    if (height.value) {
+      clearInterval(interval)
+      gsap.set(hotspotDetail.value, { bottom: -height.value })
       gsap.to(hotspotDetail.value, {
-        y: -208,
+        y: -height.value,
         duration: 1,
         ease: 'power3.out',
         onComplete: function () {
           hotspotIsOpen.value = true
         }
       })
-    } else {
-      gsap.to(window, { duration: 1, scrollTo: hotspotDetail.value })
     }
-  }
+  })
 }
 
 async function closeDetail() {
