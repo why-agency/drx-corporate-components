@@ -19,7 +19,7 @@
           mediaStyle="h-screen w-[100vw] object-cover"
         />
       </div>
-      <div class="z-50 mx-6 lg:mx-24 flex flex-col h-full">
+      <div class="z-50 !mx-6 lg:mx-24 flex flex-col h-full">
         <BaseHeadline
           v-if="headline && headline.text"
           v-bind="headline"
