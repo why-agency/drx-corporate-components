@@ -40,6 +40,7 @@
         <OverlayTrigger
           v-if="overlays && overlays.length"
           :overlay="overlays"
+          @show-overlay="isOverlayVisible = true"
           class="mt-10 xl:mt-24"
         />
         <BaseHeadline
@@ -75,7 +76,11 @@
         </div>
       </div>
     </div>
-    <Overlay />
+    <Overlay
+      v-if="overlays && overlays.length && isOverlayVisible"
+      :overlay="overlays"
+      @hide-overlay="isOverlayVisible = false"
+    />
   </section>
 </template>
 
@@ -156,4 +161,6 @@ onMounted(() => {
     onToggle: self => console.log('toggled, isActive:')
   })
 })
+
+const isOverlayVisible = ref(false)
 </script>

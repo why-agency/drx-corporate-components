@@ -1,5 +1,5 @@
 <template>
-  <BaseAction color="tertiary" @click="showOverlay">
+  <BaseAction color="tertiary" @click="$emit('show-overlay')">
     {{ triggerText }}
     <template #icon>
       <IconExpand />
@@ -10,8 +10,6 @@
 <script setup>
 import BaseAction from '../../base/Action.vue'
 import IconExpand from '../../icons/Expand.vue'
-import { useUiStore } from '../../../stores/ui.js'
-import { defineProps } from 'vue'
 
 const props = defineProps({
   overlay: {
@@ -21,7 +19,4 @@ const props = defineProps({
 })
 
 const triggerText = 'Learn more'
-
-const ui = useUiStore()
-const showOverlay = () => ui.setOverlay(props.overlay)
 </script>
