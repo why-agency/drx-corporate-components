@@ -10,7 +10,7 @@
 <script setup>
 import BaseAction from '../../base/Action.vue'
 import IconExpand from '../../icons/Expand.vue'
-import { useUiStore } from '../../../stores/ui.ts'
+import { useUiStore } from '../../../stores/ui.js'
 import { defineProps } from 'vue'
 
 const props = defineProps({
