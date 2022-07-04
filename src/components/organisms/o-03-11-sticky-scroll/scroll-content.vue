@@ -20,6 +20,10 @@
       ]"
       class="w-full lg:max-w-[504px] mb-10"
     />
+    <OverlayTrigger
+      v-if="overlay && overlay.length"
+      @show-overlay="$emit('overlay-visible', overlay)"
+    />
     <BaseAction
       v-for="action in actions"
       :key="action"
@@ -40,6 +44,7 @@ import BaseHtmlParser from '../../base/HtmlParser.vue'
 import BaseAction from '../../base/Action.vue'
 import BaseText from '../../base/Text.vue'
 import IconArrowRight from '../../icons/Arrow/Right.vue'
+import OverlayTrigger from '../o-06-08-overlay/trigger.vue'
 
 const props = defineProps({
   color: {
@@ -65,6 +70,10 @@ const props = defineProps({
   actions: {
     type: Object,
     required: true
+  },
+  overlay: {
+    type: Array,
+    default: null
   }
 })
 </script>

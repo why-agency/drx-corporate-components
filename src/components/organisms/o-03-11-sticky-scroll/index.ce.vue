@@ -35,10 +35,17 @@
           :icon="field.content.icon"
           :headline="field.content.headline"
           :actions="field.content.actions"
+          :overlay="field.content.overlays"
           class="mb-32"
+          @overlay-visible="showOverlay"
         />
       </div>
     </div>
+     <Overlay
+      v-if="overlay"
+      :overlay="overlay"
+      @hide-overlay="overlay = null"
+    />
   </section>
 </template>
 
@@ -53,6 +60,8 @@ import StickyScrollRightField from '../../organisms/o-03-11-sticky-scroll/scroll
 import { useIntersectionObserver } from '@vueuse/core'
 
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+import Overlay from '../o-06-08-overlay/index.vue'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -153,4 +162,10 @@ onMounted(() => {
     }
   }
 })
+
+// overlay
+const overlay = ref(null)
+const showOverlay = payload => {
+  overlay.value = payload
+}
 </script>
