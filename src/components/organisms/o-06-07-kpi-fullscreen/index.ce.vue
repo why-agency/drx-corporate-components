@@ -75,7 +75,7 @@
         </div>
       </div>
     </div>
-    <Overlay />
+    <!-- <Overlay v-if="overlays && overlays.length" /> -->
   </section>
 </template>
 
@@ -148,6 +148,7 @@ const triggerContainer = ref(null)
 const stickyImage = ref(null)
 onMounted(() => {
   //scrollTrigger for the mobile sticky background
+  console.log(overlays.value)
   const scroll = ScrollTrigger.create({
     trigger: triggerContainer.value,
     start: 'top top',
