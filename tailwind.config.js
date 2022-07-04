@@ -187,6 +187,8 @@ module.exports = {
           'linear-gradient(to right, #fff 50% , #0096A9 50%)',
         'button-text-large-reverse':
           'linear-gradient(to right, #fff 50% , #1E2728 50%)',
+        'button-text-tertiary':
+          'linear-gradient(to right, #8E8071 50% , #fff 50%)',
         'button-background':
           'linear-gradient(to right, #fff 50% , #0096A9 50%)',
         'button-background-reverse':
@@ -195,6 +197,8 @@ module.exports = {
           'linear-gradient(to right, #F2F1EF 50% , #0096A9 50%)',
         'button-background-large-reverse':
           'linear-gradient(to right, #0096A9 50% , #F2F1EF 50%)',
+        'button-background-tertiary':
+          'linear-gradient(to right, #fff 50% , #8E8071 50%)'
       }
     }
   },

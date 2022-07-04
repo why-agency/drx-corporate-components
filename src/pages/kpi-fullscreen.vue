@@ -1,7 +1,7 @@
 <template>
-  <o-06-07-kpi-fullscreen :data="kpi3" />
   <o-06-07-kpi-fullscreen :data="kpi" class="mb-64" />
   <o-06-07-kpi-fullscreen :data="kpi2" class="mb-32" />
+  <o-06-07-kpi-fullscreen :data="kpi3" />
 </template>
 
 <script setup>
@@ -184,7 +184,265 @@ export default {
               }
             }
           ],
-          overlays: []
+          overlays: [
+            {
+              id: 1,
+              pid: 8678,
+              type: 'overlay_multipurpose',
+              content: {
+                variant: 'image',
+                media: {
+                  image: [
+                    [
+                      {
+                        publicUrl:
+                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                        properties: {
+                          title: null,
+                          alternative: null,
+                          description: null,
+                          mimeType: 'image\/jpeg',
+                          type: 'image',
+                          filename:
+                            '2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                          originalUrl:
+                            'fileadmin\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                          uidLocal: 4636,
+                          fileReferenceUid: 61493,
+                          size: '12 MB',
+                          link: null,
+                          dimensions: { width: 5616, height: 3744 },
+                          cropDimensions: { width: 5616, height: 3744 },
+                          crop: {
+                            default: {
+                              cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                              selectedRatio: 'NaN',
+                              focusArea: null
+                            }
+                          },
+                          autoplay: null,
+                          extension: 'jpg'
+                        },
+                        cdn: {
+                          publicUrl:
+                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                          publicPath:
+                            '\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg'
+                        },
+                        useCase: 'default',
+                        ratio: null
+                      },
+                      {
+                        publicUrl:
+                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                        properties: {
+                          title: null,
+                          alternative: null,
+                          description: null,
+                          mimeType: 'image\/jpeg',
+                          type: 'image',
+                          filename:
+                            '2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                          originalUrl:
+                            'fileadmin\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                          uidLocal: 4636,
+                          fileReferenceUid: 61493,
+                          size: '12 MB',
+                          link: null,
+                          dimensions: { width: 5616, height: 3744 },
+                          cropDimensions: { width: 5616, height: 3744 },
+                          crop: {
+                            default: {
+                              cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                              selectedRatio: 'NaN',
+                              focusArea: null
+                            }
+                          },
+                          autoplay: null,
+                          extension: 'jpg'
+                        },
+                        cdn: {
+                          publicUrl:
+                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                          publicPath:
+                            '\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg'
+                        },
+                        useCase: 'full',
+                        ratio: null
+                      },
+                      {
+                        publicUrl:
+                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                        properties: {
+                          title: null,
+                          alternative: null,
+                          description: null,
+                          mimeType: 'image\/jpeg',
+                          type: 'image',
+                          filename:
+                            '2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                          originalUrl:
+                            'fileadmin\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                          uidLocal: 4636,
+                          fileReferenceUid: 61493,
+                          size: '12 MB',
+                          link: null,
+                          dimensions: { width: 5616, height: 3744 },
+                          cropDimensions: { width: 5616, height: 3744 },
+                          crop: {
+                            default: {
+                              cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                              selectedRatio: 'NaN',
+                              focusArea: null
+                            }
+                          },
+                          autoplay: null,
+                          extension: 'jpg'
+                        },
+                        cdn: {
+                          publicUrl:
+                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                          publicPath:
+                            '\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg'
+                        },
+                        useCase: 'mobile',
+                        ratio: null
+                      }
+                    ]
+                  ],
+                  video: null,
+                  video_stream: []
+                },
+                header: { text: 'overlay header', tag: 'h1' },
+                subheadline: { text: 'This is the overlay subheadline' },
+                actions: [],
+                additionaltext: {
+                  before:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet porttitor eget dolor morbi non.',
+                  after:
+                    'Cursus eget nunc scelerisque viverra mauris in aliquam sem.',
+                  image: [
+                    [
+                      {
+                        publicUrl:
+                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                        properties: {
+                          title: null,
+                          alternative: null,
+                          description: null,
+                          mimeType: 'image\/jpeg',
+                          type: 'image',
+                          filename:
+                            '2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                          originalUrl:
+                            'fileadmin\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                          uidLocal: 4638,
+                          fileReferenceUid: 61494,
+                          size: '13 MB',
+                          link: null,
+                          dimensions: { width: 5616, height: 3744 },
+                          cropDimensions: { width: 5616, height: 3744 },
+                          crop: {
+                            default: {
+                              cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                              selectedRatio: 'NaN',
+                              focusArea: null
+                            }
+                          },
+                          autoplay: null,
+                          extension: 'jpg'
+                        },
+                        cdn: {
+                          publicUrl:
+                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                          publicPath:
+                            '\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg'
+                        },
+                        useCase: 'default',
+                        ratio: null
+                      },
+                      {
+                        publicUrl:
+                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                        properties: {
+                          title: null,
+                          alternative: null,
+                          description: null,
+                          mimeType: 'image\/jpeg',
+                          type: 'image',
+                          filename:
+                            '2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                          originalUrl:
+                            'fileadmin\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                          uidLocal: 4638,
+                          fileReferenceUid: 61494,
+                          size: '13 MB',
+                          link: null,
+                          dimensions: { width: 5616, height: 3744 },
+                          cropDimensions: { width: 5616, height: 3744 },
+                          crop: {
+                            default: {
+                              cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                              selectedRatio: 'NaN',
+                              focusArea: null
+                            }
+                          },
+                          autoplay: null,
+                          extension: 'jpg'
+                        },
+                        cdn: {
+                          publicUrl:
+                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                          publicPath:
+                            '\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg'
+                        },
+                        useCase: 'full',
+                        ratio: null
+                      },
+                      {
+                        publicUrl:
+                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                        properties: {
+                          title: null,
+                          alternative: null,
+                          description: null,
+                          mimeType: 'image\/jpeg',
+                          type: 'image',
+                          filename:
+                            '2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                          originalUrl:
+                            'fileadmin\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                          uidLocal: 4638,
+                          fileReferenceUid: 61494,
+                          size: '13 MB',
+                          link: null,
+                          dimensions: { width: 5616, height: 3744 },
+                          cropDimensions: { width: 5616, height: 3744 },
+                          crop: {
+                            default: {
+                              cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                              selectedRatio: 'NaN',
+                              focusArea: null
+                            }
+                          },
+                          autoplay: null,
+                          extension: 'jpg'
+                        },
+                        cdn: {
+                          publicUrl:
+                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                          publicPath:
+                            '\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg'
+                        },
+                        useCase: 'mobile',
+                        ratio: null
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
         }
       },
       kpi2: {
@@ -248,7 +506,168 @@ export default {
               }
             }
           ],
-          overlays: []
+          overlays: [
+            {
+              id: 1,
+              pid: 8678,
+              type: 'overlay_multipurpose',
+              content: {
+                variant: 'video-upload',
+                media: {
+                  image: null,
+                  video: [
+                    [
+                      {
+                        publicUrl:
+                          'https:\/\/draexlmaier.loc\/fileadmin\/Videos\/DRX_productvideo_v2.mp4',
+                        properties: {
+                          uidLocal: 61495,
+                          type: 'video',
+                          ext: 'mp4',
+                          identifier: '\/Videos\/DRX_productvideo_v2.mp4',
+                          url: 'fileadmin\/Videos\/DRX_productvideo_v2.mp4'
+                        },
+                        cdn: {
+                          publicUrl:
+                            'fileadmin\/Videos\/DRX_productvideo_v2.mp4',
+                          publicPath: '\/Videos\/DRX_productvideo_v2.mp4',
+                          note: 'For this mime type CDN is not relevant!'
+                        }
+                      }
+                    ]
+                  ],
+                  video_stream: []
+                },
+                header: { text: 'overlay header', tag: 'h1' },
+                subheadline: { text: 'This is the overlay subheadline' },
+                actions: [],
+                additionaltext: {
+                  before:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet porttitor eget dolor morbi non.',
+                  after:
+                    'Cursus eget nunc scelerisque viverra mauris in aliquam sem.',
+                  image: [
+                    [
+                      {
+                        publicUrl:
+                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                        properties: {
+                          title: null,
+                          alternative: null,
+                          description: null,
+                          mimeType: 'image\/jpeg',
+                          type: 'image',
+                          filename:
+                            '2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                          originalUrl:
+                            'fileadmin\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                          uidLocal: 4638,
+                          fileReferenceUid: 61494,
+                          size: '13 MB',
+                          link: null,
+                          dimensions: { width: 5616, height: 3744 },
+                          cropDimensions: { width: 5616, height: 3744 },
+                          crop: {
+                            default: {
+                              cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                              selectedRatio: 'NaN',
+                              focusArea: null
+                            }
+                          },
+                          autoplay: null,
+                          extension: 'jpg'
+                        },
+                        cdn: {
+                          publicUrl:
+                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                          publicPath:
+                            '\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg'
+                        },
+                        useCase: 'default',
+                        ratio: null
+                      },
+                      {
+                        publicUrl:
+                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                        properties: {
+                          title: null,
+                          alternative: null,
+                          description: null,
+                          mimeType: 'image\/jpeg',
+                          type: 'image',
+                          filename:
+                            '2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                          originalUrl:
+                            'fileadmin\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                          uidLocal: 4638,
+                          fileReferenceUid: 61494,
+                          size: '13 MB',
+                          link: null,
+                          dimensions: { width: 5616, height: 3744 },
+                          cropDimensions: { width: 5616, height: 3744 },
+                          crop: {
+                            default: {
+                              cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                              selectedRatio: 'NaN',
+                              focusArea: null
+                            }
+                          },
+                          autoplay: null,
+                          extension: 'jpg'
+                        },
+                        cdn: {
+                          publicUrl:
+                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                          publicPath:
+                            '\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg'
+                        },
+                        useCase: 'full',
+                        ratio: null
+                      },
+                      {
+                        publicUrl:
+                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                        properties: {
+                          title: null,
+                          alternative: null,
+                          description: null,
+                          mimeType: 'image\/jpeg',
+                          type: 'image',
+                          filename:
+                            '2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                          originalUrl:
+                            'fileadmin\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                          uidLocal: 4638,
+                          fileReferenceUid: 61494,
+                          size: '13 MB',
+                          link: null,
+                          dimensions: { width: 5616, height: 3744 },
+                          cropDimensions: { width: 5616, height: 3744 },
+                          crop: {
+                            default: {
+                              cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                              selectedRatio: 'NaN',
+                              focusArea: null
+                            }
+                          },
+                          autoplay: null,
+                          extension: 'jpg'
+                        },
+                        cdn: {
+                          publicUrl:
+                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                          publicPath:
+                            '\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg'
+                        },
+                        useCase: 'mobile',
+                        ratio: null
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
         }
       },
       kpi3: {
@@ -347,7 +766,236 @@ export default {
               }
             }
           ],
-          overlays: []
+          overlays: [
+            {
+              id: 2,
+              pid: 8678,
+              type: 'overlay_multipurpose',
+              content: {
+                variant: 'video-stream',
+                media: {
+                  image: null,
+                  video: null,
+                  video_stream: [
+                    {
+                      id: 8,
+                      pid: 8678,
+                      type: 'videos_stream',
+                      properties: {
+                        videoservice: 'vimeo',
+                        video_id: '254069548',
+                        video_title: 'vim',
+                        video_poster_image: null,
+                        video_start: null,
+                        video_end: null,
+                        video_duration: ''
+                      }
+                    }
+                  ]
+                },
+                header: {
+                  text: 'Overlay with stream',
+                  tag: 'h1'
+                },
+                subheadline: {
+                  text: 'This is a subheadline'
+                },
+                actions: [
+                  {
+                    id: 3,
+                    pid: 8678,
+                    type: 'a_01_01__action',
+                    content: {
+                      text: 'link 1',
+                      link: {
+                        type: 'page',
+                        url: '\/overview-content-elements\/overlay-1',
+                        target: ' target="_top"',
+                        title: '',
+                        class: ''
+                      },
+                      icon: null,
+                      color: ''
+                    }
+                  },
+                  {
+                    id: 4,
+                    pid: 8678,
+                    type: 'a_01_01__action',
+                    content: {
+                      text: 'link 2',
+                      link: {
+                        type: 'page',
+                        url: '\/news',
+                        target: ' target="_top"',
+                        title: '',
+                        class: ''
+                      },
+                      icon: null,
+                      color: ''
+                    }
+                  }
+                ],
+                additionaltext: {
+                  before:
+                    '\u003Cp\u003ELorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet porttitor eget dolor morbi non.\u003C\/p\u003E',
+                  after:
+                    '\u003Cp\u003ECursus eget nunc scelerisque viverra mauris in aliquam sem.\u003C\/p\u003E',
+                  image: [
+                    [
+                      {
+                        publicUrl:
+                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                        properties: {
+                          title: null,
+                          alternative: null,
+                          description: null,
+                          mimeType: 'image\/jpeg',
+                          type: 'image',
+                          filename:
+                            '2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          originalUrl:
+                            'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          uidLocal: 1006,
+                          fileReferenceUid: 61500,
+                          size: '4 MB',
+                          link: null,
+                          dimensions: {
+                            width: 3543,
+                            height: 1417
+                          },
+                          cropDimensions: {
+                            width: 3543,
+                            height: 1417
+                          },
+                          crop: {
+                            default: {
+                              cropArea: {
+                                x: 0,
+                                y: 0,
+                                width: 1,
+                                height: 1
+                              },
+                              selectedRatio: 'NaN',
+                              focusArea: null
+                            }
+                          },
+                          autoplay: null,
+                          extension: 'jpg'
+                        },
+                        cdn: {
+                          publicUrl:
+                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          publicPath:
+                            '\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg'
+                        },
+                        useCase: 'default',
+                        ratio: null
+                      },
+                      {
+                        publicUrl:
+                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                        properties: {
+                          title: null,
+                          alternative: null,
+                          description: null,
+                          mimeType: 'image\/jpeg',
+                          type: 'image',
+                          filename:
+                            '2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          originalUrl:
+                            'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          uidLocal: 1006,
+                          fileReferenceUid: 61500,
+                          size: '4 MB',
+                          link: null,
+                          dimensions: {
+                            width: 3543,
+                            height: 1417
+                          },
+                          cropDimensions: {
+                            width: 3543,
+                            height: 1417
+                          },
+                          crop: {
+                            default: {
+                              cropArea: {
+                                x: 0,
+                                y: 0,
+                                width: 1,
+                                height: 1
+                              },
+                              selectedRatio: 'NaN',
+                              focusArea: null
+                            }
+                          },
+                          autoplay: null,
+                          extension: 'jpg'
+                        },
+                        cdn: {
+                          publicUrl:
+                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          publicPath:
+                            '\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg'
+                        },
+                        useCase: 'full',
+                        ratio: null
+                      },
+                      {
+                        publicUrl:
+                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                        properties: {
+                          title: null,
+                          alternative: null,
+                          description: null,
+                          mimeType: 'image\/jpeg',
+                          type: 'image',
+                          filename:
+                            '2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          originalUrl:
+                            'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          uidLocal: 1006,
+                          fileReferenceUid: 61500,
+                          size: '4 MB',
+                          link: null,
+                          dimensions: {
+                            width: 3543,
+                            height: 1417
+                          },
+                          cropDimensions: {
+                            width: 3543,
+                            height: 1417
+                          },
+                          crop: {
+                            default: {
+                              cropArea: {
+                                x: 0,
+                                y: 0,
+                                width: 1,
+                                height: 1
+                              },
+                              selectedRatio: 'NaN',
+                              focusArea: null
+                            }
+                          },
+                          autoplay: null,
+                          extension: 'jpg'
+                        },
+                        cdn: {
+                          publicUrl:
+                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          publicPath:
+                            '\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg'
+                        },
+                        useCase: 'mobile',
+                        ratio: null
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
         }
       }
     }

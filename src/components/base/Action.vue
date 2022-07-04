@@ -17,10 +17,7 @@
           v-if="$slots.icon"
           ref="icon"
           class="float-right"
-          :class="[
-            $_iconColor,
-            this.variant === 'large' ? 'mt-12 lg:mt-16' : ''
-          ]"
+          :class="[$_iconColor, variant === 'large' ? 'mt-12 lg:mt-16' : '']"
         >
           <slot name="icon" />
         </div>
@@ -35,7 +32,8 @@ import UseDynamicAction from '../organisms/UseDynamicAction.vue'
 
 const Color = {
   secondary: 'secondary',
-  white: 'white'
+  white: 'white',
+  tertiary: 'tertiary'
 }
 
 const Variant = {
@@ -71,7 +69,8 @@ export default {
         'bg-button-background-large':
           this.color === 'secondary' && this.variant === 'large',
         'bg-button-background-large-reverse':
-          this.color === 'white' && this.variant === 'large'
+          this.color === 'white' && this.variant === 'large',
+        'bg-button-background-tertiary': this.color === 'tertiary'
       }
     },
     $_textColor() {
@@ -85,7 +84,8 @@ export default {
           this.color === 'white' &&
           (this.variant === 'default' || this.variant === 'block'),
         'bg-button-text-large-reverse':
-          this.color === 'white' && this.variant === 'large'
+          this.color === 'white' && this.variant === 'large',
+        'bg-button-text-tertiary': this.color === 'tertiary'
       }
     },
     $_iconColor() {
@@ -94,7 +94,8 @@ export default {
         'text-primary': this.color === 'white' && this.variant === 'large',
         'text-white':
           (this.color === 'secondary' && this.variant === 'default') ||
-          (this.color === 'secondary' && this.variant === 'large')
+          (this.color === 'secondary' && this.variant === 'large') ||
+          this.color === 'tertiary'
       }
     },
     $_size() {
@@ -120,6 +121,12 @@ export default {
             delay: 0.1,
             duration: 0.5,
             color: '#0096A9'
+          })
+        } else if (this.color === 'tertiary') {
+          gsap.to(this.$refs.icon, {
+            delay: 0.1,
+            duration: 0.5,
+            color: '#8E8071'
           })
         } else {
           gsap.to(this.$refs.icon, {
