@@ -10,12 +10,13 @@
       <div
         ref="label"
         :class="[$_textColor]"
-        class="text-button w-full !px-4 flex justify-between bg-[length:200%_100%] bg-[position:100%] relative bg-clip-text text-transparent overflow-hidden"
+        class="text-button w-full !px-4 block leading-[21px] justify-between bg-[length:200%_100%] bg-[position:100%] relative bg-clip-text text-transparent overflow-hidden"
       >
         <slot />
         <div
           v-if="$slots.icon"
           ref="icon"
+          class="float-right"
           :class="[
             $_iconColor,
             this.variant === 'large' ? 'mt-12 lg:mt-16' : ''
@@ -62,9 +63,11 @@ export default {
     $_color() {
       return {
         'bg-button-background':
-          this.color === 'secondary' && (this.variant === 'default' || this.variant === 'block'),
+          this.color === 'secondary' &&
+          (this.variant === 'default' || this.variant === 'block'),
         'bg-button-background-reverse':
-          this.color === 'white' && (this.variant === 'default' || this.variant === 'block'),
+          this.color === 'white' &&
+          (this.variant === 'default' || this.variant === 'block'),
         'bg-button-background-large':
           this.color === 'secondary' && this.variant === 'large',
         'bg-button-background-large-reverse':
@@ -74,11 +77,13 @@ export default {
     $_textColor() {
       return {
         'bg-button-text':
-          this.color === 'secondary' && (this.variant === 'default' || this.variant === 'block'),
+          this.color === 'secondary' &&
+          (this.variant === 'default' || this.variant === 'block'),
         'bg-button-text-large':
           this.color === 'secondary' && this.variant === 'large',
         'bg-button-text-reverse':
-          this.color === 'white' && (this.variant === 'default' || this.variant === 'block'),
+          this.color === 'white' &&
+          (this.variant === 'default' || this.variant === 'block'),
         'bg-button-text-large-reverse':
           this.color === 'white' && this.variant === 'large'
       }
