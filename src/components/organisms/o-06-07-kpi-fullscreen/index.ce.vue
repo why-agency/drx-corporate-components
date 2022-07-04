@@ -37,11 +37,11 @@
           ]"
           class="pt-16 lg:pt-28 font-normal break-words"
         />
-        <OverlayTrigger
+        <!-- <OverlayTrigger
           v-if="overlays && overlays.length"
           :overlay="overlays"
           class="mt-10 xl:mt-24"
-        />
+        /> -->
         <BaseHeadline
           v-if="quote && quote.text"
           v-bind="quote"
@@ -86,8 +86,8 @@ import BaseHeadline from '../../base/Headline.vue'
 import BaseMedia from '../../base/Media.vue'
 import BaseText from '../../base/Text.vue'
 import O0607KpiFullscreenKpiFact from '../../organisms/o-06-07-kpi-fullscreen/kpi-fact.vue'
-import OverlayTrigger from '../../organisms/o-06-08-overlay/trigger.vue'
-import Overlay from '../../organisms/o-06-08-overlay/index.vue'
+// import OverlayTrigger from '../../organisms/o-06-08-overlay/trigger.vue'
+// import Overlay from '../../organisms/o-06-08-overlay/index.vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
