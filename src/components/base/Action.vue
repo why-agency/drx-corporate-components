@@ -10,12 +10,13 @@
       <div
         ref="label"
         :class="[$_textColor]"
-        class="text-button w-full !px-4 flex justify-between bg-[length:200%_100%] bg-[position:100%] relative bg-clip-text text-transparent overflow-hidden"
+        class="text-button w-full !px-4 block leading-[21px] justify-between bg-[length:200%_100%] bg-[position:100%] relative bg-clip-text text-transparent overflow-hidden"
       >
         <slot />
         <div
           v-if="$slots.icon"
           ref="icon"
+          class="float-right"
           :class="[$_iconColor, variant === 'large' ? 'mt-12 lg:mt-16' : '']"
         >
           <slot name="icon" />
