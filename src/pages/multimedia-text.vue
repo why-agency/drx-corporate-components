@@ -182,6 +182,143 @@ export default {
           spaceAfter: 'small'
         },
         content: {
+          overlays: [
+            {
+              id: 4,
+              pid: 8676,
+              type: 'overlay_multipurpose',
+              content: {
+                variant: 'image',
+                media: {
+                  image: [
+                    [
+                      {
+                        publicUrl:
+                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                        properties: {
+                          title: null,
+                          alternative: null,
+                          description: null,
+                          mimeType: 'image\/jpeg',
+                          type: 'image',
+                          filename:
+                            '2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          originalUrl:
+                            'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          uidLocal: 1006,
+                          fileReferenceUid: 61504,
+                          size: '4 MB',
+                          link: null,
+                          dimensions: { width: 3543, height: 1417 },
+                          cropDimensions: { width: 3543, height: 1417 },
+                          crop: {
+                            default: {
+                              cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                              selectedRatio: 'NaN',
+                              focusArea: null
+                            }
+                          },
+                          autoplay: null,
+                          extension: 'jpg'
+                        },
+                        cdn: {
+                          publicUrl:
+                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          publicPath:
+                            '\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg'
+                        },
+                        useCase: 'default',
+                        ratio: null
+                      },
+                      {
+                        publicUrl:
+                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                        properties: {
+                          title: null,
+                          alternative: null,
+                          description: null,
+                          mimeType: 'image\/jpeg',
+                          type: 'image',
+                          filename:
+                            '2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          originalUrl:
+                            'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          uidLocal: 1006,
+                          fileReferenceUid: 61504,
+                          size: '4 MB',
+                          link: null,
+                          dimensions: { width: 3543, height: 1417 },
+                          cropDimensions: { width: 3543, height: 1417 },
+                          crop: {
+                            default: {
+                              cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                              selectedRatio: 'NaN',
+                              focusArea: null
+                            }
+                          },
+                          autoplay: null,
+                          extension: 'jpg'
+                        },
+                        cdn: {
+                          publicUrl:
+                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          publicPath:
+                            '\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg'
+                        },
+                        useCase: 'full',
+                        ratio: null
+                      },
+                      {
+                        publicUrl:
+                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                        properties: {
+                          title: null,
+                          alternative: null,
+                          description: null,
+                          mimeType: 'image\/jpeg',
+                          type: 'image',
+                          filename:
+                            '2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          originalUrl:
+                            'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          uidLocal: 1006,
+                          fileReferenceUid: 61504,
+                          size: '4 MB',
+                          link: null,
+                          dimensions: { width: 3543, height: 1417 },
+                          cropDimensions: { width: 3543, height: 1417 },
+                          crop: {
+                            default: {
+                              cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                              selectedRatio: 'NaN',
+                              focusArea: null
+                            }
+                          },
+                          autoplay: null,
+                          extension: 'jpg'
+                        },
+                        cdn: {
+                          publicUrl:
+                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          publicPath:
+                            '\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg'
+                        },
+                        useCase: 'mobile',
+                        ratio: null
+                      }
+                    ]
+                  ],
+                  video: null,
+                  video_stream: []
+                },
+                header: { text: 'header', tag: 'h1' },
+                subheadline: { text: 'subline' },
+                actions: [],
+                additionaltext: { before: '', after: '', image: null }
+              }
+            }
+          ],
+
           variant: 'textbelow',
           background: 'none',
           gradient: 'none',
@@ -409,9 +546,25 @@ export default {
                 icon: { name: 'ArrowRight', position: 'trailing' },
                 color: 'secondary'
               }
+            },
+            {
+              id: 2,
+              pid: 8676,
+              type: 'a_01_01__action',
+              content: {
+                text: 'Test',
+                link: {
+                  type: 'page',
+                  url: '\/karriere',
+                  target: ' target="_top"',
+                  title: '',
+                  class: ''
+                },
+                icon: { name: 'ArrowRight', position: 'trailing' },
+                color: 'secondary'
+              }
             }
           ],
-          overlays: []
         }
       },
       vimeo: {

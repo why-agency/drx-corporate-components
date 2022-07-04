@@ -9,11 +9,11 @@
     leave-active-class="transition ease-in duration-700"
   >
     <section
-      class="fixed top-0 left-0 z-50 items-center w-screen h-screen bg-black bg-opacity-30 lg:flex lg:overflow-y-hidden lg:justify-end"
+      class="fixed top-0 left-0 z-[100] items-center w-screen h-screen bg-black bg-opacity-30 lg:flex lg:overflow-y-hidden lg:justify-end"
       @click="$emit('hide-overlay')"
     >
       <div
-        class="bg-white h-full overflow-y-scroll lg:w-[944px] grid content-start items-start px-6 py-7 xl:px-24 xl:grid-cols-[1fr,424px]"
+        class="bg-white h-full overflow-y-scroll lg:w-[944px] grid content-start items-start !px-6 !py-7 xl:px-24 xl:grid-cols-[1fr,424px]"
         @click.stop
       >
         <BaseButtonIcon
