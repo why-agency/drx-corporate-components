@@ -19,7 +19,7 @@
         <BaseButtonIcon
           variant="transparent"
           size="sm"
-          class="justify-self-end translate-x-2.5 mb-5 xl:mb-6 xl:translate-x-16 xl:col-start-2"
+          class="justify-self-end translate-x-2.5 !mb-5 xl:!mb-6 xl:translate-x-16 xl:col-start-2"
           @click="$emit('hide-overlay')"
         >
           <IconClose />
@@ -33,7 +33,7 @@
         <BaseHeadline
           v-if="headline && headline.text"
           v-bind="headline"
-          class="mt-6"
+          class="!mt-6"
         />
         <UseDynamicAction
           class="flex justify-between items-center w-64 h-6 my-16 xl:justify-self-end"
@@ -45,22 +45,22 @@
           <BaseHeadline
             v-if="subheadline && subheadline.text"
             v-bind="subheadline"
-            class="mt-6"
+            class="!mt-6"
           />
           <BaseText
             v-if="textBefore && textBefore.text"
             v-bind="textBefore"
-            class="mt-8"
+            class="!mt-8"
           />
           <BaseMedia
             v-if="additionalMedia"
             :media="additionalMedia"
-            class="mt-8"
+            class="!mt-8"
           />
           <BaseText
             v-if="textAfter && textAfter.text"
             v-bind="textAfter"
-            class="mt-8"
+            class="!mt-8"
           />
         </div>
         <MActionBar
@@ -68,7 +68,7 @@
           :actions="actions"
           position="left"
           stack
-          class="mt-10 xl:row-start-4 self-end"
+          class="!mt-10 xl:row-start-4 self-end"
         />
       </div>
     </section>
@@ -76,7 +76,9 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
+
+import { useScrollLock } from '../../../composables/useScrollLock.ts'
 
 import BaseMedia from '../../base/Media.vue'
 import BaseHeadline from '../../base/Headline.vue'
@@ -141,4 +143,14 @@ const actions = computed(() =>
     content: { ...action.content, color: 'secondary' }
   }))
 )
+
+// toggle scroll lock
+const isLocked = useScrollLock()
+onMounted(() => {
+  isLocked.value = true
+})
+
+onBeforeUnmount(() => {
+  isLocked.value = false
+})
 </script>
