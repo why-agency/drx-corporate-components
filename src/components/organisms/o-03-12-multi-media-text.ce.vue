@@ -17,9 +17,14 @@
         v-if="actions"
         :actions="actions"
         position="left"
-        stacked
+        stack
         :class="{ 'self-end': !text || !text.text }"
-      />
+      >
+        <OverlayTrigger
+          v-if="overlays && overlays.length"
+          @show-overlay="isOverlayVisible = true"
+        />
+      </MActionBar>
     </div>
     <div class="relative h-fit">
       <BaseMedia
@@ -47,6 +52,11 @@
         />
       </div>
     </div>
+    <Overlay
+      v-if="overlays && overlays.length && isOverlayVisible"
+      :overlay="overlays"
+      @hide-overlay="isOverlayVisible = false"
+    />
   </section>
 </template>
 
@@ -57,7 +67,7 @@ import BaseMedia from '../base/Media.vue'
 import BaseHeadline from '../base/Headline.vue'
 import BaseText from '../base/Text.vue'
 import MActionBar from '../molecules/ActionBar.vue'
-import OverlayTrigger from './o-03-12-multi-media-text.ce.vue'
+import OverlayTrigger from './o-06-08-overlay/trigger.vue'
 import Overlay from './o-06-08-overlay/index.vue'
 
 const props = defineProps({
@@ -106,4 +116,8 @@ const format = computed(() => {
 
 /** media gradient */
 const gradient = ref(props.data?.content?.gradient)
+
+/** overlay */
+const isOverlayVisible = ref(false)
+const overlays = ref(props.data?.content?.overlays)
 </script>
