@@ -17,6 +17,7 @@
         v-if="actions"
         :actions="actions"
         position="left"
+        stacked
         :class="{ 'self-end': !text || !text.text }"
       />
     </div>
@@ -56,6 +57,8 @@ import BaseMedia from '../base/Media.vue'
 import BaseHeadline from '../base/Headline.vue'
 import BaseText from '../base/Text.vue'
 import MActionBar from '../molecules/ActionBar.vue'
+import OverlayTrigger from './o-03-12-multi-media-text.ce.vue'
+import Overlay from './o-06-08-overlay/index.vue'
 
 const props = defineProps({
   data: {
