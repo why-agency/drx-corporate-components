@@ -77,7 +77,7 @@
 
 <script setup>
 import { computed, ref, watch } from 'vue'
-import { useUiStore } from '../../../stores/ui.ts'
+import { useUiStore } from '../../../stores/ui.js'
 import { useScrollLock } from '../../../composables/useScrollLock.ts'
 
 import BaseMedia from '../../base/Media.vue'
