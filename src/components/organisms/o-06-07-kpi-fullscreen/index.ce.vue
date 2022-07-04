@@ -39,7 +39,6 @@
         />
         <OverlayTrigger
           v-if="overlays && overlays.length"
-          :overlay="overlays"
           @show-overlay="isOverlayVisible = true"
           class="mt-10 xl:mt-24"
         />
@@ -56,7 +55,7 @@
         />
         <div
           v-if="cards && cards[0]"
-          class="z-50 flex flex-col lg:flex-row w-full border-t-[1px] border-sand border-opacity-20 pt-7 pb-16 space-y-16 lg:space-y-0 lg:justify-between"
+          class="z-50 flex flex-col lg:flex-row w-full border-t-[1px] border-sand border-opacity-20 !pt-7 pb-16 space-y-16 lg:space-y-0 lg:justify-between"
           :class="$_marginTop"
         >
           <O0607KpiFullscreenKpiFact
