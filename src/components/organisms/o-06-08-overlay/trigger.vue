@@ -1,5 +1,9 @@
 <template>
-  <BaseAction color="tertiary" @click="$emit('show-overlay')">
+  <BaseAction
+    color="tertiary"
+    class="text-left"
+    @click="$emit('show-overlay')"
+  >
     {{ triggerText }}
     <template #icon>
       <IconExpand />
@@ -11,5 +15,5 @@
 import BaseAction from '../../base/Action.vue'
 import IconExpand from '../../icons/Expand.vue'
 
-const triggerText = 'Learn more'
+const triggerText = 'Mehr erfahren'
 </script>
