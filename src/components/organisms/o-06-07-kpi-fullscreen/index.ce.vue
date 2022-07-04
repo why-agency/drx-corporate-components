@@ -37,11 +37,12 @@
           ]"
           class="pt-16 lg:pt-28 font-normal break-words"
         />
-        <!-- <OverlayTrigger
+        <OverlayTrigger
           v-if="overlays && overlays.length"
           :overlay="overlays"
+          @show-overlay="isOverlayVisible = true"
           class="mt-10 xl:mt-24"
-        /> -->
+        />
         <BaseHeadline
           v-if="quote && quote.text"
           v-bind="quote"
@@ -75,7 +76,11 @@
         </div>
       </div>
     </div>
-    <!-- <Overlay v-if="overlays && overlays.length" /> -->
+    <Overlay
+      v-if="overlays && overlays.length && isOverlayVisible"
+      :overlay="overlays"
+      @hide-overlay="isOverlayVisible = false"
+    />
   </section>
 </template>
 
@@ -86,8 +91,8 @@ import BaseHeadline from '../../base/Headline.vue'
 import BaseMedia from '../../base/Media.vue'
 import BaseText from '../../base/Text.vue'
 import O0607KpiFullscreenKpiFact from '../../organisms/o-06-07-kpi-fullscreen/kpi-fact.vue'
-// import OverlayTrigger from '../../organisms/o-06-08-overlay/trigger.vue'
-// import Overlay from '../../organisms/o-06-08-overlay/index.vue'
+import OverlayTrigger from '../../organisms/o-06-08-overlay/trigger.vue'
+import Overlay from '../../organisms/o-06-08-overlay/index.vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -148,7 +153,6 @@ const triggerContainer = ref(null)
 const stickyImage = ref(null)
 onMounted(() => {
   //scrollTrigger for the mobile sticky background
-  console.log(overlays.value)
   const scroll = ScrollTrigger.create({
     trigger: triggerContainer.value,
     start: 'top top',
@@ -157,4 +161,6 @@ onMounted(() => {
     onToggle: self => console.log('toggled, isActive:')
   })
 })
+
+const isOverlayVisible = ref(false)
 </script>

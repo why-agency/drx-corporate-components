@@ -10,7 +10,7 @@
   >
     <section
       class="fixed top-0 left-0 z-50 items-center w-screen h-screen bg-black bg-opacity-30 lg:flex lg:overflow-y-hidden lg:justify-end"
-      @click="hideOverlay"
+      @click="$emit('hide-overlay')"
     >
       <div
         class="bg-white h-full overflow-y-scroll lg:w-[944px] grid content-start items-start px-6 py-7 xl:px-24 xl:grid-cols-[1fr,424px]"
@@ -20,7 +20,7 @@
           variant="transparent"
           size="sm"
           class="justify-self-end translate-x-2.5 mb-5 xl:mb-6 xl:translate-x-16 xl:col-start-2"
-          @click="hideOverlay"
+          @click="$emit('hide-overlay')"
         >
           <IconClose />
         </BaseButtonIcon>
@@ -77,8 +77,6 @@
 
 <script setup>
 import { computed, ref, watch } from 'vue'
-import { useUiStore } from '../../../stores/ui.js'
-import { useScrollLock } from '../../../composables/useScrollLock.ts'
 
 import BaseMedia from '../../base/Media.vue'
 import BaseHeadline from '../../base/Headline.vue'
@@ -89,10 +87,14 @@ import IconArrowDownFat from '../../icons/Arrow/DownFat.vue'
 import MActionBar from '../../molecules/ActionBar.vue'
 import UseDynamicAction from '../UseDynamicAction.vue'
 
-const ui = useUiStore()
-const overlay = computed(() => ui.overlay)
+const props = defineProps({
+  overlay: {
+    type: Array,
+    default: null
+  }
+})
 
-const content = computed(() => overlay?.value?.[0]?.content)
+const content = computed(() => props.overlay?.[0]?.content)
 
 const media = computed(
   () =>
@@ -139,12 +141,4 @@ const actions = computed(() =>
     content: { ...action.content, color: 'secondary' }
   }))
 )
-
-const hideOverlay = () => ui.setOverlay()
-
-const isLocked = useScrollLock()
-
-watch(overlay, overlay => {
-  isLocked.value = !!overlay
-})
 </script>

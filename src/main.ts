@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
 import * as VueRouter from 'vue-router'
-import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import index from './pages/index.vue'
@@ -32,5 +31,4 @@ const router = VueRouter.createRouter({
 })
 
 app.use(router)
-app.use(createPinia())
 app.mount('#app')
