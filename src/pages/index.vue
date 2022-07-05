@@ -8,6 +8,7 @@
     <router-link to="/media-hotspot">Media Hotspot</router-link>
     <router-link to="/kpi-fullscreen">KPI Fullscreen</router-link>
     <router-link to="/news-slider">News Slider</router-link>
+    <router-link to="/intro-hero">Intro Hero</router-link>
   </div>
 </template>
 

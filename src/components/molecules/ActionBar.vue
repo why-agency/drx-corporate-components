@@ -8,7 +8,7 @@
       v-for="action in actions"
       :key="action.id"
       :to="action.content.link.url"
-      :variant="action.content.variant"
+      :variant="variant ? variant : action.content.variant"
       :color="action.content.color"
       :size="action.content.size"
     >
@@ -34,6 +34,10 @@ const props = defineProps({
   position: {
     type: String,
     default: 'center'
+  },
+  variant: {
+    type: String,
+    default: ''
   },
   stack: {
     type: Boolean
