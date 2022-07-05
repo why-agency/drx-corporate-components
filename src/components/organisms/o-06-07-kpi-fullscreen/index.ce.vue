@@ -4,7 +4,7 @@
       :class="[
         frame,
         {
-          'lg:h-screen': hasQuoteContent,
+          'lg:h-screen': hasQuoteContent || isMedia,
           [$_backgroundColor]: !isMedia
         }
       ]"
@@ -14,12 +14,13 @@
         <BaseMedia
           :media="media.image || media"
           :gradient="gradient"
+          :videoOverlay="true"
           full-screen
           class="overflow-hidden !h-screen before:!h-screen"
           mediaStyle="h-screen w-[100vw] object-cover"
         />
       </div>
-      <div class="z-50 mx-6 lg:mx-24 flex flex-col h-full">
+      <div class="z-50 mx-6 lg:mx-24 flex flex-col h-full" :class="isMedia && !hasQuoteContent ? 'justify-end' : ''">
         <BaseHeadline
           v-if="headline && headline.text"
           v-bind="headline"

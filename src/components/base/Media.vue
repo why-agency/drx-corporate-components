@@ -1,5 +1,5 @@
 <template>
-  <div class="relative h-full w-full" :class="$_gradient">
+  <div class="relative h-full w-full" :class="videoStream ? $_videoOverlay : $_gradient">
     <slot name="picture">
       <BasePicture
         v-if="isImage"
@@ -124,6 +124,10 @@ const props = defineProps({
     type: String,
     default: ''
   },
+  videoOverlay: {
+    type: Boolean,
+    default: false
+  },
   fullScreen: {
     type: Boolean,
     default: false
@@ -134,7 +138,7 @@ const isImage = computed(() => mediaType.value === 'image')
 const videoUrl = computed(
   () => mediaType.value === 'video' && props?.media?.[0]?.[0]?.publicUrl
 )
-const videoStream = computed(() => props?.media?.type === 'video-stream')
+const videoStream = computed(() => props?.media?.type === 'video-stream' || props?.media?.type === 'videos_stream')
 
 const $_gradient = computed(
   () =>
@@ -149,6 +153,10 @@ const $_gradient = computed(
       }
     ]
 )
+
+const $_videoOverlay  = computed(() => {
+  return props.videoOverlay ? "before:block before:bg-black before:opacity-60 before:h-full before:w-full before:absolute before:z-20" : ""
+})
 
 /** Lightbox */
 const isLightboxVisible = ref(false)
