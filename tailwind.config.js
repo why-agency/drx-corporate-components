@@ -6,10 +6,6 @@ const letterSpacingCalc = (maxLetterSpacing, maxPageWidth) => {
   return `${(maxLetterSpacing / maxPageWidth) * 100}vw`
 }
 
-const lineHeightCalc = (maxLineHeight, maxPageWidth) => {
-  return `${maxLineHeight / maxPageWidth}vw`
-}
-
 const breakpoints = {
   xs: '330px',
   sm: '640px',
@@ -67,7 +63,6 @@ module.exports = {
       h1: [
         `clamp(3.375rem, ${fontCalc(4.75, 1920)}, 4.75rem)`,
         {
-          lineHeight: `110%`,
           letterSpacing: `clamp(0.54px, ${letterSpacingCalc(
             0.76,
             1920
@@ -77,7 +72,6 @@ module.exports = {
       h2: [
         `clamp(2.75rem, ${fontCalc(3.875, 1920)}, 3.875rem)`,
         {
-          lineHeight: `clamp(110%, ${lineHeightCalc(115, 1920)}, 115%)`,
           letterSpacing: `clamp(0.44px, ${letterSpacingCalc(
             0.62,
             1920
@@ -87,7 +81,6 @@ module.exports = {
       h3: [
         `clamp(2rem, ${fontCalc(3, 1536)}, 3rem)`,
         {
-          lineHeight: '110%',
           letterSpacing: `clamp(0.32px, ${letterSpacingCalc(
             0.48,
             1536
@@ -97,7 +90,6 @@ module.exports = {
       h4: [
         `clamp(1.5rem,${fontCalc(2, 1536)}, 2rem)`,
         {
-          lineHeight: `clamp(100%, ${lineHeightCalc(120, 1536)}, 120%)`,
           letterSpacing: `clamp(0.24px, ${letterSpacingCalc(
             0.32,
             1536
@@ -107,7 +99,6 @@ module.exports = {
       h5: [
         `clamp(1.25rem, ${fontCalc(1.875, 1536)}, 1.5rem)`,
         {
-          lineHeight: `clamp(100%, ${lineHeightCalc(110, 1536)}, 110%)`,
           letterSpacing: `clamp(0.2px, ${letterSpacingCalc(
             0.24,
             1536
@@ -117,7 +108,6 @@ module.exports = {
       'h5-regular': [
         `clamp(1.25rem, ${fontCalc(1.875, 1536)}, 1.5rem)`,
         {
-          lineHeight: `clamp(100%, ${lineHeightCalc(145, 1536)}, 145%)`,
           letterSpacing: `clamp(0.2px, ${letterSpacingCalc(
             0.24,
             1536
