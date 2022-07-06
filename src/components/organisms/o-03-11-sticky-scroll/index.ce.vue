@@ -10,7 +10,6 @@
         v-bind="headline"
         :color="$_headlineColor"
         class="!pb-20 max-w-[512px] mr-16"
-        :class="{'uppercase' : headline.size === 5 && headline.fontWeight === 'font-bold'}"
         :size="isLg ? headline.size : 3"
       />
       <MActionBar
