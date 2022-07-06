@@ -29,11 +29,11 @@
             {
               'text-sand':
                 (background !== 'light' && background !== 'none' && !isMedia) ||
-                (gradient === 'dark' && isMedia),
+                (gradient === 'dark' && isMedia && !isVideo) || isVideo,
               'text-primary':
                 (background === 'none' && !isMedia) ||
                 (background === 'light' && !isMedia) ||
-                (gradient === 'light' && isMedia)
+                (gradient === 'light' && isMedia && !isVideo)
             }
           ]"
           class="pt-16 lg:pt-28 font-normal break-words"
@@ -110,10 +110,16 @@ const isMedia = computed(() => {
   return media.value?.image !== null || media.value?.video_stream?.length !== 0
 })
 
+const isVideo = computed(() => {
+  return media.value?.type === 'video-stream'
+})
+
 const $_headlineSize = computed(() => `text-${headline.value.tag}`)
 const $_textColor = computed(() => {
-  if (isMedia.value) {
+  if (isMedia.value && !isVideo) {
     return gradient.value === 'light' ? 'text-primary' : 'text-sand'
+  } else if(isMedia.value && isVideo){
+    return 'text-sand'
   }
   return background.value === 'light'
     ? 'text-primary'
