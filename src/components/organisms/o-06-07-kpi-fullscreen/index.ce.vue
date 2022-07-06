@@ -21,16 +21,13 @@
         />
       </div>
       <div
-        class="z-50 mx-6 lg:mx-24 flex flex-col h-full"
+        class="z-50 !mx-6 lg:!mx-24 flex flex-col h-full"
         :class="{ 'justify-end': isMedia && !hasQuoteContent }"
       >
         <BaseHeadline
           v-if="headline && headline.text"
           v-bind="headline"
-          :class="[
-            $_headlineSize,
-            $_textColor
-          ]"
+          :class="[$_headlineSize, $_textColor]"
           class="pt-16 lg:pt-28 font-normal break-words"
         />
         <OverlayTrigger
