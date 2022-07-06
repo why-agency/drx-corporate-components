@@ -1,5 +1,5 @@
 <template>
-  <UseDynamicAction :to="to">
+  <UseDynamicAction :to="to" :target="target">
     <div
       ref="wrapper"
       class="flex items-center min-h-[48px] relative group overflow-hidden cursor-pointer disabled:opacity-30 disabled:pointer-events-none focus:outline-none focus-visible:ring focus-visible:ring-focus bg-[length:200%_100%] bg-[position:100%]"
@@ -55,6 +55,10 @@ export default {
     variant: {
       type: String,
       default: Variant.default
+    },
+    target: {
+      type: String,
+      default: 'target="_top"'
     }
   },
   computed: {

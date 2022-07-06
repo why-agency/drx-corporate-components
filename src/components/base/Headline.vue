@@ -52,12 +52,13 @@ const props = defineProps({
 const headlineTag = computed(() => props.tag || `h${props.size}`)
 
 const $_headlineSize = computed(() => ({
-  'text-h1': props.size === 1,
-  'text-h2': props.size === 2,
-  'text-h3': props.size === 3,
-  'text-h4': props.size === 4,
-  'text-h5': props.size === 5,
-  uppercase: props.size === 5 && props.fontWeight === 'font-bold',
+  'text-h1 leading-[110%]': props.size === 1,
+  'text-h2 leading-[110%] md:leading-[115%]': props.size === 2,
+  'text-h3 leading-[110%]': props.size === 3,
+  'text-h4 leading-[100%] md:leading-[120%]': props.size === 4,
+  'text-h5 leading-[100%] md:leading-[145%]': props.size === 5,
+  'uppercase leading-[100%] md:leading-[110%]':
+    props.size === 5 && props.fontWeight === 'font-bold',
   'text-h6': props.size === 6
 }))
 
