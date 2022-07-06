@@ -1,5 +1,6 @@
 <template>
   <section>
+    <o-03-11-sticky-scroll :data="withOverlay" />
     <div class="bg-gradient mb-[400px]">
       <o-03-11-sticky-scroll :data="sticky1" />
     </div>
@@ -23,6 +24,298 @@ export default {
   components: { O0311StickyScroll },
   data() {
     return {
+      withOverlay: {
+        id: 1000,
+        content: {
+          box_background: 'yes',
+          background: 'gradient',
+          header: {
+            text: 'test',
+            size: 3,
+            color: '',
+            tag: 'h3',
+            fontWeight: 'font-bold'
+          },
+          actions: [],
+          scroll_items: [
+            {
+              id: 1,
+              pid: 8676,
+              type: 'scroll_item',
+              content: {
+                headline: 'Tab 1 headline',
+                text: {
+                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In cursus turpis massa tincidunt dui ut ornare lectus sit. Turpis nunc eget lorem dolor sed viverra ipsum nunc aliquet.',
+                  size: 'text-body1'
+                },
+                icon: [
+                  [
+                    {
+                      publicUrl:
+                        'https:\/\/draexlmaier.loc\/fileadmin\/user_upload\/Atom_Icon_close_blue.svg',
+                      properties: {
+                        title: null,
+                        alternative: null,
+                        description: null,
+                        mimeType: 'image\/svg+xml',
+                        type: 'image',
+                        filename: 'Atom_Icon_close_blue.svg',
+                        originalUrl:
+                          'fileadmin\/user_upload\/Atom_Icon_close_blue.svg',
+                        uidLocal: 21040,
+                        fileReferenceUid: 61485,
+                        size: '660 B',
+                        link: null,
+                        dimensions: { width: 12, height: 12 },
+                        cropDimensions: { width: 12, height: 12 },
+                        crop: {
+                          desktop: {
+                            cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                            selectedRatio: '1:1',
+                            focusArea: null
+                          }
+                        },
+                        autoplay: 0,
+                        extension: 'svg'
+                      },
+                      cdn: {
+                        publicUrl:
+                          'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/user_upload\/Atom_Icon_close_blue.svg',
+                        publicPath: '\/user_upload\/Atom_Icon_close_blue.svg'
+                      },
+                      useCase: 'default',
+                      ratio: null
+                    }
+                  ]
+                ],
+                actions: [
+                  {
+                    id: 7,
+                    pid: 8676,
+                    type: 'a_01_01__action',
+                    content: {
+                      text: 'Karriere',
+                      link: {
+                        type: 'page',
+                        url: '\/karriere',
+                        target: ' target="_top"',
+                        title: '',
+                        class: ''
+                      },
+                      icon: null,
+                      color: ''
+                    }
+                  }
+                ],
+                overlays: [
+                  {
+                    id: 8,
+                    pid: 8676,
+                    type: 'overlay_multipurpose',
+                    content: {
+                      variant: 'image',
+                      media: {
+                        image: [
+                          [
+                            {
+                              publicUrl:
+                                'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                              properties: {
+                                title: null,
+                                alternative: null,
+                                description: null,
+                                mimeType: 'image\/jpeg',
+                                type: 'image',
+                                filename:
+                                  '2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                                originalUrl:
+                                  'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                                uidLocal: 1006,
+                                fileReferenceUid: 61507,
+                                size: '4 MB',
+                                link: null,
+                                dimensions: { width: 3543, height: 1417 },
+                                cropDimensions: { width: 3543, height: 1417 },
+                                crop: {
+                                  default: {
+                                    cropArea: {
+                                      x: 0,
+                                      y: 0,
+                                      width: 1,
+                                      height: 1
+                                    },
+                                    selectedRatio: 'NaN',
+                                    focusArea: null
+                                  }
+                                },
+                                autoplay: null,
+                                extension: 'jpg'
+                              },
+                              cdn: {
+                                publicUrl:
+                                  'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                                publicPath:
+                                  '\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg'
+                              },
+                              useCase: 'default',
+                              ratio: null
+                            },
+                            {
+                              publicUrl:
+                                'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                              properties: {
+                                title: null,
+                                alternative: null,
+                                description: null,
+                                mimeType: 'image\/jpeg',
+                                type: 'image',
+                                filename:
+                                  '2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                                originalUrl:
+                                  'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                                uidLocal: 1006,
+                                fileReferenceUid: 61507,
+                                size: '4 MB',
+                                link: null,
+                                dimensions: { width: 3543, height: 1417 },
+                                cropDimensions: { width: 3543, height: 1417 },
+                                crop: {
+                                  default: {
+                                    cropArea: {
+                                      x: 0,
+                                      y: 0,
+                                      width: 1,
+                                      height: 1
+                                    },
+                                    selectedRatio: 'NaN',
+                                    focusArea: null
+                                  }
+                                },
+                                autoplay: null,
+                                extension: 'jpg'
+                              },
+                              cdn: {
+                                publicUrl:
+                                  'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                                publicPath:
+                                  '\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg'
+                              },
+                              useCase: 'full',
+                              ratio: null
+                            },
+                            {
+                              publicUrl:
+                                'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                              properties: {
+                                title: null,
+                                alternative: null,
+                                description: null,
+                                mimeType: 'image\/jpeg',
+                                type: 'image',
+                                filename:
+                                  '2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                                originalUrl:
+                                  'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                                uidLocal: 1006,
+                                fileReferenceUid: 61507,
+                                size: '4 MB',
+                                link: null,
+                                dimensions: { width: 3543, height: 1417 },
+                                cropDimensions: { width: 3543, height: 1417 },
+                                crop: {
+                                  default: {
+                                    cropArea: {
+                                      x: 0,
+                                      y: 0,
+                                      width: 1,
+                                      height: 1
+                                    },
+                                    selectedRatio: 'NaN',
+                                    focusArea: null
+                                  }
+                                },
+                                autoplay: null,
+                                extension: 'jpg'
+                              },
+                              cdn: {
+                                publicUrl:
+                                  'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                                publicPath:
+                                  '\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg'
+                              },
+                              useCase: 'mobile',
+                              ratio: null
+                            }
+                          ]
+                        ],
+                        video: null,
+                        video_stream: []
+                      },
+                      header: { text: 'Overlay Tab 1', tag: 'h1' },
+                      subheadline: { text: '' },
+                      actions: [],
+                      additionaltext: {
+                        before:
+                          '\u003Cp\u003ELorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In cursus turpis massa tincidunt dui ut ornare lectus sit. Turpis nunc eget lorem dolor sed viverra ipsum nunc aliquet.\u003C\/p\u003E',
+                        after: '',
+                        image: null
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              id: 2,
+              pid: 8676,
+              type: 'scroll_item',
+              content: {
+                headline: 'Tab 2 headline',
+                text: {
+                  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In cursus turpis massa tincidunt dui ut ornare lectus sit. Turpis nunc eget lorem dolor sed viverra ipsum nunc aliquet.',
+                  size: 'text-body1'
+                },
+                icon: null,
+                actions: [],
+                overlays: [
+                  {
+                    id: 9,
+                    pid: 8676,
+                    type: 'overlay_multipurpose',
+                    content: {
+                      variant: 'video-stream',
+                      media: {
+                        image: null,
+                        video: null,
+                        video_stream: [
+                          {
+                            id: 10,
+                            pid: 8676,
+                            type: 'videos_stream',
+                            properties: {
+                              videoservice: 'vimeo',
+                              video_id: '254069548',
+                              video_title: 'video',
+                              video_poster_image: null,
+                              video_start: null,
+                              video_end: null,
+                              video_duration: ''
+                            }
+                          }
+                        ]
+                      },
+                      header: { text: 'Tab 2 overlay', tag: 'h1' },
+                      subheadline: { text: 'Subheader' },
+                      actions: [],
+                      additionaltext: { before: '', after: '', image: null }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
       sticky1: {
         id: 23432,
         content: {
@@ -75,7 +368,8 @@ export default {
               pid: 9089,
               type: 'scroll_item',
               content: {
-                headline: 'Premiumprodukte und weiterer text für die Überschrift.',
+                headline:
+                  'Premiumprodukte und weiterer text für die Überschrift.',
                 text: {
                   text: 'Innovativ denken und handeln: Dieses Streben ist in der Erfolgsgeschichte von DRÄXLMAIER eine feste Größe – gestern, heute und morgen. Mit unseren Produkten für E-Mobilität und autonomes Fahren sind wir weltweit führend.',
                   size: 'text-body1'

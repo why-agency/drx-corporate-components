@@ -11,6 +11,40 @@ export default {
     return {
       hotspot1: {
         content: {
+          overlays: [
+            {
+              id: 6,
+              pid: 8680,
+              type: 'overlay_multipurpose',
+              content: {
+                variant: 'video-stream',
+                media: {
+                  image: null,
+                  video: null,
+                  video_stream: [
+                    {
+                      id: 9,
+                      pid: 8680,
+                      type: 'videos_stream',
+                      properties: {
+                        videoservice: 'vimeo',
+                        video_id: '254069548',
+                        video_title: 'title',
+                        video_poster_image: null,
+                        video_start: null,
+                        video_end: null,
+                        video_duration: ''
+                      }
+                    }
+                  ]
+                },
+                header: { text: 'this is an overlay', tag: 'h1' },
+                subheadline: { text: 'My subheadline' },
+                actions: [],
+                additionaltext: { before: '', after: '', image: null }
+              }
+            }
+          ],
           header: {
             text: 'Die innovativsten Automarken der Welt vertrauen auf unsere L\u00f6sungen.',
             size: 1,

@@ -8,13 +8,17 @@
       />
       <div class="w-full mt-12 lg:max-w-[568px] lg:ml-auto lg:mr-[104px]">
         <BaseText v-if="text && text.text" v-bind="text" class="text-white" />
-        <!--TODO: overlay trigger-->
         <MActionBar
           v-if="actions"
           :actions="actions"
           position="left"
           class="!mt-9"
-        />
+        >
+          <OverlayTrigger
+            v-if="overlays && overlays.length"
+            @show-overlay="isOverlayVisible = true"
+          />
+        </MActionBar>
       </div>
     </div>
     <div class="relative">
@@ -60,6 +64,11 @@
         class="lg:opacity-90"
       />
     </div>
+    <Overlay
+      v-if="overlays && overlays.length && isOverlayVisible"
+      :overlay="overlays"
+      @hide-overlay="isOverlayVisible = false"
+    />
   </section>
 </template>
 
@@ -80,6 +89,8 @@ import {
   useElementVisibility,
   useElementSize
 } from '@vueuse/core'
+import OverlayTrigger from '../o-06-08-overlay/trigger.vue'
+import Overlay from '../o-06-08-overlay/index.vue'
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const isLg = breakpoints.greater('lg')
@@ -182,4 +193,8 @@ watch(isLg, isLg => {
     hotspotContentShow.value = false
   }
 })
+
+/** overlay */
+const isOverlayVisible = ref(false)
+const overlays = ref(props.data?.content?.overlays)
 </script>
