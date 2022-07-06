@@ -13,7 +13,7 @@
       @click="$emit('hide-overlay')"
     >
       <div
-        class="bg-white h-full overflow-y-scroll lg:w-[944px] grid content-start items-start !px-6 !py-7 xl:px-24 xl:grid-cols-[1fr,424px]"
+        class="bg-white h-full overflow-y-scroll lg:w-[944px] grid content-start items-start !px-6 !py-7 xl:!px-24 xl:grid-cols-[1fr,424px]"
         @click.stop
       >
         <BaseButtonIcon
