@@ -100,7 +100,7 @@ export default {
     },
     $_size() {
       return {
-        'min-h-[48px] min-w-56': this.variant === 'default',
+        'min-h-[48px] min-w-[224px] max-w-content': this.variant === 'default',
         'min-h-[48px] w-full': this.variant === 'block',
         'w-[328px] h-[88px] lg:w-[232px] lg:h-[112px]': this.variant === 'large'
       }
