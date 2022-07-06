@@ -14,7 +14,7 @@
         <BaseMedia
           :media="media.image || media"
           :gradient="gradient"
-          videoOverlay="true"
+          videoOverlay
           full-screen
           class="overflow-hidden !h-screen before:!h-screen"
           mediaStyle="h-screen w-[100vw] object-cover"
@@ -29,16 +29,7 @@
           v-bind="headline"
           :class="[
             $_headlineSize,
-            {
-              'text-sand':
-                (background !== 'light' && background !== 'none' && !isMedia) ||
-                (gradient === 'dark' && isMedia && !isVideo) ||
-                isVideo,
-              'text-primary':
-                (background === 'none' && !isMedia) ||
-                (background === 'light' && !isMedia) ||
-                (gradient === 'light' && isMedia && !isVideo)
-            }
+            $_textColor
           ]"
           class="pt-16 lg:pt-28 font-normal break-words"
         />
@@ -120,14 +111,12 @@ const isVideo = computed(() => {
 
 const $_headlineSize = computed(() => `text-${headline.value.tag}`)
 const $_textColor = computed(() => {
-  if (isMedia.value && !isVideo) {
+  if (isMedia.value && !isVideo.value) {
     return gradient.value === 'light' ? 'text-primary' : 'text-sand'
-  } else if (isMedia.value && isVideo) {
+  } else if (isMedia.value && isVideo.value) {
     return 'text-sand'
   }
-  return background.value === 'light'
-    ? 'text-primary'
-    : background.value === 'none'
+  return background.value === 'light' || background.value === 'none'
     ? 'text-primary'
     : 'text-sand'
 })

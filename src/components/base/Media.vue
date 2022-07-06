@@ -1,5 +1,5 @@
 <template>
-  <div class="relative h-full w-full" :class="videoStream ? $_videoOverlay : $_gradient">
+  <div class="relative h-full w-full" :class="$_videoOverlay || $_gradient">
     <slot name="picture">
       <BasePicture
         v-if="isImage"
@@ -155,7 +155,7 @@ const $_gradient = computed(
 )
 
 const $_videoOverlay  = computed(() => {
-  return props.videoOverlay ? "before:block before:bg-black before:opacity-60 before:h-full before:w-full before:absolute before:z-20" : ""
+  return props.videoOverlay && videoStream.value ? "before:block before:bg-black before:opacity-60 before:h-full before:w-full before:absolute before:z-20" : ""
 })
 
 /** Lightbox */
