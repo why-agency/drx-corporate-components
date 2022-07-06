@@ -16,7 +16,7 @@
         <div
           v-if="$slots.icon"
           ref="icon"
-          class="float-right pl-1"
+          class="float-right pl-2"
           :class="[$_iconColor, variant === 'large' ? 'mt-12 lg:mt-16' : '']"
         >
           <slot name="icon" />
