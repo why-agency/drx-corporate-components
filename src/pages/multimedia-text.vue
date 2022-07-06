@@ -222,8 +222,7 @@ export default {
                           extension: 'jpg'
                         },
                         cdn: {
-                          publicUrl:
-                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          publicUrl: '',
                           publicPath:
                             '\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg'
                         },
@@ -260,8 +259,7 @@ export default {
                           extension: 'jpg'
                         },
                         cdn: {
-                          publicUrl:
-                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          publicUrl: '',
                           publicPath:
                             '\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg'
                         },
@@ -298,8 +296,7 @@ export default {
                           extension: 'jpg'
                         },
                         cdn: {
-                          publicUrl:
-                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                          publicUrl: '',
                           publicPath:
                             '\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg'
                         },
@@ -340,7 +337,7 @@ export default {
                     originalUrl:
                       'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
                     uidLocal: 1006,
-                    fileReferenceUid: 61476,
+                    fileReferenceUid: 61497,
                     size: '2 MB',
                     link: null,
                     dimensions: { width: 3542, height: 1417 },
@@ -381,7 +378,8 @@ export default {
                     extension: 'jpg'
                   },
                   cdn: {
-                    publicUrl: '',
+                    publicUrl:
+                      '',
                     publicPath:
                       '\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__3fa5fe4aac.jpg'
                   },
@@ -402,7 +400,7 @@ export default {
                     originalUrl:
                       'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
                     uidLocal: 1006,
-                    fileReferenceUid: 61476,
+                    fileReferenceUid: 61497,
                     size: '2 MB',
                     link: null,
                     dimensions: { width: 3188, height: 1417 },
@@ -443,7 +441,8 @@ export default {
                     extension: 'jpg'
                   },
                   cdn: {
-                    publicUrl: '',
+                    publicUrl:
+                      '',
                     publicPath:
                       '\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__d14b003603.jpg'
                   },
@@ -464,7 +463,7 @@ export default {
                     originalUrl:
                       'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
                     uidLocal: 1006,
-                    fileReferenceUid: 61476,
+                    fileReferenceUid: 61497,
                     size: '1 MB',
                     link: null,
                     dimensions: { width: 1889, height: 1417 },
@@ -506,7 +505,7 @@ export default {
                   },
                   cdn: {
                     publicUrl:
-                      'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__c7380431cb.jpg',
+                      '',
                     publicPath:
                       '\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__c7380431cb.jpg'
                   },
@@ -564,7 +563,7 @@ export default {
                 color: 'secondary'
               }
             }
-          ],
+          ]
         }
       },
       vimeo: {
