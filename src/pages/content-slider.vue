@@ -9,142 +9,19 @@ export default {
   data() {
     return {
       slider: {
+        id: 28003,
+        pid: 4079,
+        type: 'o_05_01_content_slider',
+        tagname: 'o-05-01-content-slider',
+        appearance: {
+          layout: 'default',
+          frameClass: 'default',
+          spaceBefore: '',
+          spaceAfter: ''
+        },
         content: {
           header: { text: 'People Slider', layout: 0 },
           cards: [
-            {
-              id: 28005,
-              pid: 4079,
-              type: 'card',
-              content: {
-                header: { text: 'Simon' },
-                header2: { text: 'Huber' },
-                overline: { text: 'Characters' },
-                text: {
-                  text: '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore. Mehr text, mehr text, mehr Text. Mehr text, mehr text, mehr Text. Mehr text, mehr text, mehr Text. Mehr text, mehr text, mehr Text.<\/p>'
-                },
-                media: [
-                  [
-                    {
-                      publicUrl:
-                        'https://ik.imagekit.io/v2bbhazxb/dev/_processed_/1/6/csm_Ivanoska1_628c365f80.jpg?tr=w-264',
-                      properties: {
-                        title: null,
-                        alternative: null,
-                        description: null,
-                        mimeType: 'image\/jpeg',
-                        type: 'image',
-                        filename:
-                          'csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__ab72c6121d.jpg',
-                        originalUrl:
-                          'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
-                        uidLocal: 1006,
-                        fileReferenceUid: 61482,
-                        size: '528 KB',
-                        link: null,
-                        dimensions: { width: 961, height: 1417 },
-                        cropDimensions: { width: 961, height: 1417 },
-                        crop: {
-                          desktop: {
-                            cropArea: {
-                              x: 0.3643048667392444,
-                              y: 0,
-                              width: 0.27139026652151127,
-                              height: 1
-                            },
-                            selectedRatio: '285x420',
-                            focusArea: null
-                          },
-                          mobile: {
-                            cropArea: {
-                              x: 0.2900296359017781,
-                              y: 0,
-                              width: 0.41994072819644374,
-                              height: 1
-                            },
-                            selectedRatio: '315x300',
-                            focusArea: null
-                          }
-                        },
-                        autoplay: null,
-                        extension: 'jpg'
-                      },
-                      cdn: {
-                        publicUrl: '',
-                        publicPath:
-                          '\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__ab72c6121d.jpg'
-                      },
-                      useCase: 'desktop',
-                      ratio: '285x420'
-                    },
-                    {
-                      publicUrl:
-                        'https:\/\/draexlmaier.loc\/fileadmin\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__6200b74fbd.jpg',
-                      properties: {
-                        title: null,
-                        alternative: null,
-                        description: null,
-                        mimeType: 'image\/jpeg',
-                        type: 'image',
-                        filename:
-                          'csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__6200b74fbd.jpg',
-                        originalUrl:
-                          'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
-                        uidLocal: 1006,
-                        fileReferenceUid: 61482,
-                        size: '847 KB',
-                        link: null,
-                        dimensions: { width: 1487, height: 1417 },
-                        cropDimensions: { width: 1487, height: 1417 },
-                        crop: {
-                          desktop: {
-                            cropArea: {
-                              x: 0.3643048667392444,
-                              y: 0,
-                              width: 0.27139026652151127,
-                              height: 1
-                            },
-                            selectedRatio: '285x420',
-                            focusArea: null
-                          },
-                          mobile: {
-                            cropArea: {
-                              x: 0.2900296359017781,
-                              y: 0,
-                              width: 0.41994072819644374,
-                              height: 1
-                            },
-                            selectedRatio: '315x300',
-                            focusArea: null
-                          }
-                        },
-                        autoplay: null,
-                        extension: 'jpg'
-                      },
-                      cdn: {
-                        publicUrl: '',
-                        publicPath:
-                          '\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__6200b74fbd.jpg'
-                      },
-                      useCase: 'mobile',
-                      ratio: '315x300'
-                    }
-                  ]
-                ],
-                actions: {
-                  content: {
-                    text: null,
-                    link: {
-                      type: 'page',
-                      url: 'http:\\\/\\\/draexlmaier.loc\\\/overview-content-elements\\\/05-slider',
-                      title: '',
-                      class: '',
-                      link: '05-Slider'
-                    }
-                  }
-                }
-              }
-            },
             {
               id: 28002,
               pid: 4079,
@@ -154,7 +31,7 @@ export default {
                 header2: { text: 'Mustermann' },
                 overline: { text: 'Characters' },
                 text: {
-                  text: '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore&nbsp;<\/p>'
+                  text: '\u003Cp\u003ELorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore&nbsp;\u003C\/p\u003E'
                 },
                 media: [
                   [
@@ -203,7 +80,8 @@ export default {
                         extension: 'jpg'
                       },
                       cdn: {
-                        publicUrl: '',
+                        publicUrl:
+                          'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/_processed_\/1\/a\/csm_2012-04-24_Fotoshooting_Gasparini_Ausbildung__176__499a1547b2.jpg',
                         publicPath:
                           '\/_processed_\/1\/a\/csm_2012-04-24_Fotoshooting_Gasparini_Ausbildung__176__499a1547b2.jpg'
                       },
@@ -255,7 +133,8 @@ export default {
                         extension: 'jpg'
                       },
                       cdn: {
-                        publicUrl: '',
+                        publicUrl:
+                          'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/_processed_\/1\/a\/csm_2012-04-24_Fotoshooting_Gasparini_Ausbildung__176__793e66b24e.jpg',
                         publicPath:
                           '\/_processed_\/1\/a\/csm_2012-04-24_Fotoshooting_Gasparini_Ausbildung__176__793e66b24e.jpg'
                       },
@@ -263,27 +142,38 @@ export default {
                       ratio: '315x300'
                     }
                   ]
-                ]
-                //actions:
-                //'<?xml version="1.0" encoding="utf-8" standalone="yes" ?>\n<T3FlexForms>\n    <data>\n        <sheet index="sDEF">\n            <language index="lDEF">\n                <field index="buttontext">\n                    <value index="vDEF">Zum Profil<\/value>\n                <\/field>\n                <field index="buttonlink">\n                    <value index="vDEF">4073<\/value>\n                <\/field>\n                <field index="buttonid">\n                    <value index="vDEF"><\/value>\n                <\/field>\n            <\/language>\n        <\/sheet>\n    <\/data>\n<\/T3FlexForms>'
+                ],
+                actions: {
+                  content: {
+                    text: 'Zum Profil',
+                    link: {
+                      type: 'url',
+                      url: 'https:\/\/google.com',
+                      target: ' target="_blank"',
+                      title: '',
+                      class: '',
+                      link: 'https:\/\/google.com'
+                    }
+                  }
+                }
               }
             },
             {
-              id: 64674,
+              id: 74206,
               pid: 4079,
               type: 'card',
               content: {
-                header: { text: 'People Card' },
-                header2: { text: '4' },
-                overline: { text: '' },
+                header: { text: 'Franz' },
+                header2: { text: 'Mustermann' },
+                overline: { text: 'Characters' },
                 text: {
-                  text: '<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore&nbsp;<\/p>'
+                  text: '\u003Cp\u003ELorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore&nbsp;\u003C\/p\u003E'
                 },
                 media: [
                   [
                     {
                       publicUrl:
-                        'https:\/\/draexlmaier.loc\/fileadmin\/_processed_\/a\/e\/csm_2013-02-14_Azubi_Einleger_Modellbauer__13__7974792a8c.jpg',
+                        'https:\/\/draexlmaier.loc\/fileadmin\/_processed_\/1\/a\/csm_2012-04-24_Fotoshooting_Gasparini_Ausbildung__176__499a1547b2.jpg',
                       properties: {
                         title: null,
                         alternative: null,
@@ -291,21 +181,21 @@ export default {
                         mimeType: 'image\/jpeg',
                         type: 'image',
                         filename:
-                          'csm_2013-02-14_Azubi_Einleger_Modellbauer__13__7974792a8c.jpg',
+                          'csm_2012-04-24_Fotoshooting_Gasparini_Ausbildung__176__499a1547b2.jpg',
                         originalUrl:
-                          'fileadmin\/Group\/Carreers\/Apprentice\/2013-02-14_Azubi_Einleger_Modellbauer__13_.jpg',
-                        uidLocal: 20956,
-                        fileReferenceUid: 61484,
-                        size: '177 KB',
+                          'fileadmin\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                        uidLocal: 4638,
+                        fileReferenceUid: 61490,
+                        size: '3 MB',
                         link: null,
-                        dimensions: { width: 926, height: 1365 },
-                        cropDimensions: { width: 926, height: 1365 },
+                        dimensions: { width: 2540, height: 3744 },
+                        cropDimensions: { width: 2540, height: 3744 },
                         crop: {
                           desktop: {
                             cropArea: {
-                              x: 0.27386474609375,
+                              x: 0.2738095238095238,
                               y: 0,
-                              width: 0.4522705078125,
+                              width: 0.45238095238095244,
                               height: 1
                             },
                             selectedRatio: '285x420',
@@ -313,9 +203,9 @@ export default {
                           },
                           mobile: {
                             cropArea: {
-                              x: 0.15008544921875,
+                              x: 0.14999999999999997,
                               y: 0,
-                              width: 0.6998291015625,
+                              width: 0.7000000000000001,
                               height: 1
                             },
                             selectedRatio: '315x300',
@@ -326,16 +216,17 @@ export default {
                         extension: 'jpg'
                       },
                       cdn: {
-                        publicUrl: '',
+                        publicUrl:
+                          'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/_processed_\/1\/a\/csm_2012-04-24_Fotoshooting_Gasparini_Ausbildung__176__499a1547b2.jpg',
                         publicPath:
-                          '\/_processed_\/a\/e\/csm_2013-02-14_Azubi_Einleger_Modellbauer__13__7974792a8c.jpg'
+                          '\/_processed_\/1\/a\/csm_2012-04-24_Fotoshooting_Gasparini_Ausbildung__176__499a1547b2.jpg'
                       },
                       useCase: 'desktop',
                       ratio: '285x420'
                     },
                     {
                       publicUrl:
-                        'https:\/\/draexlmaier.loc\/fileadmin\/_processed_\/a\/e\/csm_2013-02-14_Azubi_Einleger_Modellbauer__13__982bb85419.jpg',
+                        'https:\/\/draexlmaier.loc\/fileadmin\/_processed_\/1\/a\/csm_2012-04-24_Fotoshooting_Gasparini_Ausbildung__176__793e66b24e.jpg',
                       properties: {
                         title: null,
                         alternative: null,
@@ -343,21 +234,21 @@ export default {
                         mimeType: 'image\/jpeg',
                         type: 'image',
                         filename:
-                          'csm_2013-02-14_Azubi_Einleger_Modellbauer__13__982bb85419.jpg',
+                          'csm_2012-04-24_Fotoshooting_Gasparini_Ausbildung__176__793e66b24e.jpg',
                         originalUrl:
-                          'fileadmin\/Group\/Carreers\/Apprentice\/2013-02-14_Azubi_Einleger_Modellbauer__13_.jpg',
-                        uidLocal: 20956,
-                        fileReferenceUid: 61484,
-                        size: '397 KB',
+                          'fileadmin\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
+                        uidLocal: 4638,
+                        fileReferenceUid: 61490,
+                        size: '5 MB',
                         link: null,
-                        dimensions: { width: 1433, height: 1365 },
-                        cropDimensions: { width: 1433, height: 1365 },
+                        dimensions: { width: 3931, height: 3744 },
+                        cropDimensions: { width: 3931, height: 3744 },
                         crop: {
                           desktop: {
                             cropArea: {
-                              x: 0.27386474609375,
+                              x: 0.2738095238095238,
                               y: 0,
-                              width: 0.4522705078125,
+                              width: 0.45238095238095244,
                               height: 1
                             },
                             selectedRatio: '285x420',
@@ -365,9 +256,9 @@ export default {
                           },
                           mobile: {
                             cropArea: {
-                              x: 0.15008544921875,
+                              x: 0.14999999999999997,
                               y: 0,
-                              width: 0.6998291015625,
+                              width: 0.7000000000000001,
                               height: 1
                             },
                             selectedRatio: '315x300',
@@ -378,17 +269,29 @@ export default {
                         extension: 'jpg'
                       },
                       cdn: {
-                        publicUrl: '',
+                        publicUrl:
+                          'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/_processed_\/1\/a\/csm_2012-04-24_Fotoshooting_Gasparini_Ausbildung__176__793e66b24e.jpg',
                         publicPath:
-                          '\/_processed_\/a\/e\/csm_2013-02-14_Azubi_Einleger_Modellbauer__13__982bb85419.jpg'
+                          '\/_processed_\/1\/a\/csm_2012-04-24_Fotoshooting_Gasparini_Ausbildung__176__793e66b24e.jpg'
                       },
                       useCase: 'mobile',
                       ratio: '315x300'
                     }
                   ]
-                ]
-                // actions:
-                // '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>\n<T3FlexForms>\n    <data>\n        <sheet index="sDEF">\n            <language index="lDEF">\n                <field index="buttontext">\n                    <value index="vDEF"><\/value>\n                <\/field>\n                <field index="buttonlink">\n                    <value index="vDEF"><\/value>\n                <\/field>\n                <field index="buttonid">\n                    <value index="vDEF"><\/value>\n                <\/field>\n            <\/language>\n        <\/sheet>\n    <\/data>\n<\/T3FlexForms>'
+                ],
+                actions: {
+                  content: {
+                    text: 'Zum Profil',
+                    link: {
+                      type: 'page',
+                      url: 'http:\/\/draexlmaier.loc\/overview-content-elements\/05-slider',
+                      target: ' target="_top"',
+                      title: '',
+                      class: '',
+                      link: '05-Slider'
+                    }
+                  }
+                }
               }
             }
           ]

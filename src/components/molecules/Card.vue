@@ -3,6 +3,7 @@
     <UseDynamicAction
       :to="link"
       :tag="link ? 'a' : 'div'"
+      :target="target"
       class="flex flex-col justify-end relative h-full group"
       @mouseenter.native="isHovered = true"
       @mouseleave.native="isHovered = false"
@@ -212,4 +213,5 @@ watch(isLg, (isLgNew, isLgOld) => {
 })
 
 const link = computed(() => props.actions?.content?.link?.url)
+const target = computed(() => props.actions?.content?.link?.target)
 </script>
