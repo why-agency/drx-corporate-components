@@ -214,7 +214,7 @@ export default {
             actions: {
               id: 78357,
               content: {
-                text: 'Unternehmen',
+                text: 'Draexlmaier langer text und mehr',
                 link: {
                   type: 'page',
                   url: 'http://draexlmaier.loc/unternehmen',
