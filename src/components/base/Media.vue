@@ -138,7 +138,7 @@ const isImage = computed(() => mediaType.value === 'image')
 const videoUrl = computed(
   () => mediaType.value === 'video' && props?.media?.[0]?.[0]?.publicUrl
 )
-const videoStream = computed(() => props?.media?.type === 'video-stream' || props?.media?.type === 'videos_stream')
+const videoStream = computed(() => props?.media?.type === 'video-stream')
 
 const $_gradient = computed(
   () =>

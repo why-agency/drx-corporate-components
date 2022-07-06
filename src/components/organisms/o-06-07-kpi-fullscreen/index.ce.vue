@@ -14,13 +14,16 @@
         <BaseMedia
           :media="media.image || media"
           :gradient="gradient"
-          :videoOverlay="true"
+          videoOverlay="true"
           full-screen
           class="overflow-hidden !h-screen before:!h-screen"
           mediaStyle="h-screen w-[100vw] object-cover"
         />
       </div>
-      <div class="z-50 mx-6 lg:mx-24 flex flex-col h-full" :class="isMedia && !hasQuoteContent ? 'justify-end' : ''">
+      <div
+        class="z-50 mx-6 lg:mx-24 flex flex-col h-full"
+        :class="{ 'justify-end': isMedia && !hasQuoteContent }"
+      >
         <BaseHeadline
           v-if="headline && headline.text"
           v-bind="headline"
@@ -29,7 +32,8 @@
             {
               'text-sand':
                 (background !== 'light' && background !== 'none' && !isMedia) ||
-                (gradient === 'dark' && isMedia && !isVideo) || isVideo,
+                (gradient === 'dark' && isMedia && !isVideo) ||
+                isVideo,
               'text-primary':
                 (background === 'none' && !isMedia) ||
                 (background === 'light' && !isMedia) ||
@@ -118,7 +122,7 @@ const $_headlineSize = computed(() => `text-${headline.value.tag}`)
 const $_textColor = computed(() => {
   if (isMedia.value && !isVideo) {
     return gradient.value === 'light' ? 'text-primary' : 'text-sand'
-  } else if(isMedia.value && isVideo){
+  } else if (isMedia.value && isVideo) {
     return 'text-sand'
   }
   return background.value === 'light'
