@@ -109,9 +109,9 @@ const breakpoints = useBreakpoints(breakpointsTailwind)
 const isLg = breakpoints.greater('lg')
 const format = computed(() => {
   if (!isLg.value) {
-    return '4:3'
+    return 'mobile'
   }
-  return hasFrameFull.value ? '9:4' : '5:2'
+  return hasFrameFull.value ? 'full' : 'default'
 })
 
 /** media gradient */
