@@ -12,6 +12,7 @@
       :variant="action.content.variant"
       :color="action.content.color"
       :size="action.content.size"
+      :target="action.content.link.target"
     >
       <BaseHtmlParser :content="action.content.text" tag="span" />
       <template #icon>

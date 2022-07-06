@@ -3,7 +3,7 @@
     :is="type"
     :href="to ? to : false"
     :rel="isAnchor ? 'noopener noreferrer' : false"
-    :target="isAnchor ? '_blank' : false"
+    :target="isAnchor ? target : false"
     class="hover:!no-underline"
     @click="handleClick"
   >
@@ -23,6 +23,10 @@ export default {
     tag: {
       type: String,
       default: 'button'
+    },
+    target: {
+      type: String,
+      default: '_top'
     }
   },
   setup(props, { emit }) {
