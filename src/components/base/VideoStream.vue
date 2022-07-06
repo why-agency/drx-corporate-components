@@ -1,6 +1,6 @@
 <template>
-  <div class="overflow-hidden h-full">
-    <div v-if="isPlaceholderVisible && !hasAutoplay" class="h-full">
+  <div class="overflow-hidden h-full flex items-center">
+    <div v-if="isPlaceholderVisible && !hasAutoplay" class="h-full w-full">
       <BasePicture
         v-if="placeholderImage"
         :images="placeholderImage"
@@ -23,7 +23,7 @@
     </div>
     <iframe
       v-if="!isPlaceholderVisible || hasAutoplay"
-      class="relative w-full h-full"
+      class="relative w-full aspect-video"
       :name="videoName"
       :src="srcStream"
       allow="fullscreen;autoplay"

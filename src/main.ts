@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import * as VueRouter from 'vue-router'
+
 import App from './App.vue'
 import index from './pages/index.vue'
 import fullscreenMediaText from './pages/fullscreen-media-text.vue'

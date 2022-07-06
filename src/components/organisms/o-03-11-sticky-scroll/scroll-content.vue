@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BasePicture :images="icon" size="w-content h-10 !mb-6" />
+    <BasePicture v-if="icon" :images="icon" size="w-content h-10 !mb-6" />
     <BaseHeadline
       v-if="headline"
       :text="headline"
@@ -19,6 +19,11 @@
         }
       ]"
       class="w-full lg:max-w-[504px] mb-10"
+    />
+    <OverlayTrigger
+      v-if="overlay && overlay.length"
+      class="!mb-4"
+      @show-overlay="$emit('overlay-visible', overlay)"
     />
     <BaseAction
       v-for="action in actions"
@@ -40,6 +45,7 @@ import BaseHtmlParser from '../../base/HtmlParser.vue'
 import BaseAction from '../../base/Action.vue'
 import BaseText from '../../base/Text.vue'
 import IconArrowRight from '../../icons/Arrow/Right.vue'
+import OverlayTrigger from '../o-06-08-overlay/trigger.vue'
 
 const props = defineProps({
   color: {
@@ -47,25 +53,28 @@ const props = defineProps({
     default: 'light'
   },
   icon: {
-      type: Object,
-      required: true
+    type: Object,
+    required: true
   },
   headline: {
-      type: String,
-      required: true
+    type: String,
+    required: true
   },
   text: {
-      type: String,
-      required: true
+    type: String,
+    required: true
   },
   textSize: {
-      type: String,
-      required: true
+    type: String,
+    required: true
   },
   actions: {
-      type: Object,
-      required: true
+    type: Object,
+    required: true
+  },
+  overlay: {
+    type: Array,
+    default: null
   }
 })
-
 </script>

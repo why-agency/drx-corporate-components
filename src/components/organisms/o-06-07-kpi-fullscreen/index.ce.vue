@@ -19,7 +19,7 @@
           mediaStyle="h-screen w-[100vw] object-cover"
         />
       </div>
-      <div class="z-50 mx-6 lg:mx-24 flex flex-col h-full">
+      <div class="z-50 !mx-6 lg:mx-24 flex flex-col h-full">
         <BaseHeadline
           v-if="headline && headline.text"
           v-bind="headline"
@@ -37,6 +37,11 @@
           ]"
           class="pt-16 lg:pt-28 font-normal break-words"
         />
+        <OverlayTrigger
+          v-if="overlays && overlays.length"
+          @show-overlay="isOverlayVisible = true"
+          class="mt-10 xl:mt-24"
+        />
         <BaseHeadline
           v-if="quote && quote.text"
           v-bind="quote"
@@ -50,7 +55,7 @@
         />
         <div
           v-if="cards && cards[0]"
-          class="z-50 flex flex-col lg:flex-row w-full border-t-[1px] border-sand border-opacity-20 pt-7 pb-16 space-y-16 lg:space-y-0 lg:justify-between"
+          class="z-50 flex flex-col lg:flex-row w-full border-t-[1px] border-sand border-opacity-20 !pt-7 pb-16 space-y-16 lg:space-y-0 lg:justify-between"
           :class="$_marginTop"
         >
           <O0607KpiFullscreenKpiFact
@@ -70,6 +75,11 @@
         </div>
       </div>
     </div>
+    <Overlay
+      v-if="overlays && overlays.length && isOverlayVisible"
+      :overlay="overlays"
+      @hide-overlay="isOverlayVisible = false"
+    />
   </section>
 </template>
 
@@ -80,6 +90,8 @@ import BaseHeadline from '../../base/Headline.vue'
 import BaseMedia from '../../base/Media.vue'
 import BaseText from '../../base/Text.vue'
 import O0607KpiFullscreenKpiFact from '../../organisms/o-06-07-kpi-fullscreen/kpi-fact.vue'
+import OverlayTrigger from '../../organisms/o-06-08-overlay/trigger.vue'
+import Overlay from '../../organisms/o-06-08-overlay/index.vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -102,7 +114,8 @@ const {
   background,
   gradient,
   media,
-  kpicards: cards
+  kpicards: cards,
+  overlays
 } = toRefs(props.data.content)
 
 const isMedia = computed(() => {
@@ -147,4 +160,6 @@ onMounted(() => {
     onToggle: self => console.log('toggled, isActive:')
   })
 })
+
+const isOverlayVisible = ref(false)
 </script>
