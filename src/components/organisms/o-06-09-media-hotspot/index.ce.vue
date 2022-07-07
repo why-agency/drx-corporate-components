@@ -74,6 +74,7 @@
 
 <script setup>
 import { computed, onMounted, toRefs, ref, watch } from 'vue'
+import { useIntersectionObserver } from '@vueuse/core'
 import BaseHeadline from '../../base/Headline.vue'
 import BaseText from '../../base/Text.vue'
 import BaseMedia from '../../base/Media.vue'
@@ -181,12 +182,18 @@ async function closeDetail() {
 
 //hide hotspot detail if module is no longer visible
 const target = ref(null)
-const isVisible = useElementVisibility(target)
-watch(isVisible, isVisible => {
-  if (!isVisible && hotspotContentShow.value) {
-    hotspotContentShow.value = false
-  }
-})
+const { stop } = useIntersectionObserver(
+      target,
+      () => {
+        if (hotspotContentShow.value) {
+          closeDetail()
+        }
+      },
+      {
+        rootMargin: '0px 0px -15% 0px',
+        threshold: 0.5
+      }
+    )
 watch(isLg, isLg => {
   if (!isLg) {
     hotspotIsOpen.value = false
