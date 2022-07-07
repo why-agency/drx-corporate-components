@@ -83,6 +83,8 @@ export default {
           this.color === 'black' && this.variant === 'outline',
         'border-white text-white hover:bg-white hover:bg-opacity-20 active:bg-white active:text-black':
           this.color === 'white' && this.variant === 'outline',
+        'border-gray-700 text-gray-700 hover:bg-gray-100 hover:bg-opacity-20':
+          this.color === 'gray' && this.variant === 'outline',
         'border-tertiary text-tertiary hover:bg-tertiary hover:text-white hover:bg-opacity-20 active:bg-white active:text-white':
           this.color === 'tertiary' && this.variant === 'outline',
 
