@@ -33,8 +33,8 @@ const O0607KpiFullscreenElement = defineCustomElement(O0607KpiFullscreen, {
 })
 const O0502NewsSliderElement = defineCustomElement(O0502NewsSlider, { shadowRoot: false })
 
-const O0204IntroHeroElement = defineCustomElement(O0204IntroHero, { shadowRoot: false })
 const O0901JobMarketElement = defineCustomElement(O0901JobMarket, { shadowRoot: false })
+const O0204IntroHeroElement = defineCustomElement(O0204IntroHero, { shadowRoot: false })
 
 export {
   O0304FullscreenMediaText,
@@ -56,6 +56,6 @@ export function register() {
   customElements.define('o-06-09-media-hotspot', O0609MediaHotspotElement)
   customElements.define('o-06-07-kpi-fullscreen', O0607KpiFullscreenElement)
   customElements.define('o-05-02-news-slider', O0502NewsSliderElement)
-  customElements.define('o-02-04-intro-hero', O0204IntroHeroElement)
   customElements.define('o-09-01-job-market', O0901JobMarketElement)
+  customElements.define('o-02-04-intro-hero', O0204IntroHeroElement)
 }
