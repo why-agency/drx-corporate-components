@@ -81,7 +81,7 @@ import BasePicture from '../../base/Picture.vue'
 import BaseButtonIcon from '../../base/ButtonIcon.vue'
 import MActionBar from '../../molecules/ActionBar.vue'
 import OHotspotDetail from '../../organisms/o-06-09-media-hotspot/hotspot-detail.ce.vue'
-import { useIntersectionObserver } from '../../composables/useIntersectionObserver'
+import { useIntersectionObserver } from '@vueuse/core'
 import gsap from 'gsap'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import {
