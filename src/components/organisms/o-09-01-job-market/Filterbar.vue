@@ -32,11 +32,11 @@
 
 <script setup lang="ts">
 // Hooks
-import { useJobs } from '../../stores/jobs'
+import { useJobs } from '../../../stores/jobs'
 
 // Components
-import BaseFilter from '../base/Filter.vue'
-import BaseChip from '../base/Chip.vue'
+import BaseFilter from '../../base/Filter.vue'
+import BaseChip from '../../base/Chip.vue'
 
 const jobsStore = useJobs()
 </script>
