@@ -47,17 +47,17 @@
 import { computed } from 'vue'
 
 // Hooks
-import { useScrollLock } from '../../composables/useScrollLock'
-import { useJobs } from '../../stores/jobs'
+import { useScrollLock } from '../../../composables/useScrollLock'
+import { useJobs } from '../../../stores/jobs'
 
 // Components
-import IconChevronUp from '../icons/ChevronUp.vue'
-import BaseCheckbox from '../base/Checkbox.vue'
-import BaseAction from '../base/Action.vue'
-import BaseHeadline from '../base/Headline.vue'
+import IconChevronUp from '../../icons/ChevronUp.vue'
+import BaseCheckbox from '../../base/Checkbox.vue'
+import BaseAction from '../../base/Action.vue'
+import BaseHeadline from '../../base/Headline.vue'
 
 // Types
-import { FilterOption } from '../../../types'
+import { FilterOption } from '../../../../types'
 
 const jobsStore = useJobs()
 

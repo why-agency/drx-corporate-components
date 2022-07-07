@@ -42,18 +42,18 @@
 
 <script setup lang="ts">
 // Hooks
-import { useJobs } from '../../stores/jobs'
-import { useScrollLock } from '../../composables/useScrollLock'
+import { useJobs } from '../../../stores/jobs'
+import { useScrollLock } from '../../../composables/useScrollLock'
 
 // Components
-import IconClose from '../icons/Close.vue'
-import IconChevronUp from '../icons/ChevronUp.vue'
+import IconClose from '../../icons/Close.vue'
+import IconChevronUp from '../../icons/ChevronUp.vue'
 
-import BaseButtonIcon from '../base/ButtonIcon.vue'
-import BaseAction from '../base/Action.vue'
-import BaseHeadline from '../base/Headline.vue'
+import BaseButtonIcon from '../../base/ButtonIcon.vue'
+import BaseAction from '../../base/Action.vue'
+import BaseHeadline from '../../base/Headline.vue'
 
-import O0901JobMarketActiveFilters from './o-09-01-JobMarketActiveFilters.vue'
+import O0901JobMarketActiveFilters from './ActiveFilters.vue'
 
 const jobsStore = useJobs()
 
