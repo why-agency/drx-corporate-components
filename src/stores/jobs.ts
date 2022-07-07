@@ -80,6 +80,10 @@ export const useJobs = defineStore('jobs', {
       this.activeFilterOptions = this.activeFilterOptions.filter(
         filterOption => filterOption.value !== filterOptionToClear.value
       )
+    },
+    clearFilters() {
+      this.activeFilterOptions = []
+      this.query = ''
     }
   }
 })
