@@ -30,7 +30,7 @@ export const useJobs = defineStore('jobs', {
       isRequestPending: true,
       hasRequestFailed: false,
       isFilterBarActive: false,
-      activeFilterView: null  as Filter|null
+      activeFilterView: null as Filter | null
     }
   },
   getters: {
@@ -55,7 +55,7 @@ export const useJobs = defineStore('jobs', {
         this.persistJobs(documents)
         this.persistFilters(facets)
 
-      } catch(error) {
+      } catch (error) {
         this.hasRequestFailed = true
       } finally {
         this.isRequestPending = false
@@ -73,8 +73,8 @@ export const useJobs = defineStore('jobs', {
       this.isRequestPending = false
     },
     persistFilters(filters: Filter[]) {
-      this.filters = filters
-      this.filterOptions = formatFilterOptions(filters)
+      this.filters = filters.filter(filter => filter.label !== '')
+      this.filterOptions = formatFilterOptions(this.filters)
     },
     clearFilterOption(filterOptionToClear: FilterOption) {
       this.activeFilterOptions = this.activeFilterOptions.filter(
