@@ -1,17 +1,11 @@
 <template>
-  <Combobox
-    as="div"
-    nullable
-    multiple
-    v-model="selectedOptions"
-    class="bg-gray-100"
-  >
+  <Combobox as="div" nullable multiple v-model="selectedOptions">
     <ComboboxLabel class="block text-h5-regular text-primary pt-6 px-4">
       {{ label }}
     </ComboboxLabel>
-    <div class="relative mt-1 bg-gray-100">
+    <div class="relative mt-1">
       <ComboboxInput
-        class="w-full bg-gray-100 border-0 border-b-2 border-primary py-2 pl-4 pr-10 focus:border-secondary focus:ring-0 focus:outline-none sm:text-sm"
+        class="w-full border-0 border-b-2 border-primary py-2 pl-4 pr-10 focus:border-secondary focus:ring-0 focus:outline-none sm:text-sm"
         @change="query = $event.target.value"
         :display-value="displayLastValue"
       />
@@ -27,8 +21,8 @@
       >
         <ComboboxOption
           v-for="option in filteredOptions"
-          :key="option.id"
-          :value="option"
+          :key="option.value"
+          :value="option.value"
           as="template"
           v-slot="{ active, selected }"
         >
@@ -57,9 +51,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, WritableComputedRef } from 'vue'
+
+import { useJobs } from '../../stores/jobs'
 
 import IconArrowDownFat from '../icons/Arrow/DownFat.vue'
+import BaseDropdown from '../base/Dropdown.vue'
 
 import {
   Combobox,
@@ -70,47 +67,46 @@ import {
   ComboboxOptions
 } from '@headlessui/vue'
 
-interface FilterOption {
-  id: number
-  label: string
-  value: string
-  parent: string
+import { Filter, FilterOption } from '../../../types'
+
+interface Props {
+  label?: string
+  filter: Filter
 }
 
-const props = defineProps({
-  label: {
-    type: String,
-    default: 'Land'
-  },
-  filterOptions: {
-    type: Array,
-    default: () => [
-      { id: 1, label: 'Germany', value: 'de', parent: 'country' },
-      { id: 2, label: 'Austria', value: 'at', parent: 'country' },
-      { id: 3, label: 'Mexico', value: 'mx', parent: 'country' },
-      { id: 4, label: 'France', value: 'fr', parent: 'country' },
-      {
-        id: 5,
-        label: 'United States of America',
-        value: 'us',
-        parent: 'country'
-      },
-      { id: 6, label: 'Peru', value: 'pr', parent: 'country' },
-      { id: 7, label: 'Bangladesh', value: 'ba', parent: 'country' },
-      { id: 8, label: 'Nw Zealand', value: 'nz', parent: 'country' }
-    ]
-  }
-})
+const props = defineProps<Props>()
+
+const jobsStore = useJobs()
 
 const query = ref('')
-const selectedOptions = ref([])
+
+const relevantFilterOptions = computed(() =>
+  jobsStore.filterOptions.filter(option => option.parent === props.filter.name)
+)
 const filteredOptions = computed(() =>
   query.value === ''
-    ? props.filterOptions
-    : props.filterOptions.filter((option: FilterOption) => {
+    ? relevantFilterOptions.value
+    : relevantFilterOptions.value.filter((option: FilterOption) => {
         return option.label.toLowerCase().includes(query.value.toLowerCase())
       })
 )
+
+const selectedOptions = computed({
+  get() {
+    return jobsStore.activeFilterOptions
+      .filter(option => option.parent === props.filter.name)
+      .map(option => option.value)
+  },
+  set(value: string[]) {
+    const filterOptions = jobsStore.activeFilterOptions.filter(
+      (filterOption: FilterOption) => filterOption.parent !== props.filter.name
+    )
+    const newOptions = relevantFilterOptions.value.filter(
+      (option: FilterOption) => value.includes(option.value)
+    )
+    jobsStore.setActiveFilterOptions([...filterOptions, ...newOptions])
+  }
+})
 
 const displayLastValue = (options: FilterOption[]) => {
   if (options && options.length) {
