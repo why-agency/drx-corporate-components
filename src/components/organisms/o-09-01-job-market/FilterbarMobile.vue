@@ -57,13 +57,13 @@
 
 <script setup lang="ts">
 // Components
-import IconFilter from '../icons/Filter.vue'
-import O0901JobMarketFilterbarMobileList from './o-09-01-JobMarketFilterbarMobileList.vue'
-import O0901JobMarketFilterbarMobileDetail from './o-09-01-JobMarketFilterbarMobileDetail.vue'
+import IconFilter from '../../icons/Filter.vue'
+import O0901JobMarketFilterbarMobileList from './FilterbarMobileList.vue'
+import O0901JobMarketFilterbarMobileDetail from './FilterbarMobileDetail.vue'
 
 // Hooks
-import { useJobs } from '../../stores/jobs'
-import { useScrollLock } from '../../composables/useScrollLock'
+import { useJobs } from '../../../stores/jobs'
+import { useScrollLock } from '../../../composables/useScrollLock'
 
 const jobsStore = useJobs()
 

@@ -52,9 +52,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-import IconPin from '../icons/Pin.vue'
-import IconUser from '../icons/User.vue'
-import IconArrowRight from '../icons/Arrow/Right.vue'
+import IconPin from '../../icons/Pin.vue'
+import IconUser from '../../icons/User.vue'
+import IconArrowRight from '../../icons/Arrow/Right.vue'
 
 interface Location {
   city: string

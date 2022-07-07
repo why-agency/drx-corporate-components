@@ -34,10 +34,10 @@
 import { computed } from 'vue'
 
 // Hooks
-import { useJobs } from '../../stores/jobs'
+import { useJobs } from '../../../stores/jobs'
 
 // Components
-import BaseChip from '../base/Chip.vue'
+import BaseChip from '../../base/Chip.vue'
 
 const props = defineProps({
   filter: {

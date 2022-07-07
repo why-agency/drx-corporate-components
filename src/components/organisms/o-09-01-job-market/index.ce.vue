@@ -91,20 +91,20 @@ import {
   useBreakpoints,
   breakpointsTailwind
 } from '@vueuse/core'
-import { useJobs } from '../../stores/jobs'
+import { useJobs } from '../../../stores/jobs'
 
 // Components
-import IconSearch from '../icons/Search.vue'
+import IconSearch from '../../icons/Search.vue'
 
-import BaseTextField from '../base/TextField.vue'
-import BasePicture from '../base/Picture.vue'
-import BaseHeadline from '../base/Headline.vue'
-import BaseAction from '../base/Action.vue'
+import BaseTextField from '../../base/TextField.vue'
+import BasePicture from '../../base/Picture.vue'
+import BaseHeadline from '../../base/Headline.vue'
+import BaseAction from '../../base/Action.vue'
 
-import O0901JobMarketCard from './o-09-01-JobMarketCard.vue'
-import O0901JobMarketCardSkeleton from './o-09-01-JobMarketCardSkeleton.vue'
-import O0901JobMarketFilterbarMobile from './o-09-01-JobMarketFilterbarMobile.vue'
-import O0901JobMarketFilterbar from './o-09-01-JobMarketFilterbar.vue'
+import O0901JobMarketCard from './Card.vue'
+import O0901JobMarketCardSkeleton from './CardSkeleton.vue'
+import O0901JobMarketFilterbarMobile from './FilterbarMobile.vue'
+import O0901JobMarketFilterbar from './Filterbar.vue'
 
 const props = defineProps({
   data: {
