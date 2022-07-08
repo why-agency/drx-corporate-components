@@ -22,7 +22,8 @@ export const useJobs = defineStore('jobs', {
       url: '',
       query: '',
       count: 0,
-      currentPage: 1,
+      currentPage: 0,
+      jobsPerPage: 10,
       jobs: [],
       filters: [] as Filter[],
       filterOptions: [] as FilterOption[],
@@ -36,6 +37,12 @@ export const useJobs = defineStore('jobs', {
   getters: {
     numberOfActiveFilterOptions(state) {
       return state.activeFilterOptions.length
+    },
+    numberOfPages(state) {
+      return Math.ceil(state.count / state.jobsPerPage)
+    },
+    jobsToDisplay(state) {
+      return state.jobs.slice(state.currentPage * 10, (state.currentPage + 1) * 10)
     }
   },
   actions: {

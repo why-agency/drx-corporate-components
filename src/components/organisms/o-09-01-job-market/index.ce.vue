@@ -66,7 +66,7 @@
 
       <div v-else class="grid grid-cols-1 gap-4">
         <o-09-01-JobMarketCard
-          v-for="job in jobsStore.jobs.slice(0, 10)"
+          v-for="job in jobsStore.jobsToDisplay"
           v-bind="job"
         />
       </div>
@@ -78,12 +78,18 @@
     <!-- END mobile filter bar -->
 
     <!-- START pagination -->
+    <MPagination
+      class="mt-16"
+      :pages="jobsStore.numberOfPages"
+      :current-page="jobsStore.currentPage"
+      @change="onPageChange"
+    />
     <!-- END pagination -->
   </section>
 </template>
 
 <script setup lang="ts">
-import { computed, onUnmounted } from 'vue'
+import { computed, onUnmounted, ref } from 'vue'
 
 // Hooks
 import {
@@ -100,6 +106,8 @@ import BaseTextField from '../../base/TextField.vue'
 import BasePicture from '../../base/Picture.vue'
 import BaseHeadline from '../../base/Headline.vue'
 import BaseAction from '../../base/Action.vue'
+
+import MPagination from '../../molecules/Pagination.vue'
 
 import O0901JobMarketCard from './Card.vue'
 import O0901JobMarketCardSkeleton from './CardSkeleton.vue'
@@ -144,6 +152,10 @@ const unsubscribe = jobsStore.$onAction(({ name, after }) => {
     }
   })
 })
+
+const onPageChange = (page: number): void => {
+  jobsStore.currentPage = page
+}
 
 onUnmounted(() => {
   unsubscribe()
