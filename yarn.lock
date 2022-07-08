@@ -2,6 +2,21 @@
 # yarn lockfile v1
 
 
+"@andwhy/drx-corporate-components@0.6.3":
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/@andwhy/drx-corporate-components/-/drx-corporate-components-0.6.3.tgz#dd91d2d4cacd346469970bf528f45bfb1f9e9d6d"
+  integrity sha512-xCpjTDYShQRfjim/ds02MFTbC5KjAnrXHmdeEPqgLbF3Dzybl7n2qtGebxZUOZnqjGvJ0CO1/9m05Jyjsv4ygg==
+  dependencies:
+    "@glidejs/glide" "^3.5.2"
+    "@headlessui/vue" "^1.6.4"
+    "@tailwindcss/forms" "^0.5.2"
+    "@tailwindcss/line-clamp" "^0.4.0"
+    "@vueuse/core" "^8.5.0"
+    gsap "^3.10.4"
+    html-parsed-element "^0.4.1"
+    vue "^3.2.25"
+    vue-router "4"
+
 "@babel/parser@^7.16.4":
   version "7.17.12"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.17.12.tgz#36c2ed06944e3691ba82735fc4cf62d12d491a23"
