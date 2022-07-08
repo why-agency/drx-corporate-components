@@ -81,6 +81,7 @@ import BasePicture from '../../base/Picture.vue'
 import BaseButtonIcon from '../../base/ButtonIcon.vue'
 import MActionBar from '../../molecules/ActionBar.vue'
 import OHotspotDetail from '../../organisms/o-06-09-media-hotspot/hotspot-detail.ce.vue'
+import { useIntersectionObserver } from '@vueuse/core'
 import gsap from 'gsap'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import {
@@ -181,12 +182,18 @@ async function closeDetail() {
 
 //hide hotspot detail if module is no longer visible
 const target = ref(null)
-const isVisible = useElementVisibility(target)
-watch(isVisible, isVisible => {
-  if (!isVisible && hotspotContentShow.value) {
-    hotspotContentShow.value = false
+const { stop } = useIntersectionObserver(
+  target,
+  () => {
+    if (hotspotContentShow.value && isLg.value) {
+      closeDetail()
+    }
+  },
+  {
+    rootMargin: '0px 0px -20% 0px',
+    threshold: 0.2
   }
-})
+)
 watch(isLg, isLg => {
   if (!isLg) {
     hotspotIsOpen.value = false
