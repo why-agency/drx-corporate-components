@@ -185,13 +185,13 @@ const target = ref(null)
 const { stop } = useIntersectionObserver(
   target,
   () => {
-    if (hotspotContentShow.value) {
+    if (hotspotContentShow.value && isLg.value) {
       closeDetail()
     }
   },
   {
-    rootMargin: '0px 0px -15% 0px',
-    threshold: 0.5
+    rootMargin: '0px 0px -20% 0px',
+    threshold: 0.2
   }
 )
 watch(isLg, isLg => {
