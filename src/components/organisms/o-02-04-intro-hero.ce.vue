@@ -61,8 +61,7 @@
           <BaseText
             v-if="bodytext && bodytext.text"
             :text="bodytext.text"
-            :size="$_bodytextSize"
-            :class="$_textColor"
+            :class="[$_textColor, $_bodytextSize]"
             class="leading-7 pt-24 lg:pt-5"
           />
         </div>
