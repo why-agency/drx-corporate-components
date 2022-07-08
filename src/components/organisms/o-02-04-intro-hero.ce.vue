@@ -92,7 +92,7 @@
       <BaseHeadline
         v-if="headline && headline.text"
         v-bind="headline"
-        class="text-deco1 !font-normal lg:mt-[2%] break-words text-left lg:text-center mb-16"
+        class="text-deco1 !font-normal lg:mt-[2%] break-words text-left lg:pl-[5%] mb-16"
       />
       <!-- The mobile version of the headline_large version -->
       <MActionBar
