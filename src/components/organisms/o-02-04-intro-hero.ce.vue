@@ -29,9 +29,7 @@
     </div>
     <div
       class="flex flex-col justify-end frame-content-default relative z-30 pb-16 pt-[136px] lg:pt-[0px]"
-      :class="
-        isDefaultVariant ? 'h-max lg:h-full' : 'h-[70%] hidden lg:flex'
-      "
+      :class="isDefaultVariant ? 'h-max lg:h-full' : 'h-[70%] hidden lg:flex'"
     >
       <!-- If it is the default variant -->
       <div
@@ -130,7 +128,7 @@ const props = defineProps({
 const {
   variant,
   background,
-  header: headline,
+  header,
   subheadline,
   bodytext,
   media,
@@ -162,6 +160,14 @@ const $_textColor = computed(() => {
     ? 'text-primary'
     : 'text-sand'
 })
+
+const headline = computed(() => ({
+  text: header.value?.text,
+  size: header.value?.layout && Number(header.value?.layout),
+  fontWeight: header.value?.fontWeight,
+  tag: header.value?.tag,
+  color: header.value?.color
+}))
 
 const hideContent = ref(false)
 
