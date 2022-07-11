@@ -29,7 +29,7 @@ export default {
           background: 'gradient',
           header: {
             text: 'Familienunternehmen seit 1958',
-            layout: '1',
+            layout: '2',
             color: 'turquoise',
             tag: 'h1'
           },
