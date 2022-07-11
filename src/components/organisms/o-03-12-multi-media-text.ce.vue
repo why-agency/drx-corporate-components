@@ -22,6 +22,7 @@
       >
         <OverlayTrigger
           v-if="overlays && overlays.length"
+          :overlay="overlays"
           @show-overlay="isOverlayVisible = true"
         />
       </MActionBar>

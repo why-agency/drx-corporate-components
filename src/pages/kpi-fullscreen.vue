@@ -180,6 +180,7 @@ export default {
               pid: 8678,
               type: 'overlay_multipurpose',
               content: {
+                buttonText: 'LEARN MORE',
                 variant: 'image',
                 media: {
                   image: [
