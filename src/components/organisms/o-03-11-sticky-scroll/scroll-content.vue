@@ -22,6 +22,7 @@
     />
     <OverlayTrigger
       v-if="overlay && overlay.length"
+      :overlay="overlay"
       class="!mb-4"
       @show-overlay="$emit('overlay-visible', overlay)"
     />

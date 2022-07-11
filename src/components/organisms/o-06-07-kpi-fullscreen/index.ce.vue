@@ -32,6 +32,7 @@
         />
         <OverlayTrigger
           v-if="overlays && overlays.length"
+          :overlay="overlays"
           @show-overlay="isOverlayVisible = true"
           class="mt-10 xl:mt-24"
         />

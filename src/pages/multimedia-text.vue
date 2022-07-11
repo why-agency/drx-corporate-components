@@ -188,6 +188,7 @@ export default {
               pid: 8676,
               type: 'overlay_multipurpose',
               content: {
+                buttonText: 'Learn more',
                 variant: 'image',
                 media: {
                   image: [
