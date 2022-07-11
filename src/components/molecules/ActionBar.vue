@@ -10,7 +10,7 @@
       :key="action.id"
       :to="action.content.link.url"
       :variant="variant ? variant : action.content.variant"
-      :color="action.content.color"
+      :color="action.content.color || 'secondary'"
       :size="action.content.size"
       :target="action.content.link.target"
     >

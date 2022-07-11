@@ -152,7 +152,7 @@ export default {
                         class: ''
                       },
                       icon: null,
-                      color: 'secondary'
+                      color: ''
                     }
                   }
                 ],
