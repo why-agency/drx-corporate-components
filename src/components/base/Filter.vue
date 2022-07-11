@@ -108,7 +108,7 @@ const selectedOptions = computed({
   }
 })
 
-const displayLastValue = (options: FilterOption[]) => {
+const displayLastValue = (options: any) => {
   if (options && options.length) {
     return options.at(-1)?.label
   }
