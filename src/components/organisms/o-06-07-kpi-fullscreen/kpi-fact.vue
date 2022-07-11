@@ -1,19 +1,21 @@
 <template>
-  <div class="basis-0 space-y-3">
-    <div class="flex flex-col lg:flex-row space-y-3 lg:space-y-0 lg:space-x-3">
+  <div class="basis-0 lg:basis-auto 2xl:basis-0 space-y-3">
+    <div
+      class="flex flex-col xl:flex-row space-y-3 lg:space-y-0 lg:space-x-0 xl:space-x-3"
+    >
       <BaseText
         v-if="name"
         :text="name"
         size="text-body2"
         :class="color"
-        class="font-bold max-w-[50%] lg:w-[160px]"
+        class="font-bold max-w-[50%] xl:w-[160px]"
       />
       <div class="flex flex-row space-x-3">
         <BaseHeadline
           v-if="value"
           :text="value"
           :class="valueColor"
-          :size="1"
+          :size="headlineSize"
           class="font-normal"
         />
         <BaseText
@@ -39,7 +41,7 @@
 import BaseHeadline from '../../base/Headline.vue'
 import BaseText from '../../base/Text.vue'
 import { ref, onMounted, computed, watch } from 'vue'
-import { useElementSize } from '@vueuse/core'
+import { useBreakpoints } from '@vueuse/core'
 
 const props = defineProps({
   name: {
@@ -67,4 +69,9 @@ const props = defineProps({
     default: 'text-primary'
   }
 })
+
+const breakpoints = useBreakpoints({ xl: 1280, '2xl': 1440 })
+const isXl = breakpoints.greater('xl')
+const is2xl = breakpoints.greater('2xl')
+const headlineSize = computed(() => (isXl.value && !is2xl.value ? 2 : 1))
 </script>
