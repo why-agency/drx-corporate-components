@@ -30,7 +30,7 @@ export default {
           header: {
             text: 'Familienunternehmen seit 1958',
             layout: '1',
-            color: 'light',
+            color: 'turquoise',
             tag: 'h1'
           },
           subheadline: 'Der Vorstand der DRÄXLMAIER Group',
@@ -261,7 +261,7 @@ export default {
           header: {
             text: 'Familienunternehmen seit 1958',
             layout: '1',
-            color: 'light',
+            color: 'turquoise',
             tag: 'h1'
           },
           subheadline: '',
@@ -299,7 +299,7 @@ export default {
           header: {
             text: 'Familienunternehmen seit 1958',
             layout: '1',
-            color: 'light',
+            color: 'turquoise',
             tag: 'h1'
           },
           subheadline: 'Der Vorstand der DRÄXLMAIER Group',
@@ -390,7 +390,7 @@ export default {
           header: {
             text: 'Familienunternehmen seit 1958',
             layout: '1',
-            color: 'light',
+            color: 'turquoise',
             tag: 'h1'
           },
           subheadline: 'Der Vorstand der DRÄXLMAIER Group',
