@@ -13,9 +13,9 @@ module.exports = defineConfig(({ mode }) => {
   return {
     plugins: [vue()],
     build: {
-      rollupOptions: {
-        external: ['pinia']
-      },
+      // rollupOptions: {
+      //   external: ['pinia']
+      // },
       lib: {
         entry: path.resolve(__dirname, 'lib/main.ts'),
         name: 'VueDrx',
