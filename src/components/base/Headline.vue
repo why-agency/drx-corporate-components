@@ -65,7 +65,7 @@ const $_headlineSize = computed(() => ({
 const $_headlineColor = computed(() => ({
   'text-primary': props.color === 'dark',
   'text-sand': props.color === 'light',
-  'text-secondary': props.color === 'turqoise'
+  'text-secondary': props.color === 'turqoise' || props.color === 'turquoise'
 }))
 
 const headline = ref(0)
