@@ -1,11 +1,7 @@
 import { createApp } from 'vue'
 import * as VueRouter from 'vue-router'
 
-import { createPinia } from 'pinia'
-
 import App from './App.vue'
-
-// Pages
 import index from './pages/index.vue'
 import fullscreenMediaText from './pages/fullscreen-media-text.vue'
 import multiMediaText from './pages/multimedia-text.vue'
@@ -15,7 +11,6 @@ import mediaHotspot from './pages/media-hotspot.vue'
 import kpiFullscreen from './pages/kpi-fullscreen.vue'
 import newsSlider from './pages/news-slider.vue'
 import introHero from './pages/intro-hero.vue'
-import JobMarket from './pages/job-market.vue'
 
 const app = createApp(App)
 
@@ -25,11 +20,10 @@ const routes = [
   { path: '/multimedia-text', component: multiMediaText },
   { path: '/sticky-scroll', component: stickyScroll },
   { path: '/content-slider', component: contentSlider },
-  { path: '/media-hotspot', component: mediaHotspot },
+  { path: '/media-hotspot', component: mediaHotspot},
   { path: '/kpi-fullscreen', component: kpiFullscreen },
-  { path: '/news-slider', component: newsSlider },
-  { path: '/intro-hero', component: introHero },
-  { path: '/job-market', component: JobMarket }
+  { path: '/news-slider', component: newsSlider},
+  { path: '/intro-hero', component: introHero}
 ]
 
 const router = VueRouter.createRouter({
@@ -39,5 +33,4 @@ const router = VueRouter.createRouter({
 })
 
 app.use(router)
-app.use(createPinia())
 app.mount('#app')

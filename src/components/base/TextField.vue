@@ -1,5 +1,5 @@
 <template>
-  <div class="text-primary group" :class="[{ 'opacity-40': disabled }, $attrs.class]">
+  <div class="text-primary group" :class="{ 'opacity-40': disabled }">
     <label
       :for="uid"
       :class="{ 'sr-only': hideLabel }"
