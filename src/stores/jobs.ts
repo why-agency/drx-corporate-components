@@ -1,8 +1,10 @@
-import { defineStore } from 'pinia'
+import { defineStore, createPinia, setActivePinia } from "pinia";
 
-import { Filter, FilterOption, RawJob } from '../../types'
+import { Filter, FilterOption } from '../../types'
 
 import { createRequestUrl } from '../utils/request'
+
+setActivePinia(createPinia())
 
 const formatFilterOptions = (filters: Filter[]) =>
   filters.reduce((filterOptions: any, currentFilter: Filter) => {
