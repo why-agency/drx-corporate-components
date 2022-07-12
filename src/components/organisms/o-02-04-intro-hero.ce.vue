@@ -29,7 +29,12 @@
     </div>
     <div
       class="flex flex-col justify-end frame-content-default relative z-30 pb-16 pt-[136px] lg:pt-[0px]"
-      :class="isDefaultVariant ? 'h-max lg:h-full' : 'h-[70%] hidden lg:flex'"
+      :class="[
+        isDefaultVariant ? 'h-max lg:h-full' : 'h-[70%] hidden lg:flex',
+        {
+          'lg:flex-row lg:justify-between lg:items-end': shouldButtonsStack
+        }
+      ]"
     >
       <!-- If it is the default variant -->
       <div
@@ -37,7 +42,10 @@
         class="lg:mb-6 h-max lg:max-w-[45%] lg:h-[432px] flex flex-col"
         :class="[
           !subheadline && !bodytext.text ? 'mb-72' : 'mb-11',
-          { invisible: hideContent }
+          {
+            invisible: hideContent,
+            'lg:h-auto lg:pb-16': shouldButtonsStack && isVideo
+          }
         ]"
       >
         <div class="my-auto">
@@ -69,7 +77,7 @@
         :actions="actions"
         :position="isLg ? 'right' : 'left'"
         variant="large"
-        :class="{ invisible: hideContent }"
+        :class="{ invisible: hideContent, 'lg:gap-x-4': shouldButtonsStack }"
       />
       <BaseButtonIcon
         v-if="media && isVideo"
@@ -136,8 +144,9 @@ const {
   actions
 } = toRefs(props.data.content)
 
-const breakpoints = useBreakpoints(breakpointsTailwind)
+const breakpoints = useBreakpoints({ ...breakpointsTailwind, '2xl': 1440 })
 const isLg = breakpoints.greater('lg')
+const is2xl = breakpoints.greater('2xl')
 gsap.registerPlugin(ScrollTrigger)
 
 const $_bodytextSize = computed(() => ({
@@ -146,7 +155,7 @@ const $_bodytextSize = computed(() => ({
   'text-body3': bodytext.value.layout === '3'
 }))
 
-const isDefaultVariant = variant.value === 'default'
+const isDefaultVariant = computed(() => variant.value === 'default')
 
 const isVideo = computed(
   () => media.value?.[0]?.[0]?.properties?.type === 'video'
@@ -174,7 +183,7 @@ const hideContent = ref(false)
 const triggerContainer = ref(null)
 const stickyImage = ref(null)
 onMounted(() => {
-  if (isDefaultVariant && stickyImage.value) {
+  if (isDefaultVariant.value && stickyImage.value) {
     //scrollTrigger for the mobile sticky background
     const scroll = ScrollTrigger.create({
       trigger: triggerContainer.value,
@@ -184,4 +193,13 @@ onMounted(() => {
     })
   }
 })
+
+// special styles for lg and xl breakpoints in case of 3 actions
+const shouldButtonsStack = computed(
+  () =>
+    isDefaultVariant.value &&
+    isLg.value &&
+    !is2xl.value &&
+    actions?.value?.length === 3
+)
 </script>

@@ -387,15 +387,15 @@ export default {
         content: {
           variant: 'default',
           background: 'gradient',
-          header: {
-            text: 'Familienunternehmen seit 1958',
+           header: {
+            text: 'Automobile Zukunft – unser Auftrag, unsere Passion',
             layout: '1',
             color: 'turquoise',
             tag: 'h1'
           },
-          subheadline: 'Der Vorstand der DRÄXLMAIER Group',
+          subheadline: 'Vom Goggomobil bis zum autonomen Fahren',
           bodytext: {
-            text: 'Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdie.',
+            text: 'Trotz vieler Veränderungen ist das Entscheidende geblieben: unsere Unabhängigkeit, unsere Kundenorientierung, der Zusammenhalt unter unseren Mitarbeitenden, unsere Produkte und unsere Passion für Innovationen und die Gestaltung unserer Zukunft.',
             layout: '1'
           },
           media: [
