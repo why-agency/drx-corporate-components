@@ -1,7 +1,8 @@
 <template>
   <div
     aria-hidden="true"
-    class="grid grid-cols-2 lg:grid-cols-8 grid-rows-[auto,1fr,auto] lg:grid-rows-[auto] lg:items-center lg:justify-center gap-4 lg:gap-8 xl:gap-12 2xl:gap-16 3xl:gap-20 px-6 py-5 lg:py-4 h-56 lg:h-[88px] bg-sand"
+    style="padding: 0 1.5rem;"
+    class="grid grid-cols-2 lg:grid-cols-8 grid-rows-[auto,1fr,auto] lg:grid-rows-[auto] lg:items-center lg:justify-center gap-4 lg:gap-8 xl:gap-12 2xl:gap-16 3xl:gap-20 py-5 lg:py-4 h-56 lg:h-[88px] bg-sand"
   >
     <div class="h-6 w-3/4 lg:w-full bg-gray-300 animate-pulse" />
 
