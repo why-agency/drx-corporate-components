@@ -116,7 +116,6 @@
           color="tertiary"
         >
           Apply now
-          <!-- @ts-ignore -->
           <template #icon>
             <IconArrowRight />
           </template>
