@@ -44,6 +44,7 @@
       </BaseTextField>
       <p
         v-if="jobsStore.count > 0"
+        style="margin-bottom: 0 !important;"
         class="text-body2 font-semibold font-primary ml-4"
       >
         {{ jobsStore.count }} Jobs

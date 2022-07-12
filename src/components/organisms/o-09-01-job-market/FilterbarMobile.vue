@@ -30,7 +30,8 @@
 
     <button
       v-if="!jobsStore.isFilterBarActive"
-      class="fixed flex w-full px-6 bottom-10 z-60 drop-shadow-2xl"
+      style="padding: 0 1.5rem !important"
+      class="fixed flex w-full bottom-10 z-60 drop-shadow-2xl"
       @click="showFilterBar"
     >
       <p

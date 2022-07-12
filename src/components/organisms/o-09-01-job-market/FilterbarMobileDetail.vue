@@ -1,6 +1,7 @@
 <template>
   <div
-    class="fixed top-0 left-0 flex flex-col w-screen h-full min-h-screen px-6 py-8 bg-white z-50"
+    style="padding: 2rem 1.5rem !important;"
+    class="fixed top-0 left-0 flex flex-col w-screen h-full min-h-screen bg-white z-50"
   >
     <button class="flex mb-12" @click="jobsStore.activeFilterView = null">
       <IconChevronUp class="-rotate-90" />
@@ -32,7 +33,8 @@
         Zurück zu den Filtern
       </button>
       <BaseAction
-        class="mt-6 w-full"
+        style="margin-top: 1.5rem;"
+        class="w-full"
         variant="block"
         block
         @click="hideFilterBar"
