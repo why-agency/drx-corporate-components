@@ -82,6 +82,8 @@ export const useJobs = defineStore('jobs', {
       this.isRequestPending = false
     },
     persistFilters(filters: Filter[]) {
+      if (!filters || !Array.isArray(filters)) return
+
       this.filters = filters.filter(filter => filter.label !== '')
       this.filterOptions = formatFilterOptions(this.filters)
     },
