@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import O0901JobMarketDetail from '../components/organisms/o-09-01-JobMarketDetail.vue'
+import O0901JobMarketDetail from '../components/organisms/o-09-01-JobMarketDetail.ce.vue'
 
 const data: any = {
   uid: 78351,

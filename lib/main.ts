@@ -9,6 +9,7 @@ import O0607KpiFullscreen from '../src/components/organisms/o-06-07-kpi-fullscre
 import O0502NewsSlider from '../src/components/organisms/o-05-02-news-slider.ce.vue'
 import O0204IntroHero from '../src/components/organisms/o-02-04-intro-hero.ce.vue'
 import O0901JobMarket from '../src/components/organisms/o-09-01-job-market/index.ce.vue'
+import O0901JobMarketDetail from '../src/components/organisms/o-09-01-JobMarketDetail.ce.vue'
 
 const FullscreenMediaTextElement = defineCustomElement(
   O0304FullscreenMediaText,
@@ -34,6 +35,7 @@ const O0607KpiFullscreenElement = defineCustomElement(O0607KpiFullscreen, {
 const O0502NewsSliderElement = defineCustomElement(O0502NewsSlider, { shadowRoot: false })
 
 const O0901JobMarketElement = defineCustomElement(O0901JobMarket, { shadowRoot: false })
+const O0901JobMarketDetailElement = defineCustomElement(O0901JobMarketDetail, { shadowRoot: false })
 const O0204IntroHeroElement = defineCustomElement(O0204IntroHero, { shadowRoot: false })
 
 export {
@@ -45,7 +47,8 @@ export {
   O0607KpiFullscreen,
   O0502NewsSlider,
   O0204IntroHero,
-  O0901JobMarket
+  O0901JobMarket,
+  O0901JobMarketDetail
 }
 
 export function register() {
@@ -57,5 +60,6 @@ export function register() {
   customElements.define('o-06-07-kpi-fullscreen', O0607KpiFullscreenElement)
   customElements.define('o-05-02-news-slider', O0502NewsSliderElement)
   customElements.define('o-09-01-job-market', O0901JobMarketElement)
+  customElements.define('o-09-01-job-market-detail', O0901JobMarketDetailElement)
   customElements.define('o-02-04-intro-hero', O0204IntroHeroElement)
 }
