@@ -3,7 +3,7 @@
     <!-- START job detail intro -->
     <div class="grid grid-cols-1 xl:grid-cols-[37rem,1fr]">
       <div>
-        <div class="bg-primary pt-24 pb-12 px-6 text-white xl:min-h-[768px]">
+        <div class="sticky top-0 bg-primary pt-24 pb-12 px-6 text-white xl:h-screen">
           <div class="xl:w-[420px] xl:ml-auto xl:mr-10">
             <BaseHeadline
               :text="job.title"
