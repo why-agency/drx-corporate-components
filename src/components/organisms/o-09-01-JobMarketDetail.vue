@@ -116,6 +116,7 @@
           color="tertiary"
         >
           Apply now
+          <!-- @ts-ignore -->
           <template #icon>
             <IconArrowRight />
           </template>
@@ -126,14 +127,12 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { computed } from 'vue'
 
 // Components
 import BaseHeadline from '../base/Headline.vue'
 import BaseHtmlParser from '../base/HtmlParser.vue'
-import MActionBar from '../molecules/ActionBar.vue'
-import BasePicture from '../base/Picture.vue'
 import BaseAction from '../base/Action.vue'
 import IconArrowRight from '../icons/Arrow/Right.vue'
 
