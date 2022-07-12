@@ -84,7 +84,9 @@ export const useJobs = defineStore('jobs', {
     persistFilters(filters: Filter[]) {
       if (!filters || !Array.isArray(filters)) return
 
-      this.filters = filters.filter(filter => filter.label !== '')
+      const ignoreList = ['type', 'pid']
+
+      this.filters = filters.filter(filter => !ignoreList.includes(filter.name))
       this.filterOptions = formatFilterOptions(this.filters)
     },
     clearFilterOption(filterOptionToClear: FilterOption) {

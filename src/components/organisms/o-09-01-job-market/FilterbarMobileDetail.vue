@@ -15,7 +15,7 @@
     </BaseHeadline>
 
     <!-- START filterable options -->
-    <div class="w-full flex-1 py-1 pl-1 mt-8 overflow-scroll grid grid-cols-1 gap-8 mask">
+    <div style="margin-top: 2rem;" class="w-full flex-1 py-1 pl-1 overflow-scroll grid grid-cols-1 gap-8 mask">
       <BaseCheckbox
         v-for="filter in relevantFilterOptions"
         :key="filter.value"

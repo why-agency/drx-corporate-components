@@ -6,7 +6,7 @@
     >
       <BasePicture v-if="data.image" :images="data.image" size="w-full h-full" />
 
-      <div class="absolute z-20 bottom-12 left-6">
+      <div class="absolute z-20 bottom-12 left-4 xl:left-10">
         <BaseHeadline v-if="data.header && data.header.text" color="light" :text="data.header.text" :size="3" />
         <BaseTextField
           v-model="query"
@@ -29,7 +29,7 @@
     <!-- END desktop filter bar -->
 
     <!-- START job market grid -->
-    <div class="flex items-center justify-between lg:justify-end px-4 mt-12">
+    <div style="margin: 0 1rem;" class="flex items-center justify-between lg:justify-end mt-12 xl:mx-10">
       <BaseTextField
         v-model="query"
         label="Keep looking for jobs"
@@ -51,7 +51,7 @@
       </p>
     </div>
 
-    <div class="mt-6 px-4">
+    <div style="margin: 1.5rem 1rem" class="xl:mx-10">
       <div v-if="jobsStore.isRequestPending" class="grid grid-cols-1 gap-4">
         <o-09-01-JobMarketCardSkeleton v-for="card in 10" />
       </div>
@@ -80,7 +80,8 @@
 
     <!-- START pagination -->
     <MPagination
-      class="mt-16"
+      style="margin-right: 1rem"
+      class="mt-16 xl:mr-10"
       :pages="jobsStore.numberOfPages"
       :current-page="jobsStore.currentPage"
       @change="onPageChange"

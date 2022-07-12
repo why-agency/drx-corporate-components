@@ -12,7 +12,8 @@
       <div
         v-for="filter in jobsStore.filters"
         :key="filter.name"
-        class="w-full pb-6 border-b border-primary last-of-type:border-0"
+        style="padding-bottom: 1.5rem"
+        class="w-full border-b border-primary last-of-type:border-0"
       >
         <button
           class="flex justify-between w-full pb-2"

@@ -1,5 +1,5 @@
 <template>
-  <div class="px-6">
+  <div style="margin: 0 1rem;" class="xl:mx-10">
     <div class="flex gap-10 items-end">
       <BaseFilter
         v-for="filter in jobsStore.filters"

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-white px-4 py-3 flex items-center justify-between"
+    class="bg-white py-3 flex items-center justify-between"
   >
     <div class="flex-1 flex justify-between sm:hidden">
       <BaseButtonIcon @click="goToPreviousTrack">
