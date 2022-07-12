@@ -106,7 +106,7 @@
     <!-- END job detail intro -->
 
     <!-- START job detail footer -->
-    <div style="padding: 2rem 1.5rem" class="bg-sand mt-10 xl:!py-24">
+    <div style="padding: 2rem 0" class="bg-sand mt-10 xl:!py-24">
       <div class="frame-content-small flex flex-col xl:flex-row xl:justify-between xl:items-center">
         <BaseHeadline text="Ready to join DRÄXLMAIER?" tag="div" :size="3" />
 
