@@ -27,8 +27,9 @@
           v-slot="{ active, selected }"
         >
           <li
+            style="padding-left: 1rem;padding-right: 1rem;"
             :class="[
-              'relative cursor-default select-none py-2 pl-4 pr-9',
+              'relative cursor-default select-none py-2',
               active ? 'bg-primary text-white' : 'text-primary'
             ]"
           >
