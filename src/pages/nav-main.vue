@@ -130,6 +130,7 @@ export default {
               '\u003Ch1\u003E\u003Ca href="t3:\/\/page?uid=4157"\u003EDigitale Transformation\u003C\/a\u003E\u003C\/h1\u003E\r\n\u003Cp\u003EDigitale Transformationa. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\u003C\/p\u003E',
             additionalNaviText2:
               '\u003Ch2\u003E\u003Ca href="t3:\/\/page?uid=8583"\u003EDigitale Transformation\u003C\/a\u003E\u003C\/h2\u003E\r\n\u003Cp\u003EDigitale Transformationa. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\u003C\/p\u003E',
+            navDropdownHeadline: 'Zum Unternehmen',
             children: [
               {
                 data: {
@@ -585,6 +586,7 @@ export default {
             theme: '',
             additionalNaviText1: '',
             additionalNaviText2: '',
+            navDropdownHeadline: 'Zu den Produkten',
             children: [
               {
                 data: {
@@ -697,7 +699,8 @@ export default {
                 spacer: 0,
                 theme: '',
                 additionalNaviText1: '',
-                additionalNaviText2: ''
+                additionalNaviText2: '',
+                navDropdownHeadline: 'Zum System'
               },
               {
                 data: {
@@ -809,7 +812,8 @@ export default {
                 spacer: 0,
                 theme: '',
                 additionalNaviText1: '',
-                additionalNaviText2: ''
+                additionalNaviText2: '',
+                navDropdownHeadline: 'E-Mobility Systems'
               },
               {
                 data: {
@@ -923,7 +927,8 @@ export default {
                 spacer: 0,
                 theme: '',
                 additionalNaviText1: '',
-                additionalNaviText2: ''
+                additionalNaviText2: '',
+                navDropdownHeadline: 'Connector Systems'
               },
               {
                 data: {
@@ -1036,7 +1041,8 @@ export default {
                 spacer: 0,
                 theme: '',
                 additionalNaviText1: '',
-                additionalNaviText2: ''
+                additionalNaviText2: '',
+                navDropdownHeadline: 'E-Interior Systems'
               }
             ]
           },
@@ -1152,6 +1158,7 @@ export default {
             theme: '',
             additionalNaviText1: '',
             additionalNaviText2: '',
+            navDropdownHeadline: 'Zur Karriereübersicht',
             children: [
               {
                 data: {
@@ -1493,6 +1500,7 @@ export default {
             theme: '',
             additionalNaviText1: '',
             additionalNaviText2: '',
+            navDropdownHeadline: 'Zu den News',
             children: [
               {
                 data: {
@@ -1716,7 +1724,8 @@ export default {
             spacer: 0,
             theme: '',
             additionalNaviText1: '',
-            additionalNaviText2: ''
+            additionalNaviText2: '',
+            navDropdownHeadline: 'Hier Suchen',
           },
           {
             data: {
@@ -1825,8 +1834,11 @@ export default {
             current: 0,
             spacer: 0,
             theme: '',
-            additionalNaviText1: '',
-            additionalNaviText2: '',
+            additionalNaviText1:
+              '\u003Ch1\u003E\u003Ca href="t3:\/\/page?uid=4157"\u003EDigitale Transformation\u003C\/a\u003E\u003C\/h1\u003E\r\n\u003Cp\u003EDigitale Transformationa. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\u003C\/p\u003E',
+            additionalNaviText2:
+              '\u003Ch2\u003E\u003Ca href="t3:\/\/page?uid=8583"\u003EDigitale Transformation\u003C\/a\u003E\u003C\/h2\u003E\r\n\u003Cp\u003EDigitale Transformationa. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\u003C\/p\u003E',
+            navDropdownHeadline: 'Zum Refresh',
             children: [
               {
                 data: {
