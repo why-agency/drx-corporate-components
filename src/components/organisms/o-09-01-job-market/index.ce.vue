@@ -4,10 +4,10 @@
     <div
       class="relative w-full h-96 after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary after:bg-opacity-60"
     >
-      <BasePicture :images="data.image" size="w-full h-full" />
+      <BasePicture v-if="data.image" :images="data.image" size="w-full h-full" />
 
       <div class="absolute z-20 bottom-12 left-6">
-        <BaseHeadline color="light" :text="data.header.text" :size="3" />
+        <BaseHeadline v-if="data.header && data.header.text" color="light" :text="data.header.text" :size="3" />
         <BaseTextField
           v-model="query"
           label="Keep looking for jobs"
@@ -125,10 +125,10 @@ const breakpoints = useBreakpoints(breakpointsTailwind)
 const isLgAndLarger = breakpoints.greater('lg')
 
 const jobsStore = useJobs()
-jobsStore.count = props.data.allResultCount
-jobsStore.url = props.data.currentSearch
-jobsStore.persistJobs(props.data.documents)
-jobsStore.persistFilters(props.data.facets)
+jobsStore.count = props.data.jobsProcessed?.allResultCount || props.data.allResultCount
+jobsStore.url = props.data.jobsProcessed?.currentSearch || props.data.currentSearch
+jobsStore.persistJobs(props.data.jobsProcessed?.documents || props.data.documents)
+jobsStore.persistFilters(props.data.jobsProcessed?.facets || props.data.facets)
 
 const query = computed({
   get() {
