@@ -29,13 +29,8 @@ export default {
           background: 'gradient',
           header: {
             text: 'Familienunternehmen seit 1958',
-<<<<<<< HEAD
             layout: '2',
             color: 'turquoise',
-=======
-            layout: '1',
-            color: 'light',
->>>>>>> 3538c70 (feat(14599912): intro hero (#75))
             tag: 'h1'
           },
           subheadline: 'Der Vorstand der DRÄXLMAIER Group',
@@ -266,11 +261,7 @@ export default {
           header: {
             text: 'Familienunternehmen seit 1958',
             layout: '1',
-<<<<<<< HEAD
             color: 'turquoise',
-=======
-            color: 'light',
->>>>>>> 3538c70 (feat(14599912): intro hero (#75))
             tag: 'h1'
           },
           subheadline: '',
@@ -308,11 +299,7 @@ export default {
           header: {
             text: 'Familienunternehmen seit 1958',
             layout: '1',
-<<<<<<< HEAD
             color: 'turquoise',
-=======
-            color: 'light',
->>>>>>> 3538c70 (feat(14599912): intro hero (#75))
             tag: 'h1'
           },
           subheadline: 'Der Vorstand der DRÄXLMAIER Group',
@@ -403,11 +390,7 @@ export default {
            header: {
             text: 'Automobile Zukunft – unser Auftrag, unsere Passion',
             layout: '1',
-<<<<<<< HEAD
             color: 'turquoise',
-=======
-            color: 'light',
->>>>>>> 3538c70 (feat(14599912): intro hero (#75))
             tag: 'h1'
           },
           subheadline: 'Vom Goggomobil bis zum autonomen Fahren',
