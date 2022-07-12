@@ -13,15 +13,15 @@
               font-weight="font-normal"
             />
             <div class="mt-12">
-              <p>
+              <p style="margin-bottom: 0 !important">
                 <span>Job ID:</span>
                 <span class="ml-2 font-bold">{{ job.ID }}</span>
               </p>
-              <p>
+              <p style="margin-bottom: 0 !important">
                 <span>Location:</span>
                 <span class="ml-2 font-bold">{{ job.location }}</span>
               </p>
-              <p>
+              <p style="margin-bottom: 0 !important">
                 <span>Department:</span>
                 <span class="ml-2 font-bold">{{ job.department }}</span>
               </p>
