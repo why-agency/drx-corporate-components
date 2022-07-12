@@ -39,7 +39,7 @@
       <!-- If it is the default variant -->
       <div
         v-if="isDefaultVariant"
-        class="lg:mb-6 h-max lg:max-w-[45%] lg:h-[432px] flex flex-col"
+        class="lg:mb-6 h-max lg:max-w-[45%] lg:min-h-[432px] flex flex-col"
         :class="[
           !subheadline && !bodytext.text ? 'mb-72' : 'mb-11',
           {
