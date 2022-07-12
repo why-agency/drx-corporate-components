@@ -16,7 +16,7 @@
   </component>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed, watch } from 'vue'
 import BaseHtmlParser from './HtmlParser.vue'
 import { gsap, Power2 } from 'gsap'
@@ -74,6 +74,7 @@ const isVisible = useIntersectionObserver({ target: headline })
 
 watch(isVisible, isVisible => {
   if (isVisible && props.animate) {
+    // @ts-ignore
     gsap.to(headline.value, {
       y: 0,
       opacity: 1,

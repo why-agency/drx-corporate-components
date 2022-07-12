@@ -9,19 +9,19 @@
         {{ locationString }}
       </span>
       <span class="hidden lg:block">
-        {{ location.city }}
+        {{ city }}
       </span>
     </div>
 
     <div class="hidden lg:flex justify-center xl:justify-start">
-      {{ location.country }}
+      {{ country }}
     </div>
 
     <div
       class="flex lg:order-last items-center text-overline lg:text-body3 justify-end lg:justify-start"
     >
       <IconUser class="w-4 h-4 mr-2" />
-      {{ degree }}
+      {{ shifttype }}
     </div>
 
     <!-- START title -->
@@ -42,7 +42,7 @@
     <div
       class="col-span-2 lg:col-span-1 flex justify-between lg:justify-start lg:items-center text-body3"
     >
-      {{ category }}
+      {{ department }}
       <IconArrowRight class="lg:hidden" />
     </div>
     <!-- END footer -->
@@ -50,11 +50,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, PropType } from 'vue'
+import { computed } from 'vue'
 
-import IconPin from '../icons/Pin.vue'
-import IconUser from '../icons/User.vue'
-import IconArrowRight from '../icons/Arrow/Right.vue'
+import IconPin from '../../icons/Pin.vue'
+import IconUser from '../../icons/User.vue'
+import IconArrowRight from '../../icons/Arrow/Right.vue'
 
 interface Location {
   city: string
@@ -63,20 +63,18 @@ interface Location {
 
 const props = defineProps({
   title: String,
-  category: String,
-  location: {
-    type: Object as PropType<Location>,
-    default: { city: '', country: '' }
-  },
-  degree: String,
-  url: { type: String, required: true },
+  department: String,
+  city: String,
+  country: String,
+  shifttype: String,
+  url: { type: String, default: '' },
   isNew: Boolean
 })
 
 const locationString = computed(() => {
-  if (props.location.city && props.location.country) {
-    return props.location.city + ' | ' + props.location.country
+  if (props.city && props.country) {
+    return props.city + ' | ' + props.country
   }
-  return props.location.city + props.location.country
+  return props.city || props.country || ''
 })
 </script>
