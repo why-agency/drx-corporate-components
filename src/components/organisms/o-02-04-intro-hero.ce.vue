@@ -52,7 +52,7 @@
           <BaseHeadline
             v-if="headline && headline.text"
             v-bind="headline"
-            class="!font-normal pb-7 lg:pb-12 break-words"
+            class="!font-normal !pb-7 lg:!pb-12 !mb-0 break-words"
           />
           <!-- Subline -->
           <BaseHeadline
