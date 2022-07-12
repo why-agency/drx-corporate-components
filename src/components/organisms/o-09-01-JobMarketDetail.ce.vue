@@ -41,45 +41,31 @@
         <div>
           <picture>
             <source
-              srcset="
-                https://ik.imagekit.io/v2bbhazxb/DRX_Asset_wcRiu6wav.png?tr=w-375,h-256,f-auto,fo-auto
-              "
+              :src="'https://ik.imagekit.io/v2bbhazxb/DRX_Asset_wcRiu6wav.png?tr=w-375,f-auto,fo-auto'"
               media="(max-width: 375px)"
             />
             <source
-              srcset="
-                https://ik.imagekit.io/v2bbhazxb/DRX_Asset_wcRiu6wav.png?tr=w-640,h-320,f-auto,fo-auto
-              "
+              :src="'https://ik.imagekit.io/v2bbhazxb/DRX_Asset_wcRiu6wav.png?tr=w-640,h-320,f-auto,fo-auto'"
               media="(max-width: 640px)"
             />
             <source
-              srcset="
-                https://ik.imagekit.io/v2bbhazxb/DRX_Asset_wcRiu6wav.png?tr=w-1024,h-400,f-auto,fo-auto
-              "
+              :src="'https://ik.imagekit.io/v2bbhazxb/DRX_Asset_wcRiu6wav.png?tr=w-1024,h-400,f-auto,fo-auto'"
               media="(max-width: 1024px)"
             />
             <source
-              srcset="
-                https://ik.imagekit.io/v2bbhazxb/DRX_Asset_wcRiu6wav.png?tr=w-1280,h-592,f-auto,fo-auto
-              "
+              :src="'https://ik.imagekit.io/v2bbhazxb/DRX_Asset_wcRiu6wav.png?tr=w-1280,h-592,f-auto,fo-auto'"
               media="(max-width: 1280px)"
             />
             <source
-              srcset="
-                https://ik.imagekit.io/v2bbhazxb/DRX_Asset_wcRiu6wav.png?tr=w-844,h-592,f-auto,fo-auto
-              "
+              :src="'https://ik.imagekit.io/v2bbhazxb/DRX_Asset_wcRiu6wav.png?tr=w-844,h-592,f-auto,fo-auto'"
               media="(max-width: 1440px)"
             />
             <source
-              srcset="
-                https://ik.imagekit.io/v2bbhazxb/DRX_Asset_wcRiu6wav.png?tr=w-940,h-592,f-auto,fo-auto
-              "
+              :src="'https://ik.imagekit.io/v2bbhazxb/DRX_Asset_wcRiu6wav.png?tr=w-940,h-592,f-auto,fo-auto'"
               media="(max-width: 1536px)"
             />
             <source
-              srcset="
-                https://ik.imagekit.io/v2bbhazxb/DRX_Asset_wcRiu6wav.png?tr=w-1328,h-592,f-auto,fo-auto
-              "
+              :src="'https://ik.imagekit.io/v2bbhazxb/DRX_Asset_wcRiu6wav.png?tr=w-1328,h-592,f-auto,fo-auto'"
               media="(max-width: 1920px)"
             />
             <img
@@ -107,14 +93,12 @@
 
     <!-- START job detail footer -->
     <div style="padding: 2rem 0" class="bg-sand mt-10 xl:!py-24">
-      <div class="frame-content-small flex flex-col xl:flex-row xl:justify-between xl:items-center">
+      <div
+        class="frame-content-small flex flex-col xl:flex-row xl:justify-between xl:items-center"
+      >
         <BaseHeadline text="Ready to join DRÄXLMAIER?" tag="div" :size="3" />
 
-        <BaseAction
-          class="mt-10 block xl:mt-0"
-          :to="job.url"
-          color="tertiary"
-        >
+        <BaseAction class="mt-10 block xl:mt-0" :to="job.url" color="tertiary">
           Apply now
           <template #icon>
             <IconArrowRight />
