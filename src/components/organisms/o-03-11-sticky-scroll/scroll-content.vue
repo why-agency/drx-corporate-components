@@ -82,6 +82,6 @@ const props = defineProps({
 })
 
 const $_spaceBelow = computed(() =>
-  props.icon?.[0]?.[0] ? 'mt-16 lg:mt-32' : 'mt-4 lg:mt-16'
+  props.icon?.[0]?.[0] ? 'mt-16 lg:mt-32' : '!mt-4 lg:!mt-16'
 )
 </script>
