@@ -374,62 +374,62 @@ export default {
                   text: 'Innovativ denken und handeln: Dieses Streben ist in der Erfolgsgeschichte von DRÄXLMAIER eine feste Größe – gestern, heute und morgen. Mit unseren Produkten für E-Mobilität und autonomes Fahren sind wir weltweit führend.',
                   size: 'text-body1'
                 },
-                icon: [
-                  [
-                    {
-                      publicUrl:
-                        'https:\/\/draexlmaier.loc\/fileadmin\/user_upload\/new_arrow.svg',
-                      properties: {
-                        title: null,
-                        alternative: null,
-                        description: null,
-                        mimeType: 'image\/svg+xml',
-                        type: 'image',
-                        filename: 'new_arrow.svg',
-                        originalUrl: 'fileadmin\/user_upload\/new_arrow.svg',
-                        uidLocal: 21322,
-                        fileReferenceUid: 63197,
-                        size: '287 B',
-                        link: null,
-                        dimensions: { width: 40, height: 40 },
-                        cropDimensions: { width: 40, height: 40 },
-                        crop: {
-                          desktop: {
-                            cropArea: { x: 0, y: 0, width: 1, height: 1 },
-                            selectedRatio: '1:1',
-                            focusArea: null
-                          }
-                        },
-                        autoplay: 0,
-                        extension: 'svg'
-                      },
-                      cdn: {
-                        publicUrl: '\/user_upload\/new_arrow.svg',
-                        publicPath: '\/user_upload\/new_arrow.svg'
-                      },
-                      useCase: 'default',
-                      ratio: null
-                    }
-                  ]
-                ],
-                actions: [
-                  {
-                    id: 2,
-                    pid: 9089,
-                    type: 'a_01_01__action',
-                    content: {
-                      text: 'Warum DRÄXLMAIER',
-                      link: {
-                        type: 'page',
-                        url: '\/',
-                        target: ' target="_top"',
-                        title: '',
-                        class: ''
-                      },
-                      icon: null
-                    }
-                  }
-                ]
+                // icon: [
+                //   [
+                //     {
+                //       publicUrl:
+                //         'https:\/\/draexlmaier.loc\/fileadmin\/user_upload\/new_arrow.svg',
+                //       properties: {
+                //         title: null,
+                //         alternative: null,
+                //         description: null,
+                //         mimeType: 'image\/svg+xml',
+                //         type: 'image',
+                //         filename: 'new_arrow.svg',
+                //         originalUrl: 'fileadmin\/user_upload\/new_arrow.svg',
+                //         uidLocal: 21322,
+                //         fileReferenceUid: 63197,
+                //         size: '287 B',
+                //         link: null,
+                //         dimensions: { width: 40, height: 40 },
+                //         cropDimensions: { width: 40, height: 40 },
+                //         crop: {
+                //           desktop: {
+                //             cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                //             selectedRatio: '1:1',
+                //             focusArea: null
+                //           }
+                //         },
+                //         autoplay: 0,
+                //         extension: 'svg'
+                //       },
+                //       cdn: {
+                //         publicUrl: '\/user_upload\/new_arrow.svg',
+                //         publicPath: '\/user_upload\/new_arrow.svg'
+                //       },
+                //       useCase: 'default',
+                //       ratio: null
+                //     }
+                //   ]
+                // ],
+                // actions: [
+                //   {
+                //     id: 2,
+                //     pid: 9089,
+                //     type: 'a_01_01__action',
+                //     content: {
+                //       text: 'Warum DRÄXLMAIER',
+                //       link: {
+                //         type: 'page',
+                //         url: '\/',
+                //         target: ' target="_top"',
+                //         title: '',
+                //         class: ''
+                //       },
+                //       icon: null
+                //     }
+                //   }
+                // ]
               }
             },
             {
@@ -442,62 +442,62 @@ export default {
                   text: 'Zeigen Sie Ihre automobile Leidenschaft und werden Sie Teil des DR\u00c4XLMAIER Teams.',
                   size: 'text-body1'
                 },
-                icon: [
-                  [
-                    {
-                      publicUrl:
-                        'https:\/\/draexlmaier.loc\/fileadmin\/user_upload\/new_arrow.svg',
-                      properties: {
-                        title: null,
-                        alternative: null,
-                        description: null,
-                        mimeType: 'image\/svg+xml',
-                        type: 'image',
-                        filename: 'new_arrow.svg',
-                        originalUrl: 'fileadmin\/user_upload\/new_arrow.svg',
-                        uidLocal: 21322,
-                        fileReferenceUid: 63197,
-                        size: '287 B',
-                        link: null,
-                        dimensions: { width: 40, height: 40 },
-                        cropDimensions: { width: 40, height: 40 },
-                        crop: {
-                          desktop: {
-                            cropArea: { x: 0, y: 0, width: 1, height: 1 },
-                            selectedRatio: '1:1',
-                            focusArea: null
-                          }
-                        },
-                        autoplay: 0,
-                        extension: 'svg'
-                      },
-                      cdn: {
-                        publicUrl: '\/user_upload\/new_arrow.svg',
-                        publicPath: '\/user_upload\/new_arrow.svg'
-                      },
-                      useCase: 'default',
-                      ratio: null
-                    }
-                  ]
-                ],
-                actions: [
-                  {
-                    id: 3,
-                    pid: 9089,
-                    type: 'a_01_01__action',
-                    content: {
-                      text: 'Warum DRÄXLMAIER',
-                      link: {
-                        type: 'page',
-                        url: '\/',
-                        target: ' target="_top"',
-                        title: '',
-                        class: ''
-                      },
-                      icon: null
-                    }
-                  }
-                ]
+                // icon: [
+                //   [
+                //     {
+                //       publicUrl:
+                //         'https:\/\/draexlmaier.loc\/fileadmin\/user_upload\/new_arrow.svg',
+                //       properties: {
+                //         title: null,
+                //         alternative: null,
+                //         description: null,
+                //         mimeType: 'image\/svg+xml',
+                //         type: 'image',
+                //         filename: 'new_arrow.svg',
+                //         originalUrl: 'fileadmin\/user_upload\/new_arrow.svg',
+                //         uidLocal: 21322,
+                //         fileReferenceUid: 63197,
+                //         size: '287 B',
+                //         link: null,
+                //         dimensions: { width: 40, height: 40 },
+                //         cropDimensions: { width: 40, height: 40 },
+                //         crop: {
+                //           desktop: {
+                //             cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                //             selectedRatio: '1:1',
+                //             focusArea: null
+                //           }
+                //         },
+                //         autoplay: 0,
+                //         extension: 'svg'
+                //       },
+                //       cdn: {
+                //         publicUrl: '\/user_upload\/new_arrow.svg',
+                //         publicPath: '\/user_upload\/new_arrow.svg'
+                //       },
+                //       useCase: 'default',
+                //       ratio: null
+                //     }
+                //   ]
+                // ],
+                // actions: [
+                //   {
+                //     id: 3,
+                //     pid: 9089,
+                //     type: 'a_01_01__action',
+                //     content: {
+                //       text: 'Warum DRÄXLMAIER',
+                //       link: {
+                //         type: 'page',
+                //         url: '\/',
+                //         target: ' target="_top"',
+                //         title: '',
+                //         class: ''
+                //       },
+                //       icon: null
+                //     }
+                //   }
+                // ]
               }
             },
             {
@@ -510,62 +510,62 @@ export default {
                   text: 'Innovativ denken und handeln: Dieses Streben ist in der Erfolgsgeschichte von DRÄXLMAIER eine feste Größe – gestern, heute und morgen. Mit unseren Produkten für E-Mobilität und autonomes Fahren sind wir weltweit führend.',
                   size: 'text-body1'
                 },
-                icon: [
-                  [
-                    {
-                      publicUrl:
-                        'https:\/\/draexlmaier.loc\/fileadmin\/user_upload\/new_arrow.svg',
-                      properties: {
-                        title: null,
-                        alternative: null,
-                        description: null,
-                        mimeType: 'image\/svg+xml',
-                        type: 'image',
-                        filename: 'new_arrow.svg',
-                        originalUrl: 'fileadmin\/user_upload\/new_arrow.svg',
-                        uidLocal: 21322,
-                        fileReferenceUid: 63197,
-                        size: '287 B',
-                        link: null,
-                        dimensions: { width: 40, height: 40 },
-                        cropDimensions: { width: 40, height: 40 },
-                        crop: {
-                          desktop: {
-                            cropArea: { x: 0, y: 0, width: 1, height: 1 },
-                            selectedRatio: '1:1',
-                            focusArea: null
-                          }
-                        },
-                        autoplay: 0,
-                        extension: 'svg'
-                      },
-                      cdn: {
-                        publicUrl: '\/user_upload\/new_arrow.svg',
-                        publicPath: '\/user_upload\/new_arrow.svg'
-                      },
-                      useCase: 'default',
-                      ratio: null
-                    }
-                  ]
-                ],
-                actions: [
-                  {
-                    id: 4,
-                    pid: 9089,
-                    type: 'a_01_01__action',
-                    content: {
-                      text: 'Warum DRÄXLMAIER',
-                      link: {
-                        type: 'page',
-                        url: '\/',
-                        target: ' target="_top"',
-                        title: '',
-                        class: ''
-                      },
-                      icon: null
-                    }
-                  }
-                ]
+                // icon: [
+                //   [
+                //     {
+                //       publicUrl:
+                //         'https:\/\/draexlmaier.loc\/fileadmin\/user_upload\/new_arrow.svg',
+                //       properties: {
+                //         title: null,
+                //         alternative: null,
+                //         description: null,
+                //         mimeType: 'image\/svg+xml',
+                //         type: 'image',
+                //         filename: 'new_arrow.svg',
+                //         originalUrl: 'fileadmin\/user_upload\/new_arrow.svg',
+                //         uidLocal: 21322,
+                //         fileReferenceUid: 63197,
+                //         size: '287 B',
+                //         link: null,
+                //         dimensions: { width: 40, height: 40 },
+                //         cropDimensions: { width: 40, height: 40 },
+                //         crop: {
+                //           desktop: {
+                //             cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                //             selectedRatio: '1:1',
+                //             focusArea: null
+                //           }
+                //         },
+                //         autoplay: 0,
+                //         extension: 'svg'
+                //       },
+                //       cdn: {
+                //         publicUrl: '\/user_upload\/new_arrow.svg',
+                //         publicPath: '\/user_upload\/new_arrow.svg'
+                //       },
+                //       useCase: 'default',
+                //       ratio: null
+                //     }
+                //   ]
+                // ],
+                // actions: [
+                //   {
+                //     id: 4,
+                //     pid: 9089,
+                //     type: 'a_01_01__action',
+                //     content: {
+                //       text: 'Warum DRÄXLMAIER',
+                //       link: {
+                //         type: 'page',
+                //         url: '\/',
+                //         target: ' target="_top"',
+                //         title: '',
+                //         class: ''
+                //       },
+                //       icon: null
+                //     }
+                //   }
+                // ]
               }
             },
             {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="$_spaceBelow">
     <BasePicture v-if="icon" :images="icon" size="w-content h-10 !mb-6" />
     <BaseHeadline
       v-if="headline"
@@ -40,6 +40,8 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+
 import BasePicture from '../../base/Picture.vue'
 import BaseHeadline from '../../base/Headline.vue'
 import BaseHtmlParser from '../../base/HtmlParser.vue'
@@ -78,4 +80,8 @@ const props = defineProps({
     default: null
   }
 })
+
+const $_spaceBelow = computed(() =>
+  props.icon?.[0]?.[0] ? 'mt-16 lg:mt-32' : 'mt-4 lg:mt-16'
+)
 </script>
