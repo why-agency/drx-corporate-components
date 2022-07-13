@@ -1,5 +1,6 @@
 <template>
   <section
+    ref="wrapper"
     class="w-full flex bg-gradient-to-b fixed z-50 pt-6 pb-8"
     :class="$_theme"
   >
@@ -13,13 +14,17 @@
           :key="dropdown"
           :text="dropdown.title"
           :color="$_textColor"
-          @clicked="clicked = !clicked"
+          @clicked="changeStatus(dropdown)"
         >
           <DropdownDesktop
-            :data="dropdown"
+            v-if="navStore.clicked"
+            :data="naviContent"
             :class="scrollPosition ? 'top-[58px]' : 'top-[110px]'"
           />
         </BaseDropdown>
+      </div>
+      <div v-if="!scrollPosition" ref="breadcrumbs" class="flex">
+        <BaseBreadcrumbs :breadcrumbs="menuBreadcrumb" :class="$_breadcrumbsColor"/>
       </div>
     </div>
     <BaseLogo
@@ -36,12 +41,12 @@
           v-for="dropdown in lastDropdowns"
           :key="dropdown"
           :text="dropdown.title"
-          :options="dropdown.children"
           :color="$_textColor"
-          @clicked="clicked = !clicked"
+          @clicked="changeStatus(dropdown)"
         >
           <DropdownDesktop
-            :data="dropdown"
+            v-if="navStore.clicked"
+            :data="naviContent"
             :class="scrollPosition ? 'top-[58px]' : 'top-[110px]'"
           />
         </BaseDropdown>
@@ -53,9 +58,9 @@
             >
               <IconSearch />
             </ButtonIcon>
-            <LoginButton text="Login" :class="$_textColor" />
+            <LoginButton :data="dcareerLogin" :class="$_textColor" />
             <!-- TO DO -->
-            <BaseAction variant="small" class="font-medium">
+            <BaseAction :to="jobmarket.url" :target="jobmarket.target" variant="small" class="font-medium">
               Job finden
             </BaseAction>
           </div>
@@ -67,15 +72,17 @@
 </template>
 
 <script setup>
-import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
+import { onClickOutside } from '@vueuse/core'
 import { ref, computed, toRefs, onMounted } from 'vue'
 import ButtonIcon from '../../base/ButtonIcon.vue'
 import BaseLogo from '../../base/Logo.vue'
+import BaseBreadcrumbs from '../../base/Breadcrumbs.vue'
 import BaseDropdown from '../../base/Dropdown.vue'
 import BaseAction from '../../base/Action.vue'
 import DropdownDesktop from '../../organisms/o-01-nav-main/dropdown-desktop.vue'
 import IconSearch from '../../icons/Search.vue'
 import LoginButton from '../../organisms/o-01-nav-main/login.vue'
+import { useNav } from '../../../stores/nav'
 
 const props = defineProps({
   data: {
@@ -86,29 +93,67 @@ const props = defineProps({
 const {
   menuMain,
   languageNavigation: langNav,
-  menuBreadcrumb
+  menuBreadcrumb,
+  theme,
+  searchData,
+  socialFooter,
+  homeLink,
+  dcareerLogin,
+  jobmarket,
+  locations
 } = toRefs(props.data)
 
-const selectedTheme = menuMain.value?.[0]?.data?.theme
 const clicked = ref(false)
+const navStore = useNav()
+const naviContent = ref({})
+
+function changeStatus(content) {
+  if (navStore.clicked && naviContent.value === content) {
+    clicked.value = false
+    navStore.setClick(clicked.value)
+    navStore.setIsDropdownOpen(clicked.value)
+  } else if (navStore.clicked && naviContent.value !== content) {
+    naviContent.value = content
+  } else if (!navStore.clicked) {
+    naviContent.value = content
+    clicked.value = !clicked.value
+    navStore.setClick(clicked.value)
+    navStore.setIsDropdownOpen(clicked.value)
+  }
+}
+
+const wrapper = ref(null)
+
+onClickOutside(
+  wrapper,
+  () => (
+    clicked.value = false,
+    navStore.setClick(clicked.value),
+    navStore.setIsDropdownOpen(clicked.value)
+  )
+)
 
 const $_textColor = computed(() => {
-  return selectedTheme === 'light' || scrollPosition.value || clicked.value
+  return theme.value === 'light' || scrollPosition.value || clicked.value
     ? 'text-primary'
     : 'text-white'
 })
 
+const $_breadcrumbsColor = computed(() => {
+  return theme.value === 'light' ? 'text-black' : 'text-white'
+})
+
 const $_logoColor = computed(() => {
-  return selectedTheme === 'light' || scrollPosition.value || clicked.value
+  return theme.value === 'light' || scrollPosition.value || clicked.value
     ? '#1E2728'
     : 'white'
 })
 
 const $_borderColor = computed(() => ({
   'border-b border-gradient':
-    selectedTheme === 'light' && !scrollPosition.value && !clicked.value,
+    theme.value === 'light' && !scrollPosition.value && !clicked.value,
   'border-b border-white':
-    selectedTheme !== 'light' && !scrollPosition.value && !clicked.value
+    theme.value !== 'light' && !scrollPosition.value && !clicked.value
 }))
 
 const firstDropdowns = computed(() => {
@@ -141,9 +186,9 @@ onMounted(() => {
 
 const $_theme = computed(() => ({
   'from-white bg-opacity-30 text-primary':
-    selectedTheme === 'light' && !scrollPosition.value && !clicked.value,
+    theme.value === 'light' && !scrollPosition.value && !clicked.value,
   'from-black bg-opacity-60 text-white':
-    selectedTheme !== 'light' && !scrollPosition.value && !clicked.value,
+    theme.value !== 'light' && !scrollPosition.value && !clicked.value,
   'bg-white shadow-lg pt-3 pb-2': scrollPosition.value,
   'bg-white shadow-lg': clicked.value
 }))

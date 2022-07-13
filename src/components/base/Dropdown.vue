@@ -8,22 +8,23 @@
     >
       <BaseHtmlParser :content="text" tag="span" />
       <div ref="icon">
-        <IconChevronUp v-if="!clicked" />
+        <IconChevronUp v-if="!clickedButton" />
         <IconChevronDown v-else />
       </div>
     </button>
-    <div v-if="clicked"><slot /></div>
+    <div v-if="clickedButton"><slot /></div>
   </div>
 </template>
 
 <script setup>
-import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
+import { onClickOutside } from '@vueuse/core'
 import { ref, computed, onMounted, toRefs } from 'vue'
 import BaseAction from '../base/Action.vue'
 import BaseHtmlParser from '../base/HtmlParser.vue'
 import IconChevronUp from '../icons/ChevronUp.vue'
 import IconChevronDown from '../icons/ChevronDown.vue'
 import UseDynamicAction from '../organisms/UseDynamicAction.vue'
+import { useNav } from '../../stores/nav'
 
 const props = defineProps({
   text: {
@@ -37,10 +38,6 @@ const props = defineProps({
   color: {
     type: String,
     default: 'text-primary'
-  },
-  clicked: {
-    type: Boolean,
-    default: false
   }
 })
 
@@ -49,7 +46,13 @@ const $_textColor = computed(() => ({
   'text-secondary': props.clicked
 }))
 
-function toggle(){
-  return props.clicked = !props.clicked
+const navStore = useNav()
+const clickedButton = ref(false)
+const wrapper = ref(null)
+
+function toggle() {
+  clickedButton.value = navStore.clicked
 }
+
+onClickOutside(wrapper, () => (clickedButton.value = false))
 </script>

@@ -32,7 +32,7 @@
               :target="child.target"
               class="hover:text-tertiary"
             >
-              <BaseText :text="child.title" class="text-body2"/>
+              <BaseText :text="child.title" class="text-body2" />
             </UseDynamicAction>
           </div>
           <div
@@ -48,18 +48,59 @@
               :target="child.target"
               class="hover:text-tertiary"
             >
-              <BaseText :text="child.title" class="text-body2"/>
+              <BaseText :text="child.title" class="text-body2" />
             </UseDynamicAction>
           </div>
         </div>
-        <div class="flex flex-col justify-between max-w-[388px] h-[258px] ml-16">
-          <BaseHtmlParser
-            :content="data.additionalNaviText1"
-          />
-          <BaseHtmlParser
-          class="mt-auto"
-            :content="data.additionalNaviText2"
-          />
+        <div
+          class="flex flex-col justify-between min-w-[388px] max-w-[508px] h-[258px] ml-16 text-body2"
+        >
+          <div>
+            <!-- First additional text -->
+            <div v-if="add1Header && header1IsLink" class="flex hover:text-tertiary font-bold text-secondary text-body2 items-end">
+              <UseDynamicAction
+                :to="add1Header.url"
+                :tag="'a'"
+                :target="add1Header.target"
+              >
+                <BaseText :text="add1Header.link" class="text-body2" />
+              </UseDynamicAction>
+              <IconArrowRight class="ml-2"/>
+            </div>
+            <BaseText
+              v-else-if="add1Header"
+              :text="add1Header"
+              class="font-bold text-secondary text-body2"
+            />
+            <BaseText
+              v-if="data.additionalNaviText1"
+              :text="data.additionalNaviText1"
+              class="text-body2"
+            />
+          </div>
+          <div>
+            <!-- Second additional text -->
+            <div v-if="add2Header && header2IsLink" class="hover:text-tertiary font-bold text-secondary text-body2">
+              <UseDynamicAction
+                :to="add2Header.url"
+                :tag="'a'"
+                :target="add2Header.target"
+              >
+                <BaseText :text="add2Header.link" class="text-body2" />
+              </UseDynamicAction>
+              <IconArrowRight class="ml-2"/>
+            </div>
+            <BaseText
+              v-else-if="add2Header"
+              :text="add2Header"
+              class="font-bold text-secondary text-body2"
+            />
+            <BaseText
+              class="mt-auto text-body2"
+              v-if="data.additionalNaviText2"
+              :text="data.additionalNaviText2"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -72,11 +113,22 @@ import BaseText from '../../base/Text.vue'
 import BaseHtmlParser from '../../base/HtmlParser.vue'
 import UseDynamicAction from '../../organisms/UseDynamicAction.vue'
 import IconArrowRightFatShort from '../../icons/Arrow/RightFatShort.vue'
+import IconArrowRight from '../../icons/Arrow/Right.vue'
+import { computed } from 'vue'
 const props = defineProps({
   data: {
     type: Object,
     default: () => {}
   }
+})
+const add1Header = props.data.additionalNaviHeader1
+const add2Header = props.data.additionalNaviHeader2
+const header1IsLink = computed(() => {
+  return add1Header instanceof Object
+})
+
+const header2IsLink = computed(() => {
+  return add2Header instanceof Object
 })
 
 const children = props.data.children
