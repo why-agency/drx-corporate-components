@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- START job detail intro -->
-    <div class="grid grid-cols-1 xl:grid-cols-[37rem,1fr]">
+    <div class="grid grid-cols-1 xl:grid-cols-[minmax(37rem,2fr),3fr]">
       <div>
         <div class="sticky top-0 bg-primary pt-24 pb-12 px-6 text-white xl:h-screen">
           <div class="xl:w-[420px] xl:ml-auto xl:mr-10">
