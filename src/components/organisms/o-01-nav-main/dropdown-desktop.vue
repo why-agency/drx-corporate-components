@@ -57,9 +57,9 @@
         >
           <div>
             <!-- First additional text -->
-            <div v-if="add1Header && header1IsLink" class="flex hover:text-tertiary font-bold text-secondary text-body2 items-end">
+            <div v-if="header1Url" class="flex hover:text-tertiary font-bold text-secondary text-body2 items-end">
               <UseDynamicAction
-                :to="add1Header.url"
+                :to="header1Url"
                 :tag="'a'"
                 :target="add1Header.target"
               >
@@ -80,9 +80,9 @@
           </div>
           <div>
             <!-- Second additional text -->
-            <div v-if="add2Header && header2IsLink" class="hover:text-tertiary font-bold text-secondary text-body2">
+            <div v-if="header2Url" class="hover:text-tertiary font-bold text-secondary text-body2">
               <UseDynamicAction
-                :to="add2Header.url"
+                :to="header2Url"
                 :tag="'a'"
                 :target="add2Header.target"
               >
@@ -123,15 +123,8 @@ const props = defineProps({
 })
 const add1Header = props.data.additionalNaviHeader1
 const add2Header = props.data.additionalNaviHeader2
-const header1IsLink = computed(() => {
-  return add1Header instanceof Object
-})
-
-const header2IsLink = computed(() => {
-  return add2Header instanceof Object
-})
-
-const children = props.data.children
+const header1Url = computed(() => add1Header?.url)
+const header2Url = computed(() => add2Header?.url)
 
 const firstChildren = props.data.children?.slice(0, 5)
 const lastChildren = props.data.children?.slice(5)
