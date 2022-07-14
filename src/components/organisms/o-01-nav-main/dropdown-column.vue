@@ -8,7 +8,7 @@
       :to="item.link"
       :tag="item.link ? 'a' : 'div'"
       :target="item.target"
-      class="hover:text-tertiary"
+      class="!text-primary hover:!text-tertiary"
     >
       <BaseText :text="item.title" class="text-body2" />
     </UseDynamicAction>

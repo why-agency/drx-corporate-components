@@ -3,7 +3,7 @@
     <button
       ref="wrapper"
       :class="[textWeigth, textSize, $_textColor]"
-      class="flex space-x-2 hover:text-secondary text-primary my-auto items-end"
+      class="flex space-x-2 hover:text-secondary my-auto items-end"
       @click="$emit('clicked'), toggle()"
     >
       <BaseHtmlParser :content="text" tag="span" />

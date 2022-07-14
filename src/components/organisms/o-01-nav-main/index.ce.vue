@@ -23,7 +23,7 @@
             v-if="activeCategory"
             :data="activeCategory"
             :social="socialFooter"
-            :class="scrollPosition ? 'top-[58px]' : 'top-[110px]'"
+            :class="scrollPosition ? 'top-[58px]' : 'top-[109px]'"
           />
         </BaseDropdown>
       </div>
@@ -34,7 +34,7 @@
       >
         <BaseBreadcrumbs
           :breadcrumbs="menuBreadcrumb"
-          :class="$_breadcrumbsColor"
+          :color="$_breadcrumbsColor"
         />
       </div>
     </div>
@@ -68,7 +68,7 @@
           <div class="flex space-x-4">
             <ButtonIcon
               variant="transparent"
-              :class="$_textColor"
+              :color="buttonColor"
               class="self-center hover:text-secondary"
             >
               <IconSearch />
@@ -96,6 +96,7 @@
           :to="locations.url"
           :tag="'a'"
           :target="locations.target"
+          :class="$_textColor"
           class="hover:text-secondary flex items-center space-x-2"
         >
           <IconWorld class="mt-1" />
@@ -170,6 +171,12 @@ const $_textColor = computed(() => {
     ? 'text-primary'
     : 'text-white'
 })
+
+const buttonColor = computed(() =>
+  theme.value === 'light' || scrollPosition.value || activeCategory.value
+    ? 'primary'
+    : 'white'
+)
 
 const $_breadcrumbsColor = computed(() => {
   return theme.value === 'light' ? '!text-black' : '!text-white'

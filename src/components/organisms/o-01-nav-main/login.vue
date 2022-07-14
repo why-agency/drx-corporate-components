@@ -34,12 +34,5 @@ const props = defineProps({
   }
 })
 
-const clicked = ref(false)
-
-const $_textColor = computed(() => ({
-  'text-primary': !clicked.value,
-  'text-secondary': clicked.value
-}))
-
 const to = props.data.url
 </script>
