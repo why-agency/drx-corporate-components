@@ -10,7 +10,7 @@
     >
       <UseDynamicAction
         :to="item.link"
-        class="hover:text-secondary transition duration-300 pr-2"
+        class="hover:text-secondary transition duration-300 !pr-2"
       >
         {{ item.title + '&nbsp;&nbsp;&nbsp;|' }}
       </UseDynamicAction>

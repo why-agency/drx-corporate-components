@@ -172,7 +172,7 @@ const $_textColor = computed(() => {
 })
 
 const $_breadcrumbsColor = computed(() => {
-  return theme.value === 'light' ? 'text-black' : 'text-white'
+  return theme.value === 'light' ? '!text-black' : '!text-white'
 })
 
 const $_logoColor = computed(() => {
