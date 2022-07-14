@@ -8,8 +8,8 @@
     >
       <BaseHtmlParser :content="text" tag="span" />
       <div ref="icon">
-        <IconChevronUp v-if="!clickedButton" />
-        <IconChevronDown v-else />
+        <IconChevronUp v-if="!clickedButton && !isXl" />
+        <IconChevronDown v-if="clickedButton || isXl" />
       </div>
     </button>
     <div v-if="clickedButton"><slot /></div>
@@ -17,7 +17,11 @@
 </template>
 
 <script setup>
-import { onClickOutside } from '@vueuse/core'
+import {
+  onClickOutside,
+  useBreakpoints,
+  breakpointsTailwind
+} from '@vueuse/core'
 import { ref, computed, onMounted, toRefs } from 'vue'
 import BaseAction from '../base/Action.vue'
 import BaseHtmlParser from '../base/HtmlParser.vue'
@@ -40,6 +44,9 @@ const props = defineProps({
     default: 'text-primary'
   }
 })
+
+const breakpoints = useBreakpoints(breakpointsTailwind)
+const isXl = breakpoints.greater('xl')
 
 const $_textColor = computed(() => ({
   [props.color]: !props.clicked,
