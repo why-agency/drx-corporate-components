@@ -3,6 +3,7 @@
     ref="wrapper"
     :text="$_currentLanguage"
     textWeigth="font-normal uppercase text-body3"
+    :color="linkColor"
     @click="toggle()"
   >
     <div v-if="clickedLang" class="absolute">
@@ -12,7 +13,7 @@
         :to="lang.link ? lang.link : currentRoute"
         :tag="'a'"
         class="flex flex-col"
-        :class="lang.link ? 'hover:text-secondary' : 'text-gray-400'"
+        :class="lang.link ? linkColor : 'text-gray-700 cursor-auto'"
       >
         <BaseText
           :text="lang.hreflang"
@@ -35,6 +36,10 @@ const props = defineProps({
   language: {
     type: Array,
     default: undefined
+  },
+  color: {
+    type: String,
+    default: 'text-primary'
   }
 })
 
@@ -79,4 +84,6 @@ const currentRoute = computed(() => {
   })
   return route
 })
+
+const linkColor = computed(() => `${props.color} hover:text-secondary`)
 </script>

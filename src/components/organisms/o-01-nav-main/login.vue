@@ -4,7 +4,7 @@
     :target="data.target"
     ref="wrapper"
     :class="[textSize, $_textColor]"
-    class="flex space-x-2 hover:text-secondary text-primary font-bold my-auto"
+    class="flex space-x-2 hover:text-secondary font-bold my-auto"
   >
     <div ref="icon" class="mt-[3%]">
       <IconUser />

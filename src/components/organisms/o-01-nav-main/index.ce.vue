@@ -67,7 +67,8 @@
         <div>
           <div class="flex space-x-4">
             <ButtonIcon
-              color="tertiary"
+              variant="transparent"
+              :class="$_textColor"
               class="self-center hover:text-secondary"
             >
               <IconSearch />
@@ -90,7 +91,7 @@
         v-if="!scrollPosition && !navStore.clicked"
         class="flex justify-end space-x-4 mt-3.5"
       >
-        <MLanguageSwitch :language="langNav" />
+        <MLanguageSwitch :language="langNav" :color="$_textColor" />
         <UseDynamicAction
           :to="locations.url"
           :tag="'a'"
