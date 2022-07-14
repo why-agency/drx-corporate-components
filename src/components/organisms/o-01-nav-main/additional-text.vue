@@ -3,24 +3,25 @@
     <!-- First additional text -->
     <div
       v-if="url"
-      class="flex hover:text-tertiary font-bold text-secondary text-body2 items-end"
+      class="flex hover:text-tertiary font-bold text-secondary items-end"
     >
-      <UseDynamicAction
-        :to="url"
-        :target="header.target"
-        class="flex items-center"
-      >
-        <BaseText :text="header.title || header.link" class="text-body2" />
-        <IconArrowRight class="ml-2" />
+      <UseDynamicAction :to="url" :target="header.target">
+        <BaseText
+          :text="header.title || header.link"
+          size="text-body2"
+          class="flex items-center"
+        >
+          <IconArrowRight class="ml-2" />
+        </BaseText>
       </UseDynamicAction>
     </div>
     <BaseText
       v-else-if="header"
       :text="header"
-      :size="2"
+      size="text-body2"
       class="font-bold text-secondary"
     />
-    <BaseText v-if="text" :text="text" size="2" />
+    <BaseText v-if="text" :text="text" size="text-body2" />
   </div>
 </template>
 

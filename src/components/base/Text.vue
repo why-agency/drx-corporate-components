@@ -5,6 +5,7 @@
     class="antialiased"
   >
     <BaseHtmlParser tag="div" :content="text" />
+    <slot />
   </div>
 </template>
 
