@@ -16,6 +16,8 @@ import kpiFullscreen from './pages/kpi-fullscreen.vue'
 import newsSlider from './pages/news-slider.vue'
 import introHero from './pages/intro-hero.vue'
 import JobMarket from './pages/job-market.vue'
+import navMainDark from './pages/nav-main-dark.vue'
+import navMainLight from './pages/nav-main-light.vue'
 import JobDetail from './pages/job-detail.vue'
 
 const app = createApp(App)
@@ -29,9 +31,11 @@ const routes = [
   { path: '/media-hotspot', component: mediaHotspot },
   { path: '/kpi-fullscreen', component: kpiFullscreen },
   { path: '/news-slider', component: newsSlider },
+  { path: '/intro-hero', component: introHero },
   { path: '/job-market', component: JobMarket },
+  { path: '/nav-main-dark', component: navMainDark},
+  { path: '/nav-main-light', component: navMainLight},
   { path: '/job-detail', component: JobDetail },
-  { path: '/intro-hero', component: introHero }
 ]
 
 const router = VueRouter.createRouter({
