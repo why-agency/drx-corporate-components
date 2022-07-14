@@ -70,6 +70,7 @@ const isActive = computed(
 )
 
 const $_textColor = computed(() => ({
+  [props.color]: !isActive.value && props.color,
   'text-secondary': isActive.value
 }))
 
