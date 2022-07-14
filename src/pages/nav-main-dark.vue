@@ -3058,7 +3058,7 @@ export default {
             twoLetterIsoCode: 'en',
             hreflang: 'en',
             direction: '',
-            link: '',
+            link: '/test',
             active: 0,
             current: 0,
             available: 0

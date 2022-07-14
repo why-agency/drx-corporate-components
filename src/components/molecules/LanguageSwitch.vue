@@ -1,16 +1,16 @@
 <template>
   <BaseDropdown
     ref="wrapper"
-    :text="$_currentLanguage"
+    :text="currentLanguage.hreflang"
     textWeigth="font-normal uppercase text-body3"
     :color="linkColor"
-    @click="toggle()"
+    @click="toggle"
   >
     <div v-if="clickedLang" class="absolute">
       <UseDynamicAction
         v-for="lang in showList"
         :key="lang"
-        :to="lang.link ? lang.link : currentRoute"
+        :to="lang.link ? lang.link : ''"
         :tag="'a'"
         class="flex flex-col"
         :class="lang.link ? linkColor : 'text-gray-700 cursor-auto'"
@@ -18,7 +18,6 @@
         <BaseText
           :text="lang.hreflang"
           class="text-body3 uppercase"
-          @click="changeLabel(ang.hreflang)"
           :animate="false"
         />
       </UseDynamicAction>
@@ -33,7 +32,7 @@ import UseDynamicAction from '../organisms/UseDynamicAction.vue'
 import BaseDropdown from '../base/Dropdown.vue'
 import BaseText from '../base/Text.vue'
 const props = defineProps({
-  language: {
+  languages: {
     type: Array,
     default: undefined
   },
@@ -43,46 +42,25 @@ const props = defineProps({
   }
 })
 
-const $_currentLanguage = computed(() => {
-  let name = ''
-  props.language.forEach(lang => {
-    if (lang.active === 1) {
-      name = lang.hreflang
-    }
-  })
-  return name
-})
+const currentLanguage = computed(() =>
+  props.languages?.find(lang => lang.active === 1)
+)
 
-const showList = computed(() => {
-  let list = []
-  props.language.forEach(lang => {
-    if (lang.active === 0) {
-      list.push(lang)
-    }
-  })
-  return list
-})
+const showList = computed(() =>
+  props.languages?.filter(lang => lang.active === 0)
+)
 
 const clickedLang = ref(false)
 
-function changeLabel(label) {
-  $_currentLanguage = label
-}
 function toggle() {
   clickedLang.value = !clickedLang.value
 }
 
 const wrapper = ref(false)
-onClickOutside(wrapper, () => {if(clickedLang.value){clickedLang.value = !clickedLang.value}})
-
-const currentRoute = computed(() => {
-  let route = ''
-  props.language.forEach(lang => {
-    if (lang.active === 1) {
-      route = lang.link
-    }
-  })
-  return route
+onClickOutside(wrapper, () => {
+  if (clickedLang.value) {
+    clickedLang.value = !clickedLang.value
+  }
 })
 
 const linkColor = computed(() => `${props.color} hover:text-secondary`)
