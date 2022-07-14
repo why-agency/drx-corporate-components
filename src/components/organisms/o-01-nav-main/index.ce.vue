@@ -1,5 +1,6 @@
 <template>
   <section
+    v-if="isXl"
     ref="wrapper"
     class="w-full flex bg-gradient-to-b fixed z-50 pt-6 pb-8"
     :class="$_theme"
@@ -57,6 +58,7 @@
           <DropdownDesktop
             v-if="navStore.clicked"
             :data="naviContent"
+            :social="socialFooter"
             :class="scrollPosition ? 'top-[58px]' : 'top-[110px]'"
           />
         </BaseDropdown>
@@ -82,7 +84,10 @@
           </div>
         </div>
       </div>
-      <div v-if="!scrollPosition && !navStore.clicked" class="flex justify-end space-x-4 mt-3.5">
+      <div
+        v-if="!scrollPosition && !navStore.clicked"
+        class="flex justify-end space-x-4 mt-3.5"
+      >
         <MLanguageSwitch :language="langNav" />
         <UseDynamicAction
           :to="locations.url"
@@ -90,7 +95,7 @@
           :target="locations.target"
           class="hover:text-secondary flex items-center space-x-2"
         >
-          <IconWorld class="mt-1"/>
+          <IconWorld class="mt-1" />
           <BaseText
             :text="locations.link"
             class="text-body3"
@@ -104,7 +109,11 @@
 </template>
 
 <script setup>
-import { onClickOutside } from '@vueuse/core'
+import {
+  onClickOutside,
+  useBreakpoints,
+  breakpointsTailwind
+} from '@vueuse/core'
 import { ref, computed, toRefs, onMounted } from 'vue'
 import MLanguageSwitch from '../../molecules/LanguageSwitch.vue'
 import ButtonIcon from '../../base/ButtonIcon.vue'
@@ -138,6 +147,9 @@ const {
   jobmarket,
   locations
 } = toRefs(props.data)
+
+const breakpoints = useBreakpoints(breakpointsTailwind)
+const isXl = breakpoints.greater('xl')
 
 const clicked = ref(false)
 const navStore = useNav()

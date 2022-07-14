@@ -1,6 +1,6 @@
 <template>
   <section
-    class="hidden xl:block absolute left-0 w-full bg-white h-[528px] pt-9"
+    class="hidden xl:block absolute left-0 w-full bg-white h-[558px] pt-9"
   >
     <div class="frame-content-default">
       <UseDynamicAction
@@ -55,7 +55,7 @@
         </div>
         <!-- Additional text -->
         <div
-          class="flex flex-col justify-between w-[308px] h-[258px] ml-16 text-body2"
+          class="flex flex-col !justify-between w-[328px] h-[258px] ml-16 text-body2"
         >
           <div>
             <!-- First additional text -->
@@ -68,7 +68,10 @@
                 :tag="'a'"
                 :target="props.data.additionalNaviHeader1.target"
               >
-                <BaseText :text="props.data.additionalNaviHeader1.link" class="text-body2" />
+                <BaseText
+                  :text="props.data.additionalNaviHeader1.link"
+                  class="text-body2"
+                />
               </UseDynamicAction>
               <IconArrowRight class="ml-2" />
             </div>
@@ -94,7 +97,10 @@
                 :tag="'a'"
                 :target="props.data.additionalNaviHeader2.target"
               >
-                <BaseText :text="props.data.additionalNaviHeader2.link" class="text-body2" />
+                <BaseText
+                  :text="props.data.additionalNaviHeader2.link"
+                  class="text-body2"
+                />
               </UseDynamicAction>
               <IconArrowRight class="ml-2" />
             </div>
@@ -112,7 +118,11 @@
         </div>
       </div>
     </div>
-    <BaseHtmlParser :content="social" class="float-right mr-8" />
+    <BaseHtmlParser
+      id="newSocialIcons"
+      :content="social"
+      class="float-right mr-8 mt-12"
+    />
   </section>
 </template>
 
@@ -148,3 +158,14 @@ const children = props.data.children
 const firstChildren = props.data.children?.slice(0, 5)
 const lastChildren = props.data.children?.slice(5)
 </script>
+
+<style>
+#newSocialIcons ul {
+  display: flex;
+  margin-top: 52px;
+}
+
+#newSocialIcons ul li {
+  margin-right: 33px;
+}
+</style>
