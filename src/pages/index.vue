@@ -10,7 +10,8 @@
     <router-link to="/news-slider">News Slider</router-link>
     <router-link to="/intro-hero">Intro Hero</router-link>
     <router-link to="/job-market">Job Market</router-link>
-    <router-link to="/nav-main">Main Navigation</router-link>
+    <router-link to="/nav-main-dark">Main Navigation Dark</router-link>
+    <router-link to="/nav-main-light">Main Navigation Light</router-link>
   </div>
 </template>
 

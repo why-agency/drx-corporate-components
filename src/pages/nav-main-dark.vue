@@ -3219,12 +3219,12 @@ export default {
           target: ' target="_blank"',
           link: 'Login'
         },
-        jobmarket: {
-          type: 'page',
-          url: '\/refresh-2022\/jobs-list-detail',
-          target: ' target="_top"',
-          link: 'Job finden'
-        },
+        // jobmarket: {
+        //   type: 'page',
+        //   url: '\/refresh-2022\/jobs-list-detail',
+        //   target: ' target="_top"',
+        //   link: 'Job finden'
+        // },
         locations: {
           type: 'page',
           url: '\/unternehmen\/draexlmaier-weltweit',

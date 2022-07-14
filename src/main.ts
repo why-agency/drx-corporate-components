@@ -16,7 +16,8 @@ import kpiFullscreen from './pages/kpi-fullscreen.vue'
 import newsSlider from './pages/news-slider.vue'
 import introHero from './pages/intro-hero.vue'
 import JobMarket from './pages/job-market.vue'
-import navMain from './pages/nav-main.vue'
+import navMainDark from './pages/nav-main-dark.vue'
+import navMainLight from './pages/nav-main-light.vue'
 
 const app = createApp(App)
 
@@ -31,7 +32,8 @@ const routes = [
   { path: '/news-slider', component: newsSlider },
   { path: '/intro-hero', component: introHero },
   { path: '/job-market', component: JobMarket },
-  { path: '/nav-main', component: navMain}
+  { path: '/nav-main-dark', component: navMainDark},
+  { path: '/nav-main-light', component: navMainLight}
 ]
 
 const router = VueRouter.createRouter({

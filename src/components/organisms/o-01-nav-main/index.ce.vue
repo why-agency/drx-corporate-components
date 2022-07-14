@@ -24,7 +24,10 @@
         </BaseDropdown>
       </div>
       <div v-if="!scrollPosition" ref="breadcrumbs" class="flex">
-        <BaseBreadcrumbs :breadcrumbs="menuBreadcrumb" :class="$_breadcrumbsColor"/>
+        <BaseBreadcrumbs
+          :breadcrumbs="menuBreadcrumb"
+          :class="$_breadcrumbsColor"
+        />
       </div>
     </div>
     <BaseLogo
@@ -60,7 +63,13 @@
             </ButtonIcon>
             <LoginButton :data="dcareerLogin" :class="$_textColor" />
             <!-- TO DO -->
-            <BaseAction :to="jobmarket.url" :target="jobmarket.target" variant="small" class="font-medium">
+            <BaseAction
+              v-if="jobmarket && jobmarket.url"
+              :to="jobmarket.url"
+              :target="jobmarket.target"
+              variant="small"
+              class="font-medium"
+            >
               Job finden
             </BaseAction>
           </div>
@@ -127,7 +136,7 @@ const wrapper = ref(null)
 onClickOutside(
   wrapper,
   () => (
-    clicked.value = false,
+    (clicked.value = false),
     navStore.setClick(clicked.value),
     navStore.setIsDropdownOpen(clicked.value)
   )
