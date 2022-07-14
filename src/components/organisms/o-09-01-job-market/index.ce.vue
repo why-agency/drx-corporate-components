@@ -2,12 +2,23 @@
   <section>
     <!-- START job market header -->
     <div
-      class="relative w-full h-96 after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary after:bg-opacity-60"
+      class="relative w-full h-96 xl:h-[432px] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary after:bg-opacity-60"
     >
-      <BasePicture v-if="data.image" :images="data.image" size="absolute top-0 left-0 w-full h-full" />
+      <BasePicture
+        v-if="data.image"
+        :images="data.image"
+        size="absolute top-0 left-0 w-full h-full"
+      />
 
-      <div class="relative z-20 frame-content-default">
-        <BaseHeadline v-if="data.header && data.header.text" color="light" :text="data.header.text" :size="3" />
+      <div class="relative flex flex-col justify-end xl:justify-between z-20 frame-content-default pt-[144px] pb-12 h-full">
+        <BaseHeadline
+          v-if="data.header && data.header.text"
+          color="light"
+          :text="data.header.text"
+          :size="isLgAndLarger ? 2 : 3"
+          tag="h1"
+        />
+
         <BaseTextField
           v-model="query"
           label="Keep looking for jobs"
@@ -29,7 +40,10 @@
     <!-- END desktop filter bar -->
 
     <!-- START job market grid -->
-    <div class="frame-content-default flex items-center justify-between lg:justify-end mt-12">
+    <div
+      style="margin-top: 1.5rem; margin-bottom: 1.5rem;"
+      class="frame-content-default flex items-center justify-between lg:justify-end xlmt-12"
+    >
       <BaseTextField
         v-model="query"
         label="Keep looking for jobs"
@@ -44,7 +58,7 @@
       </BaseTextField>
       <p
         v-if="jobsStore.count > 0"
-        style="margin-bottom: 0 !important;"
+        style="margin-bottom: 0 !important"
         class="text-body2 font-semibold font-primary ml-4"
       >
         {{ jobsStore.count }} Jobs
@@ -80,7 +94,7 @@
 
     <!-- START pagination -->
     <MPagination
-      class="frame-content-default"
+      class="frame-content-default mt-16"
       :pages="jobsStore.numberOfPages"
       :current-page="jobsStore.currentPage"
       @change="onPageChange"
