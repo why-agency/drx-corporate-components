@@ -22,7 +22,11 @@
           <!-- Left side -->
           <dropdown-column v-if="firstChildren.length" :items="firstChildren" />
           <!-- Right side -->
-          <dropdown-column v-if="lastChildren.length" :items="lastChildren" class="pl-16" />
+          <dropdown-column
+            v-if="lastChildren.length"
+            :items="lastChildren"
+            class="pl-16"
+          />
         </div>
         <div
           class="flex flex-col justify-between min-w-[388px] max-w-[508px] h-[258px] ml-16 text-body2"
@@ -33,11 +37,7 @@
               v-if="header1Url"
               class="flex hover:text-tertiary font-bold text-secondary text-body2 items-end"
             >
-              <UseDynamicAction
-                :to="header1Url"
-                :tag="'a'"
-                :target="add1Header.target"
-              >
+              <UseDynamicAction :to="header1Url" :target="add1Header.target">
                 <BaseText :text="add1Header.link" class="text-body2" />
               </UseDynamicAction>
               <IconArrowRight class="ml-2" />
@@ -59,11 +59,7 @@
               v-if="header2Url"
               class="hover:text-tertiary font-bold text-secondary text-body2"
             >
-              <UseDynamicAction
-                :to="header2Url"
-                :tag="'a'"
-                :target="add2Header.target"
-              >
+              <UseDynamicAction :to="header2Url" :target="add2Header.target">
                 <BaseText :text="add2Header.link" class="text-body2" />
               </UseDynamicAction>
               <IconArrowRight class="ml-2" />
