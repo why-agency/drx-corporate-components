@@ -8,6 +8,7 @@
         :to="data.link"
         :tag="data.link ? 'a' : 'div'"
         :target="data.target"
+        class="text-black"
       >
         <BaseHeadline
           :size="4"
