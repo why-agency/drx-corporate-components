@@ -1,6 +1,6 @@
 <template>
   <section
-    class="hidden xl:block absolute left-0 w-full bg-white h-[558px] pt-9"
+    class="hidden xl:block absolute left-0 w-full bg-white h-[558px] !pt-9"
   >
     <div class="frame-content-default">
       <!-- start headline -->
@@ -8,6 +8,7 @@
         :to="data.link"
         :tag="data.link ? 'a' : 'div'"
         :target="data.target"
+        class="text-black"
       >
         <BaseHeadline
           :size="4"
@@ -15,7 +16,7 @@
           class="text-secondary hover:text-tertiary flex items-end"
         >
           {{ data.navDropdownHeadline }}
-          <IconArrowRightFatShort class="ml-2 h-6" />
+          <IconArrowRightFatShort class="!ml-2 h-6" />
         </BaseHeadline>
       </UseDynamicAction>
       <!-- end headline -->
