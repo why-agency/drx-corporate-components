@@ -58,7 +58,7 @@ const clickedButton = ref(false)
 const wrapper = ref(null)
 
 function toggle() {
-  clickedButton.value = navStore.clicked
+  clickedButton.value = !!navStore.activeCategory
 }
 
 onClickOutside(wrapper, () => (clickedButton.value = false))
