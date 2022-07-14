@@ -14,7 +14,7 @@
           class="text-secondary hover:text-tertiary flex items-end"
         >
           {{ data.navDropdownHeadline }}
-          <IconArrowRightFatShort class="ml-2" />
+          <IconArrowRightFatShort class ="ml-2 h-6" />
         </BaseHeadline>
       </UseDynamicAction>
       <div class="flex mt-12 justify-between">
@@ -57,7 +57,10 @@
         >
           <div>
             <!-- First additional text -->
-            <div v-if="header1Url" class="flex hover:text-tertiary font-bold text-secondary text-body2 items-end">
+            <div
+              v-if="header1Url"
+              class="flex hover:text-tertiary font-bold text-secondary text-body2 items-end"
+            >
               <UseDynamicAction
                 :to="header1Url"
                 :tag="'a'"
@@ -65,7 +68,7 @@
               >
                 <BaseText :text="add1Header.link" class="text-body2" />
               </UseDynamicAction>
-              <IconArrowRight class="ml-2"/>
+              <IconArrowRight class="ml-2" />
             </div>
             <BaseText
               v-else-if="add1Header"
@@ -80,7 +83,10 @@
           </div>
           <div>
             <!-- Second additional text -->
-            <div v-if="header2Url" class="hover:text-tertiary font-bold text-secondary text-body2">
+            <div
+              v-if="header2Url"
+              class="hover:text-tertiary font-bold text-secondary text-body2"
+            >
               <UseDynamicAction
                 :to="header2Url"
                 :tag="'a'"
@@ -88,7 +94,7 @@
               >
                 <BaseText :text="add2Header.link" class="text-body2" />
               </UseDynamicAction>
-              <IconArrowRight class="ml-2"/>
+              <IconArrowRight class="ml-2" />
             </div>
             <BaseText
               v-else-if="add2Header"
