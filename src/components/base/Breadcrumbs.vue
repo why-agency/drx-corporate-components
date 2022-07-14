@@ -1,6 +1,6 @@
 <template>
   <ul
-    v-if="!isHomePage && !isSearch"
+    v-if="!isHomePage && internalCrumbs"
     class="mt-3.5 flex flex-wrap items-center"
   >
     <li
@@ -8,12 +8,12 @@
       :key="item.link"
       class="flex items-center opacity-60 text-body2"
     >
-      <router-link
+      <UseDynamicAction
         :to="item.link"
         class="hover:text-secondary transition duration-300 pr-2"
       >
         {{ item.title + '&nbsp;&nbsp;&nbsp;|' }}
-      </router-link>
+      </UseDynamicAction>
     </li>
 
     <span class="opacity-60">{{ currentRoute }}</span>
@@ -21,7 +21,9 @@
 </template>
 
 <script>
+import UseDynamicAction from '../organisms/UseDynamicAction.vue'
 export default {
+  components: { UseDynamicAction },
   props: {
     breadcrumbs: {
       type: Array,
@@ -34,22 +36,20 @@ export default {
     }
   },
   computed: {
+    isHomePage() {
+      return (
+        !this.breadcrumbs ||
+        (Array.isArray(this.breadcrumbs) && !this.breadcrumbs.length)
+      )
+    },
     internalCrumbs() {
       if (this.breadcrumbs && this.breadcrumbs.length) {
-          this.breadcrumbs.unshift(this.home)
-        return this.breadcrumbs
+        return [this.home, ...this.breadcrumbs.slice(-1)]
       }
-
       return
     },
-    isHomePage() {
-      return this.internalCrumbs.length === 1
-    },
-    isSearch() {
-      return this.$route.name === 'search'
-    },
     currentRoute() {
-      return this.internalCrumbs[this.internalCrumbs.length - 1].title
+      return this.internalCrumbs[this.internalCrumbs.length - 1]?.title
     }
   }
 }
