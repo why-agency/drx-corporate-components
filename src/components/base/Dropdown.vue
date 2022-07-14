@@ -2,8 +2,8 @@
   <div>
     <button
       ref="wrapper"
-      :class="[textSize, $_textColor]"
-      class="flex space-x-2 hover:text-secondary font-bold my-auto items-end"
+      :class="[textWeigth, textSize, $_textColor]"
+      class="flex space-x-2 hover:text-secondary text-primary my-auto items-end"
       @click="$emit('clicked'), toggle()"
     >
       <BaseHtmlParser :content="text" tag="span" />
@@ -43,6 +43,14 @@ const props = defineProps({
     type: String,
     default: 'text-primary'
   },
+  textWeigth: {
+    type: String,
+    default: 'font-bold'
+  },
+  isNav: {
+    type: Boolean,
+    default: false
+  },
   link: {
     type: String,
     default: ''
@@ -69,7 +77,11 @@ const clickedButton = ref(false)
 const wrapper = ref(null)
 
 function toggle() {
-  clickedButton.value = !!navStore.activeCategory
+  if (props.isNav) {
+    clickedButton.value = !!navStore.activeCategory
+  } else {
+    clickedButton.value = !clickedButton.value
+  }
 }
 
 onClickOutside(wrapper, () => (clickedButton.value = false))

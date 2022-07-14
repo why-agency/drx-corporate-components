@@ -1,5 +1,6 @@
 <template>
   <section
+    v-if="isXl"
     ref="wrapper"
     class="w-full flex bg-gradient-to-b fixed z-50 pt-6 pb-8"
     :class="$_theme"
@@ -15,11 +16,13 @@
           :text="dropdown.title"
           :link="dropdown.link"
           :color="$_textColor"
+          isNav
           @clicked="changeStatus(dropdown)"
         >
           <DropdownDesktop
             v-if="activeCategory"
             :data="activeCategory"
+            :social="socialFooter"
             :class="scrollPosition ? 'top-[58px]' : 'top-[110px]'"
           />
         </BaseDropdown>
@@ -51,11 +54,13 @@
           :text="dropdown.title"
           :link="dropdown.link"
           :color="$_textColor"
+          isNav
           @clicked="changeStatus(dropdown)"
         >
           <DropdownDesktop
             v-if="activeCategory"
             :data="activeCategory"
+            :social="socialFooter"
             :class="scrollPosition ? 'top-[58px]' : 'top-[110px]'"
           />
         </BaseDropdown>
@@ -81,21 +86,48 @@
           </div>
         </div>
       </div>
+      <div
+        v-if="!scrollPosition && !navStore.clicked"
+        class="flex justify-end space-x-4 mt-3.5"
+      >
+        <MLanguageSwitch :language="langNav" />
+        <UseDynamicAction
+          :to="locations.url"
+          :tag="'a'"
+          :target="locations.target"
+          class="hover:text-secondary flex items-center space-x-2"
+        >
+          <IconWorld class="mt-1" />
+          <BaseText
+            :text="locations.link"
+            class="text-body3"
+            :animate="false"
+          />
+        </UseDynamicAction>
+      </div>
     </div>
   </section>
   <div class="h-[1400px] w-full bg-primary absolute top-0"></div>
 </template>
 
 <script setup>
-import { onClickOutside } from '@vueuse/core'
+import {
+  onClickOutside,
+  useBreakpoints,
+  breakpointsTailwind
+} from '@vueuse/core'
 import { ref, computed, toRefs, onMounted } from 'vue'
+import MLanguageSwitch from '../../molecules/LanguageSwitch.vue'
 import ButtonIcon from '../../base/ButtonIcon.vue'
 import BaseLogo from '../../base/Logo.vue'
 import BaseBreadcrumbs from '../../base/Breadcrumbs.vue'
 import BaseDropdown from '../../base/Dropdown.vue'
 import BaseAction from '../../base/Action.vue'
+import BaseText from '../../base/Text.vue'
+import UseDynamicAction from '../../organisms/UseDynamicAction.vue'
 import DropdownDesktop from '../../organisms/o-01-nav-main/dropdown-desktop.vue'
 import IconSearch from '../../icons/Search.vue'
+import IconWorld from '../../icons/World.vue'
 import LoginButton from '../../organisms/o-01-nav-main/login.vue'
 import { useNav } from '../../../stores/nav'
 
@@ -117,6 +149,9 @@ const {
   jobmarket,
   locations
 } = toRefs(props.data)
+
+const breakpoints = useBreakpoints(breakpointsTailwind)
+const isXl = breakpoints.greater('xl')
 
 const navStore = useNav()
 const activeCategory = computed(() => navStore.activeCategory)
