@@ -13,6 +13,7 @@
           v-for="dropdown in firstDropdowns"
           :key="dropdown"
           :text="dropdown.title"
+          :link="dropdown.link"
           :color="$_textColor"
           @clicked="changeStatus(dropdown)"
         >
@@ -44,6 +45,7 @@
           v-for="dropdown in lastDropdowns"
           :key="dropdown"
           :text="dropdown.title"
+          :link="dropdown.link"
           :color="$_textColor"
           @clicked="changeStatus(dropdown)"
         >

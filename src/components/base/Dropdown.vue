@@ -3,7 +3,7 @@
     <button
       ref="wrapper"
       :class="[textSize, $_textColor]"
-      class="flex space-x-2 hover:text-secondary text-primary font-bold my-auto items-end"
+      class="flex space-x-2 hover:text-secondary font-bold my-auto items-end"
       @click="$emit('clicked'), toggle()"
     >
       <BaseHtmlParser :content="text" tag="span" />
@@ -42,18 +42,29 @@ const props = defineProps({
   color: {
     type: String,
     default: 'text-primary'
+  },
+  link: {
+    type: String,
+    default: ''
   }
 })
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const isXl = breakpoints.greater('xl')
 
+const navStore = useNav()
+const activeCategory = computed(() => navStore.activeCategory)
+
+const isActive = computed(
+  () =>
+    activeCategory.value?.link === props.link &&
+    activeCategory.value?.title === props.text
+)
+
 const $_textColor = computed(() => ({
-  [props.color]: !props.clicked,
-  'text-secondary': props.clicked
+  'text-secondary': isActive.value
 }))
 
-const navStore = useNav()
 const clickedButton = ref(false)
 const wrapper = ref(null)
 
