@@ -74,7 +74,7 @@
             </ButtonIcon>
             <LoginButton :data="dcareerLogin" :class="$_textColor" />
             <!-- TO DO -->
-            <BaseAction
+            <!-- <BaseAction
               v-if="jobmarket && jobmarket.url"
               :to="jobmarket.url"
               :target="jobmarket.target"
@@ -82,7 +82,7 @@
               class="font-medium"
             >
               Job finden
-            </BaseAction>
+            </BaseAction> -->
           </div>
         </div>
       </div>
