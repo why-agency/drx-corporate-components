@@ -128,7 +128,7 @@ import BaseText from '../../base/Text.vue'
 import UseDynamicAction from '../../organisms/UseDynamicAction.vue'
 import DropdownDesktop from '../../organisms/o-01-nav-main/dropdown-desktop.vue'
 import IconSearch from '../../icons/Search.vue'
-import IconWorld from '../../icons/World.vue'
+import IconWorld from '../../icons/world.vue'
 import LoginButton from '../../organisms/o-01-nav-main/login.vue'
 import { useNav } from '../../../stores/nav'
 
