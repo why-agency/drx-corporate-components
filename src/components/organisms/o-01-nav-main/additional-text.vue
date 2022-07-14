@@ -5,10 +5,14 @@
       v-if="url"
       class="flex hover:text-tertiary font-bold text-secondary text-body2 items-end"
     >
-      <UseDynamicAction :to="url" :target="header.target">
+      <UseDynamicAction
+        :to="url"
+        :target="header.target"
+        class="flex items-center"
+      >
         <BaseText :text="header.title || header.link" class="text-body2" />
+        <IconArrowRight class="ml-2" />
       </UseDynamicAction>
-      <IconArrowRight class="ml-2" />
     </div>
     <BaseText
       v-else-if="header"
