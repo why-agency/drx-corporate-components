@@ -1,6 +1,6 @@
 <template>
   <section
-    class="hidden xl:block absolute left-0 w-full bg-white h-[528px] pt-9"
+    class="hidden xl:block absolute left-0 w-full bg-white h-[558px] !pt-9"
   >
     <div class="frame-content-default">
       <!-- start headline -->
@@ -8,6 +8,7 @@
         :to="data.link"
         :tag="data.link ? 'a' : 'div'"
         :target="data.target"
+        class="text-black"
       >
         <BaseHeadline
           :size="4"
@@ -15,7 +16,7 @@
           class="text-secondary hover:text-tertiary flex items-end"
         >
           {{ data.navDropdownHeadline }}
-          <IconArrowRightFatShort class="ml-2 h-6" />
+          <IconArrowRightFatShort class="!ml-2 h-6" />
         </BaseHeadline>
       </UseDynamicAction>
       <!-- end headline -->
@@ -36,7 +37,7 @@
 
         <!-- start additional text -->
         <div
-          class="flex flex-col justify-between min-w-[388px] max-w-[508px] h-[258px] ml-16 text-body2"
+          class="flex flex-col justify-between w-[328px] h-[258px] ml-16 text-body2"
         >
           <additional-text
             v-if="data.additionalNaviHeader1 || data.additionalNaviText1"
@@ -52,6 +53,10 @@
         <!-- end additional text -->
       </div>
     </div>
+    <BaseHtmlParser
+      :content="social"
+      class="newSocialIcons float-right !mr-8 mt-12"
+    />
   </section>
 </template>
 
@@ -63,13 +68,27 @@ import IconArrowRightFatShort from '../../icons/Arrow/RightFatShort.vue'
 import DropdownColumn from './dropdown-column.vue'
 import AdditionalText from './additional-text.vue'
 
-import { computed } from 'vue'
 const props = defineProps({
   data: {
     type: Object,
     default: () => {}
+  },
+  social: {
+    type: String,
+    default: ''
   }
 })
 const firstChildren = props.data.children?.slice(0, 5)
 const lastChildren = props.data.children?.slice(5)
 </script>
+
+<style>
+.newSocialIcons ul {
+  display: flex;
+  margin-top: 52px;
+}
+
+.newSocialIcons ul li {
+  margin-right: 33px;
+}
+</style>
