@@ -52,9 +52,8 @@
       </div>
     </div>
     <BaseHtmlParser
-      id="newSocialIcons"
       :content="social"
-      class="float-right mr-8 mt-12"
+      class="newSocialIcons float-right mr-8 mt-12"
     />
   </section>
 </template>
@@ -84,12 +83,12 @@ const lastChildren = props.data.children?.slice(5)
 </script>
 
 <style>
-#newSocialIcons ul {
+.newSocialIcons ul {
   display: flex;
   margin-top: 52px;
 }
 
-#newSocialIcons ul li {
+.newSocialIcons ul li {
   margin-right: 33px;
 }
 </style>
