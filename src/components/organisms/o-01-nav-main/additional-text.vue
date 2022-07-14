@@ -21,7 +21,7 @@
       size="text-body2"
       class="font-bold text-secondary"
     />
-    <BaseText v-if="text" :text="text" size="text-body2" />
+    <BaseText v-if="text" :text="text" size="text-body2" class="text-primary" />
   </div>
 </template>
 
