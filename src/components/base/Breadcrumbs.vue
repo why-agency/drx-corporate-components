@@ -36,7 +36,9 @@ export default {
   computed: {
     internalCrumbs() {
       if (this.breadcrumbs && this.breadcrumbs.length) {
+        if(this.breadcrumbs[0].title != this.home.title){
           this.breadcrumbs.unshift(this.home)
+        }
         return this.breadcrumbs
       }
 

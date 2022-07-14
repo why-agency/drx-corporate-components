@@ -1964,10 +1964,10 @@ export default {
               aTagParams: ''
             },
             additionalNaviText1:
-              'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et ac',
+              'Gestalten Sie eine digitalere Zukunft für unsere Mitarbeiter:innen und Kund:innen.',
             additionalNaviHeader2: 'This is a headline',
             additionalNaviText2:
-              'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut',
+              'Gestalten Sie eine digitalere Zukunft für unsere Mitarbeiter:innen und Kund:innen. Und noch mehr',
             navDropdownHeadline: 'REFRESH 2022',
             children: [
               {

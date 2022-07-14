@@ -2,14 +2,14 @@
   <div>
     <button
       ref="wrapper"
-      :class="[textSize, $_textColor]"
-      class="flex space-x-2 hover:text-secondary text-primary font-bold my-auto items-end"
+      :class="[textWeigth, textSize, $_textColor]"
+      class="flex space-x-2 hover:text-secondary text-primary my-auto items-end"
       @click="$emit('clicked'), toggle()"
     >
       <BaseHtmlParser :content="text" tag="span" />
       <div ref="icon">
-        <IconChevronUp v-if="!clickedButton" />
-        <IconChevronDown v-else />
+        <IconChevronDown v-if="isXl ? isXl : !clickedButton" />
+        <IconChevronUp v-else />
       </div>
     </button>
     <div v-if="clickedButton"><slot /></div>
@@ -17,7 +17,11 @@
 </template>
 
 <script setup>
-import { onClickOutside } from '@vueuse/core'
+import {
+  useBreakpoints,
+  breakpointsTailwind,
+  onClickOutside
+} from '@vueuse/core'
 import { ref, computed, onMounted, toRefs } from 'vue'
 import BaseAction from '../base/Action.vue'
 import BaseHtmlParser from '../base/HtmlParser.vue'
@@ -38,8 +42,18 @@ const props = defineProps({
   color: {
     type: String,
     default: 'text-primary'
+  },
+  textWeigth: {
+    type: String,
+    default: 'font-bold'
+  },
+  isNav: {
+    type: Boolean,
+    default: false
   }
 })
+const breakpoints = useBreakpoints(breakpointsTailwind)
+const isXl = breakpoints.greater('xl')
 
 const $_textColor = computed(() => ({
   [props.color]: !props.clicked,
@@ -51,8 +65,12 @@ const clickedButton = ref(false)
 const wrapper = ref(null)
 
 function toggle() {
-  clickedButton.value = navStore.clicked
+  if (props.isNav) {
+    clickedButton.value = navStore.clicked
+  } else {
+    clickedButton.value = !clickedButton.value
+  }
 }
 
-onClickOutside(wrapper, () => (clickedButton.value = false))
+// onClickOutside(wrapper, () => (clickedButton.value = false, navStore.clicked = false))
 </script>
