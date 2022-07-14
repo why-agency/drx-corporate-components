@@ -55,7 +55,7 @@
     </div>
     <BaseHtmlParser
       :content="social"
-      class="newSocialIcons float-right mr-8 mt-12"
+      class="newSocialIcons float-right !mr-8 mt-12"
     />
   </section>
 </template>
