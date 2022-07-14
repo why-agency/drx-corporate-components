@@ -24,7 +24,11 @@
           />
         </BaseDropdown>
       </div>
-      <div v-if="!scrollPosition" ref="breadcrumbs" class="flex">
+      <div
+        v-if="!scrollPosition && !activeCategory"
+        ref="breadcrumbs"
+        class="flex"
+      >
         <BaseBreadcrumbs
           :breadcrumbs="menuBreadcrumb"
           :class="$_breadcrumbsColor"
