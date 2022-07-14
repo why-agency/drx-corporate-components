@@ -146,27 +146,14 @@ const $_borderColor = computed(() => ({
     theme.value !== 'light' && !scrollPosition.value && !activeCategory.value
 }))
 
-const firstDropdowns = computed(() => {
-  let list = []
-  const menuElement = menuMain.value.slice(0, 3)
-  menuElement.forEach(element => {
-    if (element.children) {
-      list.push(element)
-    }
-  })
-  return list
-})
+const firstDropdowns = computed(() =>
+  menuMain.value?.filter(item => item.children)?.slice(0, 3)
+)
 
-const lastDropdowns = computed(() => {
-  let list = []
-  const menuElement = menuMain.value.slice(3, 6)
-  menuElement.forEach(element => {
-    if (element.children) {
-      list.push(element)
-    }
-  })
-  return list
-})
+const lastDropdowns = computed(() =>
+  menuMain.value?.filter(item => item.children)?.slice(3, 6)
+)
+
 let scrollPosition = ref(null)
 onMounted(() => {
   window.addEventListener('scroll', function () {
