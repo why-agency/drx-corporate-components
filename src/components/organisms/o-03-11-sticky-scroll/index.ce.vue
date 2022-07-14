@@ -24,7 +24,7 @@
       <div
         :id="sectionID.value"
         ref="scrollref"
-        class="!mt-20 lg:mt-[168px] !mx-6 lg:!ml-28"
+        class="!mt-20 lg:mt-[168px] !mx-6 lg:!ml-28 mb-32"
       >
         <StickyScrollRightField
           v-for="field in fields"
@@ -36,16 +36,11 @@
           :headline="field.content.headline"
           :actions="field.content.actions"
           :overlay="field.content.overlays"
-          class="mb-32"
           @overlay-visible="showOverlay"
         />
       </div>
     </div>
-     <Overlay
-      v-if="overlay"
-      :overlay="overlay"
-      @hide-overlay="overlay = null"
-    />
+    <Overlay v-if="overlay" :overlay="overlay" @hide-overlay="overlay = null" />
   </section>
 </template>
 

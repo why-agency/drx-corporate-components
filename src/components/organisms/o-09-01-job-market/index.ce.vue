@@ -91,7 +91,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onUnmounted, ref } from 'vue'
+import { computed, onUnmounted } from 'vue'
 
 // Hooks
 import {

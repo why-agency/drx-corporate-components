@@ -12,6 +12,7 @@
     <router-link to="/job-market">Job Market</router-link>
     <router-link to="/nav-main-dark">Main Navigation Dark</router-link>
     <router-link to="/nav-main-light">Main Navigation Light</router-link>
+    <router-link to="/job-detail">Job Detail</router-link>
   </div>
 </template>
 
