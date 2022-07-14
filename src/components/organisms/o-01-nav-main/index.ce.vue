@@ -15,19 +15,20 @@
           :key="dropdown"
           :text="dropdown.title"
           :color="$_textColor"
+          :link="dropdown.link"
           isNav
           @clicked="changeStatus(dropdown)"
         >
           <DropdownDesktop
-            v-if="navStore.clicked"
-            :data="naviContent"
+            v-if="activeCategory"
+            :data="activeCategory"
             :social="socialFooter"
             :class="scrollPosition ? 'top-[58px]' : 'top-[110px]'"
           />
         </BaseDropdown>
       </div>
       <div
-        v-if="!scrollPosition && !navStore.clicked"
+        v-if="!scrollPosition && !activeCategory"
         ref="breadcrumbs"
         class="flex"
       >
@@ -52,12 +53,13 @@
           :key="dropdown"
           :text="dropdown.title"
           :color="$_textColor"
+          :link="dropdown.link"
           isNav
           @clicked="changeStatus(dropdown)"
         >
           <DropdownDesktop
-            v-if="navStore.clicked"
-            :data="naviContent"
+            v-if="activeCategory"
+            :data="activeCategory"
             :social="socialFooter"
             :class="scrollPosition ? 'top-[58px]' : 'top-[110px]'"
           />
@@ -151,38 +153,19 @@ const {
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const isXl = breakpoints.greater('xl')
 
-const clicked = ref(false)
 const navStore = useNav()
-const naviContent = ref({})
+const activeCategory = computed(() => navStore.activeCategory)
 
 function changeStatus(content) {
-  if (navStore.clicked && naviContent.value === content) {
-    clicked.value = false
-    navStore.setClick(clicked.value)
-    navStore.setIsDropdownOpen(clicked.value)
-  } else if (navStore.clicked && naviContent.value !== content) {
-    naviContent.value = content
-  } else if (!navStore.clicked) {
-    naviContent.value = content
-    clicked.value = !clicked.value
-    navStore.setClick(clicked.value)
-    navStore.setIsDropdownOpen(clicked.value)
-  }
+  navStore.setActiveCategory(content)
 }
 
 const wrapper = ref(null)
 
-onClickOutside(
-  wrapper,
-  () => (
-    (clicked.value = false),
-    navStore.setClick(clicked.value),
-    navStore.setIsDropdownOpen(clicked.value)
-  )
-)
+onClickOutside(wrapper, () => navStore.setActiveCategory(null))
 
 const $_textColor = computed(() => {
-  return theme.value === 'light' || scrollPosition.value || clicked.value
+  return theme.value === 'light' || scrollPosition.value || activeCategory.value
     ? 'text-primary'
     : 'text-white'
 })
@@ -192,39 +175,26 @@ const $_breadcrumbsColor = computed(() => {
 })
 
 const $_logoColor = computed(() => {
-  return theme.value === 'light' || scrollPosition.value || clicked.value
+  return theme.value === 'light' || scrollPosition.value || activeCategory.value
     ? '#1E2728'
     : 'white'
 })
 
 const $_borderColor = computed(() => ({
   'border-b border-gradient':
-    theme.value === 'light' && !scrollPosition.value && !clicked.value,
+    theme.value === 'light' && !scrollPosition.value && !activeCategory.value,
   'border-b border-white':
-    theme.value !== 'light' && !scrollPosition.value && !clicked.value
+    theme.value !== 'light' && !scrollPosition.value && !activeCategory.value
 }))
 
-const firstDropdowns = computed(() => {
-  let list = []
-  const menuElement = menuMain.value.slice(0, 3)
-  menuElement.forEach(element => {
-    if (element.children) {
-      list.push(element)
-    }
-  })
-  return list
-})
+const firstDropdowns = computed(() =>
+  menuMain.value?.filter(item => item.children)?.slice(0, 3)
+)
 
-const lastDropdowns = computed(() => {
-  let list = []
-  const menuElement = menuMain.value.slice(3, 6)
-  menuElement.forEach(element => {
-    if (element.children) {
-      list.push(element)
-    }
-  })
-  return list
-})
+const lastDropdowns = computed(() =>
+  menuMain.value?.filter(item => item.children)?.slice(3, 6)
+)
+
 let scrollPosition = ref(null)
 onMounted(() => {
   window.addEventListener('scroll', function () {
@@ -234,10 +204,10 @@ onMounted(() => {
 
 const $_theme = computed(() => ({
   'from-white bg-opacity-30 text-primary':
-    theme.value === 'light' && !scrollPosition.value && !clicked.value,
+    theme.value === 'light' && !scrollPosition.value && !activeCategory.value,
   'from-black bg-opacity-60 text-white':
-    theme.value !== 'light' && !scrollPosition.value && !clicked.value,
+    theme.value !== 'light' && !scrollPosition.value && !activeCategory.value,
   'bg-white shadow-lg pt-3 pb-2': scrollPosition.value,
-  'bg-white shadow-lg': clicked.value
+  'bg-white shadow-lg': activeCategory.value
 }))
 </script>

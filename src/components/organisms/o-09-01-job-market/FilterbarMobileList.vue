@@ -1,6 +1,6 @@
 <template>
   <div
-    style="padding: 2rem 1.5rem !important;"
+    style="padding: 2rem 1.5rem !important"
     class="fixed top-0 left-0 flex flex-col items-end justify-between w-screen h-full min-h-[stretch] overflow-y-scroll bg-white z-40"
   >
     <BaseButtonIcon @click="hideFilterBar">

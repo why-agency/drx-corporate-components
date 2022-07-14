@@ -52,7 +52,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, WritableComputedRef } from 'vue'
+import { computed, ref } from 'vue'
 
 import { useJobs } from '../../stores/jobs'
 

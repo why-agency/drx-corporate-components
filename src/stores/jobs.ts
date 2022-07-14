@@ -33,7 +33,7 @@ export const useJobs = defineStore('jobs', {
       isRequestPending: true,
       hasRequestFailed: false,
       isFilterBarActive: false,
-      activeFilterView: null as Filter | null
+      activeFilterView: null as Filter|null
     }
   },
   getters: {

@@ -33,6 +33,7 @@
         <OverlayTrigger
           v-if="overlays && overlays.length"
           :overlay="overlays"
+          animate
           @show-overlay="isOverlayVisible = true"
           class="mt-10 xl:mt-24"
         />
@@ -78,7 +79,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, toRefs, ref } from 'vue'
+import { computed, onMounted, toRefs, ref, watch } from 'vue'
 import { useBackgroundColor } from '../../../composables/useBackgroundColor'
 import BaseHeadline from '../../base/Headline.vue'
 import BaseMedia from '../../base/Media.vue'
@@ -154,8 +155,7 @@ onMounted(() => {
     trigger: triggerContainer.value,
     start: 'top top',
     end: 'bottom bottom',
-    pin: stickyImage.value,
-    onToggle: self => console.log('toggled, isActive:')
+    pin: stickyImage.value
   })
 })
 

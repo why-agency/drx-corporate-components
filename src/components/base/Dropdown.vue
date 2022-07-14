@@ -8,8 +8,8 @@
     >
       <BaseHtmlParser :content="text" tag="span" />
       <div ref="icon">
-        <IconChevronDown v-if="isXl ? isXl : !clickedButton" />
-        <IconChevronUp v-else />
+        <IconChevronUp v-if="!clickedButton && !isXl" />
+        <IconChevronDown v-if="clickedButton || isXl" />
       </div>
     </button>
     <div v-if="clickedButton"><slot /></div>
@@ -18,9 +18,9 @@
 
 <script setup>
 import {
+  onClickOutside,
   useBreakpoints,
-  breakpointsTailwind,
-  onClickOutside
+  breakpointsTailwind
 } from '@vueuse/core'
 import { ref, computed, onMounted, toRefs } from 'vue'
 import BaseAction from '../base/Action.vue'
@@ -50,27 +50,39 @@ const props = defineProps({
   isNav: {
     type: Boolean,
     default: false
+  },
+  link: {
+    type: String,
+    default: ''
   }
 })
+
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const isXl = breakpoints.greater('xl')
 
+const navStore = useNav()
+const activeCategory = computed(() => navStore.activeCategory)
+
+const isActive = computed(
+  () =>
+    activeCategory.value?.link === props.link &&
+    activeCategory.value?.title === props.text
+)
+
 const $_textColor = computed(() => ({
-  [props.color]: !props.clicked,
-  'text-secondary': props.clicked
+  'text-secondary': isActive.value
 }))
 
-const navStore = useNav()
 const clickedButton = ref(false)
 const wrapper = ref(null)
 
 function toggle() {
   if (props.isNav) {
-    clickedButton.value = navStore.clicked
+    clickedButton.value = !!navStore.activeCategory
   } else {
     clickedButton.value = !clickedButton.value
   }
 }
 
-// onClickOutside(wrapper, () => (clickedButton.value = false, navStore.clicked = false))
+onClickOutside(wrapper, () => (clickedButton.value = false))
 </script>
