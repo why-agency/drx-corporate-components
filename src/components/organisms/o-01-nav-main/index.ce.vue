@@ -2,10 +2,10 @@
   <section
     v-if="isXl"
     ref="wrapper"
-    class="w-full flex bg-gradient-to-b fixed z-50 pt-6 pb-8"
+    class="w-full flex bg-gradient-to-b fixed z-50 !pt-6 !pb-8"
     :class="$_theme"
   >
-    <div class="flex-1 flex-col ml-9">
+    <div class="flex-1 flex-col !ml-9">
       <div
         class="flex space-x-9 items-center w-full h-full"
         :class="[$_borderColor, { 'h-16': !scrollPosition }]"
@@ -43,7 +43,7 @@
       :fill="$_logoColor"
       :class="{ 'w-20 h-8': scrollPosition }"
     />
-    <div class="flex-1 flex-col mr-9">
+    <div class="flex-1 flex-col !mr-9">
       <div
         class="flex space-x-9 justify-end items-center w-full"
         :class="[$_borderColor, { 'h-16': !scrollPosition }]"
