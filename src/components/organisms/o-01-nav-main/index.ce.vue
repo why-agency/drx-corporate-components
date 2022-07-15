@@ -109,7 +109,7 @@
       </div>
     </div>
   </section>
-  <Mobile
+  <o-01-NavMainMobile
     v-else
     class="absolute z-50"
     :theme="$_theme"
@@ -143,7 +143,7 @@ import DropdownDesktop from '../../organisms/o-01-nav-main/dropdown-desktop.vue'
 import IconSearch from '../../icons/Search.vue'
 import IconWorld from '../../icons/world.vue'
 import LoginButton from '../../organisms/o-01-nav-main/login.vue'
-import Mobile from '../../organisms/o-01-nav-main/mobile.vue'
+import O01NavMainMobile from '../../organisms/o-01-nav-main/mobile.vue'
 import { useNav } from '../../../stores/nav'
 
 const props = defineProps({

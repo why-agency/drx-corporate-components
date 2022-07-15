@@ -9,7 +9,7 @@
       <BaseLogo class="h-8" :fill="$_logoColor" />
       <IconSearch />
     </div>
-    <div v-if="openMenuStatus" class="bg-white px-6 mt-14 h-screen">
+    <div v-if="openMenuStatus" class="bg-white px-6 mt-14 h-max">
       <div class="flex w-full justify-between pt-4">
         <UseDynamicAction
           :to="locations.url"
@@ -43,7 +43,7 @@
           :color="$_textColor"
           isNav
           @clicked="changeStatus(dropdown)"
-          class="py-8 border-b border-tertiary"
+          class="!py-8 border-b border-tertiary"
         >
           <DropdownMobile v-if="activeCategory" :data="activeCategory" />
         </BaseDropdown>
@@ -128,12 +128,8 @@ function toggleMenu() {
 
 const navStore = useNav()
 const activeCategory = computed(() => navStore.activeCategory)
-function changeStatus(content) {
-  if (navStore.activeCategory === content) {
-    navStore.setActiveCategory(null)
-  } else {
-    navStore.setActiveCategory(content)
-  }
+const changeStatus = (content) => {
+  navStore.setActiveCategory(navStore.activeCategory === content ? null : content)
 }
 const $_theme = computed(() => {
     return openMenuStatus.value ? 'bg-white text-primary' : props.theme
