@@ -1,8 +1,5 @@
 <template>
-  <div
-    ref="overlay"
-    class="hidden xl:block absolute left-0 w-full bg-white h-[698px] !pt-9"
-  >
+  <div ref="overlay" class="absolute left-0 w-full bg-white h-[698px] !pt-9">
     <div class="frame-content-default pt-12">
       <SearchForm />
       <!-- START RESULTS -->
@@ -63,12 +60,19 @@
 </template>
 
 <script setup>
-import { onClickOutside } from '@vueuse/core'
+import {
+  onClickOutside,
+  useBreakpoints,
+  breakpointsTailwind
+} from '@vueuse/core'
 import { ref, computed } from 'vue'
 import { useSearch } from '../../../stores/search'
 import SearchForm from '../../molecules/SearchForm.vue'
 import BaseText from '../../base/Text.vue'
 import UseDynamicAction from '../UseDynamicAction.vue'
+
+const breakpoints = useBreakpoints(breakpointsTailwind)
+const isXl = breakpoints.greater('xl')
 
 const overlay = ref(null)
 const searchStore = useSearch()
@@ -84,7 +88,11 @@ const searchResultsLabel = computed(() =>
     ? searchStore.resultsLabelSingle
     : searchStore.resultsLabel
 )
-onClickOutside(overlay, () => searchStore.toggleSearchOverlay(false))
+onClickOutside(overlay, () => {
+  if (isXl.value) {
+    searchStore.toggleSearchOverlay(false)
+  }
+})
 
 const highlight = text => {
   if (!searchText.value) return

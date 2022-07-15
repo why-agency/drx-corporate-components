@@ -10,17 +10,21 @@
         :color="$_buttonColor"
         @click="toggleMenu"
       >
-        <IconMenu v-if="!openMenuStatus" />
+        <IconMenu v-if="!openMenuStatus && !isSearchOverlayVisible" />
         <IconClose v-else />
       </BaseButtonIcon>
       <BaseLogo class="h-8" :fill="$_logoColor" />
-      <BaseButtonIcon variant="transparent" :color="$_buttonColor">
+      <BaseButtonIcon
+        variant="transparent"
+        :color="$_buttonColor"
+        @click="openSearchOverlay"
+      >
         <IconSearch />
       </BaseButtonIcon>
     </div>
     <!-- END TOP NAVI -->
 
-    <!-- START DROPDOWN MOBILE -->
+    <!-- START NAV DROPDOWN MOBILE -->
     <div v-if="openMenuStatus" class="bg-white !px-6 h-max w-full">
       <div class="flex w-full justify-between !pt-4">
         <UseDynamicAction
@@ -78,7 +82,11 @@
         class="newSocialIcons flex justify-center pb-9"
       />
     </div>
-    <!-- END DROPDOWN MOBILE -->
+    <!-- END NAV DROPDOWN MOBILE -->
+
+    <!-- START SEARCH OVERLAY-->
+    <SearchOverlay v-if="isSearchOverlayVisible" />
+    <!-- END SEARCH OVERLAY-->
   </section>
 </template>
 
@@ -99,7 +107,9 @@ import LoginButton from '../../organisms/o-01-nav-main/login.vue'
 import BaseHtmlParser from '../../base/HtmlParser.vue'
 import DropdownMobileContent from '../../organisms/o-01-nav-main/dropdown-mobile-content.vue'
 import BaseButtonIcon from '../../base/ButtonIcon.vue'
+import SearchOverlay from './search-overlay.vue'
 import { useNav } from '../../../stores/nav'
+import { useSearch } from '../../../stores/search'
 import { useScrollLock } from '../../../composables/useScrollLock.ts'
 
 const props = defineProps({
@@ -145,10 +155,27 @@ const props = defineProps({
   }
 })
 
-// toggle overlay
+// Overlays
 const openMenuStatus = ref(false)
+const searchStore = useSearch()
+const isSearchOverlayVisible = computed(
+  () => searchStore.isSearchOverlayVisible
+)
+
+// toggle nav overlay
 function toggleMenu() {
-  openMenuStatus.value = !openMenuStatus.value
+  if (searchStore.isSearchOverlayVisible) {
+    searchStore.toggleSearchOverlay(false)
+  } else {
+    openMenuStatus.value = !openMenuStatus.value
+  }
+}
+
+
+// toggle search overlay
+const openSearchOverlay = () => {
+  openMenuStatus.value = false
+  searchStore.toggleSearchOverlay(true)
 }
 
 // toggle nav items dropdowns
