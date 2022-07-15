@@ -56,9 +56,9 @@
         :iconWidth="19"
         :iconHeigth="19"
       />
-      <div class="!mb-8">
+      <div v-if="dropdownsWithChildren" class="!mb-8">
         <BaseDropdown
-          v-for="dropdown in dropdowns"
+          v-for="dropdown in dropdownsWithChildren"
           :key="dropdown"
           :text="dropdown.title"
           :link="dropdown.link"
@@ -206,4 +206,8 @@ const $_buttonColor = computed(() =>
 // scroll lock
 const isLocked = useScrollLock()
 watch(openMenuStatus, openMenuStatus => (isLocked.value = !!openMenuStatus))
+
+const dropdownsWithChildren = computed(() =>
+  props.dropdowns?.filter(dropdown => dropdown.children)
+)
 </script>
