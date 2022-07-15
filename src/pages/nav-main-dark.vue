@@ -3217,10 +3217,10 @@ export default {
           link: 'Home'
         },
         dcareerLogin: {
-          type: 'url',
-          url: 'https:\/\/d-career.org\/Draexlmaier\/?locale=en_US',
-          target: ' target="_blank"',
-          link: 'Login'
+          // type: 'url',
+          // url: 'https:\/\/d-career.org\/Draexlmaier\/?locale=en_US',
+          // target: ' target="_blank"',
+          // link: 'Login'
         },
         // jobmarket: {
         //   type: 'page',
@@ -3228,12 +3228,12 @@ export default {
         //   target: ' target="_top"',
         //   link: 'Job finden'
         // },
-        locations: {
-          type: 'page',
-          url: '\/unternehmen\/draexlmaier-weltweit',
-          target: ' target="_top"',
-          link: 'In Ihrem Land'
-        },
+        // locations: {
+        //   type: 'page',
+        //   url: '\/unternehmen\/draexlmaier-weltweit',
+        //   target: ' target="_top"',
+        //   link: 'In Ihrem Land'
+        // },
         theme: 'dark'
       }
     }

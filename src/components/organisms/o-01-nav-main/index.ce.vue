@@ -2,7 +2,7 @@
   <section
     v-if="isXl"
     ref="wrapper"
-    class="w-full flex bg-gradient-to-b fixed z-50 !pt-6 !pb-8"
+    class="w-full flex bg-gradient-to-b fixed top-0 z-50 !pt-6 !pb-8"
     :class="$_theme"
   >
     <div class="flex-1 flex-col !ml-9">
@@ -41,6 +41,7 @@
     <BaseLogo
       class="justify-self-center mx-20"
       :fill="$_logoColor"
+      :home-link="homeLink"
       :class="{ 'w-20 h-8': scrollPosition }"
     />
     <div class="flex-1 flex-col !mr-9">
@@ -74,7 +75,11 @@
             >
               <IconSearch />
             </ButtonIcon>
-            <LoginButton :data="dcareerLogin" :class="$_textColor" />
+            <LoginButton
+              v-if="dcareerLogin"
+              :data="dcareerLogin"
+              :class="$_textColor"
+            />
             <!-- TO DO -->
             <!-- <BaseAction
               v-if="jobmarket && jobmarket.url"
@@ -94,6 +99,7 @@
       >
         <MLanguageSwitch :languages="langNav" :color="$_textColor" />
         <UseDynamicAction
+          v-if="locations && locations.url"
           :to="locations.url"
           :tag="'a'"
           :target="locations.target"
@@ -102,6 +108,7 @@
         >
           <IconWorld class="mt-1" />
           <BaseText
+            v-if="locations.link"
             :text="locations.link"
             class="text-body3"
             :animate="false"

@@ -1,4 +1,5 @@
 <template>
+  <UseDynamicAction :to="url">
     <svg
       width="145"
       height="62"
@@ -55,14 +56,26 @@
         />
       </g>
     </svg>
+  </UseDynamicAction>
 </template>
 
 <script>
+import UseDynamicAction from '../organisms/UseDynamicAction.vue'
 export default {
+  components: { UseDynamicAction },
   props: {
     fill: {
       type: String,
       default: '#1E2728'
+    },
+    homeLink: {
+      type: Object,
+      default: ''
+    }
+  },
+  computed: {
+    url() {
+      return this.homeLink?.url
     }
   }
 }
