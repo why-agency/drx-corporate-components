@@ -122,7 +122,6 @@
     :jobmarket="jobmarket"
     :social="socialFooter"
   />
-  <div class="h-[900px] w-full bg-primary absolute top-0"></div>
 </template>
 
 <script setup>
