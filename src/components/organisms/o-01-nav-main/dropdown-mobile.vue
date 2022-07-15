@@ -3,7 +3,7 @@
     <!-- links -->
     <dropdown-column
       class="border-r-0 !mt-8 !h-max"
-      v-if="data.children !== null"
+      v-if="data.children"
       :items="data.children"
     />
     <!-- start additional text -->
