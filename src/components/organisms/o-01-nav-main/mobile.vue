@@ -4,7 +4,11 @@
       :class="$_theme"
       class="w-full bg-gradient-to-b pt-3 px-6 flex justify-between h-14"
     >
-      <IconMenu v-if="!openMenuStatus" :class="$_textColor" @click="toggleMenu" />
+      <IconMenu
+        v-if="!openMenuStatus"
+        :class="$_textColor"
+        @click="toggleMenu"
+      />
       <IconClose v-else :class="$_textColor" @click="toggleMenu" />
       <BaseLogo class="h-8" :fill="$_logoColor" />
       <IconSearch />
@@ -45,7 +49,7 @@
           @clicked="changeStatus(dropdown)"
           class="!py-8 border-b border-tertiary"
         >
-          <DropdownMobile v-if="activeCategory" :data="activeCategory" />
+          <DropdownMobile v-if="activeCategory && !close" :data="activeCategory" />
         </BaseDropdown>
       </div>
       <BaseAction
@@ -127,17 +131,21 @@ function toggleMenu() {
 }
 
 const navStore = useNav()
+const close = ref(false)
 const activeCategory = computed(() => navStore.activeCategory)
-const changeStatus = (content) => {
-  navStore.setActiveCategory(navStore.activeCategory === content ? null : content)
+const changeStatus = content => {
+  navStore.setActiveCategory(
+    navStore.activeCategory === content ? null : content
+  )
+  close.value = navStore.activeCategory === content ? false : true
 }
 const $_theme = computed(() => {
-    return openMenuStatus.value ? 'bg-white text-primary' : props.theme
+  return openMenuStatus.value ? 'bg-white text-primary' : props.theme
 })
 const $_textColor = computed(() => {
-    return openMenuStatus.value ? 'text-primary' : props.textColor
+  return openMenuStatus.value ? 'text-primary' : props.textColor
 })
 const $_logoColor = computed(() => {
-    return openMenuStatus.value ? '#1E2728' : props.logoColor
+  return openMenuStatus.value ? '#1E2728' : props.logoColor
 })
 </script>
