@@ -1,12 +1,12 @@
 <template>
   <section class="w-screen h-max">
     <div
-      :class="[theme, { 'to-white h-14': openMenuStatus }]"
+      :class="$_theme"
       class="fixed z-50 w-full bg-gradient-to-b pt-3 px-6 flex justify-between h-14"
     >
-      <IconMenu v-if="!openMenuStatus" :class="textColor" @click="toggleMenu" />
-      <IconClose v-else :class="textColor" @click="toggleMenu" />
-      <BaseLogo class="h-8" :fill="logoColor" />
+      <IconMenu v-if="!openMenuStatus" :class="$_textColor" @click="toggleMenu" />
+      <IconClose v-else :class="$_textColor" @click="toggleMenu" />
+      <BaseLogo class="h-8" :fill="$_logoColor" />
       <IconSearch />
     </div>
     <div v-if="openMenuStatus" class="bg-white px-6 mt-14 h-screen">
@@ -15,7 +15,7 @@
           :to="locations.url"
           :tag="'a'"
           :target="locations.target"
-          :class="textColor"
+          :class="$_textColor"
           class="hover:text-secondary flex items-center space-x-2"
         >
           <IconWorld class="mt-1" />
@@ -25,11 +25,11 @@
             :animate="false"
           />
         </UseDynamicAction>
-        <MLanguageSwitch :languages="langNav" :color="textColor" />
+        <MLanguageSwitch :languages="langNav" :color="$_textColor" />
       </div>
       <LoginButton
         :data="career"
-        :class="textColor"
+        :class="$_textColor"
         class="mt-2.5 !font-normal items-end"
         :iconWidth="19"
         :iconHeigth="19"
@@ -40,7 +40,7 @@
           :key="dropdown"
           :text="dropdown.title"
           :link="dropdown.link"
-          :color="textColor"
+          :color="$_textColor"
           isNav
           @clicked="changeStatus(dropdown)"
           class="py-8 border-b border-tertiary"
@@ -135,4 +135,13 @@ function changeStatus(content) {
     navStore.setActiveCategory(content)
   }
 }
+const $_theme = computed(() => {
+    return openMenuStatus.value ? 'bg-white text-primary' : props.theme
+})
+const $_textColor = computed(() => {
+    return openMenuStatus.value ? 'text-primary' : props.textColor
+})
+const $_logoColor = computed(() => {
+    return openMenuStatus.value ? '#1E2728' : props.logoColor
+})
 </script>
