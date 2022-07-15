@@ -3,7 +3,7 @@
     <!-- START TOP NAVI -->
     <div
       :class="$_theme"
-      class="w-full bg-gradient-to-b pt-3 px-6 flex justify-between h-14"
+      class="w-full bg-gradient-to-b !pt-3 !px-6 flex justify-between h-14"
     >
       <BaseButtonIcon
         variant="transparent"
@@ -20,8 +20,8 @@
     </div>
     <!-- END TOP NAVI -->
 
-    <div v-if="openMenuStatus" class="bg-white px-6 h-max w-full">
-      <div class="flex w-full justify-between pt-4">
+    <div v-if="openMenuStatus" class="bg-white !px-6 h-max w-full">
+      <div class="flex w-full justify-between !pt-4">
         <UseDynamicAction
           :to="locations.url"
           :tag="'a'"
@@ -29,7 +29,7 @@
           :class="$_textColor"
           class="hover:text-secondary flex items-center space-x-2"
         >
-          <IconWorld class="mt-1" />
+          <IconWorld class="!mt-1" />
           <BaseText
             :text="locations.link"
             class="text-body3"
@@ -45,7 +45,7 @@
         :iconWidth="19"
         :iconHeigth="19"
       />
-      <div class="mb-8">
+      <div class="!mb-8">
         <BaseDropdown
           v-for="dropdown in dropdowns"
           :key="dropdown"
