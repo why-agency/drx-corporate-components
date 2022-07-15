@@ -31,7 +31,7 @@
             color="black"
             :size="isLg ? 'lg' : 'base'"
             class="after:relative after:-right-1 after:w-0.5 after:bg-gray-500 after:h-4 lg:after:h-6"
-            @click="clearSearch"
+            @click.prevent="clearSearch"
           >
             <IconClose class="w-4 lg:w-10 lg:h-10" />
           </BaseButtonIcon>
