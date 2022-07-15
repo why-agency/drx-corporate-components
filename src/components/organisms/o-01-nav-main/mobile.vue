@@ -1,15 +1,15 @@
 <template>
-  <section class="w-screen h-max">
+  <section class="w-screen h-screen overflow-y-scroll fixed z-50">
     <div
       :class="$_theme"
-      class="fixed z-50 w-full bg-gradient-to-b pt-3 px-6 flex justify-between h-14"
+      class="w-full bg-gradient-to-b pt-3 px-6 flex justify-between h-14"
     >
       <IconMenu v-if="!openMenuStatus" :class="$_textColor" @click="toggleMenu" />
       <IconClose v-else :class="$_textColor" @click="toggleMenu" />
       <BaseLogo class="h-8" :fill="$_logoColor" />
       <IconSearch />
     </div>
-    <div v-if="openMenuStatus" class="bg-white px-6 mt-14 h-max">
+    <div v-if="openMenuStatus" class="bg-white px-6 h-max w-full">
       <div class="flex w-full justify-between pt-4">
         <UseDynamicAction
           :to="locations.url"

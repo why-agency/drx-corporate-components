@@ -111,7 +111,6 @@
   </section>
   <o-01-NavMainMobile
     v-else
-    class="absolute z-50"
     :theme="$_theme"
     :textColor="$_textColor"
     :logoColor="$_logoColor"

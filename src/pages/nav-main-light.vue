@@ -1,6 +1,6 @@
 <template>
   <o-01-nav-main :data="data" />
-  <div class="h-[900px] w-full bg-primary absolute top-0"></div>
+  <div class="h-[1700px] w-full bg-primary absolute top-0"></div>
 </template>
 
 <script setup>
