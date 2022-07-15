@@ -1,5 +1,5 @@
 <template>
-  <UseDynamicAction :to="homeLink.url">
+  <UseDynamicAction :to="url">
     <svg
       width="145"
       height="62"
@@ -71,6 +71,11 @@ export default {
     homeLink: {
       type: Object,
       default: ''
+    }
+  },
+  computed: {
+    url() {
+      return this.homeLink?.url
     }
   }
 }
