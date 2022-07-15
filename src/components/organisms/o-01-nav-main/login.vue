@@ -7,7 +7,7 @@
     class="flex space-x-2 hover:text-secondary font-bold my-auto"
   >
     <div ref="icon" class="mt-[3%]">
-      <IconUser />
+      <IconUser :height="iconHeight" :width="iconWidth" />
     </div>
     <BaseHtmlParser :content="text" tag="span" />
   </UseDynamicAction>
@@ -31,6 +31,14 @@ const props = defineProps({
   textSize: {
     type: String,
     default: 'text-body1'
+  },
+  iconHeight: {
+    type: [Number, String],
+    default: 24
+  },
+  iconWidth: {
+    type: [Number, String],
+    default: 24
   }
 })
 

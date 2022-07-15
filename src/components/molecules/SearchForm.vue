@@ -7,7 +7,7 @@
       }"
       @submit.prevent="redirectToSearch"
     >
-      <div class="!mr-5 lg:!mr-8"><IconSearch class="w-5 lg:w-8 lg:h-8" /></div>
+      <div class="!mr-5 lg:!mr-8"><IconSearch class="w-6 lg:w-8 lg:h-8" /></div>
       <input
         ref="input"
         v-model="searchText"
@@ -30,10 +30,10 @@
             variant="transparent"
             color="black"
             :size="isLg ? 'lg' : 'base'"
-            class="after:relative after:-right-1 after:w-0.5 after:bg-gray-500 after:h-4 lg:after:h-6"
+            class="after:relative after:-right-2 lg:after:-right-1 after:w-0.5 after:bg-gray-500 after:h-4 lg:after:h-6"
             @click.prevent="clearSearch"
           >
-            <IconClose class="w-4 lg:w-10 lg:h-10" />
+            <IconClose class="w-6 lg:w-10 lg:h-10" />
           </BaseButtonIcon>
         </transition>
         <BaseButtonIcon
@@ -41,7 +41,7 @@
           color="black"
           :size="isLg ? 'lg' : 'base'"
         >
-          <IconArrowRightSmall class="w-4 lg:w-8 lg:h-8" />
+          <IconArrowRightSmall class="w-5 lg:w-8 lg:h-8" />
         </BaseButtonIcon>
       </div>
     </form>

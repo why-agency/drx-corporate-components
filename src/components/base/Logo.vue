@@ -6,6 +6,7 @@
       viewBox="0 0 145 62"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      :class="{ 'h-8': isSmall }"
     >
       <g clip-path="url(#clip0_3073_1404)">
         <path
@@ -61,6 +62,8 @@
 
 <script>
 import UseDynamicAction from '../organisms/UseDynamicAction.vue'
+import { useNav } from '../../stores/nav'
+import { computed } from 'vue'
 export default {
   components: { UseDynamicAction },
   props: {
@@ -68,15 +71,15 @@ export default {
       type: String,
       default: '#1E2728'
     },
-    homeLink: {
-      type: Object,
-      default: ''
+    isSmall: {
+      type: Boolean,
+      default: false
     }
   },
-  computed: {
-    url() {
-      return this.homeLink?.url
-    }
+  setup() {
+    const navStore = useNav()
+    const url = computed(() => navStore.homeLink?.url)
+    return { url }
   }
 }
 </script>

@@ -3,13 +3,13 @@
     <button
       ref="wrapper"
       :class="[textWeigth, textSize, $_textColor]"
-      class="flex space-x-2 hover:text-secondary my-auto items-end"
+      class="flex space-x-2 xl:hover:text-secondary my-auto items-end"
       @click="$emit('clicked'), toggle()"
     >
       <BaseHtmlParser :content="text" tag="span" />
       <div ref="icon">
-        <IconChevronUp v-if="!clickedButton && !isXl" />
-        <IconChevronDown v-if="clickedButton || isXl" />
+        <IconChevronUp v-if="clickedButton && !isXl" />
+        <IconChevronDown v-if="!clickedButton || isXl" />
       </div>
     </button>
     <div v-if="clickedButton"><slot /></div>

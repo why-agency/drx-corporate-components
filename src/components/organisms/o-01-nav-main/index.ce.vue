@@ -41,8 +41,7 @@
     <BaseLogo
       class="justify-self-center mx-20"
       :fill="$_logoColor"
-      :home-link="homeLink"
-      :class="{ 'w-20 h-8': scrollPosition }"
+      :is-small="scrollPosition && !isOverlayVisible"
     />
     <div class="flex-1 flex-col !mr-9">
       <div
@@ -121,7 +120,19 @@
       :class="scrollPosition ? 'top-[58px]' : 'top-[109px]'"
     />
   </section>
-  <div class="h-[1400px] w-full bg-primary absolute top-0"></div>
+  <o-01-NavMainMobile
+    v-else
+    :theme="$_theme"
+    :textColor="$_textColor"
+    :logoColor="$_logoColor"
+    :buttonColor="buttonColor"
+    :locations="locations"
+    :career="dcareerLogin"
+    :langNav="langNav"
+    :dropdowns="menuMain"
+    :jobmarket="jobmarket"
+    :social="socialFooter"
+  />
 </template>
 
 <script setup>
@@ -143,8 +154,8 @@ import DropdownDesktop from '../../organisms/o-01-nav-main/dropdown-desktop.vue'
 import IconSearch from '../../icons/Search.vue'
 import IconWorld from '../../icons/world.vue'
 import LoginButton from '../../organisms/o-01-nav-main/login.vue'
+import O01NavMainMobile from '../../organisms/o-01-nav-main/mobile.vue'
 import SearchOverlay from './search-overlay.vue'
-
 import { useNav } from '../../../stores/nav'
 import { useSearch } from '../../../stores/search'
 import { useScrollLock } from '../../../composables/useScrollLock.ts'
@@ -242,6 +253,7 @@ onMounted(() => {
     scrollPosition.value = window.scrollY
   })
   setSearchData()
+  setHomeLink()
 })
 
 const $_theme = computed(() => ({
@@ -258,6 +270,8 @@ const setSearchData = () => {
     searchStore.setSearchData(searchData.value)
   }
 }
+
+const setHomeLink = () => (navStore.homeLink = homeLink.value)
 
 const subscribedActions = ['setSearchText']
 const unsubscribe = searchStore.$onAction(({ name, after }) => {
