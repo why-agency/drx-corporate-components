@@ -20,9 +20,11 @@
     </div>
     <!-- END TOP NAVI -->
 
+    <!-- START DROPDOWN MOBILE -->
     <div v-if="openMenuStatus" class="bg-white !px-6 h-max w-full">
       <div class="flex w-full justify-between !pt-4">
         <UseDynamicAction
+          v-if="locations && locations.url"
           :to="locations.url"
           :tag="'a'"
           :target="locations.target"
@@ -31,6 +33,7 @@
         >
           <IconWorld class="!mt-1" />
           <BaseText
+            v-if="locations.link"
             :text="locations.link"
             class="text-body3"
             :animate="false"
@@ -39,6 +42,7 @@
         <MLanguageSwitch :languages="langNav" :color="$_textColor" />
       </div>
       <LoginButton
+        v-if="career"
         :data="career"
         :class="$_textColor"
         class="mt-2.5 !font-normal items-end"
@@ -72,10 +76,12 @@
         Job finden
       </BaseAction>-->
       <BaseHtmlParser
+        v-if="social"
         :content="social"
         class="newSocialIcons flex justify-center pb-9"
       />
     </div>
+    <!-- END DROPDOWN MOBILE -->
   </section>
 </template>
 
