@@ -61,22 +61,20 @@
 
 <script>
 import UseDynamicAction from '../organisms/UseDynamicAction.vue'
+import { useNav } from '../../stores/nav'
+import { computed } from 'vue'
 export default {
   components: { UseDynamicAction },
   props: {
     fill: {
       type: String,
       default: '#1E2728'
-    },
-    homeLink: {
-      type: Object,
-      default: ''
     }
   },
-  computed: {
-    url() {
-      return this.homeLink?.url
-    }
+  setup() {
+    const navStore = useNav()
+    const url = computed(() => navStore.homeLink?.url)
+    return { url }
   }
 }
 </script>

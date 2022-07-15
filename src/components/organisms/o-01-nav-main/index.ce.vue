@@ -41,7 +41,6 @@
     <BaseLogo
       class="justify-self-center mx-20"
       :fill="$_logoColor"
-      :home-link="homeLink"
       :class="{ 'w-20 h-8': scrollPosition }"
     />
     <div class="flex-1 flex-col !mr-9">
@@ -254,6 +253,7 @@ onMounted(() => {
     scrollPosition.value = window.scrollY
   })
   setSearchData()
+  setHomeLink()
 })
 
 const $_theme = computed(() => ({
@@ -270,6 +270,8 @@ const setSearchData = () => {
     searchStore.setSearchData(searchData.value)
   }
 }
+
+const setHomeLink = () => (navStore.homeLink = homeLink.value)
 
 const subscribedActions = ['setSearchText']
 const unsubscribe = searchStore.$onAction(({ name, after }) => {
