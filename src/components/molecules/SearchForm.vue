@@ -5,7 +5,7 @@
       :class="{
         'border-secondary dark:border-secondary': isFocused
       }"
-      :action="formAction"
+      @submit.prevent="redirectToSearch"
     >
       <div class="!mr-5 lg:!mr-8"><IconSearch class="w-5 lg:w-8 lg:h-8" /></div>
       <input
@@ -79,15 +79,23 @@ export default {
     })
     const inputPlaceholder = computed(() => searchStore.inputPlaceholder)
 
-    const formAction = computed(
+    const searchQuery = computed(
       () => `${searchStore.formAction}?tx_solr[q]=${searchText.value}`
     )
 
     const clearSearch = () => searchStore.setSearchText('')
 
-    return { isLg, searchText, clearSearch, inputPlaceholder, formAction }
+    const redirectToSearch = () =>
+      window.location.replace(`${searchStore.baseUrl}${searchQuery.value}`)
+
+    return { isLg, searchText, clearSearch, inputPlaceholder, redirectToSearch }
   },
-  components: { IconSearch, IconArrowRightSmall, IconClose, BaseButtonIcon },
+  components: {
+    IconSearch,
+    IconArrowRightSmall,
+    IconClose,
+    BaseButtonIcon
+  },
   data() {
     return {
       isFocused: false
@@ -101,6 +109,12 @@ export default {
         },
         focus: () => {
           this.isFocused = true
+        },
+        keydown: event => {
+          if (event.key === 'Enter') {
+            event.preventDefault()
+            this.redirectToSearch()
+          }
         }
       }
     }

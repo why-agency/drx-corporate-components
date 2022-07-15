@@ -42,5 +42,5 @@ const props = defineProps({
   }
 })
 
-const to = props.data.url
+const to = props.data?.url
 </script>
