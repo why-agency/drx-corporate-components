@@ -1,5 +1,8 @@
 <template>
-  <div ref="overlay" class="absolute left-0 w-full bg-white h-[698px] !pt-9">
+  <div
+    ref="overlay"
+    class="absolute left-0 w-full bg-white h-[calc(100%-56px)] xl:h-[698px] !pt-9"
+  >
     <div class="frame-content-default pt-12">
       <SearchForm />
       <!-- START RESULTS -->
