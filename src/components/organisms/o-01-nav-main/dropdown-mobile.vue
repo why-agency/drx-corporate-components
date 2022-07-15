@@ -2,12 +2,12 @@
   <section>
     <!-- links -->
     <dropdown-column
-      class="border-r-0 mt-8 !h-max"
+      class="border-r-0 !mt-8 !h-max"
       v-if="data.children.length"
       :items="data.children"
     />
     <!-- start additional text -->
-    <div class="w-full mt-8 text-body2">
+    <div class="w-full !mt-8 text-body2">
       <additional-text
         v-if="data.additionalNaviHeader1 || data.additionalNaviText1"
         :header="data.additionalNaviHeader1"
