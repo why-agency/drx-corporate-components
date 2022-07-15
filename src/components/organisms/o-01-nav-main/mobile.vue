@@ -171,6 +171,9 @@ function toggleMenu() {
     searchStore.toggleSearchOverlay(false)
   } else {
     openMenuStatus.value = !openMenuStatus.value
+    if (activeCategory.value) {
+      navStore.setActiveCategory(null)
+    }
   }
 }
 
@@ -185,7 +188,7 @@ const navStore = useNav()
 const activeCategory = computed(() => navStore.activeCategory)
 const changeStatus = content => {
   navStore.setActiveCategory(
-    navStore.activeCategory === content ? null : content
+    activeCategory.value?.title === content?.title ? null : content
   )
 }
 
