@@ -75,7 +75,11 @@
             >
               <IconSearch />
             </ButtonIcon>
-            <LoginButton :data="dcareerLogin" :class="$_textColor" />
+            <LoginButton
+              v-if="dcareerLogin"
+              :data="dcareerLogin"
+              :class="$_textColor"
+            />
             <!-- TO DO -->
             <!-- <BaseAction
               v-if="jobmarket && jobmarket.url"
@@ -95,6 +99,7 @@
       >
         <MLanguageSwitch :languages="langNav" :color="$_textColor" />
         <UseDynamicAction
+          v-if="locations && locations.url"
           :to="locations.url"
           :tag="'a'"
           :target="locations.target"
@@ -103,6 +108,7 @@
         >
           <IconWorld class="mt-1" />
           <BaseText
+            v-if="locations.link"
             :text="locations.link"
             class="text-body3"
             :animate="false"
