@@ -109,7 +109,20 @@
       </div>
     </div>
   </section>
-  <div class="h-[1400px] w-full bg-primary absolute top-0"></div>
+  <Mobile
+    v-else
+    class="absolute z-50"
+    :theme="$_theme"
+    :textColor="$_textColor"
+    :logoColor="$_logoColor"
+    :locations="locations"
+    :career="dcareerLogin"
+    :langNav="langNav"
+    :dropdowns="menuMain"
+    :jobmarket="jobmarket"
+    :social="socialFooter"
+  />
+  <div class="h-[900px] w-full bg-primary absolute top-0"></div>
 </template>
 
 <script setup>
@@ -131,6 +144,7 @@ import DropdownDesktop from '../../organisms/o-01-nav-main/dropdown-desktop.vue'
 import IconSearch from '../../icons/Search.vue'
 import IconWorld from '../../icons/world.vue'
 import LoginButton from '../../organisms/o-01-nav-main/login.vue'
+import Mobile from '../../organisms/o-01-nav-main/mobile.vue'
 import { useNav } from '../../../stores/nav'
 
 const props = defineProps({
