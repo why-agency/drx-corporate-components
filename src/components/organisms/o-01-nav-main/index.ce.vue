@@ -2,7 +2,7 @@
   <section
     v-if="isXl"
     ref="wrapper"
-    class="w-full flex bg-gradient-to-b fixed z-50 !pt-6 !pb-8"
+    class="w-full flex bg-gradient-to-b fixed top-0 z-50 !pt-6 !pb-8"
     :class="$_theme"
   >
     <div class="flex-1 flex-col !ml-9">
