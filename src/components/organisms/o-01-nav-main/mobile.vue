@@ -1,18 +1,25 @@
 <template>
   <section class="w-screen h-screen overflow-y-scroll fixed z-50">
+    <!-- START TOP NAVI -->
     <div
       :class="$_theme"
       class="w-full bg-gradient-to-b pt-3 px-6 flex justify-between h-14"
     >
-      <IconMenu
-        v-if="!openMenuStatus"
-        :class="$_textColor"
+      <BaseButtonIcon
+        variant="transparent"
+        :color="buttonColor"
         @click="toggleMenu"
-      />
-      <IconClose v-else :class="$_textColor" @click="toggleMenu" />
+      >
+        <IconMenu v-if="!openMenuStatus" />
+        <IconClose v-else />
+      </BaseButtonIcon>
       <BaseLogo class="h-8" :fill="$_logoColor" />
-      <IconSearch />
+      <BaseButtonIcon variant="transparent" :color="buttonColor">
+        <IconSearch />
+      </BaseButtonIcon>
     </div>
+    <!-- END TOP NAVI -->
+
     <div v-if="openMenuStatus" class="bg-white px-6 h-max w-full">
       <div class="flex w-full justify-between pt-4">
         <UseDynamicAction
@@ -49,7 +56,10 @@
           @clicked="changeStatus(dropdown)"
           class="!py-8 border-b border-tertiary"
         >
-          <DropdownMobile v-if="activeCategory && !close" :data="activeCategory" />
+          <DropdownMobile
+            v-if="activeCategory && !close"
+            :data="activeCategory"
+          />
         </BaseDropdown>
       </div>
       <BaseAction
@@ -85,6 +95,7 @@ import IconClose from '../../icons/Close.vue'
 import LoginButton from '../../organisms/o-01-nav-main/login.vue'
 import BaseHtmlParser from '../../base/HtmlParser.vue'
 import DropdownMobile from '../../organisms/o-01-nav-main/dropdown-mobile.vue'
+import BaseButtonIcon from '../../base/ButtonIcon.vue'
 import { useNav } from '../../../stores/nav'
 
 const props = defineProps({
@@ -99,6 +110,10 @@ const props = defineProps({
   logoColor: {
     type: String,
     default: 'white'
+  },
+  buttonColor: {
+    type: String,
+    default: 'dark'
   },
   locations: {
     type: Object,

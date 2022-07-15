@@ -126,6 +126,7 @@
     :theme="$_theme"
     :textColor="$_textColor"
     :logoColor="$_logoColor"
+    :buttonColor="buttonColor"
     :locations="locations"
     :career="dcareerLogin"
     :langNav="langNav"
