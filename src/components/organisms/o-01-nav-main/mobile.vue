@@ -86,7 +86,7 @@
 </template>
 
 <script setup>
-import { ref, computed, toRefs, onMounted } from 'vue'
+import { ref, computed, watch } from 'vue'
 import MLanguageSwitch from '../../molecules/LanguageSwitch.vue'
 import ButtonIcon from '../../base/ButtonIcon.vue'
 import BaseLogo from '../../base/Logo.vue'
@@ -103,6 +103,7 @@ import BaseHtmlParser from '../../base/HtmlParser.vue'
 import DropdownMobileContent from '../../organisms/o-01-nav-main/dropdown-mobile-content.vue'
 import BaseButtonIcon from '../../base/ButtonIcon.vue'
 import { useNav } from '../../../stores/nav'
+import { useScrollLock } from '../../../composables/useScrollLock.ts'
 
 const props = defineProps({
   theme: {
@@ -172,4 +173,11 @@ const $_textColor = computed(() => {
 const $_logoColor = computed(() => {
   return openMenuStatus.value ? '#1E2728' : props.logoColor
 })
+
+// scroll lock
+const isLocked = useScrollLock()
+watch(
+  openMenuStatus,
+  openMenuStatus => (isLocked.value = !!openMenuStatus)
+)
 </script>
