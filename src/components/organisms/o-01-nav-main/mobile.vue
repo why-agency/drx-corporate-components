@@ -1,9 +1,12 @@
 <template>
-  <section class="w-screen h-screen overflow-y-scroll fixed z-50">
+  <section
+    class="w-screen h-screen overflow-y-scroll fixed z-50"
+    :class="{ 'bg-white': isSearchOverlayVisible || openMenuStatus }"
+  >
     <!-- START TOP NAVI -->
     <div
-      :class="$_theme"
       class="w-full bg-gradient-to-b !pt-3 !px-6 flex justify-between h-14"
+      :class="$_theme"
     >
       <BaseButtonIcon
         variant="transparent"
@@ -170,7 +173,6 @@ function toggleMenu() {
     openMenuStatus.value = !openMenuStatus.value
   }
 }
-
 
 // toggle search overlay
 const openSearchOverlay = () => {
