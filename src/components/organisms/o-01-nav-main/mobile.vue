@@ -7,14 +7,14 @@
     >
       <BaseButtonIcon
         variant="transparent"
-        :color="buttonColor"
+        :color="$_buttonColor"
         @click="toggleMenu"
       >
         <IconMenu v-if="!openMenuStatus" />
         <IconClose v-else />
       </BaseButtonIcon>
       <BaseLogo class="h-8" :fill="$_logoColor" />
-      <BaseButtonIcon variant="transparent" :color="buttonColor">
+      <BaseButtonIcon variant="transparent" :color="$_buttonColor">
         <IconSearch />
       </BaseButtonIcon>
     </div>
@@ -60,10 +60,7 @@
           @clicked="changeStatus(dropdown)"
           class="!py-8 border-b border-tertiary"
         >
-          <DropdownMobileContent
-            v-if="activeCategory"
-            :data="activeCategory"
-          />
+          <DropdownMobileContent v-if="activeCategory" :data="activeCategory" />
         </BaseDropdown>
       </div>
       <!--<BaseAction
@@ -173,11 +170,11 @@ const $_textColor = computed(() => {
 const $_logoColor = computed(() => {
   return openMenuStatus.value ? '#1E2728' : props.logoColor
 })
+const $_buttonColor = computed(() =>
+  openMenuStatus.value ? 'primary' : props.buttonColor
+)
 
 // scroll lock
 const isLocked = useScrollLock()
-watch(
-  openMenuStatus,
-  openMenuStatus => (isLocked.value = !!openMenuStatus)
-)
+watch(openMenuStatus, openMenuStatus => (isLocked.value = !!openMenuStatus))
 </script>
