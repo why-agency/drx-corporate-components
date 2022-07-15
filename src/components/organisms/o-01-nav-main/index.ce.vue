@@ -41,6 +41,7 @@
     <BaseLogo
       class="justify-self-center mx-20"
       :fill="$_logoColor"
+      :home-link="homeLink"
       :class="{ 'w-20 h-8': scrollPosition }"
     />
     <div class="flex-1 flex-col !mr-9">
