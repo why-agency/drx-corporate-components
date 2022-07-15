@@ -1,6 +1,6 @@
 <template>
   <section
-    class="hidden xl:block absolute left-0 w-full bg-white h-[558px] !pt-9"
+    class="hidden xl:block absolute left-0 w-full bg-white h-[558px] !pt-9 shadow-lg"
   >
     <div class="frame-content-default">
       <!-- start headline -->

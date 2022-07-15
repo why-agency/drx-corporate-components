@@ -56,9 +56,9 @@
         :iconWidth="19"
         :iconHeigth="19"
       />
-      <div class="!mb-8">
+      <div v-if="dropdownsWithChildren" class="!mb-8">
         <BaseDropdown
-          v-for="dropdown in dropdowns"
+          v-for="dropdown in dropdownsWithChildren"
           :key="dropdown"
           :text="dropdown.title"
           :link="dropdown.link"
@@ -171,6 +171,9 @@ function toggleMenu() {
     searchStore.toggleSearchOverlay(false)
   } else {
     openMenuStatus.value = !openMenuStatus.value
+    if (activeCategory.value) {
+      navStore.setActiveCategory(null)
+    }
   }
 }
 
@@ -185,7 +188,7 @@ const navStore = useNav()
 const activeCategory = computed(() => navStore.activeCategory)
 const changeStatus = content => {
   navStore.setActiveCategory(
-    navStore.activeCategory === content ? null : content
+    activeCategory.value?.title === content?.title ? null : content
   )
 }
 
@@ -206,4 +209,8 @@ const $_buttonColor = computed(() =>
 // scroll lock
 const isLocked = useScrollLock()
 watch(openMenuStatus, openMenuStatus => (isLocked.value = !!openMenuStatus))
+
+const dropdownsWithChildren = computed(() =>
+  props.dropdowns?.filter(dropdown => dropdown.children)
+)
 </script>
