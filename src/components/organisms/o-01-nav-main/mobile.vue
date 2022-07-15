@@ -60,8 +60,8 @@
           @clicked="changeStatus(dropdown)"
           class="!py-8 border-b border-tertiary"
         >
-          <DropdownMobile
-            v-if="activeCategory && !close"
+          <DropdownMobileContent
+            v-if="activeCategory"
             :data="activeCategory"
           />
         </BaseDropdown>
@@ -100,7 +100,7 @@ import IconMenu from '../../icons/Menu.vue'
 import IconClose from '../../icons/Close.vue'
 import LoginButton from '../../organisms/o-01-nav-main/login.vue'
 import BaseHtmlParser from '../../base/HtmlParser.vue'
-import DropdownMobile from '../../organisms/o-01-nav-main/dropdown-mobile.vue'
+import DropdownMobileContent from '../../organisms/o-01-nav-main/dropdown-mobile-content.vue'
 import BaseButtonIcon from '../../base/ButtonIcon.vue'
 import { useNav } from '../../../stores/nav'
 
@@ -146,20 +146,23 @@ const props = defineProps({
     default: ''
   }
 })
+
+// toggle overlay
 const openMenuStatus = ref(false)
 function toggleMenu() {
   openMenuStatus.value = !openMenuStatus.value
 }
 
+// toggle nav items dropdowns
 const navStore = useNav()
-const close = ref(false)
 const activeCategory = computed(() => navStore.activeCategory)
 const changeStatus = content => {
   navStore.setActiveCategory(
     navStore.activeCategory === content ? null : content
   )
-  close.value = navStore.activeCategory === content ? false : true
 }
+
+// styles
 const $_theme = computed(() => {
   return openMenuStatus.value ? 'bg-white text-primary' : props.theme
 })
