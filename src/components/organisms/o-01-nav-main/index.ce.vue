@@ -41,7 +41,7 @@
     <BaseLogo
       class="justify-self-center mx-20"
       :fill="$_logoColor"
-      :class="{ 'w-20 h-8': scrollPosition }"
+      :is-small="scrollPosition && !isOverlayVisible"
     />
     <div class="flex-1 flex-col !mr-9">
       <div

@@ -16,7 +16,7 @@
         <IconMenu v-if="!openMenuStatus && !isSearchOverlayVisible" />
         <IconClose v-else />
       </BaseButtonIcon>
-      <BaseLogo class="h-8" :fill="$_logoColor" />
+      <BaseLogo :fill="$_logoColor" is-small />
       <BaseButtonIcon
         variant="transparent"
         :color="$_buttonColor"

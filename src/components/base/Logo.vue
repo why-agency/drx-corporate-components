@@ -6,6 +6,7 @@
       viewBox="0 0 145 62"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      :class="{ 'h-8': isSmall }"
     >
       <g clip-path="url(#clip0_3073_1404)">
         <path
@@ -69,6 +70,10 @@ export default {
     fill: {
       type: String,
       default: '#1E2728'
+    },
+    isSmall: {
+      type: Boolean,
+      default: false
     }
   },
   setup() {
