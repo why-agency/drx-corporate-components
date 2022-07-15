@@ -134,7 +134,7 @@ import {
   useBreakpoints,
   breakpointsTailwind
 } from '@vueuse/core'
-import { ref, computed, toRefs, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, toRefs, onMounted, onBeforeUnmount, watch } from 'vue'
 import MLanguageSwitch from '../../molecules/LanguageSwitch.vue'
 import ButtonIcon from '../../base/ButtonIcon.vue'
 import BaseLogo from '../../base/Logo.vue'
@@ -151,6 +151,7 @@ import O01NavMainMobile from '../../organisms/o-01-nav-main/mobile.vue'
 import SearchOverlay from './search-overlay.vue'
 import { useNav } from '../../../stores/nav'
 import { useSearch } from '../../../stores/search'
+import { useScrollLock } from '../../../composables/useScrollLock.ts'
 
 const props = defineProps({
   data: {
@@ -272,4 +273,11 @@ const unsubscribe = searchStore.$onAction(({ name, after }) => {
   })
 })
 onBeforeUnmount(() => unsubscribe())
+
+// scroll lock
+const isLocked = useScrollLock()
+watch(
+  isOverlayVisible,
+  isOverlayVisible => (isLocked.value = !!isOverlayVisible)
+)
 </script>

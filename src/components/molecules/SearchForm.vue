@@ -78,7 +78,10 @@ export default {
       }, 500)
     })
     const inputPlaceholder = computed(() => searchStore.inputPlaceholder)
-    const formAction = computed(() => searchStore.formAction)
+
+    const formAction = computed(
+      () => `${searchStore.formAction}?tx_solr[q]=${searchText.value}`
+    )
 
     const clearSearch = () => searchStore.setSearchText('')
 
