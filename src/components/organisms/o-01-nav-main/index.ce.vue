@@ -70,6 +70,7 @@
               variant="transparent"
               :color="buttonColor"
               class="self-center hover:text-secondary"
+              @click="openSearchOverlay"
             >
               <IconSearch />
             </ButtonIcon>
@@ -108,6 +109,10 @@
         </UseDynamicAction>
       </div>
     </div>
+    <SearchOverlay
+      v-if="isSearchOverlayVisible"
+      :class="scrollPosition ? 'top-[58px]' : 'top-[109px]'"
+    />
   </section>
   <div class="h-[1400px] w-full bg-primary absolute top-0"></div>
 </template>
@@ -118,7 +123,7 @@ import {
   useBreakpoints,
   breakpointsTailwind
 } from '@vueuse/core'
-import { ref, computed, toRefs, onMounted } from 'vue'
+import { ref, computed, toRefs, onMounted, onBeforeUnmount } from 'vue'
 import MLanguageSwitch from '../../molecules/LanguageSwitch.vue'
 import ButtonIcon from '../../base/ButtonIcon.vue'
 import BaseLogo from '../../base/Logo.vue'
@@ -131,7 +136,10 @@ import DropdownDesktop from '../../organisms/o-01-nav-main/dropdown-desktop.vue'
 import IconSearch from '../../icons/Search.vue'
 import IconWorld from '../../icons/world.vue'
 import LoginButton from '../../organisms/o-01-nav-main/login.vue'
+import SearchOverlay from './search-overlay.vue'
+
 import { useNav } from '../../../stores/nav'
+import { useSearch } from '../../../stores/search'
 
 const props = defineProps({
   data: {
@@ -155,8 +163,21 @@ const {
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const isXl = breakpoints.greater('xl')
 
+// store
 const navStore = useNav()
 const activeCategory = computed(() => navStore.activeCategory)
+const searchStore = useSearch()
+const isSearchOverlayVisible = computed(
+  () => searchStore.isSearchOverlayVisible
+)
+const openSearchOverlay = () => {
+  navStore.setActiveCategory(null)
+  searchStore.toggleSearchOverlay(true)
+}
+
+const isOverlayVisible = computed(
+  () => activeCategory.value || isSearchOverlayVisible.value
+)
 
 function changeStatus(content) {
   navStore.setActiveCategory(content)
@@ -167,13 +188,15 @@ const wrapper = ref(null)
 onClickOutside(wrapper, () => navStore.setActiveCategory(null))
 
 const $_textColor = computed(() => {
-  return theme.value === 'light' || scrollPosition.value || activeCategory.value
+  return theme.value === 'light' ||
+    scrollPosition.value ||
+    isOverlayVisible.value
     ? 'text-primary'
     : 'text-white'
 })
 
 const buttonColor = computed(() =>
-  theme.value === 'light' || scrollPosition.value || activeCategory.value
+  theme.value === 'light' || scrollPosition.value || isOverlayVisible.value
     ? 'primary'
     : 'white'
 )
@@ -183,16 +206,18 @@ const $_breadcrumbsColor = computed(() => {
 })
 
 const $_logoColor = computed(() => {
-  return theme.value === 'light' || scrollPosition.value || activeCategory.value
+  return theme.value === 'light' ||
+    scrollPosition.value ||
+    isOverlayVisible.value
     ? '#1E2728'
     : 'white'
 })
 
 const $_borderColor = computed(() => ({
   'border-b border-gradient':
-    theme.value === 'light' && !scrollPosition.value && !activeCategory.value,
+    theme.value === 'light' && !scrollPosition.value && !isOverlayVisible.value,
   'border-b border-white':
-    theme.value !== 'light' && !scrollPosition.value && !activeCategory.value
+    theme.value !== 'light' && !scrollPosition.value && !isOverlayVisible.value
 }))
 
 const firstDropdowns = computed(() =>
@@ -208,14 +233,32 @@ onMounted(() => {
   window.addEventListener('scroll', function () {
     scrollPosition.value = window.scrollY
   })
+  setSearchData()
 })
 
 const $_theme = computed(() => ({
   'from-white bg-opacity-30 text-primary':
-    theme.value === 'light' && !scrollPosition.value && !activeCategory.value,
+    theme.value === 'light' && !scrollPosition.value && !isOverlayVisible.value,
   'from-black bg-opacity-60 text-white':
-    theme.value !== 'light' && !scrollPosition.value && !activeCategory.value,
+    theme.value !== 'light' && !scrollPosition.value && !isOverlayVisible.value,
   'bg-white shadow-lg pt-3 pb-2': scrollPosition.value,
-  'bg-white shadow-lg': activeCategory.value
+  'bg-white shadow-lg': isOverlayVisible.value
 }))
+
+const setSearchData = () => {
+  if (searchData.value) {
+    searchStore.setSearchData(searchData.value)
+  }
+}
+
+const subscribedActions = ['setSearchText']
+const unsubscribe = searchStore.$onAction(({ name, after }) => {
+  after(async () => {
+    if (subscribedActions.includes(name)) {
+      await searchStore.getSearchResults()
+      await searchStore.getTotalSearchResultsCount()
+    }
+  })
+})
+onBeforeUnmount(() => unsubscribe())
 </script>
