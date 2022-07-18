@@ -8,8 +8,8 @@
     >
       <BaseHtmlParser :content="text" tag="span" />
       <div ref="icon">
-        <IconChevronUp v-if="clickedButton && !isXl && showChevron" />
-        <IconChevronDown v-if="(!clickedButton || isXl) && showChevron" />
+        <IconChevronUp v-if="clickedButton && !isXl" />
+        <IconChevronDown v-if="!clickedButton || !isXl" />
       </div>
     </button>
     <div v-if="clickedButton"><slot /></div>
@@ -54,10 +54,6 @@ const props = defineProps({
   link: {
     type: String,
     default: ''
-  },
-  showChevron: {
-    type: Boolean,
-    default: true
   }
 })
 

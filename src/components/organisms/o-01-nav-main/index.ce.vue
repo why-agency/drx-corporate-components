@@ -17,7 +17,6 @@
           :link="dropdown.link"
           :color="$_textColor"
           isNav
-          :showChevron="false"
           @clicked="changeStatus(dropdown)"
         >
           <DropdownDesktop
@@ -56,7 +55,6 @@
           :link="dropdown.link"
           :color="$_textColor"
           isNav
-          :showChevron="false"
           @clicked="changeStatus(dropdown)"
         >
           <DropdownDesktop
