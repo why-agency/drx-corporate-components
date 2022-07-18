@@ -21,7 +21,7 @@
       </UseDynamicAction>
       <!-- end headline -->
 
-      <div class="flex mt-12 justify-between">
+      <div class="flex mt-12">
         <!-- start links -->
         <div class="flex">
           <!-- Left links column -->
