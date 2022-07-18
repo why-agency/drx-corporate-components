@@ -8,8 +8,8 @@
     >
       <BaseHtmlParser :content="text" tag="span" />
       <div ref="icon">
-        <IconChevronUp v-if="clickedButton && !isXl" />
-        <IconChevronDown v-if="!clickedButton || isXl" />
+        <IconChevronUp v-if="clickedButton && (!isXl || !isNav)" />
+        <IconChevronDown v-if="!clickedButton && (!isXl || !isNav)" />
       </div>
     </button>
     <div v-if="clickedButton"><slot /></div>
