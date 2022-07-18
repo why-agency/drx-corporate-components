@@ -50,7 +50,7 @@
         />
         <div
           v-if="cards && cards[0]"
-          class="z-50 flex flex-col lg:flex-row w-full border-t-[1px] border-sand border-opacity-20 !pt-7 pb-16 space-y-16 lg:space-x-4 lg:space-y-0 2xl:space-x-10 lg:justify-between"
+          class="z-30 flex flex-col lg:flex-row w-full border-t-[1px] border-sand border-opacity-20 !pt-7 pb-16 space-y-16 lg:space-x-4 lg:space-y-0 2xl:space-x-10 lg:justify-between"
           :class="$_marginTop"
         >
           <O0607KpiFullscreenKpiFact

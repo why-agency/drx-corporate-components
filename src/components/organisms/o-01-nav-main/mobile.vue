@@ -1,7 +1,7 @@
 <template>
   <section
-    class="w-screen h-screen overflow-y-scroll fixed z-50 top-0"
-    :class="{ 'bg-white': isSearchOverlayVisible || openMenuStatus }"
+    class="w-screen overflow-y-scroll fixed z-50 top-0"
+    :class="{ 'bg-white h-screen': isSearchOverlayVisible || openMenuStatus }"
   >
     <!-- START TOP NAVI -->
     <div

@@ -261,7 +261,7 @@ const $_theme = computed(() => ({
     theme.value === 'light' && !scrollPosition.value && !isOverlayVisible.value,
   'from-black bg-opacity-60 text-white':
     theme.value !== 'light' && !scrollPosition.value && !isOverlayVisible.value,
-  'bg-white shadow-lg pt-3 pb-2': scrollPosition.value,
+  'bg-white shadow-lg pt-[12px] pb-[12px]': scrollPosition.value,
   'bg-white shadow-lg': isOverlayVisible.value
 }))
 

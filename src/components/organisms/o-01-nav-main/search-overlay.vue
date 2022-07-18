@@ -1,7 +1,7 @@
 <template>
   <div
     ref="overlay"
-    class="absolute left-0 w-full bg-white min-h-screen h-full xl:min-h-[auto] xl:h-[698px] !pt-9"
+    class="absolute left-0 w-full bg-white min-h-screen h-full xl:min-h-[auto] xl:h-[698px] !pt-9 shadow-lg"
   >
     <div class="frame-content-default pt-12 !pb-16 lg:!pb-0">
       <SearchForm />
