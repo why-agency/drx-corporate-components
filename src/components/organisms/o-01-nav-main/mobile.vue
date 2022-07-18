@@ -1,11 +1,11 @@
 <template>
   <section
-    class="w-screen h-screen overflow-y-scroll fixed z-50 top-0"
+    class="w-screen h-screen overflow-y-scroll fixed z-50"
     :class="{ 'bg-white': isSearchOverlayVisible || openMenuStatus }"
   >
     <!-- START TOP NAVI -->
     <div
-      class="w-full bg-gradient-to-b !py-3 !px-6 flex justify-between h-14 items-center"
+      class="w-full bg-gradient-to-b !pt-3 !pb-3 !px-6 flex justify-between h-14"
       :class="$_theme"
     >
       <BaseButtonIcon
