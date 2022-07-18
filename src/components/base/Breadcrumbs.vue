@@ -49,7 +49,7 @@ export default {
     },
     internalCrumbs() {
       if (this.breadcrumbs && this.breadcrumbs.length) {
-        return [this.home, ...this.breadcrumbs.slice(-1)]
+        return [this.home, ...this.breadcrumbs]
       }
       return
     },
