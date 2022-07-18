@@ -5,8 +5,7 @@ setActivePinia(createPinia())
 export const useNav = defineStore('nav', {
   state: () => {
     return {
-      activeCategory: null,
-      homeLink: ''
+      activeCategory: null
     }
   },
   actions: {

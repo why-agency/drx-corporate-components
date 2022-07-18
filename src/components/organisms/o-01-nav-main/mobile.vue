@@ -16,7 +16,7 @@
         <IconMenu v-if="!openMenuStatus && !isSearchOverlayVisible" />
         <IconClose v-else />
       </BaseButtonIcon>
-      <BaseLogo :fill="$_logoColor" is-small />
+      <BaseLogo :fill="$_logoColor" is-small :home-link="homeLink" />
       <BaseButtonIcon
         variant="transparent"
         :color="$_buttonColor"
@@ -155,6 +155,10 @@ const props = defineProps({
   social: {
     type: String,
     default: ''
+  },
+  homeLink: {
+    type: Object,
+    default: null
   }
 })
 

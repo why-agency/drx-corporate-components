@@ -1,5 +1,5 @@
 <template>
-  <UseDynamicAction :to="url" tag="a">
+  <UseDynamicAction :to="url">
     <svg
       width="145"
       height="62"
@@ -60,26 +60,23 @@
   </UseDynamicAction>
 </template>
 
-<script>
+<script setup>
 import UseDynamicAction from '../organisms/UseDynamicAction.vue'
-import { useNav } from '../../stores/nav'
 import { computed } from 'vue'
-export default {
-  components: { UseDynamicAction },
-  props: {
-    fill: {
-      type: String,
-      default: '#1E2728'
-    },
-    isSmall: {
-      type: Boolean,
-      default: false
-    }
+const props = defineProps({
+  fill: {
+    type: String,
+    default: '#1E2728'
   },
-  setup() {
-    const navStore = useNav()
-    const url = computed(() => navStore.homeLink?.url)
-    return { url }
+  isSmall: {
+    type: Boolean,
+    default: false
+  },
+  homeLink: {
+    type: Object,
+    default: null
   }
-}
+})
+
+const url = computed(() => props.homeLink?.url)
 </script>

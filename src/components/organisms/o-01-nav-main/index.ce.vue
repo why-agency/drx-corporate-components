@@ -42,6 +42,7 @@
       class="justify-self-center mx-20"
       :fill="$_logoColor"
       :is-small="scrollPosition || isSearchOverlayVisible"
+      :home-link="homeLink"
     />
     <div class="flex-1 flex-col !mr-9">
       <div
@@ -132,6 +133,7 @@
     :dropdowns="menuMain"
     :jobmarket="jobmarket"
     :social="socialFooter"
+    :home-link="homeLink"
   />
 </template>
 
@@ -253,7 +255,6 @@ onMounted(() => {
     scrollPosition.value = window.scrollY
   })
   setSearchData()
-  setHomeLink()
 })
 
 const $_theme = computed(() => ({
@@ -270,8 +271,6 @@ const setSearchData = () => {
     searchStore.setSearchData(searchData.value)
   }
 }
-
-const setHomeLink = () => (navStore.homeLink = homeLink.value)
 
 const subscribedActions = ['setSearchText']
 const unsubscribe = searchStore.$onAction(({ name, after }) => {
