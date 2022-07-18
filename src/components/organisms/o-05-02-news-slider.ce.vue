@@ -1,5 +1,5 @@
 <template>
-  <section ref="container" class="bg-primary py-8 lg:pb-10">
+  <section ref="container" class="bg-primary py-8 lg:pb-10 -mt-2.5 lg_old:-mt-[170px]">
     <div
       v-if="header && header.text"
       :style="{ marginLeft: spacingX }"
