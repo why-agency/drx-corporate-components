@@ -1173,7 +1173,7 @@ export default {
               type: 'kpicard',
               content: {
                 name: 'Durchschnittliche Kundenbeziehung',
-                value: '3939',
+                value: '39',
                 unit: 'kg',
                 description:
                   'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
@@ -1185,7 +1185,7 @@ export default {
               type: 'kpicard',
               content: {
                 name: 'Weltneuheiten mit DRÄXLMAIER Produktenasdasd',
-                value: '9453',
+                value: '943',
                 unit: 'm2',
                 description:
                   'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'

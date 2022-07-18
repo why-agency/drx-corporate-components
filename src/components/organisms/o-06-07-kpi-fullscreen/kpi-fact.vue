@@ -32,6 +32,7 @@
       v-if="description"
       :text="description"
       size="text-body3"
+      class="lg:w-80 xl:w-[376px] 2xl:w-[472px]"
       :class="[color]"
     />
   </div>
