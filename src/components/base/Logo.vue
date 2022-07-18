@@ -1,5 +1,5 @@
 <template>
-  <UseDynamicAction :to="url">
+  <UseDynamicAction :to="url" tag="a">
     <svg
       width="145"
       height="62"

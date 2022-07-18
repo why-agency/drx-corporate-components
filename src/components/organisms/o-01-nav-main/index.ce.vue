@@ -93,7 +93,7 @@
         </div>
       </div>
       <div
-        v-if="!scrollPosition && !navStore.clicked"
+        v-if="!scrollPosition && !activeCategory"
         class="flex justify-end space-x-4 mt-3.5"
       >
         <MLanguageSwitch :languages="langNav" :color="$_textColor" />
