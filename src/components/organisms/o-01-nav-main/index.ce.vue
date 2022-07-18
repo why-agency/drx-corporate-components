@@ -2,7 +2,7 @@
   <section
     v-if="isXl"
     ref="wrapper"
-    class="w-full flex bg-gradient-to-b fixed top-0 z-50 !pt-6 !pb-8"
+    class="w-full flex bg-gradient-to-b fixed top-0 z-50"
     :class="$_theme"
   >
     <div class="flex-1 flex-col !ml-9">
@@ -263,6 +263,7 @@ const $_theme = computed(() => ({
   'from-black bg-opacity-60 text-white':
     theme.value !== 'light' && !scrollPosition.value && !isOverlayVisible.value,
   'bg-white shadow-lg !pt-[12px] !pb-[12px]': scrollPosition.value,
+  '!pt-6 !pb-8': !scrollPosition.value,
   'bg-white shadow-lg': isOverlayVisible.value
 }))
 
