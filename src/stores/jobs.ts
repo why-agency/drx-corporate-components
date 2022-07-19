@@ -33,7 +33,19 @@ export const useJobs = defineStore('jobs', {
       isRequestPending: true,
       hasRequestFailed: false,
       isFilterBarActive: false,
-      activeFilterView: null as Filter|null
+      activeFilterView: null as Filter|null,
+      labels: {
+        searchInputPlaceholder: '',
+        jobsCount: '',
+        collapsedFilterBar: '',
+        showResultsButton: '',
+        returnToFilters: '',
+        jobId: '',
+        location: '',
+        businessArea: '',
+        applyButton: '',
+        printButton: ''
+      }
     }
   },
   getters: {
@@ -88,6 +100,18 @@ export const useJobs = defineStore('jobs', {
 
       this.filters = filters.filter(filter => !ignoreList.includes(filter.name))
       this.filterOptions = formatFilterOptions(this.filters)
+    },
+    persistLabels(data: any) {
+      this.labels.searchInputPlaceholder = data.label_search_input_placeholder
+      this.labels.jobsCount = data.label_jobs_count
+      this.labels.collapsedFilterBar = data.label_collapsed_filter_bar
+      this.labels.showResultsButton = data.label_show_results_button
+      this.labels.returnToFilters = data.label_return_to_filters
+      this.labels.jobId = data.label_job_id
+      this.labels.location = data.label_location
+      this.labels.businessArea = data.label_business_area
+      this.labels.applyButton = data.label_apply_button
+      this.labels.printButton = data.label_print_button
     },
     clearFilterOption(filterOptionToClear: FilterOption) {
       this.activeFilterOptions = this.activeFilterOptions.filter(
