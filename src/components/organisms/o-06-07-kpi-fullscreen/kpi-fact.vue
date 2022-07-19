@@ -1,5 +1,5 @@
 <template>
-  <div class="space-y-3 lg:w-[25%]">
+  <div class="space-y-3 lg:w-80 xl:w-[376px] 2xl:w-[472px] lg:max-w-[25%]">
     <div
       class="flex flex-col xl:flex-row space-y-3 lg:space-y-0 lg:space-x-0 xl:space-x-3"
     >
