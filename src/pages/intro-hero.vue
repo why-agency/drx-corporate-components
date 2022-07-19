@@ -6,10 +6,10 @@
     <o-02-04-intro-hero :data="hero1" class="mb-64" />
   </section>
   <section>
-    <o-02-04-intro-hero :data="hero2" class="mb-64"/>
+    <o-02-04-intro-hero :data="hero2" class="mb-64" />
   </section>
-    <section>
-    <o-02-04-intro-hero :data="hero3" class="mb-64"/>
+  <section>
+    <o-02-04-intro-hero :data="hero3" class="mb-64" />
   </section>
 </template>
 
@@ -35,7 +35,8 @@ export default {
           },
           subheadline: 'Der Vorstand der DRÄXLMAIER Group',
           bodytext: {
-            text: 'Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdie.',
+            text:
+              'Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdie.',
             layout: '1'
           },
           media: [
@@ -250,6 +251,23 @@ export default {
                 icon: null,
                 color: 'white'
               }
+            },
+            {
+              id: 9,
+              pid: 9088,
+              type: 'a_01_01__action',
+              content: {
+                text: 'I am Button Number 4',
+                link: {
+                  type: 'page',
+                  url: '\/karriere',
+                  target: ' target="_top"',
+                  title: '',
+                  class: ''
+                },
+                icon: null,
+                color: 'white'
+              }
             }
           ]
         }
@@ -266,7 +284,8 @@ export default {
           },
           subheadline: '',
           bodytext: {
-            text: 'Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdie.',
+            text:
+              'Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdie.',
             layout: '1'
           },
           media: null,
@@ -304,7 +323,8 @@ export default {
           },
           subheadline: 'Der Vorstand der DRÄXLMAIER Group',
           bodytext: {
-            text: 'Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdie.',
+            text:
+              'Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdie.',
             layout: '1'
           },
           media: [
@@ -379,6 +399,23 @@ export default {
                 icon: null,
                 color: 'white'
               }
+            },
+            {
+              id: 9,
+              pid: 9088,
+              type: 'a_01_01__action',
+              content: {
+                text: 'I am Button Number 4',
+                link: {
+                  type: 'page',
+                  url: '\/karriere',
+                  target: ' target="_top"',
+                  title: '',
+                  class: ''
+                },
+                icon: null,
+                color: 'white'
+              }
             }
           ]
         }
@@ -387,7 +424,7 @@ export default {
         content: {
           variant: 'default',
           background: 'gradient',
-           header: {
+          header: {
             text: 'Automobile Zukunft – unser Auftrag, unsere Passion',
             layout: '1',
             color: 'turquoise',
@@ -395,7 +432,8 @@ export default {
           },
           subheadline: 'Vom Goggomobil bis zum autonomen Fahren',
           bodytext: {
-            text: 'Trotz vieler Veränderungen ist das Entscheidende geblieben: unsere Unabhängigkeit, unsere Kundenorientierung, der Zusammenhalt unter unseren Mitarbeitenden, unsere Produkte und unsere Passion für Innovationen und die Gestaltung unserer Zukunft.',
+            text:
+              'Trotz vieler Veränderungen ist das Entscheidende geblieben: unsere Unabhängigkeit, unsere Kundenorientierung, der Zusammenhalt unter unseren Mitarbeitenden, unsere Produkte und unsere Passion für Innovationen und die Gestaltung unserer Zukunft.',
             layout: '1'
           },
           media: [
@@ -460,6 +498,23 @@ export default {
               type: 'a_01_01__action',
               content: {
                 text: 'Nachhaltigkeit',
+                link: {
+                  type: 'page',
+                  url: '\/karriere',
+                  target: ' target="_top"',
+                  title: '',
+                  class: ''
+                },
+                icon: null,
+                color: 'white'
+              }
+            },
+            {
+              id: 9,
+              pid: 9088,
+              type: 'a_01_01__action',
+              content: {
+                text: 'I am Button Number 4',
                 link: {
                   type: 'page',
                   url: '\/karriere',
