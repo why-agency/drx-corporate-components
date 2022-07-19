@@ -8,7 +8,8 @@
   >
     <div class="relative mt-1">
       <ListboxButton
-        class="relative w-full cursor-default px-4 bg-white py-2 mx-4 text-left focus:border-secondary focus:ring-0 focus:outline-none text-h5-regular"
+        style="padding-left: 1rem; padding-right: 1rem; margin-left: 1rem; margin-right: 1rem;"
+        class="relative w-full cursor-default bg-white py-2 text-left focus:border-secondary focus:ring-0 focus:outline-none text-h5-regular"
         :class="{ 'border-b border-b-primary': !open, 'shadow-2xl': open }"
       >
         <span class="block truncate">
