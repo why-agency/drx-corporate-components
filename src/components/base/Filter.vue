@@ -1,33 +1,62 @@
 <template>
-  <Combobox as="div" nullable multiple v-model="selectedOptions">
-    <ComboboxLabel class="block text-h5-regular text-primary pt-6 px-4">
-      {{ label }}
-    </ComboboxLabel>
+  <Listbox
+    v-model="selectedOptions"
+    multiple
+    nullable
+    v-slot="{ open }"
+    class="w-64"
+  >
     <div class="relative mt-1">
-      <ComboboxInput
-        class="w-full border-0 border-b-2 border-primary py-2 pl-4 pr-10 focus:border-secondary focus:ring-0 focus:outline-none sm:text-sm"
-        @change="query = $event.target.value"
-        :display-value="displayLastValue"
-      />
-      <ComboboxButton
-        class="absolute inset-y-0 right-0 flex items-center px-2 focus:outline-none"
+      <ListboxButton
+        class="relative w-full cursor-default px-4 bg-white py-2 mx-4 text-left focus:border-secondary focus:ring-0 focus:outline-none text-h5-regular"
+        :class="{ 'border-b border-b-primary': !open, 'shadow-2xl': open }"
       >
-        <IconArrowDownFat class="h-5 w-5 text-gray-400" aria-hidden="true" />
-      </ComboboxButton>
+        <span class="block truncate">
+          {{ props.label }}
+          <span
+            v-if="selectedOptions.length > 0"
+            style="font-size: 12px"
+            class="relative inline-flex justify-center items-center bottom-1 left-1 w-5 h-5 bg-secondary text-white font-bold py-1"
+          >
+            {{ selectedOptions.length }}
+          </span>
+        </span>
+        <span
+          class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"
+        >
+          <IconChevronDown class="h-6 w-6 text-gray-400" aria-hidden="true" />
+        </span>
+      </ListboxButton>
 
-      <ComboboxOptions
-        v-if="filteredOptions.length > 0"
-        class="absolute z-10 max-h-60 w-full overflow-auto bg-gray-100 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+      <ListboxOptions
+        :unmount="false"
+        v-show="open"
+        style="margin-left: 1rem"
+        class="absolute max-h-60 w-full overflow-auto bg-white py-2 text-base focus:outline-none shadow-2xl"
       >
-        <ComboboxOption
+        <li style="margin-left: 1rem; margin-right: 1rem">
+          <BaseTextField
+            v-model="query"
+            label="Keep looking for jobs"
+            hide-button
+            hide-label
+            placeholder="Type to filter"
+            class="bg-sand text-primary placeholder:text-gray-500 my-2"
+          >
+            <template #iconPrefix>
+              <IconSearch />
+            </template>
+          </BaseTextField>
+        </li>
+        <ListboxOption
+          v-slot="{ active, selected }"
           v-for="option in filteredOptions"
           :key="option.value"
           :value="option.value"
           as="template"
-          v-slot="{ active, selected }"
         >
           <li
-            style="padding-left: 1rem;padding-right: 1rem;"
+            style="padding-left: 1rem; padding-right: 1rem"
             :class="[
               'relative cursor-default select-none py-2',
               active ? 'bg-primary text-white' : 'text-primary'
@@ -45,10 +74,10 @@
               </span>
             </div>
           </li>
-        </ComboboxOption>
-      </ComboboxOptions>
+        </ListboxOption>
+      </ListboxOptions>
     </div>
-  </Combobox>
+  </Listbox>
 </template>
 
 <script setup lang="ts">
@@ -56,16 +85,18 @@ import { computed, ref } from 'vue'
 
 import { useJobs } from '../../stores/jobs'
 
-import IconArrowDownFat from '../icons/Arrow/DownFat.vue'
-import BaseDropdown from '../base/Dropdown.vue'
+// Components
+import IconChevronDown from '../icons/ChevronDown.vue'
+import IconSearch from '../icons/Search.vue'
+
+import BaseTextField from './TextField.vue'
 
 import {
-  Combobox,
-  ComboboxButton,
-  ComboboxInput,
-  ComboboxLabel,
-  ComboboxOption,
-  ComboboxOptions
+  Listbox,
+  ListboxLabel,
+  ListboxButton,
+  ListboxOptions,
+  ListboxOption
 } from '@headlessui/vue'
 
 import { Filter, FilterOption } from '../../../types'
@@ -108,12 +139,4 @@ const selectedOptions = computed({
     jobsStore.setActiveFilterOptions([...filterOptions, ...newOptions])
   }
 })
-
-const displayLastValue = (options: any) => {
-  if (options && options.length) {
-    return options.at(-1)?.label
-  }
-
-  return ''
-}
 </script>

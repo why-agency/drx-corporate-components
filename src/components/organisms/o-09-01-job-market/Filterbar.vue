@@ -1,5 +1,5 @@
 <template>
-  <div class="frame-content-default">
+  <div class="frame-content-default mt-10">
     <div class="flex gap-10 items-end">
       <BaseFilter
         v-for="filter in jobsStore.filters"

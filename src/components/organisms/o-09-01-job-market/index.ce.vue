@@ -10,7 +10,9 @@
         size="absolute top-0 left-0 w-full h-full"
       />
 
-      <div class="relative flex flex-col justify-end xl:justify-between z-20 frame-content-default pt-[144px] pb-12 h-full">
+      <div
+        class="relative flex flex-col justify-end xl:justify-between z-20 frame-content-default pt-[144px] pb-12 h-full"
+      >
         <BaseHeadline
           v-if="data.header && data.header.text"
           color="light"
@@ -41,7 +43,7 @@
 
     <!-- START job market grid -->
     <div
-      style="margin-top: 1.5rem; margin-bottom: 1.5rem;"
+      style="margin-top: 1.5rem; margin-bottom: 1.5rem"
       class="frame-content-default flex items-center justify-between lg:justify-end xlmt-12"
     >
       <BaseTextField
@@ -140,9 +142,13 @@ const breakpoints = useBreakpoints(breakpointsTailwind)
 const isLgAndLarger = breakpoints.greater('lg')
 
 const jobsStore = useJobs()
-jobsStore.count = props.data.jobsProcessed?.allResultCount || props.data.allResultCount
-jobsStore.url = props.data.jobsProcessed?.currentSearch || props.data.currentSearch
-jobsStore.persistJobs(props.data.jobsProcessed?.documents || props.data.documents)
+jobsStore.count =
+  props.data.jobsProcessed?.allResultCount || props.data.allResultCount
+jobsStore.url =
+  props.data.jobsProcessed?.currentSearch || props.data.currentSearch
+jobsStore.persistJobs(
+  props.data.jobsProcessed?.documents || props.data.documents
+)
 jobsStore.persistFilters(props.data.jobsProcessed?.facets || props.data.facets)
 
 const query = computed({
