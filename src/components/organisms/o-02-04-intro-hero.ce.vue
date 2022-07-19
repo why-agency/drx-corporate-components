@@ -32,7 +32,8 @@
       :class="[
         isDefaultVariant ? 'h-max lg:h-full' : 'h-[70%] hidden lg:flex',
         {
-          'lg:flex-row lg:justify-between lg:items-end': shouldButtonsStack
+          'lg:flex-row lg:justify-between lg:items-end':
+            isDefaultVariant && shouldButtonsStack
         }
       ]"
     >
@@ -77,7 +78,11 @@
         :actions="actions"
         :position="isLg ? 'right' : 'left'"
         variant="large"
-        :class="{ invisible: hideContent, 'lg:gap-x-4': shouldButtonsStack }"
+        :class="{
+          invisible: hideContent,
+          'lg:gap-x-4': shouldButtonsStack,
+          'ml-16': shouldButtonsStack && !isDefaultVariant
+        }"
       />
       <BaseButtonIcon
         v-if="media && isVideo"
@@ -194,12 +199,8 @@ onMounted(() => {
   }
 })
 
-// special styles for lg and xl breakpoints in case of 3 actions
+// special styles for lg and xl breakpoints in case of 3-4 actions
 const shouldButtonsStack = computed(
-  () =>
-    isDefaultVariant.value &&
-    isLg.value &&
-    !is2xl.value &&
-    actions?.value?.length === 3
+  () => isLg.value && !is2xl.value && actions?.value?.length >= 3
 )
 </script>
