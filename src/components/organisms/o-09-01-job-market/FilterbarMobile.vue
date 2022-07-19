@@ -37,7 +37,7 @@
       <p
         class="flex items-center flex-1 px-4 h-12 bg-primary text-sand text-button"
       >
-        Jetzt Filter auswählen
+        {{ jobsStore.labels.collapsedFilterBar }}
         <span
           v-if="jobsStore.numberOfActiveFilterOptions > 0"
           class="flex items-center justify-center ml-2 w-4 h-4 text-[10px] bg-secondary text-white"
