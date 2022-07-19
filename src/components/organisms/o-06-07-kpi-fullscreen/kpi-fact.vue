@@ -1,5 +1,5 @@
 <template>
-  <div class="basis-0 lg:basis-auto 2xl:basis-0 space-y-3">
+  <div class="space-y-3 lg:w-80 xl:w-[376px] 2xl:w-[472px] lg:max-w-[25%]">
     <div
       class="flex flex-col xl:flex-row space-y-3 lg:space-y-0 lg:space-x-0 xl:space-x-3"
     >
@@ -32,7 +32,6 @@
       v-if="description"
       :text="description"
       size="text-body3"
-      class="lg:w-80 xl:w-[376px] 2xl:w-[472px]"
       :class="[color]"
     />
   </div>
