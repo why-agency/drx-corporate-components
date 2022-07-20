@@ -21,7 +21,7 @@
       />
     </div>
     <div class="overflow-hidden">
-      <div ref="scrollrefMobile" class="!mt-20 !mx-6 lg:hidden">
+      <div class="!mt-20 !mx-6 mb-10 lg:hidden">
         <StickyScrollRightField
           v-for="field in fields"
           :key="field"
@@ -107,7 +107,6 @@ const $_headlineColor = computed(() =>
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const isLg = breakpoints.greater('lg')
 const scrollref = ref(null)
-const scrollrefMobile = ref(null)
 const scrollRefSec = ref(null)
 const targetIsVisible = ref(false)
 
@@ -173,26 +172,8 @@ const initDesktopAnimation = () => {
   }
 }
 
-const initMobileAnimation = () => {
-  ScrollTrigger.matchMedia({
-    ['(max-width: 1023px)']() {
-      gsap.to(scrollrefMobile.value, {
-        yPercent: -20,
-        scrollTrigger: {
-          trigger: scrollrefMobile.value,
-          start: 'top bottom-=300',
-          end: 'bottom bottom-=300',
-          ease: 'power2.out',
-          scrub: 10
-        }
-      })
-    }
-  })
-}
-
 onMounted(() => {
   initDesktopAnimation()
-  initMobileAnimation()
 })
 
 // overlay
