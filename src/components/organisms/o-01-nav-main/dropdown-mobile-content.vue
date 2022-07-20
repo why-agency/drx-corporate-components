@@ -1,5 +1,21 @@
 <template>
   <section>
+    <!-- main menu link -->
+    <UseDynamicAction
+        :to="data.link"
+        :tag="data.link ? 'a' : 'div'"
+        :target="data.target"
+        class="text-black"
+      >
+        <BaseHeadline
+          :size="5"
+          tag="h4"
+          class="text-secondary hover:text-tertiary flex items-end !mt-8 normal-case"
+        >
+          {{ data.navDropdownHeadline }}
+          <IconArrowRightFatShort class="!ml-2 h-4" />
+        </BaseHeadline>
+      </UseDynamicAction>
     <!-- links -->
     <dropdown-column
       class="border-r-0 !mt-8 !h-max"
@@ -27,6 +43,9 @@
 <script setup>
 import DropdownColumn from './dropdown-column.vue'
 import AdditionalText from './additional-text.vue'
+import IconArrowRightFatShort from '../../icons/Arrow/RightFatShort.vue'
+import BaseHeadline from '../../base/Headline.vue'
+import UseDynamicAction from '../../organisms/UseDynamicAction.vue'
 
 const props = defineProps({
   data: {
