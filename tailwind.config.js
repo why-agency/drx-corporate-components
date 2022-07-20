@@ -62,7 +62,7 @@ module.exports = {
     fontSize: {
       base: '1rem',
       h1: [
-        `clamp(3.375rem, ${fontCalc(4.75, 1920)}, 4.75rem)`,
+        `clamp(2.6rem, ${fontCalc(4.75, 1920)}, 4.75rem)`,
         {
           letterSpacing: `clamp(0.54px, ${letterSpacingCalc(
             0.76,
@@ -71,7 +71,7 @@ module.exports = {
         }
       ],
       h2: [
-        `clamp(2.75rem, ${fontCalc(3.875, 1920)}, 3.875rem)`,
+        `clamp(2.25rem, ${fontCalc(3.875, 1920)}, 3.875rem)`,
         {
           letterSpacing: `clamp(0.44px, ${letterSpacingCalc(
             0.62,
