@@ -21,10 +21,24 @@
       />
     </div>
     <div class="overflow-hidden">
+      <div ref="scrollrefMobile" class="!mt-20 !mx-6 lg:hidden">
+        <StickyScrollRightField
+          v-for="field in fields"
+          :key="field"
+          :color="$_headlineColor"
+          :text="field.content.text.text"
+          :textSize="field.content.text.size"
+          :icon="field.content.icon"
+          :headline="field.content.headline"
+          :actions="field.content.actions"
+          :overlay="field.content.overlays"
+          @overlay-visible="showOverlay"
+        />
+      </div>
       <div
         :id="sectionID.value"
         ref="scrollref"
-        class="!mt-20 lg:mt-[168px] !mx-6 lg:!ml-28 mb-32"
+        class="!lg:mt-[168px] !mx-6 lg:!ml-28 lg:mb-32 hidden lg:block"
       >
         <StickyScrollRightField
           v-for="field in fields"
@@ -93,6 +107,7 @@ const $_headlineColor = computed(() =>
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const isLg = breakpoints.greater('lg')
 const scrollref = ref(null)
+const scrollrefMobile = ref(null)
 const scrollRefSec = ref(null)
 const targetIsVisible = ref(false)
 
@@ -104,8 +119,8 @@ const { stop } = useIntersectionObserver(
   },
   { threshold: 1 }
 )
-// Start Scroll Animation
-onMounted(() => {
+
+const initDesktopAnimation = () => {
   const scroller = {
     target: scrollref.value,
     ease: 0.02, // scroll speed
@@ -156,6 +171,28 @@ onMounted(() => {
           : null
     }
   }
+}
+
+const initMobileAnimation = () => {
+  ScrollTrigger.matchMedia({
+    ['(max-width: 1023px)']() {
+      gsap.to(scrollrefMobile.value, {
+        yPercent: -20,
+        scrollTrigger: {
+          trigger: scrollrefMobile.value,
+          start: 'top bottom-=300',
+          end: 'bottom bottom-=300',
+          ease: 'power2.out',
+          scrub: 10
+        }
+      })
+    }
+  })
+}
+
+onMounted(() => {
+  initDesktopAnimation()
+  initMobileAnimation()
 })
 
 // overlay
