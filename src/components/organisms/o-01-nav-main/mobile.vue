@@ -57,36 +57,15 @@
         :iconHeigth="19"
       />
       <div v-if="dropdownsNotSearch" class="!mb-8">
-        <div v-for="dropdown in dropdownsNotSearch" :key="dropdown" class="!py-8 border-b border-tertiary">
-          <BaseDropdown
-            v-if="dropdown.children"
-            :text="dropdown.title"
-            :link="dropdown.link"
-            :color="$_textColor"
-            isNav
-            @clicked="changeStatus(dropdown)"
-          >
-            <DropdownMobileContent
-              v-if="activeCategory"
-              :data="activeCategory"
-            />
-          </BaseDropdown>
-          <UseDynamicAction
-            v-else
-            :to="dropdown.link"
-            :tag="dropdown.link ? 'a' : 'div'"
-            :target="dropdown.target"
-            class="text-black"
-          >
-            <BaseText
-              :animate="false"
-              class="text-body1 font-bold hover:text-secondary flex items-center"
-            >
-              {{ dropdown.title }}
-              <IconArrowRightFatShort class="!ml-2 h-4" />
-            </BaseText>
-          </UseDynamicAction>
-        </div>
+        <NavItem
+          v-for="dropdown in dropdownsNotSearch"
+          :key="dropdown"
+          :dropdown="dropdown"
+          @item-clicked="changeStatus"
+          class="!py-8 border-b border-tertiary"
+        >
+          <DropdownMobileContent v-if="activeCategory" :data="activeCategory" />
+        </NavItem>
       </div>
       <!--<BaseAction
         v-if="jobmarket && jobmarket.url"
@@ -113,7 +92,6 @@
 
 <script setup>
 import { ref, computed, watch } from 'vue'
-import IconArrowRightFatShort from '../../icons/Arrow/RightFatShort.vue'
 import MLanguageSwitch from '../../molecules/LanguageSwitch.vue'
 import ButtonIcon from '../../base/ButtonIcon.vue'
 import BaseLogo from '../../base/Logo.vue'
@@ -130,6 +108,7 @@ import BaseHtmlParser from '../../base/HtmlParser.vue'
 import DropdownMobileContent from '../../organisms/o-01-nav-main/dropdown-mobile-content.vue'
 import BaseButtonIcon from '../../base/ButtonIcon.vue'
 import SearchOverlay from './search-overlay.vue'
+import NavItem from './nav-item.vue'
 import { useNav } from '../../../stores/nav'
 import { useSearch } from '../../../stores/search'
 import { useScrollLock } from '../../../composables/useScrollLock.ts'

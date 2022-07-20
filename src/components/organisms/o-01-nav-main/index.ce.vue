@@ -10,37 +10,20 @@
         class="flex space-x-9 items-center w-full h-full"
         :class="[$_borderColor, { 'h-16': !scrollPosition }]"
       >
-        <div v-for="dropdown in firstDropdowns" :key="dropdown">
-          <BaseDropdown
-            v-if="dropdown.children"
-            :text="dropdown.title"
-            :link="dropdown.link"
-            :color="$_textColor"
-            isNav
-            @clicked="changeStatus(dropdown)"
-          >
-            <DropdownDesktop
-              v-if="activeCategory"
-              :data="activeCategory"
-              :social="socialFooter"
-              :class="scrollPosition ? 'top-[58px]' : 'top-[109px]'"
-            />
-          </BaseDropdown>
-          <UseDynamicAction
-            v-else
-            :to="dropdown.link"
-            :tag="dropdown.link ? 'a' : 'div'"
-            :target="dropdown.target"
-          >
-            <BaseText
-              :animate="false"
-              :class="$_textColor"
-              class="text-body1 font-bold hover:text-tertiary"
-            >
-              {{ dropdown.title }}
-            </BaseText>
-          </UseDynamicAction>
-        </div>
+        <NavItem
+          v-for="dropdown in firstDropdowns"
+          :key="dropdown"
+          :dropdown="dropdown"
+          :color="$_textColor"
+          @item-clicked="changeStatus"
+        >
+          <DropdownDesktop
+            v-if="activeCategory"
+            :data="activeCategory"
+            :social="socialFooter"
+            :class="scrollPosition ? 'top-[58px]' : 'top-[109px]'"
+          />
+        </NavItem>
       </div>
       <div
         v-if="!scrollPosition && !activeCategory"
@@ -64,37 +47,20 @@
         class="flex space-x-9 justify-end items-center w-full"
         :class="[$_borderColor, { 'h-16': !scrollPosition }]"
       >
-        <div v-for="dropdown in lastDropdowns" :key="dropdown">
-          <BaseDropdown
-            v-if="dropdown.children"
-            :text="dropdown.title"
-            :link="dropdown.link"
-            :color="$_textColor"
-            isNav
-            @clicked="changeStatus(dropdown)"
-          >
-            <DropdownDesktop
-              v-if="activeCategory"
-              :data="activeCategory"
-              :social="socialFooter"
-              :class="scrollPosition ? 'top-[58px]' : 'top-[110px]'"
-            />
-          </BaseDropdown>
-          <UseDynamicAction
-            v-else
-            :to="dropdown.link"
-            :tag="dropdown.link ? 'a' : 'div'"
-            :target="dropdown.target"
-          >
-            <BaseText
-              :animate="false"
-              :class="$_textColor"
-              class="text-body1 font-bold hover:text-secondary"
-            >
-              {{ dropdown.title }}
-            </BaseText>
-          </UseDynamicAction>
-        </div>
+        <NavItem
+          v-for="dropdown in lastDropdowns"
+          :key="dropdown"
+          :dropdown="dropdown"
+          :color="$_textColor"
+          @item-clicked="changeStatus"
+        >
+          <DropdownDesktop
+            v-if="activeCategory"
+            :data="activeCategory"
+            :social="socialFooter"
+            :class="scrollPosition ? 'top-[58px]' : 'top-[110px]'"
+          />
+        </NavItem>
         <div>
           <div class="flex space-x-4">
             <ButtonIcon
@@ -110,7 +76,6 @@
               :data="dcareerLogin"
               :class="$_textColor"
             />
-            <!-- TO DO -->
             <!-- <BaseAction
               v-if="jobmarket && jobmarket.url"
               :to="jobmarket.url"
@@ -178,7 +143,6 @@ import MLanguageSwitch from '../../molecules/LanguageSwitch.vue'
 import ButtonIcon from '../../base/ButtonIcon.vue'
 import BaseLogo from '../../base/Logo.vue'
 import BaseBreadcrumbs from '../../base/Breadcrumbs.vue'
-import BaseDropdown from '../../base/Dropdown.vue'
 import BaseAction from '../../base/Action.vue'
 import BaseText from '../../base/Text.vue'
 import UseDynamicAction from '../../organisms/UseDynamicAction.vue'
@@ -188,6 +152,7 @@ import IconWorld from '../../icons/world.vue'
 import LoginButton from '../../organisms/o-01-nav-main/login.vue'
 import O01NavMainMobile from '../../organisms/o-01-nav-main/mobile.vue'
 import SearchOverlay from './search-overlay.vue'
+import NavItem from './nav-item.vue'
 import { useNav } from '../../../stores/nav'
 import { useSearch } from '../../../stores/search'
 import { useScrollLock } from '../../../composables/useScrollLock.ts'
