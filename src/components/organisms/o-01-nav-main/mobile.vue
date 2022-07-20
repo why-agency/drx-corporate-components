@@ -138,7 +138,7 @@ const props = defineProps({
   },
   career: {
     type: Object,
-    default: null
+    default: undefined
   },
   langNav: {
     type: Object,
