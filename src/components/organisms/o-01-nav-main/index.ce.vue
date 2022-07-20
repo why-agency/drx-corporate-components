@@ -81,7 +81,7 @@
               :to="jobmarket.url"
               :target="jobmarket.target"
               variant="small"
-              class="font-medium"
+              class="font-medium w-max"
             >
               {{ jobmarket.link }}
             </BaseAction>
