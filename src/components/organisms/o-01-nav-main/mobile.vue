@@ -56,19 +56,16 @@
         :iconWidth="19"
         :iconHeigth="19"
       />
-      <div v-if="dropdownsWithChildren" class="!mb-8">
-        <BaseDropdown
-          v-for="dropdown in dropdownsWithChildren"
+      <div v-if="dropdownsNotSearch" class="!mb-8">
+        <NavItem
+          v-for="dropdown in dropdownsNotSearch"
           :key="dropdown"
-          :text="dropdown.title"
-          :link="dropdown.link"
-          :color="$_textColor"
-          isNav
-          @clicked="changeStatus(dropdown)"
+          :dropdown="dropdown"
+          @item-clicked="changeStatus"
           class="!py-8 border-b border-tertiary"
         >
           <DropdownMobileContent v-if="activeCategory" :data="activeCategory" />
-        </BaseDropdown>
+        </NavItem>
       </div>
       <!--<BaseAction
         v-if="jobmarket && jobmarket.url"
@@ -111,6 +108,7 @@ import BaseHtmlParser from '../../base/HtmlParser.vue'
 import DropdownMobileContent from '../../organisms/o-01-nav-main/dropdown-mobile-content.vue'
 import BaseButtonIcon from '../../base/ButtonIcon.vue'
 import SearchOverlay from './search-overlay.vue'
+import NavItem from './nav-item.vue'
 import { useNav } from '../../../stores/nav'
 import { useSearch } from '../../../stores/search'
 import { useScrollLock } from '../../../composables/useScrollLock.ts'
@@ -213,7 +211,8 @@ const $_buttonColor = computed(() =>
 const isLocked = useScrollLock()
 watch(openMenuStatus, openMenuStatus => (isLocked.value = !!openMenuStatus))
 
-const dropdownsWithChildren = computed(() =>
-  props.dropdowns?.filter(dropdown => dropdown.children)
+const dropdownsNotSearch = computed(() =>
+  props.dropdowns?.filter(dropdown => dropdown.data.drx_issearch === 0)
 )
+console.log(dropdownsNotSearch.value)
 </script>
