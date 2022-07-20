@@ -76,15 +76,15 @@
               :data="dcareerLogin"
               :class="$_textColor"
             />
-            <!-- <BaseAction
+            <BaseAction
               v-if="jobmarket && jobmarket.url"
               :to="jobmarket.url"
               :target="jobmarket.target"
               variant="small"
-              class="font-medium"
+              class="font-medium w-max"
             >
-              Job finden
-            </BaseAction> -->
+              {{ jobmarket.link }}
+            </BaseAction>
           </div>
         </div>
       </div>
