@@ -72,15 +72,15 @@
           <DropdownMobileContent v-if="activeCategory" :data="activeCategory" />
         </NavItem>
       </div>
-      <!--<BaseAction
+      <BaseAction
         v-if="jobmarket && jobmarket.url"
         :to="jobmarket.url"
         :target="jobmarket.target"
         variant="small"
         class="font-medium"
       >
-        Job finden
-      </BaseAction>-->
+        {{ jobmarket.link }}
+      </BaseAction>
       <BaseHtmlParser
         v-if="social"
         :content="social"
@@ -153,7 +153,7 @@ const props = defineProps({
   },
   jobmarket: {
     type: Object,
-    default: () => ({})
+    default: () => null
   },
   social: {
     type: String,
