@@ -57,18 +57,36 @@
         :iconHeigth="19"
       />
       <div v-if="dropdownsNotSearch" class="!mb-8">
-        <BaseDropdown
-          v-for="dropdown in dropdownsNotSearch"
-          :key="dropdown"
-          :text="dropdown.title"
-          :link="dropdown.link"
-          :color="$_textColor"
-          isNav
-          @clicked="changeStatus(dropdown)"
-          class="!py-8 border-b border-tertiary"
-        >
-          <DropdownMobileContent v-if="activeCategory" :data="activeCategory" />
-        </BaseDropdown>
+        <div v-for="dropdown in dropdownsNotSearch" :key="dropdown" class="!py-8 border-b border-tertiary">
+          <BaseDropdown
+            v-if="dropdown.children"
+            :text="dropdown.title"
+            :link="dropdown.link"
+            :color="$_textColor"
+            isNav
+            @clicked="changeStatus(dropdown)"
+          >
+            <DropdownMobileContent
+              v-if="activeCategory"
+              :data="activeCategory"
+            />
+          </BaseDropdown>
+          <UseDynamicAction
+            v-else
+            :to="dropdown.link"
+            :tag="dropdown.link ? 'a' : 'div'"
+            :target="dropdown.target"
+            class="text-black"
+          >
+            <BaseText
+              :animate="false"
+              class="text-body1 font-bold hover:text-secondary flex items-center"
+            >
+              {{ dropdown.title }}
+              <IconArrowRightFatShort class="!ml-2 h-4" />
+            </BaseText>
+          </UseDynamicAction>
+        </div>
       </div>
       <!--<BaseAction
         v-if="jobmarket && jobmarket.url"
@@ -95,6 +113,7 @@
 
 <script setup>
 import { ref, computed, watch } from 'vue'
+import IconArrowRightFatShort from '../../icons/Arrow/RightFatShort.vue'
 import MLanguageSwitch from '../../molecules/LanguageSwitch.vue'
 import ButtonIcon from '../../base/ButtonIcon.vue'
 import BaseLogo from '../../base/Logo.vue'
@@ -217,4 +236,5 @@ watch(openMenuStatus, openMenuStatus => (isLocked.value = !!openMenuStatus))
 const dropdownsNotSearch = computed(() =>
   props.dropdowns?.filter(dropdown => dropdown.data.drx_issearch === 0)
 )
+console.log(dropdownsNotSearch.value)
 </script>

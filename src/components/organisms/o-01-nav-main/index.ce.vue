@@ -10,22 +10,37 @@
         class="flex space-x-9 items-center w-full h-full"
         :class="[$_borderColor, { 'h-16': !scrollPosition }]"
       >
-        <BaseDropdown
-          v-for="dropdown in firstDropdowns"
-          :key="dropdown"
-          :text="dropdown.title"
-          :link="dropdown.link"
-          :color="$_textColor"
-          isNav
-          @clicked="changeStatus(dropdown)"
-        >
-          <DropdownDesktop
-            v-if="activeCategory"
-            :data="activeCategory"
-            :social="socialFooter"
-            :class="scrollPosition ? 'top-[58px]' : 'top-[109px]'"
-          />
-        </BaseDropdown>
+        <div v-for="dropdown in firstDropdowns" :key="dropdown">
+          <BaseDropdown
+            v-if="dropdown.children"
+            :text="dropdown.title"
+            :link="dropdown.link"
+            :color="$_textColor"
+            isNav
+            @clicked="changeStatus(dropdown)"
+          >
+            <DropdownDesktop
+              v-if="activeCategory"
+              :data="activeCategory"
+              :social="socialFooter"
+              :class="scrollPosition ? 'top-[58px]' : 'top-[109px]'"
+            />
+          </BaseDropdown>
+          <UseDynamicAction
+            v-else
+            :to="dropdown.link"
+            :tag="dropdown.link ? 'a' : 'div'"
+            :target="dropdown.target"
+          >
+            <BaseText
+              :animate="false"
+              :class="$_textColor"
+              class="text-body1 font-bold hover:text-tertiary"
+            >
+              {{ dropdown.title }}
+            </BaseText>
+          </UseDynamicAction>
+        </div>
       </div>
       <div
         v-if="!scrollPosition && !activeCategory"
@@ -49,22 +64,37 @@
         class="flex space-x-9 justify-end items-center w-full"
         :class="[$_borderColor, { 'h-16': !scrollPosition }]"
       >
-        <BaseDropdown
-          v-for="dropdown in lastDropdowns"
-          :key="dropdown"
-          :text="dropdown.title"
-          :link="dropdown.link"
-          :color="$_textColor"
-          isNav
-          @clicked="changeStatus(dropdown)"
-        >
-          <DropdownDesktop
-            v-if="activeCategory"
-            :data="activeCategory"
-            :social="socialFooter"
-            :class="scrollPosition ? 'top-[58px]' : 'top-[110px]'"
-          />
-        </BaseDropdown>
+        <div v-for="dropdown in lastDropdowns" :key="dropdown">
+          <BaseDropdown
+            v-if="dropdown.children"
+            :text="dropdown.title"
+            :link="dropdown.link"
+            :color="$_textColor"
+            isNav
+            @clicked="changeStatus(dropdown)"
+          >
+            <DropdownDesktop
+              v-if="activeCategory"
+              :data="activeCategory"
+              :social="socialFooter"
+              :class="scrollPosition ? 'top-[58px]' : 'top-[110px]'"
+            />
+          </BaseDropdown>
+          <UseDynamicAction
+            v-else
+            :to="dropdown.link"
+            :tag="dropdown.link ? 'a' : 'div'"
+            :target="dropdown.target"
+          >
+            <BaseText
+              :animate="false"
+              :class="$_textColor"
+              class="text-body1 font-bold hover:text-secondary"
+            >
+              {{ dropdown.title }}
+            </BaseText>
+          </UseDynamicAction>
+        </div>
         <div>
           <div class="flex space-x-4">
             <ButtonIcon
