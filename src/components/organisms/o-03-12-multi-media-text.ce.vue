@@ -7,7 +7,7 @@
         'frame-content-default': hasFrameFull
       }"
     >
-      <BaseHeadline v-if="headline && headline.text" v-bind="headline" />
+      <BaseHeadline v-if="headline && headline.text" v-bind="headline" class="break-words"/>
       <BaseText
         v-if="text && text.text"
         v-bind="text"
