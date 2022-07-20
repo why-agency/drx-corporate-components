@@ -12,7 +12,7 @@
         :key="lang"
         :to="lang.link"
         class="flex flex-col"
-        :class="lang.link ? linkColor : 'text-gray-700 cursor-auto'"
+        :class="lang.link ? linkColor : 'text-gray-700 !cursor-auto'"
       >
         <BaseText
           :text="lang.hreflang"
