@@ -49,7 +49,7 @@
         <MLanguageSwitch :languages="langNav" :color="$_textColor" />
       </div>
       <LoginButton
-        v-if="career"
+        v-if="career.url"
         :data="career"
         :class="$_textColor"
         class="mt-2.5 !font-normal items-end"

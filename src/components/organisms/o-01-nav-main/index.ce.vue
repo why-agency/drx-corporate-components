@@ -76,7 +76,7 @@
               <IconSearch />
             </ButtonIcon>
             <LoginButton
-              v-if="dcareerLogin"
+              v-if="dcareerLogin.url"
               :data="dcareerLogin"
               :class="$_textColor"
             />
