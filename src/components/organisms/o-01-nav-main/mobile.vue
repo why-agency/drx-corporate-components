@@ -56,9 +56,9 @@
         :iconWidth="19"
         :iconHeigth="19"
       />
-      <div v-if="dropdownsWithChildren" class="!mb-8">
+      <div v-if="dropdownsNotSearch" class="!mb-8">
         <BaseDropdown
-          v-for="dropdown in dropdownsWithChildren"
+          v-for="dropdown in dropdownsNotSearch"
           :key="dropdown"
           :text="dropdown.title"
           :link="dropdown.link"
@@ -214,7 +214,7 @@ const $_buttonColor = computed(() =>
 const isLocked = useScrollLock()
 watch(openMenuStatus, openMenuStatus => (isLocked.value = !!openMenuStatus))
 
-const dropdownsWithChildren = computed(() =>
-  props.dropdowns?.filter(dropdown => dropdown.children)
+const dropdownsNotSearch = computed(() =>
+  props.dropdowns?.filter(dropdown => dropdown.data.drx_issearch === 0)
 )
 </script>

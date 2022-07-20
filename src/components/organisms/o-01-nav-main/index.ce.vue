@@ -242,11 +242,11 @@ const $_borderColor = computed(() => ({
 }))
 
 const firstDropdowns = computed(() =>
-  menuMain.value?.filter(item => item.children)?.slice(0, 3)
+  menuMain.value?.filter(item => item.data.drx_issearch === 0)?.slice(0, 3)
 )
 
 const lastDropdowns = computed(() =>
-  menuMain.value?.filter(item => item.children)?.slice(3, 6)
+  menuMain.value?.filter(item => item.data.drx_issearch === 0)?.slice(3, 6)
 )
 
 let scrollPosition = ref(null)
