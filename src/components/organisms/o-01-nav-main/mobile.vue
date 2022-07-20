@@ -46,7 +46,11 @@
             :animate="false"
           />
         </UseDynamicAction>
-        <MLanguageSwitch :languages="langNav" :color="$_textColor" />
+        <MLanguageSwitch
+          v-if="langNav && langNav.length"
+          :languages="langNav"
+          :color="$_textColor"
+        />
       </div>
       <LoginButton
         v-if="career"
@@ -140,7 +144,7 @@ const props = defineProps({
   },
   langNav: {
     type: Object,
-    default: () => ({})
+    default: null
   },
   dropdowns: {
     type: Object,

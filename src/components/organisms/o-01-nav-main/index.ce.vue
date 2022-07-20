@@ -92,7 +92,11 @@
         v-if="!scrollPosition && !activeCategory"
         class="flex justify-end space-x-4 mt-3.5"
       >
-        <MLanguageSwitch :languages="langNav" :color="$_textColor" />
+        <MLanguageSwitch
+          v-if="langNav && langNav.length"
+          :languages="langNav"
+          :color="$_textColor"
+        />
         <UseDynamicAction
           v-if="locations && locations.url"
           :to="locations.url"
