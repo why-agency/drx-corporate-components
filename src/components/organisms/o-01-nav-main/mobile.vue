@@ -220,5 +220,4 @@ watch(openMenuStatus, openMenuStatus => (isLocked.value = !!openMenuStatus))
 const dropdownsNotSearch = computed(() =>
   props.dropdowns?.filter(dropdown => dropdown.data.drx_issearch === 0)
 )
-console.log(dropdownsNotSearch.value)
 </script>
