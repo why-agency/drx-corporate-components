@@ -3084,12 +3084,12 @@ export default {
           target: ' target="_top"',
           link: 'Home'
         },
-        dcareerLogin: {
-          // type: 'url',
-          // url: 'https:\/\/d-career.org\/Draexlmaier\/?locale=en_US',
-          // target: ' target="_blank"',
-          // link: 'Login'
-        },
+        // dcareerLogin: {
+        //   // type: 'url',
+        //   // url: 'https:\/\/d-career.org\/Draexlmaier\/?locale=en_US',
+        //   // target: ' target="_blank"',
+        //   // link: 'Login'
+        // },
         // jobmarket: {
         //   type: 'page',
         //   url: '\/refresh-2022\/jobs-list-detail',

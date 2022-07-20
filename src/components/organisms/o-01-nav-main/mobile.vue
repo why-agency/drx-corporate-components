@@ -49,7 +49,7 @@
         <MLanguageSwitch :languages="langNav" :color="$_textColor" />
       </div>
       <LoginButton
-        v-if="career.url"
+        v-if="career"
         :data="career"
         :class="$_textColor"
         class="mt-2.5 !font-normal items-end"
@@ -138,7 +138,7 @@ const props = defineProps({
   },
   career: {
     type: Object,
-    default: () => ({})
+    default: null
   },
   langNav: {
     type: Object,
@@ -161,7 +161,6 @@ const props = defineProps({
     default: null
   }
 })
-
 // Overlays
 const openMenuStatus = ref(false)
 const searchStore = useSearch()
