@@ -145,7 +145,7 @@ onMounted(() => {
     if (window.scrollY < divOffset.top + 10 || window.scrollY > divOffset.top) {
       scrollY = window.pageYOffset - divOffset.top
       scroller.y += (scrollY - scroller.y) * scroller.ease
-      animateValue = -scroller.y / 3
+      animateValue = isLg.value ? -scroller.y / 3 : -scroller.y / 6
       scroller.endY = scrollY
       gsap.set(scroller.target, {
         y: animateValue
