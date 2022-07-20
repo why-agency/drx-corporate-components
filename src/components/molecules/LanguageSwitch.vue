@@ -10,8 +10,7 @@
       <UseDynamicAction
         v-for="lang in showList"
         :key="lang"
-        :to="lang.link ? lang.link : ''"
-        :tag="'a'"
+        :to="lang.link"
         class="flex flex-col"
         :class="lang.link ? linkColor : 'text-gray-700 cursor-auto'"
       >
