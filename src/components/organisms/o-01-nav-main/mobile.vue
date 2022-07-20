@@ -65,6 +65,7 @@
           v-for="dropdown in dropdownsNotSearch"
           :key="dropdown"
           :dropdown="dropdown"
+          :color="$_textColor"
           @item-clicked="changeStatus"
           class="!py-8 border-b border-tertiary"
         >
