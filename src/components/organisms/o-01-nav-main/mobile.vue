@@ -138,7 +138,7 @@ const props = defineProps({
   },
   career: {
     type: Object,
-    default: () => ({})
+    default: undefined
   },
   langNav: {
     type: Object,
@@ -161,7 +161,6 @@ const props = defineProps({
     default: null
   }
 })
-
 // Overlays
 const openMenuStatus = ref(false)
 const searchStore = useSearch()
