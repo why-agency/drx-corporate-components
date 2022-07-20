@@ -59,6 +59,7 @@
         class="mt-2.5 !font-normal items-end"
         :iconWidth="19"
         :iconHeigth="19"
+        text-size="text-body3"
       />
       <div v-if="dropdownsNotSearch" class="!mb-8">
         <NavItem
