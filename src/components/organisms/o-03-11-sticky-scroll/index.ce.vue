@@ -21,24 +21,10 @@
       />
     </div>
     <div class="overflow-hidden">
-      <div class="!mt-20 !mx-6 mb-10 lg:hidden">
-        <StickyScrollRightField
-          v-for="field in fields"
-          :key="field"
-          :color="$_headlineColor"
-          :text="field.content.text.text"
-          :textSize="field.content.text.size"
-          :icon="field.content.icon"
-          :headline="field.content.headline"
-          :actions="field.content.actions"
-          :overlay="field.content.overlays"
-          @overlay-visible="showOverlay"
-        />
-      </div>
       <div
         :id="sectionID.value"
         ref="scrollref"
-        class="!lg:mt-[168px] !mx-6 lg:!ml-28 lg:mb-32 hidden lg:block"
+        class="!my-10 lg:!mt-[168px] !mx-6 lg:!ml-28 lg:mb-32"
       >
         <StickyScrollRightField
           v-for="field in fields"
@@ -119,7 +105,7 @@ const { stop } = useIntersectionObserver(
   { threshold: 1 }
 )
 
-const initDesktopAnimation = () => {
+const initAnimation = () => {
   const scroller = {
     target: scrollref.value,
     ease: 0.02, // scroll speed
@@ -173,7 +159,7 @@ const initDesktopAnimation = () => {
 }
 
 onMounted(() => {
-  initDesktopAnimation()
+  setTimeout(initAnimation, 3000)
 })
 
 // overlay
