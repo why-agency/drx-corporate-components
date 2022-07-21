@@ -1,8 +1,8 @@
 <template>
   <section
     ref="triggerContainer"
-    class="w-full lg:h-screen"
-    :class="{ 'h-max': !isDefaultVariant }"
+    class="w-full h-max md:h-screen relative"
+    :class="{ 'h-max': !isDefaultVariant, '!h-screen': !actions[0]}"
   >
     <div
       v-if="media"

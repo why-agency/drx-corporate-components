@@ -906,7 +906,7 @@ export default {
             text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
           },
           header: { text: 'KPI + Quote + Video', tag: 'h2' },
-          kpicards: [
+          kpicards: [[
             {
               id: 1,
               pid: 9093,
@@ -943,7 +943,7 @@ export default {
                   'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
               }
             }
-          ],
+          ]],
           overlays: [
             {
               id: 1,

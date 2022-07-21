@@ -4,7 +4,7 @@
       :class="[
         frame,
         {
-          'lg:h-screen': hasQuoteContent || isMedia,
+          'h-max lg:h-screen': hasQuoteContent || isMedia,
           [$_backgroundColor]: !isMedia
         }
       ]"
@@ -22,7 +22,7 @@
       </div>
       <div
         class="z-50 !mx-6 xl:!mx-10 3xl:!mx-24 flex flex-col h-full"
-        :class="{ 'justify-end': isMedia && !hasQuoteContent }"
+        :class="{ 'justify-end': isMedia && !hasQuoteContent, 'pb-16' : !cards[0] }"
       >
         <BaseHeadline
           v-if="headline && headline.text"

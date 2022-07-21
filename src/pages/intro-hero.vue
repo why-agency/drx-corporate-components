@@ -36,7 +36,7 @@ export default {
           subheadline: 'Der Vorstand der DRÄXLMAIER Group',
           bodytext: {
             text:
-              'Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdie.',
+              '',
             layout: '1'
           },
           media: [

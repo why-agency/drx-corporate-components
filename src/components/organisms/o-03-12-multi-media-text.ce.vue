@@ -4,7 +4,8 @@
       class="grid gap-y-10 xl:grid-flow-col xl:gap-y-0 xl:gap-x-20 xl:justify-between dark:text-sand"
       :class="{
         'order-last': isTextBelow,
-        'frame-content-default': hasFrameFull
+        'frame-content-default': hasFrameFull,
+        'pb-16': !media || !subline.text
       }"
     >
       <BaseHeadline v-if="headline && headline.text" v-bind="headline" />
