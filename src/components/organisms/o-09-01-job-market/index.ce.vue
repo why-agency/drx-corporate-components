@@ -64,7 +64,7 @@
           label="Keep looking for jobs"
           hide-button
           hide-label
-          placeholder="Find your dream job ✨"
+          :placeholder="jobsStore.labels.searchInputPlaceholder"
           class="hidden lg:block bg-transparent border-sand text-sand placeholder:text-sand"
         >
           <template #iconPrefix>
@@ -89,7 +89,7 @@
         label="Keep looking for jobs"
         hide-button
         hide-label
-        placeholder="Find your dream job ✨"
+        :placeholder="jobsStore.labels.searchInputPlaceholder"
         class="flex-1 lg:hidden"
       >
         <template #iconPrefix>
@@ -101,7 +101,7 @@
         style="margin-bottom: 0 !important"
         class="text-body2 font-semibold font-primary ml-4"
       >
-        {{ jobsStore.count }} Jobs
+        {{ jobsStore.count }} {{ jobsStore.labels.jobsCount }}
       </p>
     </div>
 
@@ -188,6 +188,7 @@ jobsStore.persistJobs(
   props.data.jobsProcessed?.documents || props.data.documents
 )
 jobsStore.persistFilters(props.data.jobsProcessed?.facets || props.data.facets)
+jobsStore.persistLabels(props.data)
 
 const query = computed({
   get() {

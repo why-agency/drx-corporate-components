@@ -102,6 +102,23 @@ const placeHolderImage = [
 onMounted(async () => {
   fetch(jobMarketUrl)
     .then(response => response.json())
-    .then(data => jobsData.value = { ...data, header: { text: 'Reshape the way cars are built' } })
+    .then(
+      data =>
+        (jobsData.value = {
+          ...data,
+          header: { text: 'Reshape the way cars are built' },
+          label_search_input_placeholder: 'Find your dream job',
+          label_jobs_count: 'Jobs',
+          label_collapsed_filter_bar: 'Choose Filter',
+          label_show_results_button: 'Ergebnisse anzeigen',
+          label_return_to_filters: 'Back to filters',
+          label_job_id: 'Job ID',
+          label_location: 'Standort',
+          label_business_area: 'Funktionsbereich',
+          label_job_type: 'Anstellungsart',
+          label_apply_button: 'Apply now',
+          label_print_button: 'Print'
+        })
+    )
 })
 </script>

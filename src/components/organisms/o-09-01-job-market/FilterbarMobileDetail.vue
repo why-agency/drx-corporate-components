@@ -6,7 +6,7 @@
     <button class="flex mb-12" @click="jobsStore.activeFilterView = null">
       <IconChevronUp class="-rotate-90" />
       <p class="ml-4 text-button font-bold text-primary uppercase">
-        Zurück zu den Filtern
+        {{ jobsStore.labels.returnToFilters }}
       </p>
     </button>
 
@@ -30,7 +30,7 @@
 
     <div class="flex flex-col justify-center pt-4">
       <button class="text-button text-tertiary" @click="jobsStore.activeFilterView = null">
-        Zurück zu den Filtern
+        {{ jobsStore.labels.returnToFilters }}
       </button>
       <BaseAction
         style="margin-top: 1.5rem;"
@@ -39,7 +39,7 @@
         block
         @click="hideFilterBar"
       >
-        {{ jobsStore.count }} Ergebnisse anzeigen
+        {{ jobsStore.count }} {{ jobsStore.labels.showResultsButton }}
       </BaseAction>
     </div>
   </div>

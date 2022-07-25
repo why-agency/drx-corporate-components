@@ -37,7 +37,7 @@
       block
       @click="hideFilterBar"
     >
-      {{ jobsStore.count }} Ergebnisse anzeigen
+      {{ jobsStore.count }} {{ jobsStore.labels.showResultsButton }}
     </BaseAction>
   </div>
 </template>
