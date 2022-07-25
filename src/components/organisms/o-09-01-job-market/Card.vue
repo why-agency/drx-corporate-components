@@ -9,7 +9,7 @@
       <span class="lg:hidden">
         {{ locationString }}
       </span>
-      <span class="hidden lg:block">
+      <span class="hidden lg:block flex-1">
         {{ city }}
       </span>
     </div>
@@ -21,7 +21,7 @@
     <div
       class="flex lg:order-last items-center text-overline lg:text-body3 justify-end lg:justify-start"
     >
-      <IconUser class="w-4 h-4 mr-2" />
+      <IconUser v-if="shifttype" class="w-4 h-4 mr-2" />
       {{ shifttype }}
     </div>
 

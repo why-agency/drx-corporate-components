@@ -102,6 +102,6 @@ const placeHolderImage = [
 onMounted(async () => {
   fetch(jobMarketUrl)
     .then(response => response.json())
-    .then(data => jobsData.value = { ...data, image: placeHolderImage, header: { text: 'Reshape the way cars are built' } })
+    .then(data => jobsData.value = { ...data, header: { text: 'Reshape the way cars are built' } })
 })
 </script>
