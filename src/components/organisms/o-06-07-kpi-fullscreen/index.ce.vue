@@ -4,7 +4,8 @@
       :class="[
         frame,
         {
-          'h-max lg:h-screen': hasQuoteContent || isMedia,
+          'h-max lg:h-screen': (hasQuoteContent || isMedia) && !contentNoOverflow,
+          'h-screen lg:h-screen': (hasQuoteContent || isMedia) && contentNoOverflow,
           [$_backgroundColor]: !isMedia
         }
       ]"
@@ -21,8 +22,9 @@
         />
       </div>
       <div
+        ref="content"
         class="z-50 !mx-6 xl:!mx-10 3xl:!mx-24 flex flex-col h-full"
-        :class="{ 'justify-end': isMedia && !hasQuoteContent, 'pb-16' : !cards[0] }"
+        :class="{ 'justify-end': isMedia && !hasQuoteContent, 'pb-16' : !cards.length }"
       >
         <BaseHeadline
           v-if="headline && headline.text"
@@ -149,7 +151,11 @@ const $_marginTop = computed(() => {
 
 const triggerContainer = ref(null)
 const stickyImage = ref(null)
+const content = ref(null)
+const contentNoOverflow = ref(false)
+
 onMounted(() => {
+  contentNoOverflow.value = content.value.clientHeight < window.innerHeight
   //scrollTrigger for the mobile sticky background
   const scroll = ScrollTrigger.create({
     trigger: triggerContainer.value,
