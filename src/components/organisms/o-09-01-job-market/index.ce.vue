@@ -2,7 +2,7 @@
   <section>
     <!-- START job market header -->
     <div
-      class="relative w-full h-96 xl:h-[432px] 2xl:h-[592px] 4xl:h-[640px] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary after:bg-opacity-60"
+      class="relative w-full h-96 xl:h-[432px] 2xl:h-[592px] 4xl:h-[640px] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary after:bg-opacity-25"
     >
       <BasePicture
         v-if="data.image"
