@@ -92,6 +92,7 @@ export const useJobs = defineStore('jobs', {
       const jobs = documents?.list?.results.map((rawJob: any) => rawJob.content) || []
       this.jobs = jobs
       this.isRequestPending = false
+      this.currentPage = 0
     },
     persistFilters(filters: Filter[]) {
       if (!filters || !Array.isArray(filters)) return
