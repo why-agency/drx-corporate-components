@@ -12,52 +12,31 @@
 
       <picture v-else>
         <source
-          srcset="
-            https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_3x4_GSXse86SO?tr=w-375,ar-3-4,f-auto         1x,
-            https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_3x4_GSXse86SO?tr=w-750,ar-3-4,f-auto,fo-face 2x
-          "
+          :srcset="'https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_3x4_GSXse86SO?tr=w-375,ar-3-4,f-auto 1x, https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_3x4_GSXse86SO?tr=w-750,ar-3-4,f-auto,fo-face 2x'"
           media="(max-width: 375px)"
         />
         <source
-          srcset="
-            https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_3x4_GSXse86SO?tr=w-640,ar-4-3,f-auto          1x,
-            https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_3x4_GSXse86SO?tr=w-1280,ar-4-3,f-auto,fo-face 2x
-          "
+          :srcset="'https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_3x4_GSXse86SO?tr=w-640,ar-4-3,f-auto 1x, https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_3x4_GSXse86SO?tr=w-1280,ar-4-3,f-auto,fo-face 2x'"
           media="(max-width: 640px)"
         />
         <source
-          srcset="
-            https://ik.imagekit.io/v2bbhazxb/dev/_processed_/9/a/csm_28-06-2018_Puebla_Photoshoot__13__fb6e90140c.jpg?tr=w-1024,ar-2-1,f-auto,fo-face 1x,
-            https://ik.imagekit.io/v2bbhazxb/dev/_processed_/9/a/csm_28-06-2018_Puebla_Photoshoot__13__fb6e90140c.jpg?tr=w-2048,ar-2-1,f-auto,fo-face 2x
-          "
+          :srcset="'https://ik.imagekit.io/v2bbhazxb/dev/_processed_/9/a/csm_28-06-2018_Puebla_Photoshoot__13__fb6e90140c.jpg?tr=w-1024,ar-2-1,f-auto,fo-face 1x, https://ik.imagekit.io/v2bbhazxb/dev/_processed_/9/a/csm_28-06-2018_Puebla_Photoshoot__13__fb6e90140c.jpg?tr=w-2048,ar-2-1,f-auto,fo-face 2x'"
           media="(max-width: 1024px)"
         />
         <source
-          srcset="
-            https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_1440x432_2lz8YbKJL?tr=w-1280,f-auto,fo-face 1x,
-            https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_1440x432_2lz8YbKJL?tr=w-2560,f-auto,fo-face 2x
-          "
+          :srcset="'https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_1440x432_2lz8YbKJL?tr=w-1280,f-auto,fo-face 1x, https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_1440x432_2lz8YbKJL?tr=w-2560,f-auto,fo-face 2x'"
           media="(max-width: 1280px)"
         />
         <source
-          srcset="
-            https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_1440x432_2lz8YbKJL?tr=w-1440,f-auto,fo-face 1x,
-            https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_1440x432_2lz8YbKJL?tr=w-2880,f-auto,fo-face 2x
-          "
+          :srcset="'https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_1440x432_2lz8YbKJL?tr=w-1440,f-auto,fo-face 1x, https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_1440x432_2lz8YbKJL?tr=w-2880,f-auto,fo-face 2x'"
           media="(max-width: 1440px)"
         />
         <source
-          srcset="
-            https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_1536x592_D1ONojzFo?tr=w-1536,h-592,f-auto,fo-face 1x,
-            https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_1536x592_D1ONojzFo?tr=w-3072,f-auto,fo-face       2x
-          "
+          :srcset="'https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_1536x592_D1ONojzFo?tr=w-1536,h-592,f-auto,fo-face 1x, https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_1536x592_D1ONojzFo?tr=w-3072,f-auto,fo-face 2x'"
           media="(max-width: 1536px)"
         />
         <source
-          srcset="
-            https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_1920x640_6_QiCLbkb?tr=w-1920,ar-3-1,f-auto,fo-face 1x,
-            https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_1920x640_6_QiCLbkb?tr=w-3840,ar-3-1,f-auto,fo-face 2x
-          "
+          :srcset="'https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_1920x640_6_QiCLbkb?tr=w-1920,ar-3-1,f-auto,fo-face 1x, https://ik.imagekit.io/v2bbhazxb/DRX_job_market_fallback_1920x640_6_QiCLbkb?tr=w-3840,ar-3-1,f-auto,fo-face 2x'"
           media="(max-width: 1920px)"
         />
         <img
