@@ -19,10 +19,10 @@ const withSorting = (sorting: string) => (baseUrl: string) => {
 }
 
 const withQuery = (queryString: string) => (baseUrl: string) => {
-  return queryString ? baseUrl + `tx_solr[q]=${queryString}` : baseUrl
+  return queryString ? baseUrl + `&tx_solr[q]=${queryString}` : baseUrl
 }
 
-const appendQueryParam = (baseUrl: string) => baseUrl + '?'
+const appendQueryParam = (baseUrl: string) => baseUrl.includes('?') ? baseUrl : baseUrl + '?'
 
 export const createRequestUrl = ({
   baseUrl,
