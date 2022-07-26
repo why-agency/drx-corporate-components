@@ -122,7 +122,6 @@
   </section>
   <o-01-NavMainMobile
     v-else
-    :theme="$_theme"
     :textColor="$_textColor"
     :logoColor="$_logoColor"
     :buttonColor="buttonColor"
