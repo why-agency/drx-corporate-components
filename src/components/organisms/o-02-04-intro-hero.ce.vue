@@ -1,14 +1,14 @@
 <template>
   <section
     ref="triggerContainer"
-    class="w-full h-max md:h-screen relative"
-    :class="{ 'h-max': !isDefaultVariant, '!h-screen': actions && !actions.length}"
+    class="w-full md:h-screen relative"
+    :class="contentNoOverflow && isDefaultVariant ? '!h-screen' : 'h-max'"
   >
     <div
       v-if="media"
       ref="stickyImage"
-      class="h-full w-full absolute"
-      :class="{ 'relative lg:absolute': !isDefaultVariant }"
+      class="w-full absolute"
+      :class="{ 'relative lg:absolute': !isDefaultVariant, 'h-full':  isDefaultVariant}"
     >
       <BaseMedia
         :media="media"
@@ -28,6 +28,7 @@
       />
     </div>
     <div
+      ref="content"
       class="flex flex-col justify-end frame-content-default relative z-30 pb-16 pt-[136px] lg:pt-[0px]"
       :class="[
         isDefaultVariant ? 'h-max lg:h-full' : 'h-[70%] hidden lg:flex',
@@ -187,7 +188,10 @@ const hideContent = ref(false)
 
 const triggerContainer = ref(null)
 const stickyImage = ref(null)
+const content = ref(null)
+const contentNoOverflow = ref(false)
 onMounted(() => {
+  contentNoOverflow.value = content.value.clientHeight < window.innerHeight
   if (isDefaultVariant.value && stickyImage.value) {
     //scrollTrigger for the mobile sticky background
     const scroll = ScrollTrigger.create({
