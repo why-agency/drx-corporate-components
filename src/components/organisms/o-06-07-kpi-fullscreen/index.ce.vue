@@ -24,7 +24,7 @@
       <div
         ref="content"
         class="z-50 !mx-6 xl:!mx-10 3xl:!mx-24 flex flex-col h-full"
-        :class="[{ 'justify-end': isMedia && !hasQuoteContent}, cards && !cards.length ? 'pb-16' : 'pb-0']"
+        :class="[{ 'justify-end': isMedia && !hasQuoteContent}, cards && cards.length ? 'pb-0' : 'pb-16']"
       >
         <BaseHeadline
           v-if="headline && headline.text"
