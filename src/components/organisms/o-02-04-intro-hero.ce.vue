@@ -2,7 +2,7 @@
   <section
     ref="triggerContainer"
     class="w-full h-max md:h-screen relative"
-    :class="{ 'h-max': !isDefaultVariant, '!h-screen': !actions.length}"
+    :class="{ 'h-max': !isDefaultVariant, '!h-screen': actions && !actions.length}"
   >
     <div
       v-if="media"
