@@ -5,8 +5,7 @@
   >
     <!-- START TOP NAVI -->
     <div
-      class="w-full bg-gradient-to-b !pt-3 !pb-3 !px-6 flex justify-between h-14 items-center"
-      :class="$_theme"
+      class="w-full bg-white text-primary !pt-3 !pb-3 !px-6 flex justify-between h-14 items-center"
     >
       <BaseButtonIcon
         variant="transparent"
@@ -94,6 +93,7 @@
     <SearchOverlay v-if="isSearchOverlayVisible" />
     <!-- END SEARCH OVERLAY-->
   </section>
+  <div class="mb-7"/>
 </template>
 
 <script setup>
@@ -120,10 +120,6 @@ import { useSearch } from '../../../stores/search'
 import { useScrollLock } from '../../../composables/useScrollLock.ts'
 
 const props = defineProps({
-  theme: {
-    type: Object,
-    default: () => ({})
-  },
   textColor: {
     type: String,
     default: 'text-white'
@@ -200,9 +196,6 @@ const changeStatus = content => {
 }
 
 // styles
-const $_theme = computed(() => {
-  return openMenuStatus.value ? 'bg-white text-primary' : props.theme
-})
 const $_textColor = computed(() => {
   return openMenuStatus.value ? 'text-primary' : props.textColor
 })
