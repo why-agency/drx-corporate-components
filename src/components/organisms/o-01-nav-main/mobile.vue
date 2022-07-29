@@ -1,7 +1,7 @@
 <template>
   <section
-    class="w-screen overflow-y-scroll fixed z-50 top-0"
-    :class="{ 'bg-white h-screen': isSearchOverlayVisible || openMenuStatus }"
+    class="w-screen overflow-y-scroll top-0"
+    :class="{ 'bg-white h-screen': isSearchOverlayVisible || openMenuStatus, 'fixed z-50': scrollPosition }"
   >
     <!-- START TOP NAVI -->
     <div
@@ -116,6 +116,10 @@ import { useSearch } from '../../../stores/search'
 import { useScrollLock } from '../../../composables/useScrollLock.ts'
 
 const props = defineProps({
+  scrollPosition: {
+    type: Number,
+    default: null
+  },
   locations: {
     type: Object,
     default: () => ({})

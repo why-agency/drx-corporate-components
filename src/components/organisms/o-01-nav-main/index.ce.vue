@@ -122,9 +122,7 @@
   </section>
   <o-01-NavMainMobile
     v-else
-    :textColor="$_textColor"
-    :logoColor="$_logoColor"
-    :buttonColor="buttonColor"
+    :scrollPosition="scrollPosition"
     :locations="locations"
     :career="dcareerLogin"
     :langNav="langNav"
