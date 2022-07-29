@@ -9,16 +9,16 @@
     >
       <BaseButtonIcon
         variant="transparent"
-        :color="$_buttonColor"
+        color="primary"
         @click="toggleMenu"
       >
         <IconMenu v-if="!openMenuStatus && !isSearchOverlayVisible" />
         <IconClose v-else />
       </BaseButtonIcon>
-      <BaseLogo :fill="$_logoColor" is-small :home-link="homeLink" />
+      <BaseLogo fill="#1E2728" is-small :home-link="homeLink" />
       <BaseButtonIcon
         variant="transparent"
-        :color="$_buttonColor"
+        color="primary"
         @click="openSearchOverlay"
       >
         <IconSearch />
@@ -34,8 +34,7 @@
           :to="locations.url"
           :tag="'a'"
           :target="locations.target"
-          :class="$_textColor"
-          class="hover:text-secondary flex items-center space-x-2"
+          class="text-primary hover:text-secondary flex items-center space-x-2"
         >
           <IconWorld class="!mt-1" />
           <BaseText
@@ -48,14 +47,13 @@
         <MLanguageSwitch
           v-if="langNav && langNav.length"
           :languages="langNav"
-          :color="$_textColor"
+          class="text-primary"
         />
       </div>
       <LoginButton
         v-if="career"
         :data="career"
-        :class="$_textColor"
-        class="mt-2.5 !font-normal items-end"
+        class="text-primary mt-2.5 !font-normal items-end"
         :iconWidth="19"
         :iconHeigth="19"
         text-size="text-body3"
@@ -65,9 +63,8 @@
           v-for="dropdown in dropdownsNotSearch"
           :key="dropdown"
           :dropdown="dropdown"
-          :color="$_textColor"
           @item-clicked="changeStatus"
-          class="!py-8 border-b border-tertiary"
+          class="text-primary !py-8 border-b border-tertiary"
         >
           <DropdownMobileContent v-if="activeCategory" :data="activeCategory" />
         </NavItem>
@@ -93,7 +90,6 @@
     <SearchOverlay v-if="isSearchOverlayVisible" />
     <!-- END SEARCH OVERLAY-->
   </section>
-  <div class="mb-7"/>
 </template>
 
 <script setup>
@@ -120,18 +116,6 @@ import { useSearch } from '../../../stores/search'
 import { useScrollLock } from '../../../composables/useScrollLock.ts'
 
 const props = defineProps({
-  textColor: {
-    type: String,
-    default: 'text-white'
-  },
-  logoColor: {
-    type: String,
-    default: 'white'
-  },
-  buttonColor: {
-    type: String,
-    default: 'dark'
-  },
   locations: {
     type: Object,
     default: () => ({})
@@ -194,17 +178,6 @@ const changeStatus = content => {
     activeCategory.value?.title === content?.title ? null : content
   )
 }
-
-// styles
-const $_textColor = computed(() => {
-  return openMenuStatus.value ? 'text-primary' : props.textColor
-})
-const $_logoColor = computed(() => {
-  return openMenuStatus.value ? '#1E2728' : props.logoColor
-})
-const $_buttonColor = computed(() =>
-  openMenuStatus.value ? 'primary' : props.buttonColor
-)
 
 // scroll lock
 const isLocked = useScrollLock()
