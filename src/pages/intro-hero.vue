@@ -9,7 +9,7 @@
     <o-02-04-intro-hero :data="hero2" class="mb-64" />
   </section>
   <section>
-    <o-02-04-intro-hero :data="hero3" class="mb-64"/>
+    <o-02-04-intro-hero :data="hero3" class="mb-64" />
   </section>
 </template>
 
