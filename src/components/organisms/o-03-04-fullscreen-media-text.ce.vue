@@ -1,12 +1,12 @@
 <template>
-  <div class="w-screen h-screen">
+  <div class="w-screen h-fit lg:h-screen relative">
     <BaseMedia
       v-if="media"
       :media="media"
-      media-style="w-full h-screen absolute"
+      media-style="w-full h-full lg:h-screen absolute"
       gradient="dark"
       full-screen
-      class="!absolute !h-screen"
+      class="!absolute h-full lg:!h-screen"
     />
     <div
       class="frame-content-default grid lg:grid-cols-2 lg:grid-rows-1 h-full content-end relative z-30 text-white pb-10 lg:pb-20"
@@ -15,7 +15,7 @@
         <BaseHeadline
           v-if="headline && headline.text"
           v-bind="headline"
-          class="mb-6 lg:mb-8"
+          class="mt-6 lg:mt-0 mb-6 lg:mb-8"
         />
         <MActionBar v-if="action" :actions="[action]" position="left" />
       </div>

@@ -9,7 +9,10 @@
     <o-02-04-intro-hero :data="hero2" class="mb-64" />
   </section>
   <section>
-    <o-02-04-intro-hero :data="hero3" class="mb-64" />
+    <o-02-04-intro-hero :data="hero3" />
+  </section>
+  <section>
+    <o-03-04-fullscreen-media-text :data="mediaImage" />
   </section>
 </template>
 
@@ -17,6 +20,7 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import O0204IntroHero from '../components/organisms/o-02-04-intro-hero.ce.vue'
+import O0304FullscreenMediaText from '../components/organisms/o-03-04-fullscreen-media-text.ce.vue'
 </script>
 
 <script>
@@ -527,6 +531,115 @@ export default {
               }
             }
           ]
+        }
+      },
+      mediaImage: {
+        content: {
+          header: { text: 'Outstanding Solutions through Synergy', size: 3 },
+          bodytext:
+            '<p>Es ist unser Antrieb, Premium-Fahrzeugen ästhetisch und technisch Charakter zu verleihen, damit unsere Kunden im Markt vorausfahren. Dafür denken wir bei DRÄXLMAIER in Systemen – über Produktgrenzen und Produktbereiche hinaus. Wir bündeln unsere Kompetenzen aus Interieur, Elektronik, Elektrik, Komponenten und Batteriesystemen, um neue Standards zu setzen. Wir verbinden das Gute und erschaffen dadurch das Beste. So entstehen Outstanding Solutions through Synergy. Mit dem Systemgedanken verbinden wir auch Menschen – Spezialisten von DRÄXLMAIER und unserer Kunden, um die besten Ideen für die Mobilität von morgen zu entwickeln. Schwerpunkte auf der IZB sind das Bordnetz der Zukunft, wo wir Komplexitätsgrenzen durchbrechen, das Interieur der Zukunft, insbesondere hinsichtlich Funktionsintegration, Licht und Nachhaltigkeit, die E-Mobilität, für die wir für unsere Kunden ein Komplettpaket haben, sowie die Nachhaltigkeit, die wir aktiv gestalten – etwa dank innovativer Oberflächen und Leichtbau<\/p>',
+          media: [
+            [
+              {
+                publicUrl:
+                  'https:\/\/draexlmaier.loc\/fileadmin\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__a18cb7ce22.jpg',
+                properties: {
+                  title: null,
+                  alternative: null,
+                  description: null,
+                  mimeType: 'image\/jpeg',
+                  type: 'image',
+                  filename:
+                    'csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__a18cb7ce22.jpg',
+                  originalUrl:
+                    'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                  uidLocal: 1006,
+                  fileReferenceUid: 61472,
+                  size: '2 MB',
+                  link: null,
+                  dimensions: { width: 2862, height: 1417 },
+                  cropDimensions: { width: 2862, height: 1417 },
+                  crop: {
+                    desktop: {
+                      cropArea: { height: 1, width: 0.808, x: 0.095, y: 0 },
+                      selectedRatio: '1920x950',
+                      focusArea: null
+                    },
+                    mobile: {
+                      cropArea: { height: 1, width: 0.333, x: 0.333, y: 0 },
+                      selectedRatio: '375x450',
+                      focusArea: null
+                    }
+                  },
+                  autoplay: null,
+                  extension: 'jpg'
+                },
+                cdn: {
+                  publicUrl: '',
+                  publicPath:
+                    '\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__a18cb7ce22.jpg'
+                },
+                useCase: 'default',
+                ratio: '1920x950'
+              },
+              {
+                publicUrl:
+                  'https:\/\/draexlmaier.loc\/fileadmin\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__429bf7b2cb.jpg',
+                properties: {
+                  title: null,
+                  alternative: null,
+                  description: null,
+                  mimeType: 'image\/jpeg',
+                  type: 'image',
+                  filename:
+                    'csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__429bf7b2cb.jpg',
+                  originalUrl:
+                    'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
+                  uidLocal: 1006,
+                  fileReferenceUid: 61472,
+                  size: '660 KB',
+                  link: null,
+                  dimensions: { width: 1179, height: 1417 },
+                  cropDimensions: { width: 1179, height: 1417 },
+                  crop: {
+                    desktop: {
+                      cropArea: { height: 1, width: 0.808, x: 0.095, y: 0 },
+                      selectedRatio: '1920x950',
+                      focusArea: null
+                    },
+                    mobile: {
+                      cropArea: { height: 1, width: 0.333, x: 0.333, y: 0 },
+                      selectedRatio: '375x450',
+                      focusArea: null
+                    }
+                  },
+                  autoplay: null,
+                  extension: 'jpg'
+                },
+                cdn: {
+                  publicUrl: '',
+                  publicPath:
+                    '\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__429bf7b2cb.jpg'
+                },
+                useCase: 'mobile',
+                ratio: '375x450'
+              }
+            ]
+          ],
+          actions: {
+            id: 124,
+            content: {
+              text: 'Click me',
+              link: {
+                type: 'page',
+                url: 'http:\/\/draexlmaier.loc\/produkte',
+                target: ' target="_top"',
+                title: '',
+                class: '',
+                link: 'Produkte'
+              }
+            }
+          }
         }
       }
     }
