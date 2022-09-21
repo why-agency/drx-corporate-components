@@ -9,7 +9,7 @@
     <o-02-04-intro-hero :data="hero2" class="mb-64" />
   </section>
   <section>
-    <o-02-04-intro-hero :data="hero3" />
+    <o-02-04-intro-hero :data="hero3" class="mb-64"/>
   </section>
 </template>
 
@@ -17,7 +17,6 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import O0204IntroHero from '../components/organisms/o-02-04-intro-hero.ce.vue'
-import O0304FullscreenMediaText from '../components/organisms/o-03-04-fullscreen-media-text.ce.vue'
 </script>
 
 <script>
