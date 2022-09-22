@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen h-fit lg:h-screen relative">
+  <div class="w-screen h-fit min-h-screen lg:h-screen relative">
     <BaseMedia
       v-if="media"
       :media="media"
