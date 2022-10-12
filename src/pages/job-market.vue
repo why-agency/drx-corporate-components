@@ -13,90 +13,140 @@ const jobMarketUrl = 'https://development.draexlmaier.com/jobs.json/'
 const jobsData = ref(null)
 
 const placeHolderImage = [
-  {
-    publicUrl:
-      'https://ik.imagekit.io/v2bbhazxb/dev/_processed_/9/a/csm_28-06-2018_Puebla_Photoshoot__13__fb6e90140c.jpg?tr=w-1536',
-    properties: {
-      title: null,
-      alternative: null,
-      description: null,
-      mimeType: 'image\/jpeg',
-      type: 'image',
-      filename:
-        'csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__a18cb7ce22.jpg',
-      originalUrl:
-        'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
-      uidLocal: 1006,
-      fileReferenceUid: 61472,
-      size: '2 MB',
-      link: null,
-      dimensions: { width: 2862, height: 1417 },
-      cropDimensions: { width: 2862, height: 1417 },
-      crop: {
-        desktop: {
-          cropArea: { height: 1, width: 0.808, x: 0.095, y: 0 },
-          selectedRatio: '1920x950',
-          focusArea: null
+  [
+    {
+      publicUrl: "https://review.draexlmaier.com/fileadmin/user_upload/01_interieur_slider01.jpg",
+      properties: {
+        title: null,
+        alternative: null,
+        description: null,
+        mimeType: "image/jpeg",
+        type: "image",
+        filename: "01_interieur_slider01.jpg",
+        originalUrl: "fileadmin/user_upload/01_interieur_slider01.jpg",
+        uidLocal: 21650,
+        fileReferenceUid: 66887,
+        size: "735 KB",
+        link: null,
+        dimensions: {
+          width: 1586,
+          height: 830
         },
-        mobile: {
-          cropArea: { height: 1, width: 0.333, x: 0.333, y: 0 },
-          selectedRatio: '375x450',
-          focusArea: null
-        }
-      },
-      autoplay: null,
-      extension: 'jpg'
-    },
-    cdn: {
-      publicUrl: '',
-      publicPath:
-        '\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__a18cb7ce22.jpg'
-    },
-    useCase: 'default',
-    ratio: '1920x950'
-  },
-  {
-    publicUrl:
-      'https://ik.imagekit.io/v2bbhazxb/dev/_processed_/9/a/csm_28-06-2018_Puebla_Photoshoot__13__fb6e90140c.jpg?tr=w-1536',
-    properties: {
-      title: null,
-      alternative: null,
-      description: null,
-      mimeType: 'image\/jpeg',
-      type: 'image',
-      filename:
-        'csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__429bf7b2cb.jpg',
-      originalUrl:
-        'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
-      uidLocal: 1006,
-      fileReferenceUid: 61472,
-      size: '660 KB',
-      link: null,
-      dimensions: { width: 1179, height: 1417 },
-      cropDimensions: { width: 1179, height: 1417 },
-      crop: {
-        desktop: {
-          cropArea: { height: 1, width: 0.808, x: 0.095, y: 0 },
-          selectedRatio: '1920x950',
-          focusArea: null
+        cropDimensions: {
+          width: 1586,
+          height: 830
         },
-        mobile: {
-          cropArea: { height: 1, width: 0.333, x: 0.333, y: 0 },
-          selectedRatio: '375x450',
-          focusArea: null
-        }
+        crop: {
+          default: {
+            cropArea: {
+              x: 0,
+              y: 0,
+              width: 1,
+              height: 1
+            },
+            selectedRatio: "NaN",
+            focusArea: null
+          }
+        },
+        autoplay: null,
+        extension: "jpg"
       },
-      autoplay: null,
-      extension: 'jpg'
+      cdn: {
+        publicUrl: "https://ik.imagekit.io/v2bbhazxb/rev/user_upload/01_interieur_slider01.jpg",
+        publicPath: "/user_upload/01_interieur_slider01.jpg"
+      },
+      useCase: "default",
+      ratio: null
     },
-    cdn: {
-      publicUrl: '',
-      publicPath:
-        '\/_processed_\/3\/5\/csm_2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1__429bf7b2cb.jpg'
+    {
+      publicUrl: "https://review.draexlmaier.com/fileadmin/user_upload/01_interieur_slider01.jpg",
+      properties: {
+        title: null,
+        alternative: null,
+        description: null,
+        mimeType: "image/jpeg",
+        type: "image",
+        filename: "01_interieur_slider01.jpg",
+        originalUrl: "fileadmin/user_upload/01_interieur_slider01.jpg",
+        uidLocal: 21650,
+        fileReferenceUid: 66887,
+        size: "735 KB",
+        link: null,
+        dimensions: {
+          width: 1586,
+          height: 830
+        },
+        cropDimensions: {
+          width: 1586,
+          height: 830
+        },
+        crop: {
+          default: {
+            cropArea: {
+              x: 0,
+              y: 0,
+              width: 1,
+              height: 1
+            },
+            selectedRatio: "NaN",
+            focusArea: null
+          }
+        },
+        autoplay: null,
+        extension: "jpg"
+      },
+      cdn: {
+        publicUrl: "https://ik.imagekit.io/v2bbhazxb/rev/user_upload/01_interieur_slider01.jpg",
+        publicPath: "/user_upload/01_interieur_slider01.jpg"
+      },
+      useCase: "full",
+      ratio: null
     },
-    useCase: 'mobile',
-    ratio: '375x450'
-  }
+    {
+      publicUrl: "https://review.draexlmaier.com/fileadmin/user_upload/01_interieur_slider01.jpg",
+      properties: {
+        title: null,
+        alternative: null,
+        description: null,
+        mimeType: "image/jpeg",
+        type: "image",
+        filename: "01_interieur_slider01.jpg",
+        originalUrl: "fileadmin/user_upload/01_interieur_slider01.jpg",
+        uidLocal: 21650,
+        fileReferenceUid: 66887,
+        size: "735 KB",
+        link: null,
+        dimensions: {
+          width: 1586,
+          height: 830
+        },
+        cropDimensions: {
+          width: 1586,
+          height: 830
+        },
+        crop: {
+          default: {
+            cropArea: {
+              x: 0,
+              y: 0,
+              width: 1,
+              height: 1
+            },
+            selectedRatio: "NaN",
+            focusArea: null
+          }
+        },
+        autoplay: null,
+        extension: "jpg"
+      },
+      cdn: {
+        publicUrl: "https://ik.imagekit.io/v2bbhazxb/rev/user_upload/01_interieur_slider01.jpg",
+        publicPath: "/user_upload/01_interieur_slider01.jpg"
+      },
+      useCase: "mobile",
+      ratio: null
+    }
+  ]
 ]
 
 onMounted(async () => {
@@ -106,7 +156,8 @@ onMounted(async () => {
       data =>
         (jobsData.value = {
           ...data,
-          header: { text: 'Reshape the way cars are built' },
+          image01: placeHolderImage,
+          header: 'Reshape the way cars are built',
           label_search_input_placeholder: 'Find your dream job',
           label_jobs_count: 'Jobs',
           label_collapsed_filter_bar: 'Choose Filter',

@@ -5,8 +5,8 @@
       class="relative w-full h-96 xl:h-[432px] 2xl:h-[592px] 4xl:h-[640px] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-primary after:bg-opacity-25"
     >
       <BasePicture
-        v-if="data.image"
-        :images="data.image"
+        v-if="data.image01"
+        :images="data.image01"
         size="absolute top-0 left-0 w-full h-full"
       />
 
@@ -53,7 +53,7 @@
       >
         <BaseHeadline
           color="light"
-          :text="data.header.text || 'Reshape the way cars are built'"
+          :text="data.header"
           :size="isLgAndLarger ? 2 : 3"
           tag="h1"
           class="max-w-md xl:max-w-xl lg:mb-10 2xl:mb-20"
