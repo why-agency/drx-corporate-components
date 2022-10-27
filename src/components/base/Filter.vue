@@ -4,7 +4,7 @@
     multiple
     nullable
     v-slot="{ open }"
-    class="w-64"
+    class="w-[17rem]"
   >
     <div class="relative mt-1">
       <ListboxButton
@@ -94,7 +94,6 @@ import BaseTextField from './TextField.vue'
 
 import {
   Listbox,
-  ListboxLabel,
   ListboxButton,
   ListboxOptions,
   ListboxOption
