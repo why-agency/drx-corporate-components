@@ -8,7 +8,7 @@
   >
     <div class="relative mt-1">
       <ListboxButton
-        style="padding-left: 1rem; padding-right: 1rem; margin-left: 1rem; margin-right: 1rem;"
+        style="margin-left: 1rem; margin-right: 1rem;"
         class="relative w-full cursor-default bg-white py-2 text-left focus:border-secondary focus:ring-0 focus:outline-none text-h5-regular"
         :class="{ 'border-b border-b-primary': !open, 'shadow-2xl': open }"
       >
@@ -23,7 +23,7 @@
           </span>
         </span>
         <span
-          class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"
+          class="pointer-events-none absolute inset-y-0 right-0 flex items-center"
         >
           <IconChevronDown class="h-6 w-6 text-gray-400" aria-hidden="true" />
         </span>
