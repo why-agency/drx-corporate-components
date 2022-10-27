@@ -25,6 +25,13 @@
       >
         {{ option.label }}
       </BaseChip>
+      <BaseChip
+        v-if="jobsStore.activeFilterOptions.length > 0"
+        color="white"
+        @click="jobsStore.clearFilters"
+      >
+        Clear all filters
+      </BaseChip>
     </transition-group>
     <!-- END active filters -->
   </div>

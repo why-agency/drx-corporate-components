@@ -12,7 +12,7 @@
       <div
         v-for="filter in jobsStore.filters"
         :key="filter.name"
-        style="padding-bottom: 1.5rem"
+        style="padding-bottom: 1rem"
         class="w-full border-b border-primary last-of-type:border-0"
       >
         <button
@@ -28,6 +28,14 @@
           @placeholder-clicked="jobsStore.activeFilterView = filter"
         />
       </div>
+
+      <button
+        v-if="jobsStore.activeFilterOptions.length > 0"
+        class="text-left text-gray-700 text-button"
+        @click="jobsStore.clearFilters"
+      >
+        Clear all filters
+      </button>
     </div>
     <!-- END iterate over available filters -->
 
