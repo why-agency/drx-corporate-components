@@ -1,22 +1,24 @@
 <template>
-  <div
-    class="bg-white py-3 flex items-center justify-between"
-  >
-    <div class="flex-1 flex justify-between sm:hidden">
+  <div class="bg-white py-3 flex items-center justify-between">
+    <!-- START mobile pagination -->
+    <div class="flex-1 flex justify-between items-center sm:hidden">
       <BaseButtonIcon @click="goToPreviousTrack">
         <span class="sr-only">Previous</span>
         <IconChevronUp class="-rotate-90 h-6 w-6" aria-hidden="true" />
       </BaseButtonIcon>
+
+      <p>{{ trackCounter }}</p>
+
       <BaseButtonIcon @click="goToNextTrack">
         <span class="sr-only">Next</span>
         <IconChevronUp class="rotate-90 h-6 w-6" aria-hidden="true" />
       </BaseButtonIcon>
     </div>
+    <!-- END mobile pagination -->
+
+    <!-- START desktop pagination -->
     <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-end">
-      <nav
-        class="relative z-0 inline-flex -space-x-px"
-        aria-label="Pagination"
-      >
+      <nav class="relative z-0 inline-flex -space-x-px" aria-label="Pagination">
         <button
           class="relative inline-flex items-center px-2 py-2 text-primary hover:text-secondary"
           @click="goToPreviousTrack"
@@ -24,7 +26,7 @@
           <span class="sr-only">Previous</span>
           <IconChevronUp class="-rotate-90 h-6 w-6" aria-hidden="true" />
         </button>
-        <!-- Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" -->
+
         <template v-if="pages > 6">
           <!-- Render beginningSpread -->
           <button
@@ -72,6 +74,7 @@
             {{ page + 1 }}
           </button>
         </template>
+
         <button
           class="relative inline-flex items-center px-2 py-2 text-primary hover:text-secondary"
           @click="goToNextTrack"
@@ -81,6 +84,7 @@
         </button>
       </nav>
     </div>
+    <!-- END desktop pagination -->
   </div>
 </template>
 
