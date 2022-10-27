@@ -22,12 +22,10 @@ import {
   useBreakpoints,
   breakpointsTailwind
 } from '@vueuse/core'
-import { ref, computed, onMounted, toRefs } from 'vue'
-import BaseAction from '../base/Action.vue'
+import { ref, computed } from 'vue'
 import BaseHtmlParser from '../base/HtmlParser.vue'
 import IconChevronUp from '../icons/ChevronUp.vue'
 import IconChevronDown from '../icons/ChevronDown.vue'
-import UseDynamicAction from '../organisms/UseDynamicAction.vue'
 import { useNav } from '../../stores/nav'
 
 const props = defineProps({
