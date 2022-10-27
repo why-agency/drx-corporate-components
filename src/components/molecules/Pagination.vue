@@ -7,7 +7,7 @@
         <IconChevronUp class="-rotate-90 h-6 w-6" aria-hidden="true" />
       </BaseButtonIcon>
 
-      <p>{{ trackCounter }}</p>
+      <p style="margin-bottom: 0 !important;">{{ trackCounter }}</p>
 
       <BaseButtonIcon @click="goToNextTrack">
         <span class="sr-only">Next</span>
