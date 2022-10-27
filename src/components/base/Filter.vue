@@ -4,7 +4,6 @@
     multiple
     nullable
     v-slot="{ open }"
-    class="w-[17rem]"
   >
     <div class="relative mt-1">
       <ListboxButton

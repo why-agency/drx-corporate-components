@@ -6,6 +6,7 @@
         :key="filter.name"
         :label="filter.label"
         :filter="filter"
+        class="grow-0 shrink-1 basis-64"
       />
     </div>
 
