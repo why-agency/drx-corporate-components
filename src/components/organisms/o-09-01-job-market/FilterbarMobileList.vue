@@ -34,7 +34,7 @@
         class="text-left text-gray-700 text-button"
         @click="jobsStore.clearFilters"
       >
-        Clear all filters
+        {{ jobsStore.labels.clearAllFilters }}
       </button>
     </div>
     <!-- END iterate over available filters -->

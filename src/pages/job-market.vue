@@ -168,7 +168,8 @@ onMounted(async () => {
           label_business_area: 'Funktionsbereich',
           label_job_type: 'Anstellungsart',
           label_apply_button: 'Apply now',
-          label_print_button: 'Print'
+          label_print_button: 'Print',
+          label_clear_all_filters: 'Clear all filters'
         })
     )
 })

@@ -44,7 +44,8 @@ export const useJobs = defineStore('jobs', {
         location: '',
         businessArea: '',
         applyButton: '',
-        printButton: ''
+        printButton: '',
+        clearAllFilters: ''
       }
     }
   },
@@ -113,6 +114,7 @@ export const useJobs = defineStore('jobs', {
       this.labels.businessArea = data.label_business_area
       this.labels.applyButton = data.label_apply_button
       this.labels.printButton = data.label_print_button
+      this.labels.clearAllFilters = data.label_clear_all_filters
     },
     clearFilterOption(filterOptionToClear: FilterOption) {
       this.activeFilterOptions = this.activeFilterOptions.filter(

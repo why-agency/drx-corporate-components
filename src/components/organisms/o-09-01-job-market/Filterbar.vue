@@ -31,7 +31,7 @@
         color="white"
         @click="jobsStore.clearFilters"
       >
-        Clear all filters
+        {{ jobsStore.labels.clearAllFilters }}
       </BaseChip>
     </transition-group>
     <!-- END active filters -->
