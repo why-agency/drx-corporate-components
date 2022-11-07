@@ -1,6 +1,6 @@
 <template>
   <div
-    style="padding: 2rem 1.5rem !important;"
+    style="padding: 2rem 1.5rem !important"
     class="fixed top-0 left-0 flex flex-col w-screen h-full min-h-screen bg-white z-50"
   >
     <button class="flex mb-12" @click="jobsStore.activeFilterView = null">
@@ -15,7 +15,10 @@
     </BaseHeadline>
 
     <!-- START filterable options -->
-    <div style="margin-top: 2rem;" class="w-full flex-1 py-1 pl-1 overflow-scroll grid grid-cols-1 gap-8 mask">
+    <div
+      style="margin-top: 2rem"
+      class="w-full flex-1 py-1 pl-1 overflow-scroll flex flex-col gap-8 mask"
+    >
       <BaseCheckbox
         v-for="filter in relevantFilterOptions"
         :key="filter.value"
@@ -29,11 +32,14 @@
     <!-- END filterable options -->
 
     <div class="flex flex-col justify-center pt-4">
-      <button class="text-button text-tertiary" @click="jobsStore.activeFilterView = null">
+      <button
+        class="text-button text-tertiary"
+        @click="jobsStore.activeFilterView = null"
+      >
         {{ jobsStore.labels.returnToFilters }}
       </button>
       <BaseAction
-        style="margin-top: 1.5rem;"
+        style="margin-top: 1.5rem"
         class="w-full"
         variant="block"
         block
@@ -83,7 +89,6 @@ const filters = computed({
     jobsStore.setActiveFilterOptions(activeFilterOptions)
   }
 })
-
 
 const isLocked = useScrollLock()
 const hideFilterBar = () => {
