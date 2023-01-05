@@ -15,7 +15,7 @@
       :to="dropdown.link"
       :tag="dropdown.link ? 'a' : 'div'"
       :target="dropdown.target"
-      class="!text-primary  hover:!text-secondary"
+      class="!text-primary hover:!text-secondary"
     >
       <BaseText
         :animate="false"

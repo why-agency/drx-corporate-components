@@ -1,5 +1,8 @@
 <template>
-  <button :class="['flex items-center px-3 py-2 text-body3', $_color]" @click="$emit('click')">
+  <button
+    :class="['flex items-center px-3 py-2 text-body3', $_color]"
+    @click="$emit('click')"
+  >
     <slot>
       {{ label }}
     </slot>

@@ -373,7 +373,7 @@ export default {
                 text: {
                   text: 'Innovativ denken und handeln: Dieses Streben ist in der Erfolgsgeschichte von DRÄXLMAIER eine feste Größe – gestern, heute und morgen. Mit unseren Produkten für E-Mobilität und autonomes Fahren sind wir weltweit führend.',
                   size: 'text-body1'
-                },
+                }
                 // icon: [
                 //   [
                 //     {
@@ -441,7 +441,7 @@ export default {
                 text: {
                   text: 'Zeigen Sie Ihre automobile Leidenschaft und werden Sie Teil des DR\u00c4XLMAIER Teams.',
                   size: 'text-body1'
-                },
+                }
                 // icon: [
                 //   [
                 //     {
@@ -509,7 +509,7 @@ export default {
                 text: {
                   text: 'Innovativ denken und handeln: Dieses Streben ist in der Erfolgsgeschichte von DRÄXLMAIER eine feste Größe – gestern, heute und morgen. Mit unseren Produkten für E-Mobilität und autonomes Fahren sind wir weltweit führend.',
                   size: 'text-body1'
-                },
+                }
                 // icon: [
                 //   [
                 //     {

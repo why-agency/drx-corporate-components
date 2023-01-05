@@ -25,7 +25,9 @@ const O0311StickyScrollElement = defineCustomElement(O0311StickyScroll, {
   shadowRoot: false
 })
 
-const O0501ContentSliderElement = defineCustomElement(O0501ContentSlider, { shadowRoot: false })
+const O0501ContentSliderElement = defineCustomElement(O0501ContentSlider, {
+  shadowRoot: false
+})
 
 const O0609MediaHotspotElement = defineCustomElement(O0609MediaHotspot, {
   shadowRoot: false
@@ -33,13 +35,23 @@ const O0609MediaHotspotElement = defineCustomElement(O0609MediaHotspot, {
 const O0607KpiFullscreenElement = defineCustomElement(O0607KpiFullscreen, {
   shadowRoot: false
 })
-const O0502NewsSliderElement = defineCustomElement(O0502NewsSlider, { shadowRoot: false })
+const O0502NewsSliderElement = defineCustomElement(O0502NewsSlider, {
+  shadowRoot: false
+})
 
-const O0901JobMarketElement = defineCustomElement(O0901JobMarket, { shadowRoot: false })
-const O0901JobMarketDetailElement = defineCustomElement(O0901JobMarketDetail, { shadowRoot: false })
-const O0204IntroHeroElement = defineCustomElement(O0204IntroHero, { shadowRoot: false })
+const O0901JobMarketElement = defineCustomElement(O0901JobMarket, {
+  shadowRoot: false
+})
+const O0901JobMarketDetailElement = defineCustomElement(O0901JobMarketDetail, {
+  shadowRoot: false
+})
+const O0204IntroHeroElement = defineCustomElement(O0204IntroHero, {
+  shadowRoot: false
+})
 
-const O0105NavMainElement = defineCustomElement(O0105NavMain, { shadowRoot: false })
+const O0105NavMainElement = defineCustomElement(O0105NavMain, {
+  shadowRoot: false
+})
 
 export {
   O0304FullscreenMediaText,
@@ -65,6 +77,9 @@ export function register() {
   customElements.define('o-05-02-news-slider', O0502NewsSliderElement)
   customElements.define('o-09-01-job-market', O0901JobMarketElement)
   customElements.define('o-01-05-nav-main', O0105NavMainElement)
-  customElements.define('o-09-01-job-market-detail', O0901JobMarketDetailElement)
+  customElements.define(
+    'o-09-01-job-market-detail',
+    O0901JobMarketDetailElement
+  )
   customElements.define('o-02-04-intro-hero', O0204IntroHeroElement)
 }

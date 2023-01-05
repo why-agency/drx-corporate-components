@@ -15,18 +15,19 @@ const jobsData = ref(null)
 const placeHolderImage = [
   [
     {
-      publicUrl: "https://review.draexlmaier.com/fileadmin/user_upload/01_interieur_slider01.jpg",
+      publicUrl:
+        'https://review.draexlmaier.com/fileadmin/user_upload/01_interieur_slider01.jpg',
       properties: {
         title: null,
         alternative: null,
         description: null,
-        mimeType: "image/jpeg",
-        type: "image",
-        filename: "01_interieur_slider01.jpg",
-        originalUrl: "fileadmin/user_upload/01_interieur_slider01.jpg",
+        mimeType: 'image/jpeg',
+        type: 'image',
+        filename: '01_interieur_slider01.jpg',
+        originalUrl: 'fileadmin/user_upload/01_interieur_slider01.jpg',
         uidLocal: 21650,
         fileReferenceUid: 66887,
-        size: "735 KB",
+        size: '735 KB',
         link: null,
         dimensions: {
           width: 1586,
@@ -44,33 +45,35 @@ const placeHolderImage = [
               width: 1,
               height: 1
             },
-            selectedRatio: "NaN",
+            selectedRatio: 'NaN',
             focusArea: null
           }
         },
         autoplay: null,
-        extension: "jpg"
+        extension: 'jpg'
       },
       cdn: {
-        publicUrl: "https://ik.imagekit.io/v2bbhazxb/rev/user_upload/01_interieur_slider01.jpg",
-        publicPath: "/user_upload/01_interieur_slider01.jpg"
+        publicUrl:
+          'https://ik.imagekit.io/v2bbhazxb/rev/user_upload/01_interieur_slider01.jpg',
+        publicPath: '/user_upload/01_interieur_slider01.jpg'
       },
-      useCase: "default",
+      useCase: 'default',
       ratio: null
     },
     {
-      publicUrl: "https://review.draexlmaier.com/fileadmin/user_upload/01_interieur_slider01.jpg",
+      publicUrl:
+        'https://review.draexlmaier.com/fileadmin/user_upload/01_interieur_slider01.jpg',
       properties: {
         title: null,
         alternative: null,
         description: null,
-        mimeType: "image/jpeg",
-        type: "image",
-        filename: "01_interieur_slider01.jpg",
-        originalUrl: "fileadmin/user_upload/01_interieur_slider01.jpg",
+        mimeType: 'image/jpeg',
+        type: 'image',
+        filename: '01_interieur_slider01.jpg',
+        originalUrl: 'fileadmin/user_upload/01_interieur_slider01.jpg',
         uidLocal: 21650,
         fileReferenceUid: 66887,
-        size: "735 KB",
+        size: '735 KB',
         link: null,
         dimensions: {
           width: 1586,
@@ -88,33 +91,35 @@ const placeHolderImage = [
               width: 1,
               height: 1
             },
-            selectedRatio: "NaN",
+            selectedRatio: 'NaN',
             focusArea: null
           }
         },
         autoplay: null,
-        extension: "jpg"
+        extension: 'jpg'
       },
       cdn: {
-        publicUrl: "https://ik.imagekit.io/v2bbhazxb/rev/user_upload/01_interieur_slider01.jpg",
-        publicPath: "/user_upload/01_interieur_slider01.jpg"
+        publicUrl:
+          'https://ik.imagekit.io/v2bbhazxb/rev/user_upload/01_interieur_slider01.jpg',
+        publicPath: '/user_upload/01_interieur_slider01.jpg'
       },
-      useCase: "full",
+      useCase: 'full',
       ratio: null
     },
     {
-      publicUrl: "https://review.draexlmaier.com/fileadmin/user_upload/01_interieur_slider01.jpg",
+      publicUrl:
+        'https://review.draexlmaier.com/fileadmin/user_upload/01_interieur_slider01.jpg',
       properties: {
         title: null,
         alternative: null,
         description: null,
-        mimeType: "image/jpeg",
-        type: "image",
-        filename: "01_interieur_slider01.jpg",
-        originalUrl: "fileadmin/user_upload/01_interieur_slider01.jpg",
+        mimeType: 'image/jpeg',
+        type: 'image',
+        filename: '01_interieur_slider01.jpg',
+        originalUrl: 'fileadmin/user_upload/01_interieur_slider01.jpg',
         uidLocal: 21650,
         fileReferenceUid: 66887,
-        size: "735 KB",
+        size: '735 KB',
         link: null,
         dimensions: {
           width: 1586,
@@ -132,18 +137,19 @@ const placeHolderImage = [
               width: 1,
               height: 1
             },
-            selectedRatio: "NaN",
+            selectedRatio: 'NaN',
             focusArea: null
           }
         },
         autoplay: null,
-        extension: "jpg"
+        extension: 'jpg'
       },
       cdn: {
-        publicUrl: "https://ik.imagekit.io/v2bbhazxb/rev/user_upload/01_interieur_slider01.jpg",
-        publicPath: "/user_upload/01_interieur_slider01.jpg"
+        publicUrl:
+          'https://ik.imagekit.io/v2bbhazxb/rev/user_upload/01_interieur_slider01.jpg',
+        publicPath: '/user_upload/01_interieur_slider01.jpg'
       },
-      useCase: "mobile",
+      useCase: 'mobile',
       ratio: null
     }
   ]

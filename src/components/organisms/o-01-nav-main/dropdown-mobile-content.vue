@@ -2,20 +2,20 @@
   <section>
     <!-- main menu link -->
     <UseDynamicAction
-        :to="data.link"
-        :tag="data.link ? 'a' : 'div'"
-        :target="data.target"
-        class="text-black"
+      :to="data.link"
+      :tag="data.link ? 'a' : 'div'"
+      :target="data.target"
+      class="text-black"
+    >
+      <BaseHeadline
+        :size="5"
+        tag="h4"
+        class="text-secondary hover:text-tertiary flex items-end !mt-8 normal-case"
       >
-        <BaseHeadline
-          :size="5"
-          tag="h4"
-          class="text-secondary hover:text-tertiary flex items-end !mt-8 normal-case"
-        >
-          {{ data.navDropdownHeadline }}
-          <IconArrowRightFatShort class="!ml-2 h-4" />
-        </BaseHeadline>
-      </UseDynamicAction>
+        {{ data.navDropdownHeadline }}
+        <IconArrowRightFatShort class="!ml-2 h-4" />
+      </BaseHeadline>
+    </UseDynamicAction>
     <!-- links -->
     <dropdown-column
       class="border-r-0 !mt-8 !h-max"

@@ -154,8 +154,10 @@ const $_gradient = computed(
     ]
 )
 
-const $_videoOverlay  = computed(() => {
-  return props.videoOverlay && videoStream.value ? "before:block before:bg-black before:opacity-60 before:h-full before:w-full before:absolute before:z-20" : ""
+const $_videoOverlay = computed(() => {
+  return props.videoOverlay && videoStream.value
+    ? 'before:block before:bg-black before:opacity-60 before:h-full before:w-full before:absolute before:z-20'
+    : ''
 })
 
 /** Lightbox */

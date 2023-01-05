@@ -66,7 +66,9 @@ export default {
       return {
         'bg-button-background':
           this.color === 'secondary' &&
-          (this.variant === 'default' || this.variant === 'block' || this.variant === 'small'),
+          (this.variant === 'default' ||
+            this.variant === 'block' ||
+            this.variant === 'small'),
         'bg-button-background-reverse':
           this.color === 'white' &&
           (this.variant === 'default' || this.variant === 'block'),
@@ -81,7 +83,9 @@ export default {
       return {
         'bg-button-text':
           this.color === 'secondary' &&
-          (this.variant === 'default' || this.variant === 'block' || this.variant === 'small'),
+          (this.variant === 'default' ||
+            this.variant === 'block' ||
+            this.variant === 'small'),
         'bg-button-text-large':
           this.color === 'secondary' && this.variant === 'large',
         'bg-button-text-reverse':

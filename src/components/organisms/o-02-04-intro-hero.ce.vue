@@ -8,7 +8,10 @@
       v-if="media"
       ref="stickyImage"
       class="w-full absolute"
-      :class="{ 'relative lg:absolute': !isDefaultVariant, 'h-full':  isDefaultVariant}"
+      :class="{
+        'relative lg:absolute': !isDefaultVariant,
+        'h-full': isDefaultVariant
+      }"
     >
       <BaseMedia
         :media="media"

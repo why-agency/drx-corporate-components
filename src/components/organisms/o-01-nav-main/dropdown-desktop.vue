@@ -25,7 +25,10 @@
         <!-- start links -->
         <div class="flex">
           <!-- Left links column -->
-          <dropdown-column v-if="firstChildren?.length" :items="firstChildren" />
+          <dropdown-column
+            v-if="firstChildren?.length"
+            :items="firstChildren"
+          />
           <!-- Right link column -->
           <dropdown-column
             v-if="lastChildren?.length"

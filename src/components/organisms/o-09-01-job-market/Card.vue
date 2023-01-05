@@ -1,7 +1,7 @@
 <template>
   <a
     :href="url"
-    style="padding: 1rem 1.5rem;text-decoration: none;"
+    style="padding: 1rem 1.5rem; text-decoration: none"
     class="grid grid-cols-2 lg:grid-cols-8 grid-rows-[auto,1fr,auto] lg:grid-rows-[auto] lg:items-center gap-y-4 lg:gap-6 3xl:gap-8 justify-between h-56 lg:h-[88px] cursor-pointer !text-primary bg-sand hover:!bg-primary hover:!text-white"
   >
     <div class="flex items-center text-overline lg:text-body3">

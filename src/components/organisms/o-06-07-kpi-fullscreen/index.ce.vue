@@ -4,8 +4,9 @@
       :class="[
         frame,
         {
-          'h-max lg:h-screen': (hasQuoteContent || isMedia) && !contentNoOverflow,
-          'h-screen lg:h-screen': (hasQuoteContent || isMedia) && contentNoOverflow,
+          'h-max': !cards && !isMedia && hasQuoteContent,
+          'h-max lg:h-screen': (cards || isMedia) && !contentNoOverflow,
+          'h-screen lg:h-screen': (cards || isMedia) && contentNoOverflow,
           [$_backgroundColor]: !isMedia
         }
       ]"
@@ -24,7 +25,10 @@
       <div
         ref="content"
         class="z-50 !mx-6 xl:!mx-10 3xl:!mx-24 flex flex-col h-full"
-        :class="[{ 'justify-end': isMedia && !hasQuoteContent}, cards && cards.length ? 'pb-0' : 'pb-16']"
+        :class="[
+          { 'justify-end': isMedia && !hasQuoteContent },
+          cards && cards.length ? 'pb-0' : 'pb-16'
+        ]"
       >
         <BaseHeadline
           v-if="headline && headline.text"
