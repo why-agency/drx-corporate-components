@@ -29,22 +29,6 @@
 
         <template v-if="pages > 6">
           <!-- Render beginningSpread -->
-          <!-- <template v-if="currentTrack.length < 9">
-            <button
-              v-for="page in currentTrack.slice(0, currentTrack.length - 1)"
-              aria-current="page"
-              class="min-w-[54px] z-10 text-body2 hover:text-secondary relative inline-flex justify-center items-center px-4 py-2 font-medium"
-              :class="{
-                'text-primary border-b-primary border-b-2':
-                  page === currentPage,
-                'text-gray-700': page !== currentPage
-              }"
-              @click="changePage(page)"
-            >
-              {{ page + 1 }}
-            </button>
-          </template> -->
-
           <button
             v-for="page in currentTrack.slice(0, 3)"
             aria-current="page"
