@@ -29,55 +29,35 @@
 
         <template v-if="pages > 6">
           <!-- Render beginningSpread -->
-          <template v-if="currentTrack.length < 9">
-            <button
-              v-for="page in currentTrack.slice(0, currentTrack.length - 1)"
-              aria-current="page"
-              class="min-w-[54px] z-10 text-body2 hover:text-secondary relative inline-flex justify-center items-center px-4 py-2 font-medium"
-              :class="{
-                'text-primary border-b-primary border-b-2':
-                  page === currentPage,
-                'text-gray-700': page !== currentPage
-              }"
-              @click="changePage(page)"
-            >
-              {{ page + 1 }}
-            </button>
-          </template>
-
-          <template v-else>
-            <button
-              v-for="page in currentTrack.slice(0, 3)"
-              aria-current="page"
-              class="min-w-[54px] z-10 text-body2 hover:text-secondary relative inline-flex justify-center items-center px-4 py-2 font-medium"
-              :class="{
-                'text-primary border-b-primary border-b-2':
-                  page === currentPage,
-                'text-gray-700': page !== currentPage
-              }"
-              @click="changePage(page)"
-            >
-              {{ page + 1 }}
-            </button>
-            <span
-              class="z-10 text-gray-700 text-body2 relative inline-flex justify-center items-center px-4 py-2 font-medium"
-            >
-              ...
-            </span>
-            <button
-              v-for="page in currentTrack.slice(6, 9)"
-              aria-current="page"
-              class="min-w-[54px] z-10 text-body2 hover:text-secondary relative inline-flex justify-center items-center px-4 py-2 font-medium"
-              :class="{
-                'text-primary border-b-primary border-b-2':
-                  page === currentPage,
-                'text-gray-700': page !== currentPage
-              }"
-              @click="changePage(page)"
-            >
-              {{ page + 1 }}
-            </button>
-          </template>
+          <button
+            v-for="page in currentTrack.slice(0, 3)"
+            aria-current="page"
+            class="min-w-[54px] z-10 text-body2 hover:text-secondary relative inline-flex justify-center items-center px-4 py-2 font-medium"
+            :class="{
+              'text-primary border-b-primary border-b-2': page === currentPage,
+              'text-gray-700': page !== currentPage
+            }"
+            @click="changePage(page)"
+          >
+            {{ page + 1 }}
+          </button>
+          <span
+            class="z-10 text-gray-700 text-body2 relative inline-flex justify-center items-center px-4 py-2 font-medium"
+          >
+            ...
+          </span>
+          <button
+            v-for="page in currentTrack.slice(6, 9)"
+            aria-current="page"
+            class="min-w-[54px] z-10 text-body2 hover:text-secondary relative inline-flex justify-center items-center px-4 py-2 font-medium"
+            :class="{
+              'text-primary border-b-primary border-b-2': page === currentPage,
+              'text-gray-700': page !== currentPage
+            }"
+            @click="changePage(page)"
+          >
+            {{ page + 1 }}
+          </button>
         </template>
 
         <template v-else>
@@ -109,7 +89,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 // Components
 import IconChevronUp from '../icons/ChevronUp.vue'
@@ -133,7 +113,11 @@ const trackCounter = ref(0)
 const currentTrack = computed(() =>
   [0, 1, 2, 3, 4, 5, 6, 7, 8]
     .map(page => page + trackCounter.value * 3)
-    .filter(page => page <= props.pages)
+    .map(page => {
+      console.log(page)
+      return page
+    })
+    .filter(page => page + 1 <= props.pages)
 )
 
 const goToPreviousTrack = (): void => {
@@ -146,7 +130,7 @@ const goToPreviousTrack = (): void => {
 
 const goToNextTrack = (): void => {
   // @ts-ignore
-  if (currentTrack.value.at(-1) >= props.pages) return
+  if (currentTrack.value.at(-1) >= props.pages - 1) return
 
   trackCounter.value++
   //@ts-ignore
@@ -158,4 +142,11 @@ const changePage = (page: number) => {
 
   emit('change', page)
 }
+
+watch(
+  () => props.pages,
+  () => {
+    trackCounter.value = 0
+  }
+)
 </script>
