@@ -452,7 +452,6 @@ export default {
           ]
         }
       },
-
       kpi: {
         id: 78358,
         pid: 9093,
@@ -584,7 +583,44 @@ export default {
             text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
           },
           header: { text: 'KPI +Quote+Video+Overlay', tag: 'h2' },
-          kpicards: null,
+          kpicards: [
+            {
+              id: 1,
+              pid: 9093,
+              type: 'kpicard',
+              content: {
+                name: 'Durchschnittliche Kundenbeziehung',
+                value: '393934',
+                unit: 'kg',
+                description:
+                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
+              }
+            },
+            {
+              id: 2,
+              pid: 9093,
+              type: 'kpicard',
+              content: {
+                name: 'Weltneuheiten mit DRÄXLMAIER Produktenasdasd',
+                value: '945334',
+                unit: 'm2',
+                description:
+                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
+              }
+            },
+            {
+              id: 3,
+              pid: 9093,
+              type: 'kpicard',
+              content: {
+                name: 'Definierte Patente',
+                value: '936634',
+                unit: 'm2',
+                description:
+                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
+              }
+            }
+          ],
           overlays: [
             {
               id: 1,
@@ -869,46 +905,44 @@ export default {
             text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
           },
           header: { text: 'KPI + Quote + Video', tag: 'h2' },
-          kpicards: [
-            [
-              {
-                id: 1,
-                pid: 9093,
-                type: 'kpicard',
-                content: {
-                  name: 'Durchschnittliche Kundenbeziehung',
-                  value: '3939',
-                  unit: 'kg',
-                  description:
-                    'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
-                }
-              },
-              {
-                id: 2,
-                pid: 9093,
-                type: 'kpicard',
-                content: {
-                  name: 'Weltneuheiten mit DRÄXLMAIER Produktenasdasd',
-                  value: '9453',
-                  unit: 'm2',
-                  description:
-                    'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
-                }
-              },
-              {
-                id: 3,
-                pid: 9093,
-                type: 'kpicard',
-                content: {
-                  name: 'Weltneuheiten mit DRÄXLMAIER Produktenasdasd',
-                  value: '9693',
-                  unit: 'm2',
-                  description:
-                    'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
-                }
+          kpicards: [[
+            {
+              id: 1,
+              pid: 9093,
+              type: 'kpicard',
+              content: {
+                name: 'Durchschnittliche Kundenbeziehung',
+                value: '3939',
+                unit: 'kg',
+                description:
+                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
               }
-            ]
-          ],
+            },
+            {
+              id: 2,
+              pid: 9093,
+              type: 'kpicard',
+              content: {
+                name: 'Weltneuheiten mit DRÄXLMAIER Produktenasdasd',
+                value: '9453',
+                unit: 'm2',
+                description:
+                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
+              }
+            },
+            {
+              id: 3,
+              pid: 9093,
+              type: 'kpicard',
+              content: {
+                name: 'Weltneuheiten mit DRÄXLMAIER Produktenasdasd',
+                value: '9693',
+                unit: 'm2',
+                description:
+                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
+              }
+            }
+          ]],
           overlays: [
             {
               id: 1,
