@@ -1,4 +1,4 @@
-import { defineStore, createPinia, setActivePinia } from "pinia";
+import { defineStore, createPinia, setActivePinia } from 'pinia'
 
 import { Filter, FilterOption } from '../../types'
 
@@ -33,7 +33,7 @@ export const useJobs = defineStore('jobs', {
       isRequestPending: true,
       hasRequestFailed: false,
       isFilterBarActive: false,
-      activeFilterView: null as Filter|null,
+      activeFilterView: null as Filter | null,
       labels: {
         searchInputPlaceholder: '',
         jobsCount: '',
@@ -57,7 +57,10 @@ export const useJobs = defineStore('jobs', {
       return Math.ceil(state.count / state.jobsPerPage)
     },
     jobsToDisplay(state) {
-      return state.jobs.slice(state.currentPage * 10, (state.currentPage + 1) * 10)
+      return state.jobs.slice(
+        state.currentPage * 10,
+        (state.currentPage + 1) * 10
+      )
     }
   },
   actions: {
@@ -70,13 +73,14 @@ export const useJobs = defineStore('jobs', {
 
       try {
         this.isRequestPending = true
-        const response = await fetch(url, { headers: { Authorization: `Basic ${btoa('drx:drx')}` } })
+        const response = await fetch(url, {
+          headers: { Authorization: `Basic ${btoa('drx:drx')}` }
+        })
         const { documents, allResultCount, facets } = await response.json()
 
         this.count = allResultCount
         this.persistJobs(documents)
         this.persistFilters(facets)
-
       } catch (error) {
         this.hasRequestFailed = true
       } finally {
@@ -90,7 +94,8 @@ export const useJobs = defineStore('jobs', {
       this.activeFilterOptions = options
     },
     persistJobs(documents: any) {
-      const jobs = documents?.list?.results.map((rawJob: any) => rawJob.content) || []
+      const jobs =
+        documents?.list?.results.map((rawJob: any) => rawJob.content) || []
       this.jobs = jobs
       this.isRequestPending = false
       this.currentPage = 0

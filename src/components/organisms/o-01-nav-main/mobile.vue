@@ -1,17 +1,16 @@
 <template>
   <section
     class="w-screen overflow-y-scroll top-0"
-    :class="{ 'bg-white h-screen': isSearchOverlayVisible || openMenuStatus, 'fixed z-50': scrollPosition || openMenuStatus }"
+    :class="{
+      'bg-white h-screen': isSearchOverlayVisible || openMenuStatus,
+      'fixed z-50': scrollPosition || openMenuStatus
+    }"
   >
     <!-- START TOP NAVI -->
     <div
       class="w-full bg-white text-primary !pt-3 !pb-3 !px-6 flex justify-between h-14 items-center"
     >
-      <BaseButtonIcon
-        variant="transparent"
-        color="primary"
-        @click="toggleMenu"
-      >
+      <BaseButtonIcon variant="transparent" color="primary" @click="toggleMenu">
         <IconMenu v-if="!openMenuStatus && !isSearchOverlayVisible" />
         <IconClose v-else />
       </BaseButtonIcon>

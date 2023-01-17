@@ -1,13 +1,8 @@
 <template>
-  <Listbox
-    v-model="selectedOptions"
-    multiple
-    nullable
-    v-slot="{ open }"
-  >
+  <Listbox v-model="selectedOptions" multiple nullable v-slot="{ open }">
     <div class="relative mt-1">
       <ListboxButton
-        style="margin-left: 1rem; margin-right: 1rem;"
+        style="margin-left: 1rem; margin-right: 1rem"
         class="relative w-full cursor-default bg-white py-2 text-left focus:border-secondary focus:ring-0 focus:outline-none text-h5-regular"
         :class="{ 'border-b border-b-primary': !open, 'shadow-2xl': open }"
       >

@@ -1,8 +1,6 @@
 <template>
   <o-06-07-kpi-fullscreen :data="kpi" class="mb-64" />
   <o-06-07-kpi-fullscreen :data="kpi2" class="mb-32" />
-  <o-06-07-kpi-fullscreen :data="kpi3" />
-  <o-06-07-kpi-fullscreen :data="kpi4" />
 </template>
 
 <script setup>
@@ -452,7 +450,6 @@ export default {
           ]
         }
       },
-
       kpi: {
         id: 78358,
         pid: 9093,
@@ -584,44 +581,7 @@ export default {
             text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
           },
           header: { text: 'KPI +Quote+Video+Overlay', tag: 'h2' },
-          kpicards: [
-            {
-              id: 1,
-              pid: 9093,
-              type: 'kpicard',
-              content: {
-                name: 'Durchschnittliche Kundenbeziehung',
-                value: '393934',
-                unit: 'kg',
-                description:
-                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
-              }
-            },
-            {
-              id: 2,
-              pid: 9093,
-              type: 'kpicard',
-              content: {
-                name: 'Weltneuheiten mit DRÄXLMAIER Produktenasdasd',
-                value: '945334',
-                unit: 'm2',
-                description:
-                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
-              }
-            },
-            {
-              id: 3,
-              pid: 9093,
-              type: 'kpicard',
-              content: {
-                name: 'Definierte Patente',
-                value: '936634',
-                unit: 'm2',
-                description:
-                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
-              }
-            }
-          ],
+          kpicards: null,
           overlays: [
             {
               id: 1,
@@ -895,7 +855,7 @@ export default {
           spaceAfter: ''
         },
         content: {
-          background: 'gradient',
+          background: 'dark',
           gradient: 'dark',
           media: {
             type: 'image',
@@ -905,75 +865,135 @@ export default {
           quote: {
             text: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
           },
-          header: { text: 'KPI + Quote + Video', tag: 'h2' },
-          kpicards: [[
-            {
-              id: 1,
-              pid: 9093,
-              type: 'kpicard',
-              content: {
-                name: 'Durchschnittliche Kundenbeziehung',
-                value: '3939',
-                unit: 'kg',
-                description:
-                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
-              }
-            },
-            {
-              id: 2,
-              pid: 9093,
-              type: 'kpicard',
-              content: {
-                name: 'Weltneuheiten mit DRÄXLMAIER Produktenasdasd',
-                value: '9453',
-                unit: 'm2',
-                description:
-                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
-              }
-            },
-            {
-              id: 3,
-              pid: 9093,
-              type: 'kpicard',
-              content: {
-                name: 'Weltneuheiten mit DRÄXLMAIER Produktenasdasd',
-                value: '9693',
-                unit: 'm2',
-                description:
-                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
-              }
-            }
-          ]],
+          header: { text: 'KPI +Quote+Video+Overlay', tag: 'h2' },
+          kpicards: null,
           overlays: [
             {
               id: 1,
               pid: 8678,
               type: 'overlay_multipurpose',
               content: {
-                variant: 'video-upload',
+                variant: 'image',
                 media: {
-                  image: null,
-                  video: [
+                  image: [
                     [
                       {
                         publicUrl:
-                          'https:\/\/draexlmaier.loc\/fileadmin\/Videos\/DRX_productvideo_v2.mp4',
+                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg',
                         properties: {
-                          uidLocal: 61495,
-                          type: 'video',
-                          ext: 'mp4',
-                          identifier: '\/Videos\/DRX_productvideo_v2.mp4',
-                          url: 'fileadmin\/Videos\/DRX_productvideo_v2.mp4'
+                          title: null,
+                          alternative: null,
+                          description: null,
+                          mimeType: 'image\/jpeg',
+                          type: 'image',
+                          filename:
+                            '2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                          originalUrl:
+                            'fileadmin\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                          uidLocal: 4636,
+                          fileReferenceUid: 61493,
+                          size: '12 MB',
+                          link: null,
+                          dimensions: { width: 5616, height: 3744 },
+                          cropDimensions: { width: 5616, height: 3744 },
+                          crop: {
+                            default: {
+                              cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                              selectedRatio: 'NaN',
+                              focusArea: null
+                            }
+                          },
+                          autoplay: null,
+                          extension: 'jpg'
                         },
                         cdn: {
                           publicUrl:
-                            'fileadmin\/Videos\/DRX_productvideo_v2.mp4',
-                          publicPath: '\/Videos\/DRX_productvideo_v2.mp4',
-                          note: 'For this mime type CDN is not relevant!'
-                        }
+                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                          publicPath:
+                            '\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg'
+                        },
+                        useCase: 'default',
+                        ratio: null
+                      },
+                      {
+                        publicUrl:
+                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                        properties: {
+                          title: null,
+                          alternative: null,
+                          description: null,
+                          mimeType: 'image\/jpeg',
+                          type: 'image',
+                          filename:
+                            '2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                          originalUrl:
+                            'fileadmin\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                          uidLocal: 4636,
+                          fileReferenceUid: 61493,
+                          size: '12 MB',
+                          link: null,
+                          dimensions: { width: 5616, height: 3744 },
+                          cropDimensions: { width: 5616, height: 3744 },
+                          crop: {
+                            default: {
+                              cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                              selectedRatio: 'NaN',
+                              focusArea: null
+                            }
+                          },
+                          autoplay: null,
+                          extension: 'jpg'
+                        },
+                        cdn: {
+                          publicUrl:
+                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                          publicPath:
+                            '\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg'
+                        },
+                        useCase: 'full',
+                        ratio: null
+                      },
+                      {
+                        publicUrl:
+                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                        properties: {
+                          title: null,
+                          alternative: null,
+                          description: null,
+                          mimeType: 'image\/jpeg',
+                          type: 'image',
+                          filename:
+                            '2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                          originalUrl:
+                            'fileadmin\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                          uidLocal: 4636,
+                          fileReferenceUid: 61493,
+                          size: '12 MB',
+                          link: null,
+                          dimensions: { width: 5616, height: 3744 },
+                          cropDimensions: { width: 5616, height: 3744 },
+                          crop: {
+                            default: {
+                              cropArea: { x: 0, y: 0, width: 1, height: 1 },
+                              selectedRatio: 'NaN',
+                              focusArea: null
+                            }
+                          },
+                          autoplay: null,
+                          extension: 'jpg'
+                        },
+                        cdn: {
+                          publicUrl:
+                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg',
+                          publicPath:
+                            '\/Group\/Carreers\/Apprentice\/2011-06-27_Fotoshooting_Gasparini__116_.jpg'
+                        },
+                        useCase: 'mobile',
+                        ratio: null
                       }
                     ]
                   ],
+                  video: null,
                   video_stream: []
                 },
                 header: { text: 'overlay header', tag: 'h1' },
@@ -1096,334 +1116,6 @@ export default {
                             'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg',
                           publicPath:
                             '\/Group\/Carreers\/Apprentice\/2012-04-24_Fotoshooting_Gasparini_Ausbildung__176_.jpg'
-                        },
-                        useCase: 'mobile',
-                        ratio: null
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        }
-      },
-      kpi3: {
-        id: 78358,
-        pid: 9093,
-        type: 'o_06_07__kpi_fullscreen',
-        tagname: 'o-06-07-kpi-fullscreen',
-        appearance: {
-          layout: 'default',
-          frameClass: 'default',
-          spaceBefore: '',
-          spaceAfter: ''
-        },
-        content: {
-          background: 'light',
-          gradient: 'dark',
-          media: {
-            type: 'video-stream',
-            image: null,
-            video_stream: [
-              {
-                id: 4,
-                pid: 8678,
-                type: 'videos_stream',
-                properties: {
-                  videoservice: 'youtube',
-                  video_id: 'S2Z3WcNNZBw',
-                  video_title: 'DQ8zNGFfiSE',
-                  video_poster_image: null,
-                  video_start: null,
-                  video_end: null,
-                  video_duration: ''
-                }
-              }
-            ]
-          },
-          //  media: {
-          //     type: 'video-stream',
-          //     video_stream: [
-          //       {
-          //         id: 63205,
-          //         pid: 0,
-          //         type: 'videos_stream',
-          //         properties: {
-          //           videoservice: 'vimeo',
-          //           video_id: '254069548',
-          //           video_title:
-          //             'Pause 2018 Motion Response - Lift in the moment by Carbon',
-          //           video_poster_image: null,
-          //           video_start: null,
-          //           video_end: null,
-          //           video_duration: ''
-          //         }
-          //       }
-          //     ]
-          //   },
-          quote: {
-            text: ''
-          },
-          header: { text: '', tag: 'h2' },
-          kpicards: [
-            {
-              id: 1,
-              pid: 9093,
-              type: 'kpicard',
-              content: {
-                name: 'Durchschnittliche Kundenbeziehung',
-                value: '39',
-                unit: 'kg',
-                description:
-                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
-              }
-            },
-            {
-              id: 2,
-              pid: 9093,
-              type: 'kpicard',
-              content: {
-                name: 'Weltneuheiten mit DRÄXLMAIER Produktenasdasd',
-                value: '943',
-                unit: 'm2',
-                description:
-                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
-              }
-            },
-            {
-              id: 3,
-              pid: 9093,
-              type: 'kpicard',
-              content: {
-                name: 'Definierte Patente',
-                value: '9366',
-                unit: 'm2',
-                description:
-                  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore m'
-              }
-            }
-          ],
-          overlays: [
-            {
-              id: 2,
-              pid: 8678,
-              type: 'overlay_multipurpose',
-              content: {
-                variant: 'video-stream',
-                media: {
-                  image: null,
-                  video: null,
-                  video_stream: [
-                    {
-                      id: 8,
-                      pid: 8678,
-                      type: 'videos_stream',
-                      properties: {
-                        videoservice: 'vimeo',
-                        video_id: '254069548',
-                        video_title: 'vim',
-                        video_poster_image: null,
-                        video_start: null,
-                        video_end: null,
-                        video_duration: ''
-                      }
-                    }
-                  ]
-                },
-                header: {
-                  text: 'Overlay with stream',
-                  tag: 'h1'
-                },
-                subheadline: {
-                  text: 'This is a subheadline'
-                },
-                actions: [
-                  {
-                    id: 3,
-                    pid: 8678,
-                    type: 'a_01_01__action',
-                    content: {
-                      text: 'link 1',
-                      link: {
-                        type: 'page',
-                        url: '\/overview-content-elements\/overlay-1',
-                        target: ' target="_top"',
-                        title: '',
-                        class: ''
-                      },
-                      icon: null,
-                      color: ''
-                    }
-                  },
-                  {
-                    id: 4,
-                    pid: 8678,
-                    type: 'a_01_01__action',
-                    content: {
-                      text: 'link 2',
-                      link: {
-                        type: 'page',
-                        url: '\/news',
-                        target: ' target="_top"',
-                        title: '',
-                        class: ''
-                      },
-                      icon: null,
-                      color: ''
-                    }
-                  }
-                ],
-                additionaltext: {
-                  before:
-                    '\u003Cp\u003ELorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet porttitor eget dolor morbi non.\u003C\/p\u003E',
-                  after:
-                    '\u003Cp\u003ECursus eget nunc scelerisque viverra mauris in aliquam sem.\u003C\/p\u003E',
-                  image: [
-                    [
-                      {
-                        publicUrl:
-                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
-                        properties: {
-                          title: null,
-                          alternative: null,
-                          description: null,
-                          mimeType: 'image\/jpeg',
-                          type: 'image',
-                          filename:
-                            '2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
-                          originalUrl:
-                            'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
-                          uidLocal: 1006,
-                          fileReferenceUid: 61500,
-                          size: '4 MB',
-                          link: null,
-                          dimensions: {
-                            width: 3543,
-                            height: 1417
-                          },
-                          cropDimensions: {
-                            width: 3543,
-                            height: 1417
-                          },
-                          crop: {
-                            default: {
-                              cropArea: {
-                                x: 0,
-                                y: 0,
-                                width: 1,
-                                height: 1
-                              },
-                              selectedRatio: 'NaN',
-                              focusArea: null
-                            }
-                          },
-                          autoplay: null,
-                          extension: 'jpg'
-                        },
-                        cdn: {
-                          publicUrl:
-                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
-                          publicPath:
-                            '\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg'
-                        },
-                        useCase: 'default',
-                        ratio: null
-                      },
-                      {
-                        publicUrl:
-                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
-                        properties: {
-                          title: null,
-                          alternative: null,
-                          description: null,
-                          mimeType: 'image\/jpeg',
-                          type: 'image',
-                          filename:
-                            '2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
-                          originalUrl:
-                            'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
-                          uidLocal: 1006,
-                          fileReferenceUid: 61500,
-                          size: '4 MB',
-                          link: null,
-                          dimensions: {
-                            width: 3543,
-                            height: 1417
-                          },
-                          cropDimensions: {
-                            width: 3543,
-                            height: 1417
-                          },
-                          crop: {
-                            default: {
-                              cropArea: {
-                                x: 0,
-                                y: 0,
-                                width: 1,
-                                height: 1
-                              },
-                              selectedRatio: 'NaN',
-                              focusArea: null
-                            }
-                          },
-                          autoplay: null,
-                          extension: 'jpg'
-                        },
-                        cdn: {
-                          publicUrl:
-                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
-                          publicPath:
-                            '\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg'
-                        },
-                        useCase: 'full',
-                        ratio: null
-                      },
-                      {
-                        publicUrl:
-                          'https:\/\/draexlmaier.loc\/fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
-                        properties: {
-                          title: null,
-                          alternative: null,
-                          description: null,
-                          mimeType: 'image\/jpeg',
-                          type: 'image',
-                          filename:
-                            '2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
-                          originalUrl:
-                            'fileadmin\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
-                          uidLocal: 1006,
-                          fileReferenceUid: 61500,
-                          size: '4 MB',
-                          link: null,
-                          dimensions: {
-                            width: 3543,
-                            height: 1417
-                          },
-                          cropDimensions: {
-                            width: 3543,
-                            height: 1417
-                          },
-                          crop: {
-                            default: {
-                              cropArea: {
-                                x: 0,
-                                y: 0,
-                                width: 1,
-                                height: 1
-                              },
-                              selectedRatio: 'NaN',
-                              focusArea: null
-                            }
-                          },
-                          autoplay: null,
-                          extension: 'jpg'
-                        },
-                        cdn: {
-                          publicUrl:
-                            'https:\/\/ik.imagekit.io\/v2bbhazxb\/dev\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg',
-                          publicPath:
-                            '\/Group\/Carreers\/Apprentice\/2003-07-08_Fotoshooting_Hackl_Vilsbiburg_DTZ__1_.jpg'
                         },
                         useCase: 'mobile',
                         ratio: null

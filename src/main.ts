@@ -33,9 +33,9 @@ const routes = [
   { path: '/news-slider', component: newsSlider },
   { path: '/intro-hero', component: introHero },
   { path: '/job-market', component: JobMarket },
-  { path: '/nav-main-dark', component: navMainDark},
-  { path: '/nav-main-light', component: navMainLight},
-  { path: '/job-detail', component: JobDetail },
+  { path: '/nav-main-dark', component: navMainDark },
+  { path: '/nav-main-light', component: navMainLight },
+  { path: '/job-detail', component: JobDetail }
 ]
 
 const router = VueRouter.createRouter({

@@ -3,8 +3,9 @@ import { FilterOption } from '../../types'
 import { pipe } from '../utils/fp'
 
 const createFilterString = (index: number, currentFilter: FilterOption) => {
-  return `tx_solr[filter][${index}]=${currentFilter.parent
-    }%3A${currentFilter.value.replace(' & ', '+%26+')}`
+  return `tx_solr[filter][${index}]=${
+    currentFilter.parent
+  }%3A${currentFilter.value.replace(' & ', '+%26+')}`
 }
 
 const withFilters = (filters: FilterOption[]) => (baseUrl: string) => {
@@ -22,14 +23,20 @@ const withQuery = (queryString: string) => (baseUrl: string) => {
   return queryString ? baseUrl + `&tx_solr[q]=${queryString}` : baseUrl
 }
 
-const appendQueryParam = (baseUrl: string) => baseUrl.includes('?') ? baseUrl : baseUrl + '?'
+const appendQueryParam = (baseUrl: string) =>
+  baseUrl.includes('?') ? baseUrl : baseUrl + '?'
 
 export const createRequestUrl = ({
   baseUrl,
   filters = [],
   sorting = 'tx_solr%5Bsort%5D=relevance+asc',
   queryString = ''
-}: { baseUrl: string, filters?: FilterOption[], sorting?: string, queryString?: string }) =>
+}: {
+  baseUrl: string
+  filters?: FilterOption[]
+  sorting?: string
+  queryString?: string
+}) =>
   pipe(
     appendQueryParam,
     withQuery(queryString),

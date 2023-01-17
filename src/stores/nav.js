@@ -1,4 +1,4 @@
-import { defineStore, createPinia, setActivePinia } from "pinia";
+import { defineStore, createPinia, setActivePinia } from 'pinia'
 
 setActivePinia(createPinia())
 
