@@ -120,7 +120,7 @@ const {
 } = toRefs(props.data.content)
 
 const isMedia = computed(() => {
-  return !media.value?.image || media.value?.video_stream?.length !== 0
+  return media.value?.image !== '' || media.value?.video_stream?.length !== 0
 })
 
 const isVideo = computed(() => {
@@ -159,6 +159,9 @@ const content = ref(null)
 const contentNoOverflow = ref(false)
 
 onMounted(() => {
+  console.log(cards.value)
+  console.log(isMedia.value)
+  console.log(hasQuoteContent.value)
   contentNoOverflow.value = content.value.clientHeight < window.innerHeight
   //scrollTrigger for the mobile sticky background
   const scroll = ScrollTrigger.create({
