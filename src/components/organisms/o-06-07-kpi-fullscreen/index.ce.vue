@@ -4,9 +4,9 @@
       :class="[
         frame,
         {
-          'h-max': !cards && !isMedia && hasQuoteContent,
-          'h-max lg:h-screen': cards || isMedia && !contentNoOverflow,
-          'h-screen lg:h-screen': cards || isMedia && contentNoOverflow,
+          'h-max': hasNoMediaNoCards && hasQuoteContent,
+          'h-max lg:h-screen': !hasNoMediaNoCards && !contentNoOverflow,
+          'h-screen lg:h-screen': !hasNoMediaNoCards && contentNoOverflow,
           [$_backgroundColor]: !isMedia
         }
       ]"
@@ -123,6 +123,10 @@ const isMedia = computed(() => {
   return media.value?.image !== "" || media.value?.video_stream?.length !== 0
 })
 
+const hasNoMediaNoCards = computed(() => {
+  return media.value?.image === "" && cards.value.length === 0
+})
+
 const isVideo = computed(() => {
   return media.value?.type === 'video-stream'
 })
@@ -171,8 +175,5 @@ onMounted(() => {
 
 const isOverlayVisible = ref(false)
 
-console.log(isMedia.value)
-console.log(cards.value)
-console.log(hasQuoteContent)
-console.log(media.value?.video_stream?.length)
+console.log(hasNoMediaNoCards.value)
 </script>
