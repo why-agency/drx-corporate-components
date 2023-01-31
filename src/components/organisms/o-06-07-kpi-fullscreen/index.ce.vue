@@ -174,6 +174,4 @@ onMounted(() => {
 })
 
 const isOverlayVisible = ref(false)
-
-console.log(hasNoMediaNoCards.value)
 </script>
