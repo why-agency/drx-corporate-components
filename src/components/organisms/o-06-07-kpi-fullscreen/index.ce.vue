@@ -5,8 +5,8 @@
         frame,
         {
           'h-max': !cards && !isMedia && hasQuoteContent,
-          'h-max lg:h-screen': (cards || isMedia) && !contentNoOverflow,
-          'h-screen lg:h-screen': (cards || isMedia) && contentNoOverflow,
+          'h-max lg:h-screen': cards || isMedia && !contentNoOverflow,
+          'h-screen lg:h-screen': cards || isMedia && contentNoOverflow,
           [$_backgroundColor]: !isMedia
         }
       ]"
