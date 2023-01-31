@@ -120,7 +120,7 @@ const {
 } = toRefs(props.data.content)
 
 const isMedia = computed(() => {
-  return media.value?.image !== '' || media.value?.video_stream?.length !== 0
+  return media.value?.image !== "" || media.value?.video_stream?.length !== 0
 })
 
 const isVideo = computed(() => {
@@ -170,4 +170,9 @@ onMounted(() => {
 })
 
 const isOverlayVisible = ref(false)
+
+console.log(isMedia.value)
+console.log(cards.value)
+console.log(hasQuoteContent)
+console.log(media.value?.video_stream?.length)
 </script>
