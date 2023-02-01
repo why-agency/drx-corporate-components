@@ -38,7 +38,7 @@
         <UseDynamicAction
           class="flex justify-between items-center w-64 h-6 my-16 xl:justify-self-end"
         >
-          Scroll for more info
+          {{ scrollForMoreButtonText.text }}
           <IconArrowDownFat />
         </UseDynamicAction>
         <div class="xl:col-start-2">
@@ -123,6 +123,10 @@ const subheadline = computed(() => ({
   ...content.value?.subheadline,
   fontWeight: 'font-regular',
   size: 5
+}))
+
+const scrollForMoreButtonText = computed(() => ({
+  text: content.value?.scrollForMoreInfoText
 }))
 
 const textBefore = computed(() => ({
