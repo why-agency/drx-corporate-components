@@ -189,6 +189,7 @@ export default {
               type: 'overlay_multipurpose',
               content: {
                 buttonText: 'Learn more',
+                scrollForMoreInfoText: 'Scroll for more info test',
                 variant: 'image',
                 media: {
                   image: [
