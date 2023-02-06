@@ -108,6 +108,11 @@
         </BaseAction>
       </div>
     </div>
+    <BaseHtmlParser
+      v-if="job.footer"
+      :content="job.footer"
+      class="job-footer frame-content-default mt-10 text-primary"
+    />
     <!-- END job detail footer -->
   </div>
 </template>
@@ -165,7 +170,8 @@ const job = computed(() => {
     campaigncode: props.data.job.campaigncode,
     shift: props.data.job.shift,
     segments: props.data.job.segments,
-    url: props.data.job.url
+    url: props.data.job.url,
+    footer: props.data.job.footer
   }
 })
 </script>
@@ -176,5 +182,8 @@ const job = computed(() => {
 }
 :deep(.description ul[style] li) {
   @apply ml-4;
+}
+:deep(.job-footer img) {
+  max-height: 132px;
 }
 </style>
