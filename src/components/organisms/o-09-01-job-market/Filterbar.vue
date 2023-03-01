@@ -27,7 +27,13 @@
         {{ option.label }}
       </BaseChip>
       <BaseChip
-        v-if="jobsStore.activeFilterOptions.length > 0"
+        v-if="jobsStore.activeTextFieldFilter"
+        @click="clearInputTextField"
+      >
+        {{ jobsStore.activeTextFieldFilter }}
+      </BaseChip>
+      <BaseChip
+        v-if="jobsStore.activeFilterOptions.length > 0 || jobsStore.activeTextFieldFilter"
         color="white"
         @click="jobsStore.clearFilters"
       >
@@ -39,6 +45,7 @@
 </template>
 
 <script setup lang="ts">
+
 // Hooks
 import { useJobs } from '../../../stores/jobs'
 

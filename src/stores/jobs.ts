@@ -34,6 +34,7 @@ export const useJobs = defineStore('jobs', {
       hasRequestFailed: false,
       isFilterBarActive: false,
       activeFilterView: null as Filter | null,
+      activeTextFieldFilter: '',
       labels: {
         searchInputPlaceholder: '',
         jobsCount: '',
@@ -93,6 +94,9 @@ export const useJobs = defineStore('jobs', {
     setActiveFilterOptions(options: FilterOption[]) {
       this.activeFilterOptions = options
     },
+    setActiveTextFieldFilter(text: string) {
+      this.activeTextFieldFilter = text
+    },
     persistJobs(documents: any) {
       const jobs =
         documents?.list?.results.map((rawJob: any) => rawJob.content) || []
@@ -128,6 +132,7 @@ export const useJobs = defineStore('jobs', {
     },
     clearFilters() {
       this.activeFilterOptions = []
+      this.activeTextFieldFilter = ''
       this.query = ''
     }
   }
