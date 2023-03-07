@@ -61,6 +61,7 @@
 
         <BaseTextField
           v-model="query"
+          id="findJobs"
           label="Keep looking for jobs"
           hide-button
           hide-label
@@ -76,7 +77,7 @@
     <!-- END job market header -->
 
     <!-- START desktop filter bar -->
-    <o-09-01-JobMarketFilterbar v-if="isLgAndLarger" />
+    <o-09-01-JobMarketFilterbar v-if="isLgAndLarger"/>
     <!-- END desktop filter bar -->
 
     <!-- START job market grid -->
@@ -216,6 +217,7 @@ const unsubscribe = jobsStore.$onAction(({ name, after }) => {
 const onPageChange = (page: number): void => {
   jobsStore.currentPage = page
 }
+
 
 onUnmounted(() => {
   unsubscribe()

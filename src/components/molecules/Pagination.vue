@@ -114,7 +114,6 @@ const currentTrack = computed(() =>
   [0, 1, 2, 3, 4, 5, 6, 7, 8]
     .map(page => page + trackCounter.value * 3)
     .map(page => {
-      console.log(page)
       return page
     })
     .filter(page => page + 1 <= props.pages)
