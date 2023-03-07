@@ -28,7 +28,6 @@
       </BaseChip>
       <BaseChip
         v-if="jobsStore.query"
-        @click="clearInputTextField"
       >
         {{ jobsStore.query }}
       </BaseChip>
