@@ -28,6 +28,7 @@
       </BaseChip>
       <BaseChip
         v-if="jobsStore.query"
+        @click="clearInputTextField"
       >
         {{ jobsStore.query }}
       </BaseChip>
@@ -53,4 +54,8 @@ import BaseFilter from '../../base/Filter.vue'
 import BaseChip from '../../base/Chip.vue'
 
 const jobsStore = useJobs()
+
+const clearInputTextField = () => {
+  jobsStore.setQuery('')
+}
 </script>
