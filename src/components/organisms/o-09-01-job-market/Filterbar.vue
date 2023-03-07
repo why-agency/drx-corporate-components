@@ -27,13 +27,13 @@
         {{ option.label }}
       </BaseChip>
       <BaseChip
-        v-if="jobsStore.activeTextFieldFilter"
+        v-if="jobsStore.query"
         @click="clearInputTextField"
       >
-        {{ jobsStore.activeTextFieldFilter }}
+        {{ jobsStore.query }}
       </BaseChip>
       <BaseChip
-        v-if="jobsStore.activeFilterOptions.length > 0 || jobsStore.activeTextFieldFilter"
+        v-if="jobsStore.activeFilterOptions.length > 0 || jobsStore.query"
         color="white"
         @click="jobsStore.clearFilters"
       >
