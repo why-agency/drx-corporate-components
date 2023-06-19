@@ -58,7 +58,7 @@ export default {
     },
     target: {
       type: String,
-      default: 'target="_top"'
+      default: 'target="_self"'
     }
   },
   computed: {
