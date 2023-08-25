@@ -131,6 +131,7 @@ const selectedOptions = computed({
       (option: FilterOption) => value.includes(option.value)
     )
     jobsStore.setActiveFilterOptions([...filterOptions, ...newOptions])
+    console.log(jobsStore.activeFilterOptions)
   }
 })
 </script>
