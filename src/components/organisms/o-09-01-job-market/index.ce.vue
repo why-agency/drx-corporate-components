@@ -192,8 +192,8 @@ jobsStore.persistFilters(props.data.jobsProcessed?.facets || props.data.facets)
 jobsStore.persistLabels(props.data)
 
 console.log(props.data)
-console.log(props.data.activeFilter)
-jobsStore.setActiveFilterOptions(props.data.activeFilter || [])
+console.log(props.data.activeFilters)
+jobsStore.setActiveFilterOptions(props.data.activeFilters || [])
 
 const query = computed({
   get() {
