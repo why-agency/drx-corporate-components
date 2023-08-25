@@ -77,7 +77,7 @@
     <!-- END job market header -->
 
     <!-- START desktop filter bar -->
-    <o-09-01-JobMarketFilterbar v-if="isLgAndLarger"/>
+    <o-09-01-JobMarketFilterbar v-if="isLgAndLarger" />
     <!-- END desktop filter bar -->
 
     <!-- START job market grid -->
@@ -191,6 +191,8 @@ jobsStore.persistJobs(
 jobsStore.persistFilters(props.data.jobsProcessed?.facets || props.data.facets)
 jobsStore.persistLabels(props.data)
 
+jobsStore.setActiveFilterOptions(props.data.activeFilter || [])
+
 const query = computed({
   get() {
     return jobsStore.query
@@ -217,7 +219,6 @@ const unsubscribe = jobsStore.$onAction(({ name, after }) => {
 const onPageChange = (page: number): void => {
   jobsStore.currentPage = page
 }
-
 
 onUnmounted(() => {
   unsubscribe()
