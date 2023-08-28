@@ -50,6 +50,7 @@
           :value="option.value"
           as="template"
         >
+          {{ selected }}
           <li
             style="padding-left: 1rem; padding-right: 1rem"
             :class="[
@@ -130,11 +131,8 @@ const selectedOptions = computed({
     const newOptions = relevantFilterOptions.value.filter(
       (option: FilterOption) => value.includes(option.value)
     )
-    console.log('newOptions:')
-    console.log(newOptions)
+
     jobsStore.setActiveFilterOptions([...filterOptions, ...newOptions])
-    console.log('activeFilterOptions:')
-    console.log(jobsStore.activeFilterOptions)
   }
 })
 </script>
