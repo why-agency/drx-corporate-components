@@ -50,7 +50,6 @@
           :value="option.value"
           as="template"
         >
-          {{ selected }}
           <li
             style="padding-left: 1rem; padding-right: 1rem"
             :class="[
