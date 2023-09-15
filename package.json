@@ -1,6 +1,6 @@
 {
   "name": "@andwhy/drx-corporate-components",
-  "version": "0.16.24",
+  "version": "0.17.1",
   "license": "MIT",
   "files": [
     "dist"
@@ -16,6 +16,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
+    "build:dev": "APP_ENV=development vue-tsc --noEmit && vite --mode=development build",
     "preview": "vite preview"
   },
   "dependencies": {
