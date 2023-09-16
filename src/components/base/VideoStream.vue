@@ -23,9 +23,9 @@
     </div>
     <div
         v-if="consentGiven === false"
-        class="two-click absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 h-1/2 w-1/2 bg-black flex justify-items-center items-center"
+        class="two-click absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 h-2/3 lg:h-1/2 w-3/4 bg-gradient-to-b to-gray-500/40 via-gray-700 from-gray-900 flex justify-items-center items-center"
     >
-      <p>Dies ist ein Text</p>
+      <p class="text-white lg:text-h5 text-justify p-10 ">{{  $t("vimeoLockOverlayMsg") }}</p>
     </div>
     <iframe
         v-if="!isPlaceholderVisible || hasAutoplay"
