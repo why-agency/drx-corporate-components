@@ -169,6 +169,8 @@ import O0901JobMarketCard from './Card.vue'
 import O0901JobMarketCardSkeleton from './CardSkeleton.vue'
 import O0901JobMarketFilterbarMobile from './FilterbarMobile.vue'
 import O0901JobMarketFilterbar from './Filterbar.vue'
+import { type } from 'os'
+import { Filter } from '../../../../types'
 
 const props = defineProps({
   data: {
@@ -189,12 +191,24 @@ jobsStore.persistJobs(
   props.data.jobsProcessed?.documents || props.data.documents
 )
 jobsStore.persistFilters(props.data.jobsProcessed?.facets || props.data.facets)
-console.log(props.data.facets)
 jobsStore.persistLabels(props.data)
 
-jobsStore.setActiveFilterOptions(props.data.activeFilters || [])
-console.log(props.data.activeFilters)
-console.log(jobsStore.activeFilterOptions)
+const formatFilterOptions = (filters: Filter[]) => {
+  const filter = filters.reduce((filterOptions: any, currentFilter: Filter) => {
+    return [
+      ...filterOptions,
+      ...currentFilter.options.map(option => ({
+        parent: currentFilter.name,
+        value: option.value.toString().replace('&#44;', '%26%2344%3B'),
+        label: option.label.toString().replace('&#44;', ',')
+      }))
+    ]
+  }, [])
+  return filter
+}
+const activeFilter = formatFilterOptions(props.data.activeFilters)
+
+jobsStore.setActiveFilterOptions(activeFilter || [])
 
 const query = computed({
   get() {

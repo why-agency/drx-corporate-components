@@ -163,6 +163,21 @@ onMounted(async () => {
         (jobsData.value = {
           ...data,
           image01: placeHolderImage,
+          activeFilters: [
+            {
+              name: 'country',
+              options: [
+                {
+                  value: 'Germany',
+                  label: 'Deutschland'
+                },
+                {
+                  value: 'Mexico',
+                  label: 'Mexiko'
+                }
+              ]
+            }
+          ],
           header: 'Reshape the way cars are built',
           label_search_input_placeholder: 'Find your dream job',
           label_jobs_count: 'Jobs',
