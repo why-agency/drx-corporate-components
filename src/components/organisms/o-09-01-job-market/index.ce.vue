@@ -189,6 +189,7 @@ jobsStore.persistJobs(
   props.data.jobsProcessed?.documents || props.data.documents
 )
 jobsStore.persistFilters(props.data.jobsProcessed?.facets || props.data.facets)
+console.log(props.data.facets)
 jobsStore.persistLabels(props.data)
 
 jobsStore.setActiveFilterOptions(props.data.activeFilters || [])
