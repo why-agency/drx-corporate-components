@@ -26,10 +26,7 @@
       >
         {{ option.label }}
       </BaseChip>
-      <BaseChip
-        v-if="jobsStore.query"
-        @click="clearInputTextField"
-      >
+      <BaseChip v-if="jobsStore.query" @click="clearInputTextField">
         {{ jobsStore.query }}
       </BaseChip>
       <BaseChip
@@ -45,7 +42,6 @@
 </template>
 
 <script setup lang="ts">
-
 // Hooks
 import { useJobs } from '../../../stores/jobs'
 

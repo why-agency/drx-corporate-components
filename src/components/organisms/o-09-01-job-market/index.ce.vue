@@ -187,11 +187,6 @@ jobsStore.count =
   props.data.jobsProcessed?.allResultCount || props.data.allResultCount
 jobsStore.url =
   props.data.jobsProcessed?.currentSearch || props.data.currentSearch
-jobsStore.persistJobs(
-  props.data.jobsProcessed?.documents || props.data.documents
-)
-jobsStore.persistFilters(props.data.jobsProcessed?.facets || props.data.facets)
-jobsStore.persistLabels(props.data)
 
 const formatFilterOptions = (filters: Filter[]) => {
   const filter = filters.reduce((filterOptions: any, currentFilter: Filter) => {
@@ -206,9 +201,18 @@ const formatFilterOptions = (filters: Filter[]) => {
   }, [])
   return filter
 }
-const activeFilter = formatFilterOptions(props.data.activeFilters)
-
+const activeFilter = formatFilterOptions(props.data.activeFilters || [])
 jobsStore.setActiveFilterOptions(activeFilter || [])
+
+if (props.data.activeFilters) {
+  jobsStore.getJobs()
+} else {
+  jobsStore.persistJobs(
+    props.data.jobsProcessed?.documents || props.data.documents
+  )
+}
+jobsStore.persistFilters(props.data.jobsProcessed?.facets || props.data.facets)
+jobsStore.persistLabels(props.data)
 
 const query = computed({
   get() {
