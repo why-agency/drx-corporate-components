@@ -1,23 +1,21 @@
 <template>
   <svg
-    xmlns="http://www.w3.org/2000/svg"
-    :width="width"
-    :height="height"
+    width="24"
+    height="24"
     viewBox="0 0 24 24"
-    aria-labelledby="name"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    <title id="IconArrowDownFat" lang="en">IconArrowDownFat</title>
-    <g fill="currentColor">
-      <path
-        d="M17.207 15.207L11.5 20.914 5.793 15.207l1.414 -1.414 3.293 3.293V4.5h2v12.586l3.293 -3.293 1.414 1.414z"
-      />
-    </g>
+    <path
+      d="M6 16.5833L12 22L18 16.5833L17.3474 15.9942L12.4615 20.405L12.4615 2H11.5385L11.5385 20.405L6.65262 15.9942L6 16.5833Z"
+      fill="currentColor"
+      stroke="currentColor"
+    />
   </svg>
 </template>
 
 <script>
 export default {
-  name: 'IconArrowDownFat',
   props: {
     width: {
       type: [Number, String],

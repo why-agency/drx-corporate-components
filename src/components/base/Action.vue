@@ -1,8 +1,8 @@
 <template>
-  <UseDynamicAction :to="to">
+  <UseDynamicAction :to="to" :target="target">
     <div
       ref="wrapper"
-      class="min-h-[48px] relative group overflow-hidden cursor-pointer disabled:opacity-30 disabled:pointer-events-none focus:outline-none focus-visible:ring focus-visible:ring-focus bg-[length:200%_100%] bg-[position:100%]"
+      class="flex items-center min-h-[48px] relative group overflow-hidden cursor-pointer disabled:opacity-30 disabled:pointer-events-none focus:outline-none focus-visible:ring focus-visible:ring-focus bg-[length:200%_100%] bg-[position:100%]"
       :class="[$_color, $_size]"
       @mouseenter="onMouseEnter"
       @mouseleave="onMouseLeave"
@@ -10,16 +10,14 @@
       <div
         ref="label"
         :class="[$_textColor]"
-        class="w-pull px-4 pt-3 flex justify-between bg-[length:200%_100%] bg-[position:100%] relative bg-clip-text text-transparent overflow-hidden"
+        class="text-button w-full !px-4 block leading-[21px] justify-between bg-[length:200%_100%] bg-[position:100%] relative bg-clip-text text-transparent overflow-hidden"
       >
         <slot />
         <div
           v-if="$slots.icon"
           ref="icon"
-          :class="[
-            $_iconColor,
-            this.variant === 'large' ? 'mt-12 lg:mt-16' : ''
-          ]"
+          class="float-right pl-2"
+          :class="[$_iconColor, variant === 'large' ? 'mt-12 lg:mt-16' : '']"
         >
           <slot name="icon" />
         </div>
@@ -34,7 +32,8 @@ import UseDynamicAction from '../organisms/UseDynamicAction.vue'
 
 const Color = {
   secondary: 'secondary',
-  white: 'white'
+  white: 'white',
+  tertiary: 'tertiary'
 }
 
 const Variant = {
@@ -56,31 +55,45 @@ export default {
     variant: {
       type: String,
       default: Variant.default
+    },
+    target: {
+      type: String,
+      default: 'target="_top"'
     }
   },
   computed: {
     $_color() {
       return {
         'bg-button-background':
-          this.color === 'secondary' && this.variant === 'default',
+          this.color === 'secondary' &&
+          (this.variant === 'default' ||
+            this.variant === 'block' ||
+            this.variant === 'small'),
         'bg-button-background-reverse':
-          this.color === 'white' && this.variant === 'default',
+          this.color === 'white' &&
+          (this.variant === 'default' || this.variant === 'block'),
         'bg-button-background-large':
           this.color === 'secondary' && this.variant === 'large',
         'bg-button-background-large-reverse':
-          this.color === 'white' && this.variant === 'large'
+          this.color === 'white' && this.variant === 'large',
+        'bg-button-background-tertiary': this.color === 'tertiary'
       }
     },
     $_textColor() {
       return {
         'bg-button-text':
-          this.color === 'secondary' && this.variant === 'default',
+          this.color === 'secondary' &&
+          (this.variant === 'default' ||
+            this.variant === 'block' ||
+            this.variant === 'small'),
         'bg-button-text-large':
           this.color === 'secondary' && this.variant === 'large',
         'bg-button-text-reverse':
-          this.color === 'white' && this.variant === 'default',
+          this.color === 'white' &&
+          (this.variant === 'default' || this.variant === 'block'),
         'bg-button-text-large-reverse':
-          this.color === 'white' && this.variant === 'large'
+          this.color === 'white' && this.variant === 'large',
+        'bg-button-text-tertiary': this.color === 'tertiary'
       }
     },
     $_iconColor() {
@@ -89,12 +102,15 @@ export default {
         'text-primary': this.color === 'white' && this.variant === 'large',
         'text-white':
           (this.color === 'secondary' && this.variant === 'default') ||
-          (this.color === 'secondary' && this.variant === 'large')
+          (this.color === 'secondary' && this.variant === 'large') ||
+          this.color === 'tertiary'
       }
     },
     $_size() {
       return {
-        'min-h-[48px] w-56': this.variant === 'default',
+        'min-h-[48px] min-w-[100px] max-w-max': this.variant === 'small',
+        'min-h-[48px] min-w-[224px] max-w-max': this.variant === 'default',
+        'min-h-[48px] w-full': this.variant === 'block',
         'w-[328px] h-[88px] lg:w-[232px] lg:h-[112px]': this.variant === 'large'
       }
     }
@@ -114,6 +130,12 @@ export default {
             delay: 0.1,
             duration: 0.5,
             color: '#0096A9'
+          })
+        } else if (this.color === 'tertiary') {
+          gsap.to(this.$refs.icon, {
+            delay: 0.1,
+            duration: 0.5,
+            color: '#8E8071'
           })
         } else {
           gsap.to(this.$refs.icon, {

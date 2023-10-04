@@ -1,20 +1,21 @@
 <template>
-  <div class="w-screen h-screen">
+  <div class="w-screen h-fit min-h-screen lg:h-screen relative">
     <BaseMedia
       v-if="media"
       :media="media"
-      media-style="w-full h-screen absolute"
+      media-style="w-full h-full lg:h-screen absolute"
       gradient="dark"
-      class="!absolute"
+      full-screen
+      class="!absolute h-full lg:!h-screen"
     />
     <div
-      class="frame-default grid lg:grid-cols-2 lg:grid-rows-1 h-full content-end relative z-30 text-white pb-10 lg:pb-20"
+      class="frame-content-default grid lg:grid-cols-2 lg:grid-rows-1 h-full content-end relative z-30 text-white pb-10 lg:pb-20"
     >
       <div class="lg:self-center">
         <BaseHeadline
           v-if="headline && headline.text"
           v-bind="headline"
-          class="mb-6 lg:mb-8"
+          class="mt-6 lg:mt-0 mb-6 lg:mb-8"
         />
         <MActionBar v-if="action" :actions="[action]" position="left" />
       </div>
@@ -29,7 +30,6 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { useAction } from '../../composables/useAction'
 import BaseMedia from '../base/Media.vue'
 import BaseHeadline from '../base/Headline.vue'
 import BaseText from '../base/Text.vue'
@@ -49,14 +49,10 @@ const headline = computed(() => ({
 
 const bodytext = computed(() => ({
   text: props.data?.content?.bodytext,
-  layout: 2
+  size: 'text-body2'
 }))
 
-const action = computed(
-  () =>
-    props?.data?.content?.actions?.buttonlink &&
-    useAction(props?.data?.content?.actions)
-)
+const action = ref(props.data?.content?.actions)
 
 const media = ref(props.data?.content?.media)
 </script>

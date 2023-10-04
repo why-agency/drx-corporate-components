@@ -3,7 +3,8 @@
     :is="type"
     :href="to ? to : false"
     :rel="isAnchor ? 'noopener noreferrer' : false"
-    :target="isAnchor ? '_blank' : false"
+    :target="isAnchor ? linkTarget : false"
+    class="hover:!no-underline"
     @click="handleClick"
   >
     <slot :isAnchor="isAnchor" />
@@ -22,17 +23,25 @@ export default {
     tag: {
       type: String,
       default: 'button'
+    },
+    target: {
+      type: String,
+      default: 'target="_top"'
     }
   },
   setup(props, { emit }) {
-    const { isAnchor, type } = useActionType(props.to, props.tag)
+    const { isAnchor, type, linkTarget } = useActionType(
+      props.to,
+      props.tag,
+      props.target
+    )
 
     const handleClick = () => {
       if (!props.to) {
         emit('click')
       }
     }
-    return { isAnchor, type, handleClick }
+    return { isAnchor, type, linkTarget, handleClick }
   }
 }
 </script>

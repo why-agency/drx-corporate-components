@@ -8,7 +8,7 @@
   >
     <title id="Play" lang="en">IconPlay</title>
     <g fill="currentColor">
-      <path d="M18.6666 33.3334L33.3333 24.0001L18.6666 14.6667V33.3334Z" />
+      <path d="M8 19L19 12L8 5V19Z" />
     </g>
   </svg>
 </template>

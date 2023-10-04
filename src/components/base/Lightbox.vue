@@ -10,6 +10,7 @@
       <BaseButtonIcon
         class="relative self-start hidden ml-3 lg:inline-flex -top-10"
         variant="outline"
+        color="white"
         @click="closeVideoPortal"
       >
         <IconClose />
@@ -19,8 +20,10 @@
 </template>
 
 <script>
+import BaseButtonIcon from '../base/ButtonIcon.vue'
 import IconClose from '../icons/Close.vue'
 export default {
+  components: { BaseButtonIcon, IconClose },
   methods: {
     closeVideoPortal() {
       this.$emit('close')

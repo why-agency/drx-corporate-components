@@ -3,7 +3,6 @@
     :disabled="disabled"
     class="inline-flex justify-center items-center cursor-pointer uppercase disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus-visible:ring focus-visible:ring-focus transition ease-hover duration-300"
     :class="[$_size, $_color]"
-    @click="$emit('click')"
   >
     <slot />
   </button>
@@ -53,7 +52,7 @@ export default {
     $_size() {
       return {
         // basic sizes
-        'w-8 h-8 p-2': this.size === 'sm',
+        'w-8 h-8': this.size === 'sm',
         'w-10 h-10': this.size === 'base',
         'w-12 h-12': this.size === 'lg',
         'w-14 h-14': this.size === 'xl'
@@ -72,6 +71,8 @@ export default {
           this.color === 'secondary' && this.variant === 'filled',
         'bg-sand text-sand-inverse':
           this.color === 'sand' && this.variant === 'filled',
+        'bg-gray-700 text-white border border-white hover:bg-secondary active:bg-secondary ':
+          this.color === 'gray' && this.variant === 'filled',
 
         // Outline
         'border-primary text-primary hover:bg-primary hover:bg-opacity-20 active:bg-primary active:text-primary-inverse':
@@ -82,6 +83,10 @@ export default {
           this.color === 'black' && this.variant === 'outline',
         'border-white text-white hover:bg-white hover:bg-opacity-20 active:bg-white active:text-black':
           this.color === 'white' && this.variant === 'outline',
+        'border-gray-700 text-gray-700 hover:bg-gray-100 hover:bg-opacity-20':
+          this.color === 'gray' && this.variant === 'outline',
+        'border-tertiary text-tertiary hover:bg-tertiary hover:text-white hover:bg-opacity-20 active:bg-white active:text-white':
+          this.color === 'tertiary' && this.variant === 'outline',
 
         // Border
         border: this.variant === 'outline',

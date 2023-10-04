@@ -6,15 +6,12 @@ const letterSpacingCalc = (maxLetterSpacing, maxPageWidth) => {
   return `${(maxLetterSpacing / maxPageWidth) * 100}vw`
 }
 
-const lineHeightCalc = (maxLineHeight, maxPageWidth) => {
-  return `${(maxLineHeight / 100 / maxPageWidth) * 100}vw`
-}
-
 const breakpoints = {
   xs: '330px',
   sm: '640px',
   md: '768px',
   lg: '1024px',
+  lg_old: '1025px',
   xl: '1280px',
   '2xl': '1440px',
   '3xl': '1536px',
@@ -65,9 +62,8 @@ module.exports = {
     fontSize: {
       base: '1rem',
       h1: [
-        `clamp(3.375rem, ${fontCalc(4.75, 1920)}, 4.75rem)`,
+        `clamp(2.73rem, ${fontCalc(4.75, 1920)}, 4.75rem)`,
         {
-          lineHeight: `110%`,
           letterSpacing: `clamp(0.54px, ${letterSpacingCalc(
             0.76,
             1920
@@ -75,9 +71,8 @@ module.exports = {
         }
       ],
       h2: [
-        `clamp(2.75rem, ${fontCalc(3.875, 1920)}, 3.875rem)`,
+        `clamp(2.5rem, ${fontCalc(3.875, 1920)}, 3.875rem)`,
         {
-          lineHeight: `clamp(110%, ${lineHeightCalc(115, 1920)}, 115%)`,
           letterSpacing: `clamp(0.44px, ${letterSpacingCalc(
             0.62,
             1920
@@ -87,7 +82,6 @@ module.exports = {
       h3: [
         `clamp(2rem, ${fontCalc(3, 1536)}, 3rem)`,
         {
-          lineHeight: '110%',
           letterSpacing: `clamp(0.32px, ${letterSpacingCalc(
             0.48,
             1536
@@ -97,30 +91,27 @@ module.exports = {
       h4: [
         `clamp(1.5rem,${fontCalc(2, 1536)}, 2rem)`,
         {
-          lineHeight: `clamp(100%, ${lineHeightCalc(120, 1920)}, 120%)`,
           letterSpacing: `clamp(0.24px, ${letterSpacingCalc(
             0.32,
-            1440
+            1536
           )}, 0.32px)`
         }
       ],
       h5: [
         `clamp(1.25rem, ${fontCalc(1.875, 1536)}, 1.5rem)`,
         {
-          lineHeight: `clamp(100%, ${lineHeightCalc(110, 1920)}, 110%)`,
           letterSpacing: `clamp(0.2px, ${letterSpacingCalc(
             0.24,
-            1440
+            1536
           )}, 0.24px)`
         }
       ],
       'h5-regular': [
         `clamp(1.25rem, ${fontCalc(1.875, 1536)}, 1.5rem)`,
         {
-          lineHeight: `clamp(100%, ${lineHeightCalc(145, 1920)}, 145%)`,
           letterSpacing: `clamp(0.2px, ${letterSpacingCalc(
             0.24,
-            1440
+            1536
           )}, 0.24px)`
         }
       ],
@@ -134,10 +125,7 @@ module.exports = {
         `clamp(1rem, ${fontCalc(1.0625, 1920)}, 1.0625rem)`,
         {
           lineHeight: '170%',
-          letterSpacing: `clamp(0.16px, ${letterSpacingCalc(
-            0.17,
-            1920
-          )}, 0.17px)`
+          letterSpacing: `0.16px`
         }
       ],
       body3: [
@@ -145,6 +133,13 @@ module.exports = {
         {
           lineHeight: '160%',
           letterSpacing: '0.15px'
+        }
+      ],
+      overline: [
+        '0.75rem',
+        {
+          lineHeight: '160%',
+          letterSpacing: '0.01em'
         }
       ],
       deco1: [
@@ -167,7 +162,7 @@ module.exports = {
           )}, 1.04px)`
         }
       ],
-      button: ['0.875rem']
+      button: ['0.875rem', { lineHeight: '170%', letterSpacing: '0.56px' }]
     },
     screens: {
       ...breakpoints
@@ -183,6 +178,8 @@ module.exports = {
           'linear-gradient(to right, #fff 50% , #0096A9 50%)',
         'button-text-large-reverse':
           'linear-gradient(to right, #fff 50% , #1E2728 50%)',
+        'button-text-tertiary':
+          'linear-gradient(to right, #8E8071 50% , #fff 50%)',
         'button-background':
           'linear-gradient(to right, #fff 50% , #0096A9 50%)',
         'button-background-reverse':
@@ -190,9 +187,11 @@ module.exports = {
         'button-background-large':
           'linear-gradient(to right, #F2F1EF 50% , #0096A9 50%)',
         'button-background-large-reverse':
-          'linear-gradient(to right, #0096A9 50% , #F2F1EF 50%)'
+          'linear-gradient(to right, #0096A9 50% , #F2F1EF 50%)',
+        'button-background-tertiary':
+          'linear-gradient(to right, #fff 50% , #8E8071 50%)'
       }
     }
   },
-  plugins: []
+  plugins: [require('@tailwindcss/line-clamp')]
 }

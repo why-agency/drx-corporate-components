@@ -70,12 +70,12 @@ export default {
         return {}
       }
       const desktopCrop = this.getCropVariant([
+        this.format,
         'desktop',
-        'default',
-        this.format
+        'default'
       ])
-      const tabletCrop = this.getCropVariant(['tablet'])
-      const mobileCrop = this.getCropVariant(['mobile'])
+      const tabletCrop = this.getCropVariant([this.format || 'tablet'])
+      const mobileCrop = this.getCropVariant([this.format || 'mobile'])
 
       return {
         desktopCrop,
@@ -107,10 +107,10 @@ export default {
       return useCases
         .filter(useCase => useCase)
         .reduce((cropVariantString, useCase) => {
-          return (
-            this.images.flat().find(image => image.useCase === useCase)
-              ?.publicUrl || cropVariantString
-          )
+          const image = this.images
+            .flat()
+            .find(image => image.useCase === useCase)
+          return image?.cdn?.publicUrl || image?.publicUrl || cropVariantString
         }, '')
     },
     getSrcset(srcsets, cropVariant) {
