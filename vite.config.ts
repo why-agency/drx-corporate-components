@@ -1,7 +1,6 @@
 import vue from '@vitejs/plugin-vue'
 import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite"
 import {defineConfig} from 'vite'
-import {fileURLToPath} from "url"
 
 import * as path from 'path'
 
