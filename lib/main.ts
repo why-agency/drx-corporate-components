@@ -11,19 +11,6 @@ import O0204IntroHero from '../src/components/organisms/o-02-04-intro-hero.ce.vu
 import O0901JobMarket from '../src/components/organisms/o-09-01-job-market/index.ce.vue'
 import O0105NavMain from '../src/components/organisms/o-01-nav-main/index.ce.vue'
 import O0901JobMarketDetail from '../src/components/organisms/o-09-01-JobMarketDetail.ce.vue'
-import messages from "@intlify/unplugin-vue-i18n/messages"
-import {createI18n} from "vue-i18n"
-
-const lang = document.documentElement.getAttribute('lang')
-const currentLang = lang ? lang.substring(0, 2).toLowerCase() : "de"; // fallback to "de" also here to prevent "null" case
-
-const i18n = createI18n({
-  legacy: false,
-  globalInjection: true,
-  locale: currentLang,
-  fallbackLocale: "de",
-  messages: messages,
-});
 
 const FullscreenMediaTextElement = defineCustomElement(
   O0304FullscreenMediaText,
@@ -67,7 +54,6 @@ const O0105NavMainElement = defineCustomElement(O0105NavMain, {
 })
 
 export {
-  i18n,
   O0304FullscreenMediaText,
   O0312MultiMediaText,
   O0311StickyScroll,

@@ -1,5 +1,4 @@
 import vue from '@vitejs/plugin-vue'
-import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite"
 import {defineConfig} from 'vite'
 
 import * as path from 'path'
@@ -8,11 +7,7 @@ module.exports = defineConfig(({mode}) => {
     if (mode === 'preview') {
         return {
             plugins: [
-                vue(),
-                VueI18nPlugin({
-                    include: [path.resolve(__dirname, './src/locales/**')],
-                    strictMessage: false
-                })
+                vue()
             ]
         }
     }
@@ -20,10 +15,6 @@ module.exports = defineConfig(({mode}) => {
     return {
         plugins: [
             vue(),
-            VueI18nPlugin({
-                include: [path.resolve(__dirname, './src/locales/**')],
-                strictMessage: false
-            })
         ],
         build: {
             lib: {
