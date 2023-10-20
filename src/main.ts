@@ -1,6 +1,4 @@
 import {createApp} from 'vue'
-import messages from "@intlify/unplugin-vue-i18n/messages"
-import {createI18n} from "vue-i18n"
 import * as VueRouter from 'vue-router'
 
 import {createPinia} from 'pinia'
@@ -21,17 +19,6 @@ import JobMarket from './pages/job-market.vue'
 import navMainDark from './pages/nav-main-dark.vue'
 import navMainLight from './pages/nav-main-light.vue'
 import JobDetail from './pages/job-detail.vue'
-
-const lang = document.documentElement.getAttribute('lang')
-const currentLang = lang ? lang.substring(0, 2).toLowerCase() : "de"; // fallback to "de" also here to prevent "null" case
-
-const i18n = createI18n({
-    legacy: false,
-    globalInjection: true,
-    locale: currentLang,
-    fallbackLocale: "de",
-    messages: messages,
-});
 
 const app = createApp(App)
 
@@ -58,6 +45,5 @@ const router = VueRouter.createRouter({
 })
 
 app.use(router)
-app.use(i18n)
 app.use(createPinia())
 app.mount('#app')
