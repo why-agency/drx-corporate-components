@@ -1,6 +1,6 @@
 {
   "name": "@andwhy/drx-corporate-components",
-  "version": "0.16.31",
+  "version": "0.18.0",
   "license": "MIT",
   "files": [
     "dist"
@@ -16,12 +16,14 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
+    "build:dev": "APP_ENV=development vue-tsc --noEmit && vite --mode=development build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@andwhy/drx-corporate-components": "0.6.3",
     "@glidejs/glide": "^3.5.2",
     "@headlessui/vue": "^1.6.4",
+    "@intlify/unplugin-vue-i18n": "^1.2.0",
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/line-clamp": "^0.4.0",
     "@vueuse/core": "^8.5.0",
@@ -29,6 +31,7 @@
     "html-parsed-element": "^0.4.1",
     "pinia": "^2.0.14",
     "vue": "^3.2.25",
+    "vue-i18n": "^9.4.1",
     "vue-router": "4"
   },
   "devDependencies": {

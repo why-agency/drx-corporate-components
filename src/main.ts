@@ -1,7 +1,7 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import * as VueRouter from 'vue-router'
 
-import { createPinia } from 'pinia'
+import {createPinia} from 'pinia'
 
 import App from './App.vue'
 
@@ -23,25 +23,25 @@ import JobDetail from './pages/job-detail.vue'
 const app = createApp(App)
 
 const routes = [
-  { path: '/', component: index },
-  { path: '/fullscreen-media-text', component: fullscreenMediaText },
-  { path: '/multimedia-text', component: multiMediaText },
-  { path: '/sticky-scroll', component: stickyScroll },
-  { path: '/content-slider', component: contentSlider },
-  { path: '/media-hotspot', component: mediaHotspot },
-  { path: '/kpi-fullscreen', component: kpiFullscreen },
-  { path: '/news-slider', component: newsSlider },
-  { path: '/intro-hero', component: introHero },
-  { path: '/job-market', component: JobMarket },
-  { path: '/nav-main-dark', component: navMainDark },
-  { path: '/nav-main-light', component: navMainLight },
-  { path: '/job-detail', component: JobDetail }
+    {path: '/', component: index},
+    {path: '/fullscreen-media-text', component: fullscreenMediaText},
+    {path: '/multimedia-text', component: multiMediaText},
+    {path: '/sticky-scroll', component: stickyScroll},
+    {path: '/content-slider', component: contentSlider},
+    {path: '/media-hotspot', component: mediaHotspot},
+    {path: '/kpi-fullscreen', component: kpiFullscreen},
+    {path: '/news-slider', component: newsSlider},
+    {path: '/intro-hero', component: introHero},
+    {path: '/job-market', component: JobMarket},
+    {path: '/nav-main-dark', component: navMainDark},
+    {path: '/nav-main-light', component: navMainLight},
+    {path: '/job-detail', component: JobDetail}
 ]
 
 const router = VueRouter.createRouter({
-  // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
-  history: VueRouter.createWebHashHistory(),
-  routes // short for `routes: routes`
+    // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
+    history: VueRouter.createWebHashHistory(),
+    routes // short for `routes: routes`
 })
 
 app.use(router)
