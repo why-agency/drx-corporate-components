@@ -169,7 +169,6 @@ import O0901JobMarketCard from './Card.vue'
 import O0901JobMarketCardSkeleton from './CardSkeleton.vue'
 import O0901JobMarketFilterbarMobile from './FilterbarMobile.vue'
 import O0901JobMarketFilterbar from './Filterbar.vue'
-import { type } from 'os'
 import { Filter } from '../../../../types'
 
 const props = defineProps({
