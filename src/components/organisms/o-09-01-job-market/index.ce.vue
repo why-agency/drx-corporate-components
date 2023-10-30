@@ -77,7 +77,7 @@
     <!-- END job market header -->
 
     <!-- START desktop filter bar -->
-    <o-09-01-JobMarketFilterbar v-if="isLgAndLarger"/>
+    <o-09-01-JobMarketFilterbar v-if="isLgAndLarger" />
     <!-- END desktop filter bar -->
 
     <!-- START job market grid -->
@@ -169,6 +169,7 @@ import O0901JobMarketCard from './Card.vue'
 import O0901JobMarketCardSkeleton from './CardSkeleton.vue'
 import O0901JobMarketFilterbarMobile from './FilterbarMobile.vue'
 import O0901JobMarketFilterbar from './Filterbar.vue'
+import { Filter } from '../../../../types'
 
 const props = defineProps({
   data: {
@@ -185,9 +186,30 @@ jobsStore.count =
   props.data.jobsProcessed?.allResultCount || props.data.allResultCount
 jobsStore.url =
   props.data.jobsProcessed?.currentSearch || props.data.currentSearch
-jobsStore.persistJobs(
-  props.data.jobsProcessed?.documents || props.data.documents
-)
+
+const formatFilterOptions = (filters: Filter[]) => {
+  const filter = filters.reduce((filterOptions: any, currentFilter: Filter) => {
+    return [
+      ...filterOptions,
+      ...currentFilter.options.map(option => ({
+        parent: currentFilter.name,
+        value: option.value.toString().replace('&#44;', '%26%2344%3B'),
+        label: option.label.toString().replace('&#44;', ',')
+      }))
+    ]
+  }, [])
+  return filter
+}
+const activeFilter = formatFilterOptions(props.data.activeFilters || [])
+jobsStore.setActiveFilterOptions(activeFilter || [])
+
+if (props.data.activeFilters) {
+  jobsStore.getJobs()
+} else {
+  jobsStore.persistJobs(
+    props.data.jobsProcessed?.documents || props.data.documents
+  )
+}
 jobsStore.persistFilters(props.data.jobsProcessed?.facets || props.data.facets)
 jobsStore.persistLabels(props.data)
 
@@ -217,7 +239,6 @@ const unsubscribe = jobsStore.$onAction(({ name, after }) => {
 const onPageChange = (page: number): void => {
   jobsStore.currentPage = page
 }
-
 
 onUnmounted(() => {
   unsubscribe()

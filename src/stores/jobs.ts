@@ -70,7 +70,6 @@ export const useJobs = defineStore('jobs', {
         filters: this.activeFilterOptions,
         queryString: this.query
       })
-
       try {
         this.isRequestPending = true
         const response = await fetch(url, {

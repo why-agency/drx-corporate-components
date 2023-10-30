@@ -9,7 +9,7 @@ import { onMounted, ref } from 'vue'
 
 import O0901JobMarket from '../components/organisms/o-09-01-job-market/index.ce.vue'
 
-const jobMarketUrl = 'https://development.job.draexlmaier.com/jobs.json/'
+const jobMarketUrl = 'https://review.job.draexlmaier.com/jobs.json/'
 const jobsData = ref(null)
 
 const placeHolderImage = [
@@ -163,6 +163,21 @@ onMounted(async () => {
         (jobsData.value = {
           ...data,
           image01: placeHolderImage,
+          activeFilters: [
+            {
+              name: 'country',
+              options: [
+                {
+                  value: 'Germany',
+                  label: 'Deutschland'
+                },
+                {
+                  value: 'Mexico',
+                  label: 'Mexiko'
+                }
+              ]
+            }
+          ],
           header: 'Reshape the way cars are built',
           label_search_input_placeholder: 'Find your dream job',
           label_jobs_count: 'Jobs',
